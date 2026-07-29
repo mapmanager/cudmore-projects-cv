@@ -72,6 +72,26 @@ Behavioral neuroscience experiments often require custom hardware control, data 
 
 Python lacked a reusable, documented library for tracing brightest paths through n-dimensional scientific images. Brightest Path fills this gap by providing a tested, installable Python package with a well-documented API, enabling scientific software projects to incorporate robust path-tracing algorithms without reimplementing them.
 
+## Technical Skills
+
+**Programming and scripting:** Python, C/C++, Igor Pro, Bash, zsh
+
+**Scientific computing:** NumPy, SciPy, pandas, PyTorch, scikit-image, multiprocessing, multithreading
+
+**User interfaces and visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, Matplotlib
+
+**Scientific data and formats:** HDF5, Zarr, OME-Zarr, NGFF, s3fs, lazy loading, image pyramids
+
+**Web applications and APIs:** HTML, JavaScript, WebAssembly, Pyodide, FastAPI, uvicorn, Pydantic, HTTP and JSON APIs, OpenAPI, httpx, thin-client architecture
+
+**Software engineering, testing, and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, documented Python APIs, Google-style docstrings, end-user and developer documentation
+
+**Deployment and infrastructure:** Docker, Docker Compose, PyInstaller, macOS and Windows desktop applications, Linux-based development and continuous integration
+
+**Scientific analysis:** quantitative microscopy, electrophysiology analysis, time-series analysis, image segmentation, ROI-based analysis, longitudinal annotation analysis, brightest-path tracing
+
+**Scientific instrumentation and acquisition:** laser-scanning microscopy, custom microscopy and electrophysiology acquisition systems, whole-cell current-clamp electrophysiology, real-time data acquisition and visualization, Arduino microcontrollers, remote experiment control and video monitoring
+
 ## Leadership and Mentorship
 
 My software projects have supported collaborative research involving faculty, postdoctoral scholars, graduate students, and undergraduate researchers. I enjoy mentoring scientists in quantitative analysis, software design, and computational methods while developing software that enables research groups to become more productive and self-sufficient.

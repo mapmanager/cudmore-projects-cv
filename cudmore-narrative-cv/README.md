@@ -18,6 +18,7 @@ narrative-website-cv/
 ├── cv.md
 ├── cover-letter.md
 ├── project-links.md
+├── technical-skills.md
 ├── profile.md
 ├── cv-extras/
 │   ├── cudmore-cv-extras-full.md
@@ -46,6 +47,8 @@ narrative-website-cv/
 - `cover-letter.md` — general cold-outreach letter for the active audience.
 - `project-links.md` — verified or candidate links for software repositories,
   documentation, and live applications.
+- `technical-skills.md` — factual inventory of technical skills and the
+  authoritative baseline for generated CV Technical Skills sections.
 - `cv-extras/cudmore-cv-extras-full.md` — current user-owned factual CV
   sections.
 - `cv-extras/cv-extras-publications.md` — current user-owned publication list

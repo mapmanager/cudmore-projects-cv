@@ -246,6 +246,27 @@ larger datasets. AcqStore implements web-oriented standards, including
 OME-Zarr and NGFF, for scalable data access and sharing without creating a
 separate analysis implementation.
 
+AcqStore Server
+
+AcqStore Server extends AcqStore through a local HTTP API. Lightweight browser,
+JavaScript, and Python clients can open scientific image acquisitions and
+access normalized metadata, physical units, and image planes without embedding
+the AcqStore Python backend. This avoids reimplementing file loading and
+scientific-data handling in every client.
+
+The service uses FastAPI and uvicorn and defines a versioned API with an
+OpenAPI contract. Short-lived sessions provide binary access to source and
+reference image planes. A reference HTML and JavaScript client demonstrates
+how a thin client can inspect acquisition metadata and display image data. The
+server is distributed as a desktop application and runs locally by default.
+
+This architecture separates the scientific backend from the user interface and
+client language. New interfaces can use the same AcqStore implementation while
+remaining small and independently developed. Automated tests cover the API,
+schemas, session lifecycle, error responses, representative image formats, and
+client contract. AcqStore Server is currently a private project and is most
+relevant to technical Research Software Engineering applications.
+
 NiceWidgets
 
 NiceWidgets addresses a separate but related software problem: scientific web

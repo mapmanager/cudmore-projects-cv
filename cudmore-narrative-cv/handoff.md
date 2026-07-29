@@ -21,9 +21,9 @@ source of truth is unavailable or ambiguous.
   Research Software Funding Strategy, Scientific Software Platforms,
   Leadership and Mentorship, Teaching and Scientific Training, and Future
   Directions.
-- The platforms section covers CloudScope, AcqStore, NiceWidgets, SanPy,
-  MapManager, PiE, and Brightest Path. Each project identifies the problem it
-  addresses.
+- The platforms section covers CloudScope, AcqStore, AcqStore Server,
+  NiceWidgets, SanPy, MapManager, PiE, and Brightest Path. Each project
+  identifies the problem it addresses.
 - `cv.md` is the first working draft of a shorter, narrative-led Research
   Software Engineer CV derived from `narrative.md`. Its active audience is
   defined in `audiences.md`.
@@ -155,6 +155,19 @@ deployments. Keep NiceWidgets in the long-form narrative and future technical
 CV variants, but omit it as a separate entry from the active imaging-facility
 and biology CV.
 
+AcqStore Server is an implemented private project that exposes AcqStore
+metadata, physical units, and image planes through a versioned local FastAPI
+HTTP API. It supports thin browser, JavaScript, and Python clients through an
+OpenAPI contract and short-lived binary-data sessions. Keep it in the
+long-form narrative, technical inventory, and future technical CV variants.
+Do not add it to the active imaging-facility CV or cover letter.
+
+`technical-skills.md` is the factual inventory and the authority for the
+generated-CV baseline. Generate a broad skills section without applying the
+narrative audience filter, omit items marked as too granular, and allow Robert
+to shorten or tailor the result manually. Python should appear first in
+programming-language lists, followed by C/C++ and Igor Pro when relevant.
+
 ## CV Status and Structure
 
 `cv.md` currently contains:
@@ -164,6 +177,7 @@ and biology CV.
 - Research Software Engineering
 - Research Infrastructure
 - Research Software Platforms
+- Technical Skills
 - Leadership and Mentorship
 - Teaching and Scientific Training
 - Placeholders for user-owned factual sections

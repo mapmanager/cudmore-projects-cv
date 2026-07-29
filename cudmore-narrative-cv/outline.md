@@ -255,35 +255,101 @@ Representative technologies
 Programming
 
 * Python
+* C/C++
+* Igor Pro
+* Bash and zsh scripting
+
+Scientific computing
+
+* NumPy
+* SciPy
+* pandas
+* PyTorch for MapManager image-segmentation prototypes
+* scikit-image
+* Pillow
+* Multiprocessing and multithreading
+
+Scientific analysis
+
+* Quantitative microscopy
+* Electrophysiology analysis
+* Time-series analysis
+* Image segmentation
+* ROI-based image analysis
+* Blood-flow velocity and vessel-diameter analysis
+* Heart-rate, peak, and event detection
+* Longitudinal annotation analysis and curation
+* Brightest-path tracing
 
 Application frameworks
 
 * PyQt
+* pyqtgraph
 * NiceGUI
+* NiceWidgets
+* napari
+* pywebview
+* Plotly
+* Matplotlib
 
-Web technologies
+Web applications and APIs
 
+* HTML
+* JavaScript
 * WebAssembly
 * Pyodide
+* FastAPI and uvicorn
+* Pydantic
+* Versioned HTTP and JSON APIs
+* OpenAPI
+* httpx
+* HTML and JavaScript thin clients
 
-Scientific data
+Scientific data and formats
 
 * HDF5
 * Zarr
 * OME-Zarr
 * NGFF
+* TIFF
+* CZI
+* ND2
+* OIR
+* BioIO
+* tifffile
+* czifile
+* nd2
+* oirfile
+* s3fs
+* Lazy loading and image pyramids
+* Metadata and physical-unit preservation
 
-Engineering
+Software engineering, testing, and documentation
 
 * pytest
 * GitHub Actions
+* uv
+* Git and GitHub
 * MkDocs
+* Documented Python APIs
+* Google-style docstrings
+* End-user and developer documentation
+
+Deployment and infrastructure
+
+* Docker
+* Docker Compose
 * PyInstaller
+* macOS and Windows desktop applications
+* Linux-based development and continuous-integration environments
 
 Maybe add
 
 * Short examples showing how the same backend supports GUI workflows, scripting, and published interactive datasets.
 * Keep the emphasis on reusable scientific software, not technology lists.
+* Use the generated-CV baseline defined in `technical-skills.md`.
+* Begin with a broad representation of documented skills, then allow Robert to
+  shorten or tailor the list manually.
 
 ⸻
 
@@ -429,6 +495,58 @@ Documentation
 
 * GitHub: https://github.com/mapmanager/acqstore
 * Documentation: https://mapmanager.github.io/acqstore/
+
+⸻
+
+AcqStore Server
+
+Problem
+
+* Lightweight browser, JavaScript, and Python clients need access to AcqStore
+  image data and metadata without embedding the AcqStore Python backend.
+* Each client should not have to reimplement file loading, metadata
+  normalization, image-plane access, or scientific-data conventions.
+
+Software
+
+* Local FastAPI and uvicorn service built around AcqStore.
+* Versioned API v2 with an OpenAPI contract and structured error responses.
+* Opens scientific image acquisitions and exposes normalized metadata,
+  physical units, source and reference image planes, and line-scan paths.
+* Uses short-lived sessions for binary image-plane access.
+* Supports thin browser, JavaScript, and Python clients.
+* Includes a reference HTML and JavaScript client and a native status
+  interface.
+* Distributed as a desktop application so researchers can run the local
+  service without installing or embedding its Python dependencies.
+* Local-only networking is the default.
+
+Engineering
+
+* Pydantic schemas define the JSON-facing API.
+* Automated tests cover the API, schemas, OpenAPI contract, errors, session
+  lifecycle, client contract, and representative image formats.
+* Documentation includes end-user instructions, API references, and a
+  client-building guide.
+* PyInstaller packaging and GitHub Actions support application delivery.
+
+Importance
+
+* Separates the scientific backend from the user interface and client
+  language.
+* Allows new thin clients to use the same AcqStore implementation for image
+  loading and metadata rather than duplicating scientific logic.
+* Provides a path for desktop software to support browser-based interfaces
+  through a stable local API.
+* Strong evidence for technical Research Software Engineering applications.
+  Keep it in supporting documents and future technical CV variants; omit it
+  from the current imaging-facility CV and cover letter.
+
+Status and documentation
+
+* Implemented and tested.
+* Repository is currently private.
+* Documentation: https://acqstore-server.pages.dev/
 
 ⸻
 

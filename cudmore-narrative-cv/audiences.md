@@ -123,6 +123,14 @@ project.
 - Keep NiceWidgets in the long-form narrative and future technical CV. Omit it
   as a separate project from the active imaging-facility and biology CV because
   its implementation detail is less important to this audience.
+- AcqStore Server is a separate local FastAPI service that exposes AcqStore
+  metadata and image planes through a versioned HTTP API for thin browser,
+  JavaScript, and Python clients.
+- Keep AcqStore Server in supporting documents and future technical CV
+  variants. Omit it from the active imaging-facility CV and cover letter.
+- Generate Technical Skills from the broad baseline in `technical-skills.md`.
+  Do not apply the narrative audience filter to this section. Robert will
+  manually shorten or tailor it after generation.
 - Do not claim that a particular institution lacks software expertise or
   funding without direct evidence.
 - Candidate CV inclusion: one concise statement on specification-first,

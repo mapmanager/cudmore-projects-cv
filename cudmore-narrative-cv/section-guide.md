@@ -152,6 +152,7 @@ Focus
 
 - CloudScope.
 - AcqStore.
+- AcqStore Server.
 - NiceWidgets.
 - SanPy.
 - PiE.
@@ -163,10 +164,38 @@ Focus
 - Explain that NiceWidgets provides reusable scientific user-interface
   components used by CloudScope, while AcqStore provides the scientific data
   and analysis backend.
+- Explain that AcqStore Server exposes AcqStore data and metadata through a
+  versioned local HTTP API so thin clients can use the same scientific backend
+  without embedding or reimplementing it.
+- Distinguish AcqStore Server's native status interface from the scientific
+  graphical applications built on its API.
+- Keep AcqStore Server in the long-form narrative and future technical CV
+  variants; omit it from the active imaging-facility CV and cover letter.
 - Keep NiceWidgets in the long-form narrative and technical CV variants; omit
   it from the active imaging-facility and biology CV unless its architectural
   value becomes necessary.
 - Each project stands on its own; no introductory prose is required.
+
+## Technical Skills
+
+Primary question
+
+- Which documented technologies support the claims made for a target role?
+
+Focus
+
+- Use `technical-skills.md` as the factual inventory.
+- Follow the generated-CV baseline defined in `technical-skills.md`.
+- Begin with a broad representation of documented skills rather than applying
+  an audience-specific filter during generation.
+- Omit only items explicitly marked as too granular in the baseline policy.
+- Robert will manually shorten or tailor the generated section.
+- Place Python first, followed by C/C++ and Igor Pro when programming
+  languages are listed.
+- Connect less familiar technologies to project evidence when useful.
+- Distinguish current production systems from prototypes.
+- Avoid turning the long-form narrative into an exhaustive technology list.
+- Do not add a technology unless it is documented in the factual inventory.
 
 ## Leadership and Mentorship
 

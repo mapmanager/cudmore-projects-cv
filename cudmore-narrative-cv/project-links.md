@@ -7,6 +7,10 @@ AcqStore
 github: https://github.com/mapmanager/acqstore
 docs: https://mapmanager.github.io/acqstore/
 
+AcqStore Server
+github: private repo
+docs: https://acqstore-server.pages.dev/
+
 NiceWidget
 github: https://github.com/mapmanager/nicewidgets
 docs: https://mapmanager.github.io/nicewidgets/
@@ -27,4 +31,3 @@ docs: https://mapmanager.github.io/brightest-path-lib/
 PiE
 github: https://github.com/cudmore/pie
 docs: https://cudmore.github.io/pie-doc
-
