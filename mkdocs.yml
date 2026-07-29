@@ -17,6 +17,14 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+plugins:
+  - search
+  - macros:
+      include_yaml:
+        - projects: project-cards.yml
+      on_error_fail: true
+      on_undefined: strict
+
 markdown_extensions:
   - attr_list
   - md_in_html

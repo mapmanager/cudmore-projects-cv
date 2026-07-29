@@ -81,6 +81,11 @@
 .md-typeset .project-card .card-top .card-icon {
   margin: 0;
   flex-shrink: 0;
+  width: auto;
+  height: auto;
+  max-width: 192px;
+  max-height: 96px;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 768px) {
@@ -89,7 +94,7 @@
   }
 }
 
-/* Light pad behind dark icons on dark theme (e.g. SanPy) */
+/* Optional light pad for artwork that is unreadable on the slate background. */
 .md-typeset .project-card .card-icon--light-bg {
   background-color: #c8c8c8;
   border-radius: 10px;
@@ -109,12 +114,6 @@
 
 .md-typeset .project-card .md-button .twemoji {
   font-size: 0.85em;
-}
-
-.md-typeset .project-card .md-button--placeholder {
-  cursor: default;
-  opacity: 0.9;
-  pointer-events: none;
 }
 
 /* Compact custom footer */

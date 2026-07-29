@@ -1,69 +1,111 @@
-# Project cards — planning reference
-# Edit here, then copy changes into docs/index.md
-# (MkDocs does not read this file automatically)
+# Project cards displayed on the homepage.
+# List order determines card order. Omit icon for a text-only card.
 
 - name: Cloudscope
   description: Image analysis for microscopy data with desktop, web, and scripting. Specialized for line scan kymograph analysis of blood flow and diameter.
-  github:
-  docs: https://mapmanager.github.io/cloudscope-app/
-  pubmed:
-  live: https://cloudscope.mapmanager.net/
   icon: cloudscope-icon.png
+  links:
+    - type: live
+      label: Web Demo
+      url: https://cloudscope.mapmanager.net/
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/cloudscope-app/
 
 - name: SanPy
   description: Desktop and scripting software for whole-cell current clamp analysis.
-  github: https://github.com/cudmore/SanPy
-  docs: https://cudmore.github.io/SanPy/
-  pubmed: https://pubmed.ncbi.nlm.nih.gov/38419330/
-  live:
-  icon: sanpy-icon.png
+  icon: sanpy-icon-v2.png
+  icon_background: light
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/cudmore/SanPy
+    - type: docs
+      label: Docs
+      url: https://cudmore.github.io/SanPy/
+    - type: pubmed
+      label: PubMed
+      url: https://pubmed.ncbi.nlm.nih.gov/38419330/
+
+- name: AcqStore
+  description: Microscopy image loading, metadata, ROI, and analysis tools for Python.
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/acqstore
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/acqstore/
+
+- name: NiceWidgets
+  description: Reusable NiceGUI widgets and supporting utilities.
+  links:
+    - type: live
+      label: Web Demo
+      url: https://nicewidgets.mapmanager.net/
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/nicewidgets
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/nicewidgets/
 
 - name: MapManager
   description: Next generation longitudinal dendritic spine analysis with desktop, web, and Python backend.
-  github:
-    WebMapManager: https://github.com/mapmanager/WebMapManager
-    PyMapManager: https://github.com/mapmanager/PyMapManager
-    MapManagerCore: https://github.com/mapmanager/MapManagerCore
-  docs: https://mapmanager.github.io/
-  live: https://mapmanager.github.io/WebMapManager/
   icon: mapmanager-icon.png
-
-- name: AcqStore
-  description: Microscopy image loading, metadata, ROI, and analysis tools for Python
-  github: https://github.com/mapmanager/acqstore
-  docs: https://mapmanager.github.io/acqstore/
-  pubmed:
-  live:
-  icon:
-
-- name: NiceWidgets
-  description: Reusable NiceGUI widgets and supporting utilities
-  github: https://github.com/mapmanager/nicewidgets
-  docs: https://mapmanager.github.io/nicewidgets/
-  pubmed:
-  live: https://nicewidgets.mapmanager.net/
-  icon:
-
-- name: Brightest Path Lib
-  description: Path-finding algorithms to find the brightest path between points in an image.
-  github: https://github.com/mapmanager/brightest-path-lib
-  docs: https://mapmanager.github.io/brightest-path-lib/
-  pubmed: https://pubmed.ncbi.nlm.nih.gov/37503184/
-  live:
-  pypi: https://pypi.org/project/brightest-path-lib/
-  icon: brightest-path-lib-icon.gif
-
-- name: PiE
-  description: A Raspberry Pi Controlled Experiment (PiE).
-  github: https://github.com/cudmore/pie
-  docs: https://cudmore.github.io/pie-doc/
-  pubmed: https://pubmed.ncbi.nlm.nih.gov/37583418/
-  live:
-  icon: pie-icon.png
+  links:
+    - type: live
+      label: Web Demo
+      url: https://mapmanager.github.io/WebMapManager/
+    - type: github
+      label: WebMapManager
+      url: https://github.com/mapmanager/WebMapManager
+    - type: github
+      label: PyMapManager
+      url: https://github.com/mapmanager/PyMapManager
+    - type: github
+      label: MapManagerCore
+      url: https://github.com/mapmanager/MapManagerCore
+    # - type: docs
+    #   label: Docs
+    #   url: https://mapmanager.github.io/
 
 - name: MapManager - Igor
   description: Original Igor Pro version of MapManager for longitudinal image analysis.
-  github:
-  docs: https://mapmanager.github.io/
-  live:
   icon: mapmanager-igor-icon.png
+  links:
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/
+
+- name: Brightest Path Lib
+  description: Path-finding algorithms to find the brightest path between points in an image.
+  icon: brightest-path-lib-icon.gif
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/brightest-path-lib
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/brightest-path-lib/
+    - type: pubmed
+      label: PubMed
+      url: https://pubmed.ncbi.nlm.nih.gov/37503184/
+    - type: pypi
+      label: PyPI
+      url: https://pypi.org/project/brightest-path-lib/
+
+- name: PiE
+  description: A Raspberry Pi Controlled Experiment (PiE).
+  icon: pie-icon.png
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/cudmore/pie
+    - type: docs
+      label: Docs
+      url: https://cudmore.github.io/pie-doc/
+    - type: pubmed
+      label: PubMed
+      url: https://pubmed.ncbi.nlm.nih.gov/37583418/
+
