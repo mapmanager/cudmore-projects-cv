@@ -1,3 +1,7 @@
+# Local zip archives
+zips/
+*.zip
+
 # cudmore-narrative-cv
 cudmore-narrative-cv/from-chat-gpt/
 cudmore-narrative-cv/zips/
