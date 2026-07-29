@@ -8,7 +8,7 @@ hide:
 
 # Robert H. Cudmore {.hero-title}
 
-This is a collection of software projects I work on.
+I build scientific software that transforms biological data into reproducible quantitative measurements. My current work is focused on desktop, web, and Python tools for experimental acquisition, analysis, visualization, and sharing.
 
 </div>
 
