@@ -32,18 +32,18 @@ Zhang Y\*, **Cudmore RH**\*, Lin D, Linden DJ, Huganir RL (2015) Visualization o
 
 ## Selected Conference Abstracts
 
-Cudmore RH, (2024) Open-source software for the analysis of laser scanning kymographs. Society For Neuroscience Abstract, Chicago. PSTR493.01. 
+**Cudmore RH**, (2024) Open-source software for the analysis of laser scanning kymographs. Society For Neuroscience Abstract, Chicago. PSTR493.01. 
 
-Cudmore RH and Zawadzki RJ (2024) An image analysis toolbox for 3D vascular tracing and network topology. Proceedings Volume 12830, Optical Coherence Tomography and Coherence Domain Optical Methods in Biomedicine XXVIII; 128300B. San Francisco. https://doi.org/10.1117/12.3001224
+**Cudmore RH** and Zawadzki RJ (2024) An image analysis toolbox for 3D vascular tracing and network topology. Proceedings Volume 12830, Optical Coherence Tomography and Coherence Domain Optical Methods in Biomedicine XXVIII; 128300B. San Francisco. https://doi.org/10.1117/12.3001224
 
-Cudmore RH, Guarina L, Le JT, Griffith TN, Santana LF (2023) Sanpy: an open-source whole-cell electrophysiology analysis pipeline. Society For Neuroscience Abstract. Washington. PSTR446.17. 
+**Cudmore RH**, Guarina L, Le JT, Griffith TN, Santana LF (2023) Sanpy: an open-source whole-cell electrophysiology analysis pipeline. Society For Neuroscience Abstract. Washington. PSTR446.17. 
 
-Abunijem S, Le JT, Cudmore RH (2023) Map Manager: Software to annotate and analyze image volume time-series. Basic Sciences Symposium Celebrating Hispanic Heritage Month, UC Davis.
+Abunijem S, Le JT, **Cudmore RH** (2023) Map Manager: Software to annotate and analyze image volume time-series. Basic Sciences Symposium Celebrating Hispanic Heritage Month, UC Davis.
 
-Manning D, Cudmore RH, Trimmer J, Santana LS (2023) KV2.1 is critical for vascular smooth muscle relaxation and neurovascular blood flow. Basic Sciences Symposium Celebrating Hispanic Heritage Month, UC Davis.
+Manning D, **Cudmore RH**, Trimmer J, Santana LS (2023) KV2.1 is critical for vascular smooth muscle relaxation and neurovascular blood flow. Basic Sciences Symposium Celebrating Hispanic Heritage Month, UC Davis.
 
-Cudmore RH (2018) Map Manager: Software to annotate and analyze image volume time-series. Society For Neuroscience Abstract. 254.17.
+**Cudmore RH** (2018) Map Manager: Software to annotate and analyze image volume time-series. Society For Neuroscience Abstract. 254.17.
 
-Roth RH, Cudmore RH, Tan HL, Zhan Y, Huganir RL (2018) Cortex-wide synaptic AMPA receptor plasticity during motor learning. Society For Neuroscience Abstract. 288.02.
+Roth RH, **Cudmore RH**, Tan HL, Zhan Y, Huganir RL (2018) Cortex-wide synaptic AMPA receptor plasticity during motor learning. Society For Neuroscience Abstract. 288.02.
 
-Tan HL, Roth RH, Graves AR, Cudmore RH, Huganir RL (2018) Distance-dependent AMPA receptor dynamics following visual deprivation in vivo. Society For Neuroscience Abstract. 288.06 
+Tan HL, Roth RH, Graves AR, **Cudmore RH**, Huganir RL (2018) Distance-dependent AMPA receptor dynamics following visual deprivation in vivo. Society For Neuroscience Abstract. 288.06 

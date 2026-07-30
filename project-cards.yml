@@ -6,7 +6,7 @@
   icon: cloudscope-icon.png
   links:
     - type: live
-      label: Web Demo
+      label: Web App
       url: https://cloudscope.mapmanager.net/
     - type: docs
       label: Docs
@@ -41,7 +41,7 @@
   description: Reusable NiceGUI widgets and supporting utilities.
   links:
     - type: live
-      label: Web Demo
+      label: Web App
       url: https://nicewidgets.mapmanager.net/
     - type: github
       label: GitHub
@@ -55,7 +55,7 @@
   icon: mapmanager-icon.png
   links:
     - type: live
-      label: Web Demo
+      label: Web App
       url: https://mapmanager.github.io/WebMapManager/
     - type: github
       label: WebMapManager
@@ -77,6 +77,9 @@
     - type: docs
       label: Docs
       url: https://mapmanager.github.io/
+    - type: live
+      label: Web App (Dash)
+      url: https://dash.mapmanager.net/
 
 - name: Brightest Path Lib
   description: Path-finding algorithms to find the brightest path between points in an image.
