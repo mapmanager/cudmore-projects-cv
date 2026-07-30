@@ -2,7 +2,7 @@ site_name: MapManager
 site_url: https://mapmanager.net/
 site_description: Software projects by Robert H. Cudmore
 
-copyright: Copyright Robert H. Cudmore 2026 · robert.cudmore@gmail.com
+copyright: Copyright Robert H Cudmore 2026 · robert.cudmore@gmail.com
 
 extra:
   generator: false
