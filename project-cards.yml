@@ -1,8 +1,8 @@
 # Project cards displayed on the homepage.
 # List order determines card order. Omit icon for a text-only card.
 
-- name: Cloudscope
-  description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **Cloudscope-Web**
+- name: CloudScope
+  description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **CloudScope-Web**
   icon: cloudscope-icon.png
   links:
     - type: live
@@ -12,7 +12,7 @@
       label: Docs
       url: https://mapmanager.github.io/cloudscope-app/
 
-- name: Cloudscope-Web
+- name: CloudScope-Web
   description: Website to view published **CloudScope** datasets.
   icon: cloudscope-web.png
   links:
@@ -91,6 +91,17 @@
       label: Web App (Dash)
       url: https://dash.mapmanager.net/
 
+- name: Web-Components
+  description: Reusable web components written in node/typescript/vue.
+  icon: mapmanager-web-components-nicepool.png
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/mapmanager-web-components
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/mapmanager-web-components/
+      
 - name: Brightest Path Lib
   description: Path-finding algorithms to find the brightest path between points in an image.
   icon: brightest-path-lib-icon.gif
@@ -120,14 +131,6 @@
     - type: docs
       label: Docs
       url: https://mapmanager.github.io/nicewidgets/
-
-- name: Web-Components
-  description: Reusable web components written in node/typescript/vue.
-  icon: mapmanager-web-components-nicepool.png
-  links:
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/mapmanager-web-components
 
 - name: PiE
   description: A Raspberry Pi Controlled Experiment (PiE).

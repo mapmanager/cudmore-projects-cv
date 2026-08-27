@@ -4,7 +4,7 @@
 
 ## Professional Summary
 
-I build scientific software that transforms biological data into reproducible quantitative measurements.
+I build scientific software that transforms biological data into reproducible quantitative results.
 
 Throughout my career I have worked at the intersection of biology, quantitative analysis, and software engineering. Rather than developing one-off analysis scripts for individual publications, I design reusable software platforms that enable researchers to analyze imaging and electrophysiology data through reproducible computational workflows. My work combines extensive scientific domain expertise with modern software engineering practices to make data analysis easy to perform, reproducible, and shareable.
 

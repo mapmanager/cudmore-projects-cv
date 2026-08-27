@@ -6,7 +6,8 @@ application materials.
 ## Project Contents
 
 ```text
-narrative-website-cv/
+cudmore-narrative-cv/
+├── AGENTS.md
 ├── README.md
 ├── rules.md
 ├── handoff.md
@@ -14,9 +15,6 @@ narrative-website-cv/
 ├── outline.md
 ├── section-guide.md
 ├── narrative.md
-├── audiences.md
-├── cv.md
-├── cover-letter.md
 ├── project-links.md
 ├── technical-skills.md
 ├── profile.md
@@ -27,11 +25,21 @@ narrative-website-cv/
 │   └── cudmore-cv-full.md
 ├── scripts/
 │   └── readme-pandoc.md
+└── outputs/
+    ├── imaging-core/
+    │   ├── audience.md
+    │   ├── cv.md
+    │   └── cover-letter.md
+    └── research-labs-department-heads/
+        ├── audience.md
+        ├── cv.md
+        └── cover-letter.md
 ```
 
 ### Active files
 
 - `README.md` — project architecture and file inventory.
+- `AGENTS.md` — durable operating instructions for AI collaborators.
 - `rules.md` — governing editorial and collaboration rules.
 - `handoff.md` — current project state and startup instructions for a new
   ChatGPT chat or Cursor session.
@@ -40,11 +48,12 @@ narrative-website-cv/
   downstream documents.
 - `section-guide.md` — section-level guidance for `narrative.md`.
 - `narrative.md` — canonical editable long-form career narrative.
-- `audiences.md` — target-audience definitions for derived CVs and application
-  materials.
-- `cv.md` — working CV for academic imaging facilities and biology
-  researchers, derived from `narrative.md`.
-- `cover-letter.md` — general cold-outreach letter for the active audience.
+- `outputs/imaging-core/` — existing audience specification, narrative CV, and
+  cold-outreach letter for academic imaging facilities and related biology
+  researchers.
+- `outputs/research-labs-department-heads/` — audience specification and
+  narrative CV and cover letter for research laboratories and academic
+  leaders.
 - `project-links.md` — verified or candidate links for software repositories,
   documentation, and live applications.
 - `technical-skills.md` — factual inventory of technical skills and the
@@ -72,29 +81,30 @@ outline.md
     ↓
 narrative.md
     ↓
-audiences.md
-    ├── imaging facilities and biology researchers
+outputs/
+    ├── imaging-core/
+    │       ├── audience.md
     │       ├── cv.md
     │       └── cover-letter.md
-    └── future audiences
-            ├── targeted CV
-            └── targeted cover letter
+    └── research-labs-department-heads/
+            ├── audience.md
+            ├── cv.md
+            └── cover-letter.md
 ```
 
 `narrative.md` is the canonical editable long-form career narrative. A future
 version on mapmanager.net will be its canonical public presentation, not a
 separate editorial source.
 
-`audiences.md` defines what each derived document should emphasize. The active
-`cv.md` is a shorter Research Software Engineer CV for academic imaging
-facilities and biology researchers. Future audiences should receive separate
-derived CVs rather than making one document serve incompatible purposes.
+Each output folder's `audience.md` defines what its derived documents should
+emphasize. Audience-specific CVs and cover letters remain together in their
+output folder so one document is not changed to serve incompatible purposes.
 
 Cover letters are tailored to specific opportunities. Specialized strategies,
 including outreach to imaging cores, belong in cover letters or emails rather
 than the core CV.
 
-## Rules for Deriving `cv.md`
+## Rules for Deriving Audience-Specific CVs
 
 - Introduce no career claims that are not supported by `narrative.md` or
   `outline.md`.
@@ -103,7 +113,7 @@ than the core CV.
 - Compress narrative prose without changing its underlying claims.
 - Give each narrative section a distinct purpose and remove repetition between
   sections.
-- Follow the active target definition in `audiences.md`.
+- Follow the target definition in the output package's `audience.md`.
 - Preserve a dedicated software-platform section.
 - For each project, state the problem solved, the supported scientific
   workflow, and the reusable software contribution.

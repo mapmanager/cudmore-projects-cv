@@ -12,10 +12,10 @@
 * `narrative.md` is the canonical editable long-form narrative.
 * The future website is the canonical public presentation of `narrative.md`;
   it is not a separate editorial source.
-* Maintain consistency among `narrative.md`, `cv.md`, the future website, and
-  cover letters.
-* Use `audiences.md` as the source of truth for the intended reader and emphasis
-  of each derived CV and cover letter.
+* Maintain consistency among `narrative.md`, audience-specific CVs, the future
+  website, and cover letters.
+* Use each `outputs/<audience>/audience.md` as the source of truth for the
+  intended reader and emphasis of its derived CV and cover letter.
 * Every section in `narrative.md` must answer the primary question defined in
   `section-guide.md`.
 * Avoid introducing ideas whose primary home is a later section.

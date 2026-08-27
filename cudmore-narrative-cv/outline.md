@@ -4,7 +4,7 @@ Robert H. Cudmore, PhD
 
 Research Software Engineer & Scientist
 
-I build scientific software that transforms biological data into reproducible quantitative measurements.
+I build scientific software that transforms biological data into reproducible quantitative results.
 
 Short introduction.
 
