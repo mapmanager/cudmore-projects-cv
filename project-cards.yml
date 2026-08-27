@@ -2,7 +2,7 @@
 # List order determines card order. Omit icon for a text-only card.
 
 - name: Cloudscope
-  description: Image analysis for microscopy data with desktop, web, and scripting.
+  description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **Cloudscope-Web**
   icon: cloudscope-icon.png
   links:
     - type: live
@@ -13,7 +13,7 @@
       url: https://mapmanager.github.io/cloudscope-app/
 
 - name: Cloudscope-Web
-  description: Website to view published Cloudscope datasets.
+  description: Website to view published **CloudScope** datasets.
   icon: cloudscope-web.png
   links:
     - type: live
@@ -24,7 +24,8 @@
       url: https://github.com/mapmanager/cloudscope-web
 
 - name: AcqStore
-  description: Image loading, analysis algorithms, and export tools for Python. Used by CloudScope.
+  description: Image loading, analysis algorithms, and export tools for Python. Used by **CloudScope**.
+  icon: acqstore-server-icon.png
   links:
     - type: github
       label: GitHub
@@ -34,8 +35,8 @@
       url: https://mapmanager.github.io/acqstore/
 
 - name: AcqView
-  description: Website to open and visualize local microscopy files.
-  icon: cloudscope-icon.png
+  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw data.
+  icon: pyodide.png
   links:
     - type: live
       label: Web App
