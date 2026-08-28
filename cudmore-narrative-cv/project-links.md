@@ -3,6 +3,9 @@ github: private repo
 docs: https://mapmanager.github.io/cloudscope-app/
 web app: https://cloudscope.mapmanager.net
 
+CloudScope-Web
+web app: https://mapmanager.github.io/cloudscope-web
+
 AcqStore
 github: https://github.com/mapmanager/acqstore
 docs: https://mapmanager.github.io/acqstore/
@@ -15,6 +18,10 @@ NiceWidget
 github: https://github.com/mapmanager/nicewidgets
 docs: https://mapmanager.github.io/nicewidgets/
 web app: https://nicewidgets.mapmanager.net/
+
+mapmanager-web-components
+github: https://github.com/mapmanager/mapmanager-web-components
+docs: https://mapmanager.github.io/mapmanager-web-components/
 
 SanPy
 github: https://github.com/cudmore/SanPy

@@ -31,6 +31,7 @@ inventory into every CV.
 - pyqtgraph
 - NiceGUI
 - NiceWidgets
+- mapmanager-web-components
 - napari
 - pywebview
 - Plotly
@@ -38,7 +39,8 @@ inventory into every CV.
 
 NiceGUI supports a shared Python user-interface codebase for desktop and web
 applications. NiceWidgets packages reusable NiceGUI components for scientific
-visualization and interaction.
+visualization and interaction. mapmanager-web-components packages reusable web
+components used by CloudScope-Web, with migration into CloudScope underway.
 
 ## Scientific Data and Formats
 
@@ -66,6 +68,10 @@ analysis, and sharing workflows.
 
 - HTML
 - JavaScript
+- TypeScript
+- Node.js
+- Vue
+- Vite
 - WebAssembly
 - Pyodide
 - FastAPI
@@ -77,6 +83,8 @@ analysis, and sharing workflows.
 - HTML and JavaScript thin clients
 
 MapManager uses WebAssembly and Pyodide to run Python analysis in the browser.
+mapmanager-web-components uses Node.js, TypeScript, JavaScript, Vue, and Vite
+to provide reusable interface components for CloudScope-Web and CloudScope.
 AcqStore Server uses FastAPI and uvicorn to expose AcqStore image data and
 metadata through a versioned local HTTP API. Its OpenAPI contract supports
 lightweight browser, JavaScript, and Python clients without embedding the
@@ -138,5 +146,5 @@ CV baseline because it is too granular:
   heart-rate detection, peak detection, and event detection.
 - MkDocs Material and mkdocstrings.
 - Pillow.
-- NiceWidgets, because it is Robert's own package rather than a general-purpose
-  external toolkit.
+- NiceWidgets and mapmanager-web-components, because they are Robert's own
+  packages rather than general-purpose external toolkits.

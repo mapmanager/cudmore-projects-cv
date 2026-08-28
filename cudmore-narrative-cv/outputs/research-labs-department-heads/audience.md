@@ -46,15 +46,20 @@ laboratories and research programs.
 - Bring direct domain expertise in neuroscience, vascular biology, and cardiac
   physiology, grounded in decades of bench research.
 - Connect microscopy and electrophysiology with the analysis methods and
-  software required to produce reproducible measurements.
+  software required to produce reproducible quantitative results.
 - Collaborate across laboratories and disciplines by identifying shared
   experimental technologies and analytical problems.
+- Thrive in multidisciplinary teams where each member contributes distinct
+  scientific or technical expertise.
 - Develop reusable software from recurring research needs instead of creating
   isolated scripts for individual projects.
 - Build computational backends, graphical applications, and scripting
-  interfaces that use the same data models and analytical methods.
+  interfaces that use the same underlying data and analytical methods.
+- Use the CloudScope suite as evidence of a continuous workflow from raw image
+  data through scalable analysis, human-in-the-loop curation, self-contained
+  saved datasets, and interactive published figures.
 - Support the scientific-data lifecycle from acquisition through analysis,
-  publication, repository preparation, and reuse.
+  publication, repository sharing, and reuse.
 - Work directly with researchers to troubleshoot datasets and pipelines,
   improve documentation, and provide practical training.
 - Mentor researchers, engineers, trainees, and technical staff across biology,
@@ -64,6 +69,9 @@ laboratories and research programs.
 - Contribute to collaborative proposals and longer-term strategies for
   sustaining research software, when appropriate to the institution and
   opportunity.
+- Demonstrate a record of leading successful scientific and research-software
+  proposals, managing funded personnel, and contributing as a principal
+  investigator to multidisciplinary research.
 
 ## Writing emphasis
 
@@ -73,6 +81,9 @@ laboratories and research programs.
   technical service delivered after experiments are complete.
 - Emphasize collaboration with experimental scientists and the ability to
   translate biological questions into quantitative workflows.
+- Present team science as a central working method, supported by Robert's
+  combination of experimental biology, quantitative analysis, and research
+  software engineering.
 - Show how direct contributions to individual projects can reveal shared needs
   and produce reusable tools for multiple laboratories.
 - Connect experimental design, acquisition, analysis, publication, and reuse
@@ -81,6 +92,12 @@ laboratories and research programs.
   meaningful weight.
 - Demonstrate software-engineering depth through concrete platforms and
   outcomes while keeping the opening accessible to scientific leaders.
+- Emphasize the scientific benefits of the CloudScope suite rather than its
+  implementation details: scalable analysis with human judgment,
+  reconstructable analyses, and interactive figures connected to raw data.
+- Include concise evidence of grant leadership and funded project execution;
+  leave grant numbers, dates, and the complete chronological record to the
+  user-owned funding section.
 - Describe institutional value without implying that a department must create
   a new administrative unit or advertised position.
 - State interest in joining an existing organization in a staff-scientist,
@@ -103,6 +120,11 @@ laboratories and research programs.
   and teaching.
 - Present selected software platforms as evidence of scientific contribution,
   reusable architecture, and sustained research support.
+- Include concise sections on team science and grant leadership.
+- Present CloudScope as the primary software-platform example.
+- Mention NiceWidgets and `mapmanager-web-components` only where they clarify
+  CloudScope's modular architecture.
+- Omit AcqStore Server because it does not materially support this audience.
 - Use `../../technical-skills.md` as the authority for the Technical Skills
   baseline.
 - Preserve placeholders for Robert's user-owned factual sections unless he

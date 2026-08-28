@@ -20,7 +20,9 @@ My direct experimental work has centered on microscopy and electrophysiology. I 
 
 My approach begins with the scientific question. I work with experimental scientists to understand how data are produced, what must be measured, and where existing workflows limit interpretation. Software development then proceeds iteratively through design, implementation, testing, and feedback from the researchers who use it.
 
-I build reusable computational backends with documented Python APIs, graphical applications, and scripting interfaces. Interactive and automated workflows use the same data models and analytical methods, so results do not depend on whether a researcher works through a graphical interface or a script. This architecture allows new analyses to be incorporated without duplicating their implementation across applications.
+I thrive in multidisciplinary teams where each member contributes distinct scientific or technical expertise. My contribution is a unique combination of experimental biology, quantitative analysis, and research software engineering. This allows me to translate between biological questions, measurement constraints, analytical requirements, and software design while working with domain experts whose knowledge complements my own.
+
+I build reusable computational backends with documented Python APIs, graphical applications, and scripting interfaces. Interactive and automated workflows use the same underlying data and analytical methods, so results do not depend on whether a researcher works through a graphical interface or a script. This architecture allows new analyses to be incorporated without duplicating their implementation across applications.
 
 I design software to support the complete scientific workflow. The same computational foundation can remain with a project during acquisition, offline analysis, and publication. Publication and data sharing are designed into the architecture rather than added after analysis, allowing data, metadata, and completed analyses to remain connected.
 
@@ -34,15 +36,25 @@ I value the day-to-day collaboration that makes this infrastructure useful. This
 
 I am interested in contributing within an existing laboratory, department, center, or research organization in a staff-scientist, research-software, or related scientific role. Such a role can combine direct participation in research with shared analytical methods, mentorship, and software infrastructure that provides continuity beyond a single grant, publication, or laboratory member.
 
+## Grant Writing and Funded Research
+
+As principal investigator, I led the scientific and technical design and writing of an NIH BRAIN Initiative R01 and a Chan Zuckerberg Initiative software proposal. I then managed the five-year BRAIN Initiative R01 and its personnel, including full-time image analysts and graduate students in engineering and computer science. I am also one of three principal investigators on an NHLBI R01, where I make primary contributions to the design, implementation, and execution of electrophysiology and imaging experiments and analyses.
+
+These representative awards demonstrate my ability to lead proposals within my areas of expertise and contribute to multidisciplinary proposals requiring complementary scientific and technical perspectives. I connect scientific aims, experimental design, quantitative analysis, software development, personnel, and project execution in coherent proposals and carry the resulting work through multi-year execution.
+
 ## Research Software Platforms
 
-### CloudScope and AcqStore
+### CloudScope Suite
 
-[CloudScope Web App](https://cloudscope.mapmanager.net) · [CloudScope Documentation](https://mapmanager.github.io/cloudscope-app/) · [AcqStore Documentation](https://mapmanager.github.io/acqstore/) · [AcqStore Source Code](https://github.com/mapmanager/acqstore)
+[CloudScope Web App](https://cloudscope.mapmanager.net) · [CloudScope Documentation](https://mapmanager.github.io/cloudscope-app/) · [CloudScope-Web](https://mapmanager.github.io/cloudscope-web) · [AcqStore Documentation](https://mapmanager.github.io/acqstore/) · [AcqStore Source Code](https://github.com/mapmanager/acqstore)
 
-Microscopy workflows often depend on disconnected tools and project-specific scripts. CloudScope provides desktop and web interfaces for managing, visualizing, and analyzing imaging data. AcqStore is its general-purpose Python backend for loading, organizing, and analyzing images while preserving the metadata and physical units required for quantitative measurements.
+Imaging workflows often separate raw data, automated analysis, manual review, saved results, and publication. They may also depend on one-off scripts whose precise code, assumptions, algorithms, and detection parameters are difficult to preserve or reuse. CloudScope addresses these problems through a modular suite comprising CloudScope, the AcqStore Python backend, and CloudScope-Web. Together, they provide a continuous pipeline from raw imaging data through quantitative analysis, scientific curation, publication, and reuse.
 
-Analyses for blood-flow velocity, vessel diameter, heart rate, and related signals are implemented in AcqStore and exposed through CloudScope and scripting workflows. Its extensible loaders, analyses, and structured exports allow new research requirements to be added without rewriting the applications that use them. Lazy loading and OME-Zarr support provide a path from laboratory datasets to scalable access and sharing.
+CloudScope is a macOS, Windows, and server-backed web application for loading and visualizing images, running analyses, inspecting results, and correcting false-positive and false-negative detections. Its semi-automated workflows allow researchers to analyze potentially hundreds of raw image files efficiently while retaining human scientific judgment during curation. Current applications focus on kymograph line-scan images and include capillary blood-flow velocity, heartbeat derived from velocity, diameter changes in cardiac myocytes and smooth muscle, and peak detection from fluorescent reporters such as GCaMP calcium and ATP reporters.
+
+AcqStore loads raw images, including proprietary microscope file formats, and supplies the analyses used by CloudScope. After analysis and curation, it saves the raw images, analysis methods, detection parameters, and results together in a self-contained dataset. This preserves the information needed to reconstruct how an analysis was performed even as analytical methods evolve. AcqStore can export Open Microscopy Environment Zarr (OME-Zarr) and Neurodata Without Borders (NWB) datasets for direct upload to public repositories such as the DANDI Archive and the Brain Image Library.
+
+CloudScope-Web opens the same self-contained OME-Zarr datasets as interactive published figures. Readers can inspect reported results and the raw data that produced them, then use the accessible data for new analyses, hypotheses, models, and collaborations. The viewer does not require dedicated or complex server infrastructure. CloudScope-Web uses reusable graphical components from `mapmanager-web-components`, and CloudScope is being migrated to use the same components. Together with NiceWidgets, these libraries support a modular interface architecture while AcqStore remains the shared scientific data and analysis backend.
 
 ### SanPy
 
@@ -78,7 +90,7 @@ Brightest Path provides a tested, documented Python package for tracing brightes
 
 **Scientific data and formats:** HDF5, Zarr, OME-Zarr, NGFF, s3fs, lazy loading, image pyramids
 
-**Web applications and APIs:** HTML, JavaScript, WebAssembly, Pyodide, FastAPI, uvicorn, Pydantic, HTTP and JSON APIs, OpenAPI, httpx, thin-client architecture
+**Web applications and APIs:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, WebAssembly, Pyodide, FastAPI, uvicorn, Pydantic, HTTP and JSON APIs, OpenAPI, httpx, thin-client architecture
 
 **Software engineering, testing, and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, documented Python APIs, Google-style docstrings, end-user and developer documentation
 

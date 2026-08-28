@@ -398,53 +398,168 @@ CloudScope
 
 Problem
 
-* Quantitative analysis of line-scan microscopy remains fragmented and often relies on custom scripts.
-* Researchers need reproducible, extensible tools for analyzing blood flow velocity, vessel diameter, heart rate, and related measurements.
+* Imaging workflows often separate raw data, automated analysis, manual review,
+  saved results, and publication.
+* Imaging analysis often depends on one-off scripts whose code, assumptions,
+  algorithms, and detection parameters may be difficult to preserve or reuse.
+* Automated analysis can process many files efficiently, but researchers must
+  still inspect results and correct false-positive and false-negative
+  detections.
+* Most published figures are static and do not allow readers to interact with
+  the results or inspect the raw data underlying the analysis.
+* Researchers need a practical path from raw imaging data through quantitative
+  analysis and scientific review to an interactive published figure.
 
 Scientific motivation
 
-* Transform microscope data into robust quantitative measurements.
-* Enable reproducible workflows across experiments.
-* Reduce repetitive manual analysis.
+* Formalize and preserve analysis algorithms and detection parameters rather
+  than leaving them in project-specific scripts.
+* Combine scalable automated analysis with human scientific judgment.
+* Preserve the connection among raw data, analysis methods, curated results,
+  and publication.
+* Make published results inspectable and interactive.
+* Allow readers to examine both quantitative results and the raw data that
+  produced them.
 
-Software
+Suite architecture
 
-* CloudScope is the desktop and web graphical application.
-* AcqStore is the general-purpose Python engine for loading, managing,
-  visualizing, and analyzing imaging data.
-* AcqStore provides the documented API used by CloudScope and scripting
-  workflows.
-* Quantitative analyses, including blood-flow velocity, vessel diameter, and
-  heart rate, are implemented in AcqStore and made accessible through
+* CloudScope is a modular and extensible suite comprising CloudScope, AcqStore,
+  and CloudScope-Web.
+* Together, these components form one analysis pipeline from raw imaging data
+  through quantitative analysis, scientific curation, and interactive
+  publication.
+* The same raw data, analytical methods, and results remain connected
+  throughout the workflow.
+
+CloudScope
+
+* CloudScope is the interactive application for image visualization,
+  quantitative analysis, result inspection, and human-in-the-loop curation.
+* It runs as a desktop application on macOS and Windows.
+* The complete application can also run as a server-backed web application.
+* Researchers use CloudScope to load and visualize images, run analyses
+  implemented by AcqStore, inspect results, and correct false-positive and
+  false-negative detections.
+* Semi-automated workflows allow many files to be analyzed efficiently while
+  preserving human review and scientific judgment.
+* Curated analyses are saved with the raw image data in a portable dataset.
+
+Current scientific applications
+
+* The current version focuses on kymograph line-scan image analysis.
+* Implemented applications include:
+  * In vivo micrometer-scale capillary blood-flow analysis.
+  * Heartbeat analysis derived from blood-flow velocity.
+  * Diameter changes in cardiac myocytes and smooth muscle.
+  * Peak detection from real-time fluorescent reporters, including calcium
+    signals measured with GCaMP and signals from ATP reporters.
+* CloudScope is designed as a general-purpose and extensible platform rather
+  than an application limited to these analyses.
+* New analysis methods can be implemented in AcqStore and made available
+  through CloudScope.
+
+AcqStore
+
+* AcqStore is the pure-Python backend used by CloudScope.
+* It loads imaging data, runs quantitative analyses, manages results, and saves
+  complete datasets.
+* It can be extended with new file loaders, analysis methods, and visualization
+  capabilities.
+* Scripting workflows and graphical applications use the same analytical
+  implementation.
+* AcqStore saves the analysis methods, detection parameters, and results with
+  the dataset, preserving a record of how the analysis was performed even as
+  the software evolves.
+* Earlier work remains reconstructable when an analytical method or its
+  implementation changes.
+* Saved Open Microscopy Environment Zarr (OME-Zarr) datasets are self-contained
+  and include the raw image data, analysis information, curated results, and
+  the information required to reconstruct the analysis performed in
   CloudScope.
-* New AcqStore file loaders, analyses, and visualization tools can become
-  available through CloudScope without duplicating their implementation.
-* NiceWidgets provides reusable NiceGUI widgets for scientific data
-  visualization.
-* Open source
+* The exported OME-Zarr dataset does not depend on references to raw data stored
+  elsewhere.
 
-Technical highlights
+Open formats and repositories
 
-* Scientific visualization
-* Interactive analysis
-* Batch processing
-* Analysis pools
-* One AcqStore implementation shared by desktop, web, and scripting workflows.
-* Lazy loading and scalable imaging-data access.
+* AcqStore can export both Open Microscopy Environment Zarr (OME-Zarr) and
+  Neurodata Without Borders (NWB).
+* OME-Zarr is currently better suited to CloudScope's workflow for publishing
+  interactive figures containing multiple acquisitions or files.
+* NWB provides an additional implemented open-format export and should be
+  mentioned briefly for audiences familiar with neurophysiology standards.
+* The resulting OME-Zarr and NWB datasets can be directly uploaded to public
+  repositories, including the DANDI Archive and the Brain Image Library (BIL).
+* These repositories make scientific datasets publicly searchable and
+  accessible, support data sharing and reuse, and provide archival stewardship
+  beyond an individual laboratory or publication.
+
+CloudScope-Web
+
+* CloudScope-Web is a publication-focused web-based viewer for OME-Zarr
+  datasets saved by AcqStore.
+* It provides an interactive figure rather than a static image.
+* It allows readers to view analysis results and inspect the raw data that
+  contributed to those results.
+* It is a viewer, not an analysis application.
+* CloudScope-Web uses reusable graphical components from
+  `mapmanager-web-components`.
+* CloudScope is being migrated to use the same components, providing a shared
+  interface layer across the analysis application and publication viewer.
+* CloudScope-Web provides the read-only subset needed to visualize and inspect
+  saved results.
+* Researchers perform and curate analyses in CloudScope using AcqStore, then
+  save a self-contained OME-Zarr dataset containing the raw data and analysis.
+* A publication-specific CloudScope-Web page loads that dataset and presents it
+  as an interactive figure.
+* The viewer and dataset can each be published at stable web endpoints.
+* This provides a path from laboratory analysis to an interactive published
+  figure with little additional processing.
+* Readers can inspect the reported results and underlying raw data, then use
+  the accessible data for new analyses, hypotheses, models, and
+  collaborations.
+* CloudScope-Web is a self-contained web application and does not require
+  dedicated or complex server infrastructure.
+* This lowers the infrastructure required to publish and distribute
+  interactive scientific figures.
+
+Extensibility
+
+* New file formats and analytical methods can be added through AcqStore.
+* New analyses can become available to CloudScope without duplicating their
+  implementation.
+* Reusable interface components allow CloudScope and CloudScope-Web to present
+  consistent visualization tools.
+* The modular design allows the same data, analysis implementation, and
+  graphical components to support analysis, interactive curation, and
+  publication.
 
 Scientific impact
 
-* Supports reproducible microscopy analysis.
-* General-purpose platform rather than software for a single publication.
-* Connects real-time use at the microscope with offline analysis and future
-  publication of data with the same analysis interface.
+* CloudScope combines scalable automated analysis with human scientific
+  judgment.
+* Researchers can process many files and then inspect and curate the results
+  using graphical tools.
+* AcqStore preserves the information needed to reconstruct how an analysis was
+  performed, even as analytical methods evolve.
+* Raw data, analytical methods, detection parameters, and curated results
+  remain together in a portable, self-contained dataset.
+* The same analysis can move from the laboratory workflow into an interactive
+  published figure.
+* Published figures can expose both results and the raw data underlying them.
+* Readers can inspect published findings, explore the data in new ways, and
+  extend the work toward new hypotheses, discovery, modeling, and
+  collaboration.
+* The suite supports a continuous scientific workflow from raw data through
+  analysis, curation, publication, and reuse.
 
 Documentation
 
 * CloudScope: https://mapmanager.github.io/cloudscope-app/
 * CloudScope live application: https://cloudscope.mapmanager.net
 * AcqStore: https://mapmanager.github.io/acqstore/
-* NiceWidgets: https://mapmanager.github.io/nicewidgets/
+* CloudScope-Web: https://mapmanager.github.io/cloudscope-web
+* DANDI Archive: https://about.dandiarchive.org/
+* Brain Image Library: https://www.brainimagelibrary.org/
 
 ⸻
 
@@ -550,7 +665,7 @@ Status and documentation
 
 ⸻
 
-NiceWidgets
+Reusable User-Interface Components
 
 Problem
 
@@ -559,7 +674,7 @@ Problem
 * Reimplementing these components in each application duplicates engineering
   work and makes user interfaces harder to maintain and extend.
 
-Software
+NiceWidgets
 
 * Open-source Python library of reusable NiceGUI widgets for interactive
   scientific applications.
@@ -571,6 +686,18 @@ Software
 * Allows CloudScope to use the same Python user-interface code in its desktop
   and web deployments.
 
+`mapmanager-web-components`
+
+* Reusable web-component library built with Node.js, TypeScript, JavaScript,
+  Vue, and Vite.
+* Provides reusable scientific visualization and interaction components.
+* Used extensively by CloudScope-Web.
+* CloudScope is being migrated to use the same components.
+* Provides a shared interface layer across the CloudScope analysis application
+  and CloudScope-Web publication viewer.
+* Allows improvements to shared components to become available across both
+  applications without reimplementing them.
+
 Scientific and engineering impact
 
 * Separates reusable user-interface components from application-specific
@@ -578,8 +705,8 @@ Scientific and engineering impact
 * Allows new and improved widgets to be incorporated into CloudScope without
   rebuilding them within the application.
 * Provides another layer of modularity alongside AcqStore: AcqStore supplies
-  the imaging-data and analysis backend, while NiceWidgets supplies reusable
-  graphical components.
+  the imaging-data and analysis backend, while NiceWidgets and
+  `mapmanager-web-components` supply reusable graphical components.
 * Strong evidence for technical Research Software Engineering applications;
   optional for the current imaging-facility and biology CV.
 
@@ -588,6 +715,10 @@ Documentation and application
 * GitHub: https://github.com/mapmanager/nicewidgets
 * Documentation: https://mapmanager.github.io/nicewidgets/
 * Live application: https://nicewidgets.mapmanager.net/
+* `mapmanager-web-components` GitHub:
+  https://github.com/mapmanager/mapmanager-web-components
+* `mapmanager-web-components` documentation:
+  https://mapmanager.github.io/mapmanager-web-components/
 
 ⸻
 
@@ -798,6 +929,42 @@ Why this matters
   responsive support, clear documentation, and practical training.
 * Day-to-day support reveals common problems that can be solved once and
   shared across laboratories.
+
+⸻
+
+Grant Writing and Funded Research
+
+Core ideas
+
+* Demonstrated record of securing competitive scientific and
+  research-software funding as a principal investigator.
+* Representative successes include an NIH BRAIN Initiative R01, an NHLBI R01,
+  and a Chan Zuckerberg Initiative software award.
+* Led the scientific and technical design and writing of the NIH BRAIN
+  Initiative R01 and the Chan Zuckerberg Initiative proposal.
+* Managed the five-year NIH BRAIN Initiative R01 and the personnel supported by
+  it, including full-time image analysts and graduate students in engineering
+  and computer science.
+* Served as one of three equal principal investigators on the NHLBI R01.
+* Made primary contributions to the design, implementation, and execution of
+  the electrophysiology and imaging experiments and analyses for the NHLBI R01.
+* Can lead proposals within areas of direct expertise and contribute to
+  multidisciplinary proposals that require complementary scientific and
+  technical expertise.
+* Present these awards as representative funding successes. Do not impose a
+  chronological storyline that Robert has not identified.
+* Do not include funding amounts in narrative prose.
+* Keep grant numbers, dates, award amounts when needed, and the complete
+  chronological record in the user-owned Funding & Professional Service
+  section.
+
+Why this matters
+
+* Grant leadership demonstrates the ability to connect scientific questions,
+  experimental design, quantitative analysis, software development, personnel,
+  and multi-year project execution.
+* This experience allows Robert to contribute both to the scientific work of a
+  research team and to the proposals that support collaborative research.
 
 ⸻
 

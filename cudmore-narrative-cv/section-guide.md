@@ -61,6 +61,13 @@ Primary question
 
 Focus
 
+- Team science and collaboration with people who bring complementary
+  scientific and technical expertise.
+- Robert's unique combination of experimental biology, quantitative analysis,
+  and research software engineering.
+- Translate between biological questions, measurement constraints, analytical
+  requirements, and software design.
+- Do not imply that one person supplies every form of domain expertise.
 - Python.
 - Scientific software architecture.
 - APIs and data models.
@@ -122,6 +129,30 @@ Focus
 - Accessibility for scientists.
 - Do not discuss individual software platforms.
 
+## Grant Writing and Funded Research
+
+Primary question
+
+- What demonstrated experience do I bring to developing, securing, and leading
+  funded scientific and research-software projects?
+
+Focus
+
+- Representative funding successes rather than a complete chronological list.
+- Leadership of the scientific and technical design and writing of the NIH
+  BRAIN Initiative R01 and Chan Zuckerberg Initiative software proposal.
+- Management of the five-year NIH BRAIN Initiative R01 and its personnel.
+- Role as one of three principal investigators on the NHLBI R01.
+- Contributions to electrophysiology and imaging experimental design,
+  implementation, execution, and analysis.
+- Ability to lead proposals within areas of direct expertise and contribute to
+  multidisciplinary proposals.
+- Connect scientific aims, experimental design, quantitative analysis,
+  software development, personnel, and project execution.
+- Do not include funding amounts in narrative prose.
+- Keep grant numbers, dates, and the complete chronological record in the
+  user-owned Funding & Professional Service section.
+
 ## Research Software Funding Strategy
 
 Primary question
@@ -146,35 +177,47 @@ Focus
 
 Primary question
 
-- What have I built?
+- What scientific problems do my software platforms solve, and how do their
+  components work together?
 
 Focus
 
-- CloudScope.
-- AcqStore.
-- AcqStore Server.
-- NiceWidgets.
+- Present CloudScope as an integrated suite comprising CloudScope, AcqStore,
+  and CloudScope-Web.
+- CloudScope is the macOS, Windows, and server-backed web application for
+  loading, visualizing, analyzing, curating, and saving potentially hundreds of
+  raw image files.
+- AcqStore is the reproducible Python backend for file loading, quantitative
+  analysis, results, and self-contained saved datasets.
+- CloudScope-Web opens self-contained OME-Zarr datasets saved by AcqStore and
+  presents their raw data and results as interactive published figures.
+- Explain the suite as one continuous pipeline from raw data through analysis,
+  human-in-the-loop curation, saving, publication, and reuse.
+- Emphasize scientific benefits: scalable analysis with human judgment,
+  reconstructable analyses, interactive figures, and access to underlying raw
+  data.
+- Explain that new AcqStore file loaders, analyses, and visualization
+  capabilities can become available through CloudScope without duplicating
+  their implementation.
+- Present NiceWidgets and `mapmanager-web-components` together as reusable
+  user-interface infrastructure.
+- NiceWidgets supplies reusable NiceGUI components used by CloudScope.
+- `mapmanager-web-components` supplies reusable web components used
+  extensively by CloudScope-Web; CloudScope is being migrated to use them.
+- Explain that the shared web components provide a path to consistent
+  interfaces across CloudScope and CloudScope-Web while avoiding duplicated
+  interface development.
+- Keep AcqStore distinct from the user-interface libraries: AcqStore supplies
+  scientific data and analysis, while NiceWidgets and
+  `mapmanager-web-components` supply graphical components.
+- Retain AcqStore Server in the long-form technical inventory as evidence of
+  API and thin-client architecture. Include it in a tailored CV only when its
+  technical relevance materially supports that audience.
 - SanPy.
 - PiE.
 - MapManager.
 - Brightest Path.
-- Distinguish computational backends from user-facing applications.
-- Explain when new backend file loaders, analyses, or visualization tools
-  become available through graphical and scripting interfaces.
-- Explain that NiceWidgets provides reusable scientific user-interface
-  components used by CloudScope, while AcqStore provides the scientific data
-  and analysis backend.
-- Explain that AcqStore Server exposes AcqStore data and metadata through a
-  versioned local HTTP API so thin clients can use the same scientific backend
-  without embedding or reimplementing it.
-- Distinguish AcqStore Server's native status interface from the scientific
-  graphical applications built on its API.
-- Keep AcqStore Server in the long-form narrative and future technical CV
-  variants; omit it from the active imaging-facility CV and cover letter.
-- Keep NiceWidgets in the long-form narrative and technical CV variants; omit
-  it from the active imaging-facility and biology CV unless its architectural
-  value becomes necessary.
-- Each project stands on its own; no introductory prose is required.
+- Present SanPy, PiE, MapManager, and Brightest Path as independent platforms.
 
 ## Technical Skills
 

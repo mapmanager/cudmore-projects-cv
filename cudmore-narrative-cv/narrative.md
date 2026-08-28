@@ -65,6 +65,16 @@ quantitative biological research.
 
 My approach to research software engineering begins with collaboration. I work closely with experimental scientists to understand the biological questions they are asking, the experimental workflows they use, and the challenges they encounter when collecting and analyzing data. Software development is an iterative process that benefits from continual feedback from the people who use it, including undergraduate researchers, technicians, graduate students, postdoctoral fellows, and faculty. The goal is not simply to deliver software, but to develop tools that become a natural part of the scientific workflow.
 
+I thrive in multidisciplinary teams where each member contributes distinct
+scientific or technical expertise. My contribution is a unique combination of
+experimental biology, quantitative analysis, and research software
+engineering. This allows me to translate between biological questions,
+measurement constraints, analytical requirements, and software design while
+working with domain experts whose knowledge complements my own. The goal is not
+for one person to provide every kind of expertise, but for the team to connect
+its expertise well enough to design experiments, develop valid analyses, and
+answer shared scientific questions.
+
 I believe scientific software should be transparent, reproducible, and extensible. Many experimental systems rely on proprietary acquisition software, proprietary analysis software, and closed file formats. Commercial software often provides sophisticated instrument control and data acquisition capabilities. Scientific analysis, however, benefits when researchers can inspect how data are loaded, how measurements are calculated, how algorithms work, how analyses can be extended, and how results can be interpreted and reproduced.
 
 Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
@@ -154,6 +164,26 @@ privacy, access, retention, or institutional requirement, but it can reduce
 the additional work required to prepare well-described data and reproducible
 analyses for appropriate repositories.
 
+# Grant Writing and Funded Research
+
+Grant writing is an important part of my scientific and software-development
+work. As principal investigator, I led the scientific and technical design and
+writing of an NIH BRAIN Initiative R01 and a Chan Zuckerberg Initiative
+software proposal. I then managed the five-year BRAIN Initiative R01 and its
+personnel, including full-time image analysts and graduate students in
+engineering and computer science. I am also one of three principal
+investigators on an NHLBI R01, where I make primary contributions to the
+design, implementation, and execution of electrophysiology and imaging
+experiments and analyses.
+
+These awards demonstrate experience securing and managing research-software
+funding and multidisciplinary biological research funding. I lead proposals
+within my areas of expertise and contribute to multidisciplinary proposals
+requiring complementary scientific and technical perspectives. I connect
+scientific aims, experimental design, quantitative analysis, software
+development, personnel, and project execution in coherent proposals and carry
+the resulting work through multi-year execution.
+
 # Research Software Funding Strategy
 
 Funding agencies increasingly recognize that sustainable research software and
@@ -199,24 +229,54 @@ Across these projects, I have focused on software that remains connected to expe
 
 CloudScope
 
-CloudScope addresses the need for reproducible analysis of microscopy image
-sequences and line-scan experiments. It provides desktop and web interfaces
-through which researchers manage, visualize, and analyze imaging data.
+CloudScope is a modular and extensible suite for moving imaging data from
+quantitative analysis and scientific curation to interactive publication. The
+suite combines CloudScope, the AcqStore Python backend, and CloudScope-Web in
+one continuous analysis pipeline. Raw data, analytical methods, detection
+parameters, and curated results remain connected throughout the workflow.
 
-CloudScope represents my current approach to scientific software development.
-Its interfaces are built on AcqStore, the general-purpose Python backend that
-loads, manages, visualizes, and analyzes the imaging data. Analyses including
-blood-flow velocity, vessel diameter, heart rate, and related measurements are
-implemented in AcqStore and made accessible through CloudScope. As AcqStore
-gains new file loaders, analyses, and visualization tools, those capabilities
-can be incorporated into CloudScope without duplicating their implementation.
-NiceWidgets supplies reusable NiceGUI components for scientific visualization.
+CloudScope provides an interactive graphical application for loading and
+visualizing images, running analyses, inspecting results, and correcting
+false-positive and false-negative detections. Its semi-automated workflows
+allow researchers to analyze potentially hundreds of raw image files
+efficiently while retaining human scientific judgment during curation.
+CloudScope runs as a desktop application on macOS and Windows and can also run
+as a server-backed web application.
 
-CloudScope is designed to connect work at the microscope with offline analysis
-and publication. The longer-term goal is for the web application to accompany
-published raw data and completed analyses. Readers could then inspect the data,
-repeat analyses, and extend the work using the same interface used in the
-laboratory.
+The current scientific applications in CloudScope focus on kymograph line-scan
+images. Implemented analyses include in vivo micrometer-scale capillary blood
+flow, heartbeat derived from blood-flow velocity, diameter changes in cardiac
+myocytes and smooth muscle, and peak detection from real-time fluorescent
+reporters, including GCaMP calcium signals and ATP reporters. CloudScope is not
+limited to these applications. New file formats, analysis algorithms, and
+visualization capabilities can be implemented through AcqStore and made
+available to CloudScope.
+
+AcqStore loads raw image data, including proprietary microscope file formats,
+and performs the analyses used by CloudScope. After analysis and curation, it
+saves the raw images, analysis methods, detection parameters, and results
+together in a self-contained dataset. AcqStore preserves the information
+needed to reconstruct how an analysis was performed, even as analytical
+methods evolve. AcqStore can export both Open Microscopy Environment Zarr
+(OME-Zarr) and Neurodata Without Borders (NWB). The resulting OME-Zarr and NWB
+datasets can be directly uploaded to public repositories, including the DANDI
+Archive and the Brain Image Library (BIL).
+
+CloudScope-Web is then used to open the same OME-Zarr datasets as interactive
+published figures. CloudScope-Web uses reusable graphical components from
+`mapmanager-web-components` in a read-only interface for inspecting saved data
+and results. CloudScope is being migrated to use the same components, providing
+a shared interface layer across the analysis application and publication
+viewer. CloudScope-Web does not require dedicated or complex server
+infrastructure, so the viewer and its datasets can be distributed through
+ordinary web endpoints.
+
+This architecture allows a figure to remain connected to the data and analysis
+that produced it. Readers can inspect reported results, examine the underlying
+raw data, and use the accessible data for new analyses, hypotheses, models, and
+collaborations. Rather than ending with a static representation, the analysis
+becomes an interactive scientific resource that can support further discovery
+and reuse.
 
 AcqStore
 
@@ -267,28 +327,33 @@ schemas, session lifecycle, error responses, representative image formats, and
 client contract. AcqStore Server is currently a private project and is most
 relevant to technical Research Software Engineering applications.
 
-NiceWidgets
+Reusable User-Interface Components
 
-NiceWidgets addresses a separate but related software problem: scientific web
-applications repeatedly need the same interactive components for image
-visualization, region-of-interest annotation, tabular data, and linked plots.
-Reimplementing these components within each application duplicates engineering
-work and makes graphical interfaces harder to maintain and extend.
+Scientific applications repeatedly need the same interactive components for
+image visualization, region-of-interest annotation, tabular data, and linked
+plots. Reimplementing these components within each application duplicates
+engineering work and makes graphical interfaces harder to maintain and extend.
+I develop NiceWidgets and `mapmanager-web-components` as reusable
+user-interface libraries that address this problem in complementary
+application environments.
 
 NiceWidgets is an open-source Python library of reusable NiceGUI components for
-interactive scientific applications. Its components can be used independently
-or incorporated into larger applications. CloudScope uses NiceWidgets as its
-modular user-interface layer while AcqStore supplies its imaging-data and
-analysis backend. Because CloudScope is built with NiceGUI, the same Python
-interface code supports both its desktop and web deployments.
+interactive scientific applications. CloudScope uses NiceWidgets as part of
+its modular user-interface layer for its desktop and server-backed web
+deployments.
 
-This separation allows visualization and interaction components to evolve
-without being tied to one scientific application. New or improved widgets can
-be incorporated into CloudScope without rebuilding them inside the
-application, just as new analytical capabilities can be incorporated through
-AcqStore. NiceWidgets therefore demonstrates another part of my modular
-architecture: reusable graphical components that complement reusable
-scientific backends.
+`mapmanager-web-components` provides reusable web components built with
+Node.js, TypeScript, JavaScript, Vue, and Vite. It is used extensively by
+CloudScope-Web, and CloudScope is being migrated to use the same components.
+This shared component layer allows the analysis application and publication
+viewer to present consistent visualization and interaction tools without
+reimplementing them in each application.
+
+Together, these libraries demonstrate another part of my modular architecture.
+AcqStore supplies the scientific data and analysis backend, while NiceWidgets
+and `mapmanager-web-components` supply reusable graphical components. Each
+layer can evolve independently while improvements remain available to the
+applications that use it.
 
 SanPy
 
