@@ -942,9 +942,11 @@ Core ideas
   and a Chan Zuckerberg Initiative software award.
 * Led the scientific and technical design and writing of the NIH BRAIN
   Initiative R01 and the Chan Zuckerberg Initiative proposal.
-* Managed the five-year NIH BRAIN Initiative R01 and the personnel supported by
-  it, including full-time image analysts and graduate students in engineering
-  and computer science.
+* Led and managed the research for the five-year NIH BRAIN Initiative R01 and
+  the Chan Zuckerberg Initiative grant.
+* Trained and mentored personnel working on the funded research, including
+  full-time image analysts and graduate and undergraduate students in
+  engineering.
 * Served as one of three equal principal investigators on the NHLBI R01.
 * Made primary contributions to the design, implementation, and execution of
   the electrophysiology and imaging experiments and analyses for the NHLBI R01.
@@ -974,12 +976,13 @@ Formal course design and instruction
 
 * Designed and taught an undergraduate Internet of Things course as instructor
   of record for three years.
-* Combined understanding of IoT technologies with hands-on circuit building.
-* Used lectures and final student projects to examine current medical
-  applications of IoT.
-* Covered wearable technologies for real-time and remote data acquisition.
-* Examined how large longitudinal datasets from wearable monitoring can support
-  new scientific hypotheses.
+* Combined lectures with hands-on circuit-building laboratories.
+* In the laboratories, students wired simple circuits and sensors and connected
+  them into distributed systems using internet dashboards.
+* Lectures examined biometric Internet of Things devices for monitoring human
+  health and disease progression.
+* Examined how longitudinal data collected across large populations can enable
+  new scientific questions and discoveries.
 * The course did not diagnose medical conditions.
 
 Scientific instruction and research training

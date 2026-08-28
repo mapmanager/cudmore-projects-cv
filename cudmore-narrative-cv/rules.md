@@ -51,6 +51,7 @@
 * Scientist-to-scientist.
 * Avoid marketing language and buzzwords.
 * Prefer concrete examples over adjectives.
+* Do not use em dashes.
 * Prefer one primary idea per sentence.
 * Split long compound sentences unless the relationship between ideas would
   otherwise be lost.

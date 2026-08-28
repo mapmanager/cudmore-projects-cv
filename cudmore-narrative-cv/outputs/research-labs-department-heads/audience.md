@@ -6,7 +6,7 @@
 - Research laboratories, academic departments, centers, and institutes.
 - Initial scientific emphasis on neuroscience, vascular biology, cardiac
   physiology, quantitative biology, microscopy, and electrophysiology.
-- Interest in a staff-scientist, research-software, or related scientific role
+- Interest in a staff-scientist, research-faculty, or related scientific role
   within an existing organization.
 
 ## Intended readers
@@ -101,7 +101,7 @@ laboratories and research programs.
 - Describe institutional value without implying that a department must create
   a new administrative unit or advertised position.
 - State interest in joining an existing organization in a staff-scientist,
-  research-software, or related scientific role.
+  research-faculty, or related scientific role.
 - Keep the tone collegial, substantive, and scientist-to-scientist. Avoid
   marketing language and generic claims of innovation.
 - Distinguish direct expertise from broader applicability. Do not imply direct
@@ -118,6 +118,14 @@ laboratories and research programs.
 - Retain a narrative progression from scientific identity and domains through
   collaboration, research software, infrastructure, platforms, mentorship,
   and teaching.
+- Keep the narrative sections together before the software-platform evidence:
+  Professional Summary; Scientific Domains and Experimental Research;
+  Collaborative Research Software Engineering; Research Infrastructure and
+  Institutional Contribution; Scientific Leadership, Grant Development, and
+  Mentorship; and Teaching and Scientific Training.
+- Combine grant leadership, funded project execution, mentorship, and
+  researcher support under `Scientific Leadership, Grant Development, and
+  Mentorship` for this output.
 - Present selected software platforms as evidence of scientific contribution,
   reusable architecture, and sustained research support.
 - Include concise sections on team science and grant leadership.

@@ -167,11 +167,12 @@ analyses for appropriate repositories.
 # Grant Writing and Funded Research
 
 Grant writing is an important part of my scientific and software-development
-work. As principal investigator, I led the scientific and technical design and
-writing of an NIH BRAIN Initiative R01 and a Chan Zuckerberg Initiative
-software proposal. I then managed the five-year BRAIN Initiative R01 and its
-personnel, including full-time image analysts and graduate students in
-engineering and computer science. I am also one of three principal
+work. As a principal investigator, I have led the scientific and technical
+design and writing of an NIH BRAIN Initiative R01 proposal and a Chan
+Zuckerberg Initiative software proposal. I led and managed the research for
+the five-year BRAIN Initiative R01 and the CZI grant, including training and
+mentoring full-time image analysts and graduate and undergraduate students in
+engineering. I am also one of three principal
 investigators on an NHLBI R01, where I make primary contributions to the
 design, implementation, and execution of electrophysiology and imaging
 experiments and analyses.
@@ -445,13 +446,13 @@ electrophysiology. These foundations help researchers understand not only how
 to operate an instrument, but also what it measures, where uncertainty enters,
 and how those limits affect analysis and interpretation.
 
-I also designed and taught an undergraduate course on the Internet of Things as
-instructor of record for three years. The course combined an understanding of
-IoT technologies with hands-on circuit building. Lectures and final projects
-examined current medical applications of wearable technologies, real-time and
-remote data acquisition, and the new scientific questions made possible by
-large longitudinal datasets. The course focused on measurement and data rather
-than diagnosing medical conditions.
+I also designed and taught an undergraduate Internet of Things course as
+instructor of record for three years. The course combined lectures with
+hands-on laboratories in which students wired simple circuits and sensors and
+connected them into distributed systems using internet dashboards. Lectures
+examined biometric Internet of Things devices for monitoring human health and
+disease progression. They also considered how longitudinal data collected
+across large populations can enable new scientific questions and discoveries.
 
 My training work also extends across disciplines. I have mentored, trained, and
 employed computer science and biophysical engineering graduate students, as

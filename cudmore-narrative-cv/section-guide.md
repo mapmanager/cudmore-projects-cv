@@ -141,7 +141,10 @@ Focus
 - Representative funding successes rather than a complete chronological list.
 - Leadership of the scientific and technical design and writing of the NIH
   BRAIN Initiative R01 and Chan Zuckerberg Initiative software proposal.
-- Management of the five-year NIH BRAIN Initiative R01 and its personnel.
+- Leadership and management of the research for the five-year NIH BRAIN
+  Initiative R01 and the Chan Zuckerberg Initiative grant.
+- Training and mentorship of funded personnel, including full-time image
+  analysts and graduate and undergraduate students in engineering.
 - Role as one of three principal investigators on the NHLBI R01.
 - Contributions to electrophysiology and imaging experimental design,
   implementation, execution, and analysis.
@@ -274,8 +277,12 @@ Focus
   physical limits of light microscopy.
 - Signal-detection principles relevant to imaging and electrophysiology.
 - Design and instruction of an undergraduate Internet of Things course.
-- Wearable technology, hands-on circuit construction, and real-time and remote
-  data acquisition.
+- Lectures on biometric Internet of Things devices for monitoring human health
+  and disease progression.
+- Hands-on laboratories in which students wired circuits and sensors and
+  connected them into distributed systems using internet dashboards.
+- Scientific opportunities created by longitudinal data collected across large
+  populations.
 - Mentoring engineers who bring mathematics, physics, and software expertise
   but initially lack biological research experience.
 - Explain why this teaching supports imaging-core and analysis-core users.
