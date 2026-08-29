@@ -138,6 +138,23 @@ laboratories and research programs.
 - Preserve placeholders for Robert's user-owned factual sections unless he
   explicitly requests assistance.
 
+## Shared CV sections
+
+The following sections are copied from `../../shared-cv-sections/` and are
+locked within this output:
+
+- `Teaching and Scientific Training`
+- `Research Software Platforms`
+- `Project Resources`
+- `Technical Skills`
+
+Do not tailor, revise, reorder, or reformat these sections in this output.
+Make approved changes in the corresponding canonical shared-section file,
+then replace the complete copied section. During final review, verify exact
+agreement with the canonical files. In this CV, the shared sections appear in
+the order listed above, after the audience-specific narrative and before the
+user-maintained sections.
+
 ## Cover-letter strategy
 
 - Write a friendly, exploratory cold-outreach letter, not an application for

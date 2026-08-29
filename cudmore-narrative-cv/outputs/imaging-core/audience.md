@@ -56,6 +56,8 @@ project.
 
 - Scientific domain expertise in neuroscience, vascular biology, and cardiac
   physiology.
+- Thrive in multidisciplinary teams where each member contributes distinct
+  scientific or technical expertise.
 - Hands-on experience with microscopy and electrophysiology systems.
 - Experience building acquisition systems and real-time software.
 - Reusable analysis pipelines that replace one-off scripts.
@@ -79,8 +81,14 @@ project.
   workflows, and practical researcher support.
 - Software designed to be extended with domain experts for new experimental
   systems without claiming subject-matter expertise in every biological field.
-- AcqStore and CloudScope as evidence of a shared imaging engine supporting
-  desktop, web, and scripting workflows.
+- The CloudScope suite as evidence of a continuous workflow from raw imaging
+  data through quantitative analysis, scientific curation, publication, and
+  reuse.
+- AcqStore saves self-contained OME-Zarr datasets containing raw data and
+  completed analyses, and CloudScope-Web opens those datasets as interactive
+  figures.
+- AcqStore can export OME-Zarr and NWB datasets for sharing through public
+  repositories selected according to scientific domain and data type.
 - SanPy as evidence that the same backend/frontend pattern can support
   real-time and offline electrophysiology analysis and published analyzed
   datasets without requiring a separately named backend project.
@@ -108,6 +116,9 @@ project.
 - Present researcher support as part of the software-development process.
   Support reveals shared requirements that can guide documentation, training,
   and reusable software improvements.
+- Present team science as a central working method. Robert contributes a
+  combination of experimental biology, quantitative analysis, and research
+  software engineering while working with complementary domain experts.
 - AcqStore is an imaging-data engine, not "the analysis core."
 - AcqStore has no user-facing GUI. Its API supports CloudScope's desktop and
   web interfaces and scripting workflows.
@@ -144,8 +155,10 @@ project.
 - Treat DANDI, the Brain Image Library, and SPARC as examples selected
   according to the scientific domain and data type, not as destinations for
   every dataset.
-- Describe standards and repository integration as active development until
-  implementation is confirmed for a specific workflow.
+- State that AcqStore implements OME-Zarr and NWB export. CloudScope-Web opens
+  self-contained OME-Zarr datasets as interactive figures.
+- Continue to distinguish implemented export from the policies and practical
+  requirements of a specific repository submission.
 - Keep project evidence easy to verify. In a CV, prefer compact links attached
   to each project entry: Documentation, Source Code when public, and Live Web
   App when available. Omit a source-code link for a private repository.
@@ -154,6 +167,31 @@ project.
 
 - `cv.md`
 - `cover-letter.md`
+
+### Current CV regeneration scope
+
+- Regenerate only the imaging-core-specific narrative sections.
+- Include an `Analysis Core and Institutional Contribution` section that
+  defines the proposed capability and explains how it can develop within an
+  existing organization.
+- Defer project-link review until prose editing is complete.
+
+### Shared CV sections
+
+The following sections are copied from `../../shared-cv-sections/` and are
+locked within this output:
+
+- `Teaching and Scientific Training`
+- `Research Software Platforms`
+- `Project Resources`
+- `Technical Skills`
+
+Do not tailor, revise, reorder, or reformat these sections in this output.
+Make approved changes in the corresponding canonical shared-section file,
+then replace the complete copied section. During final review, verify exact
+agreement with the canonical files. In this CV, the shared sections appear in
+the order listed above, after `Leadership and Mentorship` and before the
+user-maintained sections.
 
 ## Future Audience: Research Software Engineering
 

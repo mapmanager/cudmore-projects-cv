@@ -36,6 +36,26 @@
 * When asking a planning or design question, provide a recommended answer and
   concise rationale before asking Robert to decide.
 
+## Shared CV Sections
+
+* The canonical finished text for designated shared CV sections is stored in
+  `shared-cv-sections/`.
+* The currently designated shared sections are `Teaching and Scientific
+  Training`, `Research Software Platforms`, `Project Resources`, and
+  `Technical Skills`.
+* Copy each shared section into an applicable output CV once when constructing
+  or updating that CV.
+* Treat copied shared sections as locked. Do not revise, tailor, reorder, or
+  reformat them within an output CV.
+* Make an approved shared-content change in the corresponding file under
+  `shared-cv-sections/`, then replace the complete copied section in every
+  applicable output CV.
+* During final review, verify that every copied shared section agrees exactly
+  with its canonical file.
+* This shared-section policy applies only to outputs whose `audience.md`
+  designates these sections as shared. It is not a permanent requirement for
+  every future CV type.
+
 ## Claims
 
 * Never invent metrics.

@@ -6,107 +6,105 @@
 
 I build scientific software that transforms biological data into reproducible quantitative results.
 
-Throughout my career I have worked at the intersection of biology, quantitative analysis, and software engineering. Rather than developing one-off analysis scripts for individual publications, I design reusable software platforms that enable researchers to analyze imaging and electrophysiology data through reproducible computational workflows. My work combines extensive scientific domain expertise with modern software engineering practices to make data analysis easy to perform, reproducible, and shareable.
+Throughout my career, I have worked at the intersection of biology, quantitative analysis, and software engineering. Rather than developing one-off analysis scripts for individual publications, I design reusable software platforms that enable researchers to analyze imaging and electrophysiology data through reproducible computational workflows. My work combines extensive scientific domain expertise with modern software-engineering practices to make data analysis accessible to researchers, reproducible, and shareable.
 
 ## Scientific Domains
 
-My scientific domain expertise includes neuroscience, vascular biology, and cardiac physiology. I have decades of experience at the bench designing experiments to test new hypotheses, performing experiments with precision, interpreting results, and publishing the findings. I have also built custom microscopy and electrophysiology rigs, developed software for real-time data acquisition and visualization, and supported researchers using these systems. This experience connects experimental design and data acquisition with the quantitative analysis supported by my software.
+My scientific domain expertise includes neuroscience, vascular biology, and cardiac physiology. I have decades of bench experience in experimental design, performing microscopy and electrophysiology experiments, interpreting results, and publishing the findings. I have also built custom microscopy and electrophysiology acquisition systems, developed software for real-time data acquisition and visualization, and supported researchers using these systems. This experience connects experimental design and data acquisition with the quantitative analysis that follows.
 
-This expertise developed along a career trajectory from studying neurons to imaging brain vasculature and later working in cardiac physiology. This trajectory showed me that fields organized around different organs and research questions often rely on shared experimental technologies and face common analysis problems. Regardless of the specimen or scientific question, imaging experiments create similar practical needs for organizing and visualizing data, making quantitative measurements, and producing reproducible results. My direct experimental work has centered on microscopy and electrophysiology, but I design software that can be extended with domain experts to support new experimental systems and scientific questions.
+My career progressed from studying neurons to imaging brain vasculature and later working in cardiac physiology. This progression showed me that fields organized around different organs and research questions often rely on shared experimental technologies and face common analysis problems. Regardless of the specimen or scientific question, imaging experiments create similar practical needs for organizing and visualizing data, making quantitative measurements, and producing reproducible results. My direct experimental work has centered on microscopy and electrophysiology, but I develop software with domain experts so that it can support new experimental systems and scientific questions.
 
 ## Research Software Engineering
 
-I design reusable scientific software rather than bespoke analysis scripts. I begin with the scientific question and experimental workflow, then develop modular computational backends that can support multiple applications and analyses. My work combines documented interfaces, automated testing, interactive desktop and web applications, and open-source development.
+I design reusable scientific software rather than bespoke analysis scripts. My software engineering approach begins with the scientific question and experimental workflow. I work closely with experimental scientists to understand how data are produced, what must be measured, and where existing workflows limit interpretation. I then develop software through iterative design, implementation, testing, and critical feedback from the researchers who use it.
 
-I design each analysis system as one continuous software environment built around a shared computational backend with graphical and scripting interfaces. The same software remains with a project while data are acquired, during offline analysis, and at publication. At every stage, the interfaces use the same data model and analytical methods, preserving reproducibility without duplicating calculations. Publication is designed into the architecture rather than added after analysis. This makes data sharing part of the analysis workflow rather than a separate task created at the end of a project.
+I thrive in multidisciplinary teams where each member contributes distinct scientific or technical expertise. My contribution is a unique combination of experimental biology, quantitative analysis, and research software engineering. This allows me to translate between biological questions, measurement constraints, analytical requirements, and software design while working with domain experts whose knowledge complements my own.
 
-My longer-term goal is to publish raw data and completed analyses with the same software used in the laboratory so readers can inspect how figures were produced, examine reported results, repeat the analysis, and extend it to address new scientific questions. I am extending these systems to prepare data and completed analyses for community standards and appropriate repositories selected according to the scientific domain and data type.
+I design each analysis system as one continuous software environment built around a shared computational backend with graphical and scripting interfaces. The same software remains with a project while data are acquired, during offline analysis, and at publication. At every stage, these interfaces use the same underlying data and analytical methods, preserving reproducibility without duplicating calculations. Publication is designed into the architecture rather than added after analysis. This makes data sharing part of the analysis workflow rather than a separate task created at the end of a project.
+
+My goal is to keep raw data, quantitative analysis, and publication connected so readers can inspect how figures were produced, examine reported results, repeat analyses, and extend the work to address new scientific questions. The CloudScope suite provides an implemented workflow for achieving this goal. Researchers use the CloudScope graphical application to visualize data, run analyses, and curate results. Its AcqStore Python backend implements the analysis algorithms and saves the raw data, analysis methods, detection parameters, and results together in self-contained OME-Zarr datasets. CloudScope-Web opens those same datasets as interactive figures for publication and sharing. AcqStore exports OME-Zarr and NWB datasets that can be uploaded directly to public repositories, including the DANDI Archive and the Brain Image Library (BIL).
 
 Scientific software has the greatest impact when it becomes reusable research infrastructure. Reusable software platforms reduce duplicated effort, improve reproducibility, and allow laboratories to build upon stable computational foundations rather than repeatedly developing new analysis scripts for each project. By combining sustainable software engineering with open-source development, research infrastructure continues to support scientific discovery long after individual publications, grants, and laboratory personnel have changed. This long-term perspective enables software to become a lasting scientific resource rather than a temporary research product.
 
-## Research Software Platforms
+## Analysis Core and Institutional Contribution
 
-### CloudScope
+Imaging cores provide researchers with shared instrumentation, training, and expertise for acquiring high-quality data. I am interested in complementing that work with an analysis-core capability that provides shared expertise and reusable software for transforming acquired data into reproducible quantitative results.
 
-[Live Web App](https://cloudscope.mapmanager.net) · [Documentation](https://mapmanager.github.io/cloudscope-app/)
+I would develop this capability within an existing imaging facility, academic department, or research organization rather than requiring the immediate creation of a separate administrative core. It could begin with direct researcher support, training, and reusable analysis software, then grow according to the needs of the institution and its laboratories.
 
-Microscopy image analysis often depends on disconnected tools and manual processing. CloudScope provides desktop and web interfaces for data management, visualization, and quantitative analysis. Its interfaces use AcqStore as their shared computational backend. Analyses for blood-flow velocity, vessel diameter, heart rate, and related signals are implemented in AcqStore. They are available through CloudScope without duplicating the underlying calculations. New AcqStore file loaders, analyses, and visualization tools can also be incorporated into CloudScope as the backend evolves.
-
-### AcqStore
-
-[Documentation](https://mapmanager.github.io/acqstore/) · [Source Code](https://github.com/mapmanager/acqstore)
-
-AcqStore is a general-purpose Python toolbox and computational backend for loading, managing, visualizing, and analyzing imaging data. Its documented API supplies data, visualization primitives, and analysis methods to CloudScope and scripting workflows.
-
-Raw imaging data come from many sources, including proprietary microscope file formats. AcqStore loads these data while retaining the experimental metadata and physical units required for quantitative analysis. Its extensible file-loader plugin system allows new formats to be supported without rewriting the applications built on AcqStore.
-
-AcqStore can also be extended through plugins for analysis and cloud sharing. It exports analysis results as structured tabular data through an extensible export system. Desktop, web, and scripted workflows therefore operate on the same data model and analysis implementation, improving reproducibility while allowing new capabilities to be added over time.
-
-AcqStore uses lazy loading so collections containing hundreds or thousands of files can be browsed without loading the complete dataset into memory. It implements OME-Zarr and NGFF file-formats for scalable data access, sharing, and cloud deployments.
-
-### SanPy
-
-[Documentation](https://cudmore.github.io/SanPy) · [Source Code](https://github.com/cudmore/SanPy)
-
-Electrophysiology analysis frequently depends on manual measurements or laboratory-specific scripts. Manual measurements are difficult to standardize and reproduce across researchers and experiments. SanPy provides automated action-potential detection, quantitative measurements, interactive visualization, a plugin architecture, and a documented Python API.
-
-The freely available desktop application supports real-time use during experiments, offline analysis, and inspection of published analyzed datasets. Its GUI and scripting workflows use the same internal computational backend. This ensures that interactive and automated workflows calculate measurements with the same implementation, improving reproducibility while allowing analyses to be extended and automated.
-
-### MapManager
-
-[Live Web App](https://mapmanager.github.io/WebMapManager/) · [Documentation](https://mapmanager.github.io/)
-
-Longitudinal microscopy studies require researchers to organize, visualize, and analyze datasets collected across multiple imaging sessions potentially spanning weeks to months. MapManager provides an open-source platform for reproducible annotation, visualization, and quantitative analysis of dendritic spine dynamics over time.
-
-MapManager is optimized to manage annotation collections that may contain tens of thousands of items. Its graphical interface supports interactive review and curation, including identifying and correcting false-positive and false-negative annotations.
-
-### PiE
-
-[Documentation](https://cudmore.github.io/pie-doc) · [Source Code](https://github.com/cudmore/pie)
-
-Behavioral neuroscience experiments often require custom hardware control, data acquisition, and analysis software assembled from independent components. Experimenter presence can also interfere with sensitive behaviors and confound measurements. PiE integrates experiment control, automated acquisition, data management, video streaming, and quantitative analysis. Its web interface allows experiments to be controlled and monitored remotely, reducing experimenter interference while supporting reproducible behavioral research.
-
-### Brightest Path
-
-[Documentation](https://mapmanager.github.io/brightest-path-lib/) · [Source Code](https://github.com/mapmanager/brightest-path-lib)
-
-Python lacked a reusable, documented library for tracing brightest paths through n-dimensional scientific images. Brightest Path fills this gap by providing a tested, installable Python package with a well-documented API, enabling scientific software projects to incorporate robust path-tracing algorithms without reimplementing them.
-
-## Technical Skills
-
-**Programming and scripting:** Python, C/C++, Igor Pro, Bash, zsh
-
-**Scientific computing:** NumPy, SciPy, pandas, PyTorch, scikit-image, multiprocessing, multithreading
-
-**User interfaces and visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, Matplotlib
-
-**Scientific data and formats:** HDF5, Zarr, OME-Zarr, NGFF, s3fs, lazy loading, image pyramids
-
-**Web applications and APIs:** HTML, JavaScript, WebAssembly, Pyodide, FastAPI, uvicorn, Pydantic, HTTP and JSON APIs, OpenAPI, httpx, thin-client architecture
-
-**Software engineering, testing, and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, documented Python APIs, Google-style docstrings, end-user and developer documentation
-
-**Deployment and infrastructure:** Docker, Docker Compose, PyInstaller, macOS and Windows desktop applications, Linux-based development and continuous integration
-
-**Scientific analysis:** quantitative microscopy, electrophysiology analysis, time-series analysis, image segmentation, ROI-based analysis, longitudinal annotation analysis, brightest-path tracing
-
-**Scientific instrumentation and acquisition:** laser-scanning microscopy, custom microscopy and electrophysiology acquisition systems, whole-cell current-clamp electrophysiology, real-time data acquisition and visualization, Arduino microcontrollers, remote experiment control and video monitoring
+This approach would connect experimental design and acquisition with quantitative analysis, publication, and data sharing. By incorporating data organization, analysis, export, and repository preparation into the research workflow, an analysis core could reduce duplicated effort across laboratories and help researchers prepare well-described data and reproducible analyses for appropriate repositories.
 
 ## Leadership and Mentorship
 
-My software projects have supported collaborative research involving faculty, postdoctoral scholars, graduate students, and undergraduate researchers. I enjoy mentoring scientists in quantitative analysis, software design, and computational methods while developing software that enables research groups to become more productive and self-sufficient.
+I involve researchers throughout software development, from initial design through testing and critical feedback. This collaboration keeps the software connected to experimental workflows as scientific questions evolve. I also mentor researchers in quantitative analysis, software development, and reproducible computational methods so they can understand the tools they use and become more independent in extending their analyses.
 
-I involve researchers throughout software development, from initial design and implementation through testing and critical feedback. Scientific software is a living resource. Continued feedback from its users keeps it useful as experimental workflows and scientific questions evolve.
-
-I value the day-to-day work that makes shared research infrastructure useful. This includes working directly with researchers, troubleshooting datasets and analysis pipelines, improving documentation, and providing practical training. Recurring support problems often reveal needs shared across laboratories. I use that experience to improve the software and create solutions that can be reused.
+I enjoy working directly with researchers on the practical problems that arise during data acquisition and analysis. These interactions help researchers develop confidence with quantitative and reproducible methods while revealing recurring needs that can be addressed through improved documentation, training, and reusable software shared across laboratories.
 
 ## Teaching and Scientific Training
 
-My teaching connects scientific instrumentation with quantitative analysis and interpretation. Through lectures, laboratory instruction, and research training, I have taught the optical physics of laser-scanning microscopy, image formation, the physical limits of light microscopy, and signal-detection principles relevant to imaging and electrophysiology. This training helps researchers understand not only how to operate an instrument, but also what it measures, where uncertainty enters, and how acquisition choices affect analysis and interpretation.
+My teaching connects scientific instrumentation with quantitative analysis and interpretation. Through lectures, laboratory instruction, and research training, I have taught the optical physics of laser-scanning microscopy, image formation, the physical limits of light microscopy, and signal-detection principles relevant to both imaging and electrophysiology.
 
-I also designed and taught an undergraduate Internet of Things (IoT) course as instructor of record for three years. The course combined IoT concepts with hands-on circuit building with Arduino microcontrollers. Lectures and final projects examined current medical applications of IoT, including wearable technologies and real-time, remote data acquisition. We also considered how large longitudinal datasets could support new scientific questions.
+I also designed and taught an undergraduate Internet of Things course as instructor of record for three years. The course combined lectures with hands-on laboratories in which students wired simple circuits and sensors and connected them into distributed systems using internet dashboards. Lectures examined biometric Internet of Things devices for monitoring human health and disease progression. They also considered how longitudinal data collected across large populations can enable new scientific questions and discoveries.
 
-I have also mentored computer science and biophysical engineering graduate students and managed full-time employees with computer science backgrounds. I helped them apply their expertise in mathematics, physics, and software engineering to biological questions and experimental workflows. This ability to build a shared language across disciplines is important for supporting imaging-core and analysis-core users.
+## Research Software Platforms
+
+### CloudScope Suite
+
+Imaging workflows often divide raw data, automated analysis, manual review, saved results, and publication among disconnected tools and processes. They may also depend on one-off scripts whose precise code, assumptions, algorithms, and detection parameters are difficult to preserve or reuse. The CloudScope suite addresses these problems through a continuous pipeline from raw imaging data through quantitative analysis, scientific curation, publication, and reuse.
+
+[CloudScope](https://mapmanager.github.io/cloudscope-app/) is a desktop application for macOS and Windows. Researchers use its graphical interface to load and visualize images, run analyses, inspect results, and curate the resulting data. Its semi-automated workflows allow potentially hundreds of raw image files to be analyzed efficiently while retaining human scientific judgment. Current analysis domains focus on kymograph line-scan images and include capillary blood-flow velocity, heartbeat derived from velocity, diameter changes in cardiac myocytes and smooth muscle, and peak detection from fluorescent reporters such as GCaMP calcium and ATP reporters.
+
+CloudScope uses [AcqStore](https://mapmanager.github.io/acqstore/) as its Python analysis backend. Analysis algorithms are implemented in AcqStore and made accessible to researchers through CloudScope's graphical interface. AcqStore also loads raw images, including proprietary microscope file formats. After analysis and curation, it saves the raw images, analysis methods, detection parameters, and results together in a self-contained dataset. This preserves the information needed to reconstruct how an analysis was performed even as analytical methods evolve. AcqStore can export Open Microscopy Environment Zarr (OME-Zarr) and Neurodata Without Borders (NWB) datasets for direct upload to public repositories such as the DANDI Archive and the Brain Image Library.
+
+To publish and share results, [CloudScope-Web](https://mapmanager.github.io/cloudscope-web) opens the same self-contained OME-Zarr datasets as interactive figures. It allows the raw data and analysis performed and curated in CloudScope to be presented with an interactive graphical interface on the web. A manuscript figure can therefore become a live, publicly accessible figure that remains connected to its analysis and underlying raw data. Readers can inspect reported results and use the accessible data for new analyses, hypotheses, model-building, and collaborations. CloudScope-Web does not require dedicated or complex server infrastructure, making these interactive figures easier to distribute with publications.
+
+### SanPy
+
+Electrophysiology analysis frequently depends on manual measurements or laboratory-specific scripts. SanPy provides automated action-potential detection, quantitative measurements, interactive visualization, plugins, and a documented Python API. Its graphical and scripting workflows use the same computational implementation for real-time experiments, offline analysis, and inspection of published analyzed datasets.
+
+### MapManager
+
+Longitudinal microscopy studies require researchers to connect measurements across imaging sessions that may span weeks or months. MapManager provides an open-source platform for annotation, visualization, and quantitative analysis of neuronal structure over time. It supports interactive review and curation of collections containing tens of thousands of annotations.
+
+### PiE
+
+Behavioral experiments often require custom hardware control, data acquisition, monitoring, and analysis. PiE integrates these functions through a web interface that supports remote experiment control and video monitoring. It reduces experimenter interference while providing a reusable framework for behavioral research.
+
+### Brightest Path
+
+Brightest Path provides a tested, documented Python package for tracing brightest paths through n-dimensional scientific images. It makes a reusable image-analysis method available to other scientific projects without requiring each project to reimplement the algorithm.
+
+### Project Resources
+
+| Project | Purpose | GitHub | Documentation | Demo App |
+|---|---|---|---|---|
+| CloudScope | Graphical analysis and curation of microscopy data | [GitHub](https://github.com/mapmanager/cloudscope-app) | [Documentation](https://mapmanager.github.io/cloudscope-app/) | [Demo](https://cloudscope.mapmanager.net) |
+| AcqStore | Reproducible image loading, analysis, and data export | [GitHub](https://github.com/mapmanager/acqstore) | [Documentation](https://mapmanager.github.io/acqstore/) | |
+| CloudScope-Web | Interactive publication of imaging data and results | [GitHub](https://github.com/mapmanager/cloudscope-web) | [Documentation](https://mapmanager.github.io/cloudscope-web/docs/) | [Demo](https://mapmanager.github.io/cloudscope-web) |
+| SanPy | Electrophysiology analysis and visualization | [GitHub](https://github.com/cudmore/SanPy) | [Documentation](https://cudmore.github.io/SanPy) | |
+| MapManager | Longitudinal analysis of neuronal structure | [GitHub](https://github.com/mapmanager/WebMapManager) | [Documentation](https://mapmanager.github.io/) | [Demo](https://mapmanager.github.io/WebMapManager/) |
+| PiE | Remote control and monitoring of behavioral experiments | [GitHub](https://github.com/cudmore/pie) | [Documentation](https://cudmore.github.io/pie-doc) | |
+| Brightest Path | Reusable path tracing for n-dimensional images | [GitHub](https://github.com/mapmanager/brightest-path-lib) | [Documentation](https://mapmanager.github.io/brightest-path-lib/) | |
+
+## Technical Skills
+
+**Programming languages:** Python, C, C++, Igor Pro, Bash
+
+**Scientific computing:** NumPy, SciPy, pandas, Numba, scikit-image, parallel and concurrent programming
+
+**Scientific visualization and user interfaces:** PyQt, pyqtgraph, napari, NiceGUI, Plotly, Matplotlib, pywebview
+
+**Scientific data and scalable storage:** HDF5, Zarr, OME-Zarr/OME-NGFF, s3fs, lazy and chunked array access, multiscale image pyramids
+
+**Web applications and APIs:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, Pyodide/WebAssembly, FastAPI, Uvicorn, Pydantic, RESTful HTTP/JSON APIs, OpenAPI, httpx
+
+**Software engineering and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, Python API documentation, end-user and developer documentation
+
+**Packaging and deployment:** Docker, Docker Compose, nginx, PyInstaller, cross-platform desktop application packaging for macOS and Windows, Linux-based development and CI environments
+
+**Scientific and image analysis:** quantitative microscopy, electrophysiology and time-series analysis, image segmentation, ROI-based quantification, longitudinal image annotation analysis, brightest-path tracing
+
+**Scientific instrumentation and data acquisition:** laser-scanning microscopy, custom microscopy and electrophysiology acquisition systems, whole-cell current- and voltage-clamp electrophysiology, real-time data acquisition and visualization, Arduino-based instrumentation, remote experiment control and video monitoring
 
 ## Employment
 
