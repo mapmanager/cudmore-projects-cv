@@ -92,23 +92,23 @@ Brightest Path provides a tested, documented Python package for tracing brightes
 
 ## Technical Skills
 
-**Programming and scripting:** Python, C/C++, Igor Pro, Bash, zsh
+**Programming languages:** Python, C, C++, Igor Pro, Bash
 
-**Scientific computing:** NumPy, SciPy, pandas, PyTorch, scikit-image, multiprocessing, multithreading
+**Scientific computing:** NumPy, SciPy, pandas, Numba, scikit-image, parallel and concurrent programming
 
-**User interfaces and visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, Matplotlib
+**Scientific visualization and user interfaces:** PyQt, pyqtgraph, napari, NiceGUI, Plotly, Matplotlib, pywebview
 
-**Scientific data and formats:** HDF5, Zarr, OME-Zarr, NGFF, s3fs, lazy loading, image pyramids
+**Scientific data and scalable storage:** HDF5, Zarr, OME-Zarr/OME-NGFF, s3fs, lazy and chunked array access, multiscale image pyramids
 
-**Web applications and APIs:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, WebAssembly, Pyodide, FastAPI, uvicorn, Pydantic, HTTP and JSON APIs, OpenAPI, httpx, thin-client architecture
+**Web applications and APIs:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, Pyodide/WebAssembly, FastAPI, Uvicorn, Pydantic, RESTful HTTP/JSON APIs, OpenAPI, httpx
 
-**Software engineering, testing, and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, documented Python APIs, Google-style docstrings, end-user and developer documentation
+**Software engineering and documentation:** Git, GitHub, pytest, GitHub Actions, uv, MkDocs, Python API documentation, end-user and developer documentation
 
-**Deployment and infrastructure:** Docker, Docker Compose, PyInstaller, macOS and Windows desktop applications, Linux-based development and continuous integration
+**Packaging and deployment:** Docker, Docker Compose, nginx, PyInstaller, cross-platform desktop application packaging for macOS and Windows, Linux-based development and CI environments
 
-**Scientific analysis:** quantitative microscopy, electrophysiology analysis, time-series analysis, image segmentation, ROI-based analysis, longitudinal annotation analysis, brightest-path tracing
+**Scientific and image analysis:** quantitative microscopy, electrophysiology and time-series analysis, image segmentation, ROI-based quantification, longitudinal image annotation analysis, brightest-path tracing
 
-**Scientific instrumentation and acquisition:** laser-scanning microscopy, custom microscopy and electrophysiology acquisition systems, whole-cell current-clamp electrophysiology, real-time data acquisition and visualization, Arduino microcontrollers, remote experiment control and video monitoring
+**Scientific instrumentation and data acquisition:** laser-scanning microscopy, custom microscopy and electrophysiology acquisition systems, whole-cell current- and voltage-clamp electrophysiology, real-time data acquisition and visualization, Arduino-based instrumentation, remote experiment control and video monitoring
 
 ## Employment
 

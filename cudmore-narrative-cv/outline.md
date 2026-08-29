@@ -52,6 +52,8 @@ Core ideas
 * Experimental design
 * Image acquisition systems
 * Hands-on expertise in microscopy and electrophysiology.
+* Extensive experience in whole-cell current- and voltage-clamp
+  electrophysiology. SanPy remains focused on current-clamp analysis.
 * Decades of bench experience designing experiments to test hypotheses,
   performing experiments with precision, interpreting results, and publishing
   the findings.
@@ -264,10 +266,11 @@ Scientific computing
 * NumPy
 * SciPy
 * pandas
+* Numba, used extensively in Brightest Path tracing
 * PyTorch for MapManager image-segmentation prototypes
 * scikit-image
 * Pillow
-* Multiprocessing and multithreading
+* Parallel and concurrent programming
 
 Scientific analysis
 
@@ -321,7 +324,8 @@ Scientific data and formats
 * nd2
 * oirfile
 * s3fs
-* Lazy loading and image pyramids
+* Lazy and chunked array access
+* Multiscale image pyramids
 * Metadata and physical-unit preservation
 
 Software engineering, testing, and documentation
@@ -339,6 +343,7 @@ Deployment and infrastructure
 
 * Docker
 * Docker Compose
+* nginx, used by PiE
 * PyInstaller
 * macOS and Windows desktop applications
 * Linux-based development and continuous-integration environments
@@ -803,6 +808,7 @@ Technical highlights
 * Remote monitoring
 * Fully remote experiment control
 * Automated acquisition
+* nginx deployment
 
 Scientific impact
 
@@ -882,6 +888,7 @@ Software
 Technical highlights
 
 * Brightest-path tracing in n-dimensional images.
+* Extensive use of Numba for performance.
 * Reusable algorithmic component for other scientific software.
 * Python scientific software ecosystem integration.
 

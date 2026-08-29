@@ -6,13 +6,13 @@ inventory into every CV.
 
 ## Programming and Scripting
 
-- **Python** — primary language for current research software, scientific
+- **Python**: primary language for current research software, scientific
   analysis, desktop and web applications, APIs, testing, and documentation.
-- **C/C++** — more than ten years of experience. Used extensively in the first
+- **C/C++**: more than ten years of experience. Used extensively in the first
   research position at Roswell Park.
-- **Igor Pro** — more than ten years of experience. The original MapManager
+- **Igor Pro**: more than ten years of experience. The original MapManager
   application was implemented entirely in Igor Pro.
-- **Bash and zsh** — development, testing, packaging, release, and automation
+- **Bash and zsh**: development, testing, packaging, release, and automation
   scripts.
 
 ## Scientific Computing
@@ -20,10 +20,11 @@ inventory into every CV.
 - NumPy
 - SciPy
 - pandas
-- PyTorch — image-segmentation prototypes developed for MapManager.
+- Numba: used extensively to accelerate Brightest Path tracing.
+- PyTorch: image-segmentation prototypes developed for MapManager.
 - scikit-image
 - Pillow
-- Multiprocessing and multithreading
+- Parallel and concurrent programming
 
 ## User Interfaces and Visualization
 
@@ -58,7 +59,8 @@ components used by CloudScope-Web, with migration into CloudScope underway.
 - nd2
 - oirfile
 - s3fs
-- Lazy loading and image pyramids
+- Lazy and chunked array access
+- Multiscale image pyramids
 - Metadata and physical-unit preservation
 
 AcqStore uses these technologies to support scalable image access, metadata,
@@ -76,7 +78,7 @@ analysis, and sharing workflows.
 - Pyodide
 - FastAPI
 - uvicorn
-- HTTP and JSON APIs
+- RESTful HTTP and JSON APIs
 - OpenAPI
 - Pydantic
 - httpx
@@ -108,6 +110,7 @@ AcqStore Python backend in each client.
 - Cross-platform desktop application development
 - Linux-based development and continuous-integration environments
 - Docker and Docker Compose
+- nginx: used by PiE.
 
 ## Scientific Analysis
 
@@ -124,7 +127,7 @@ AcqStore Python backend in each client.
 
 - Laser-scanning microscopy
 - Custom microscopy and electrophysiology acquisition systems
-- Whole-cell current-clamp electrophysiology
+- Whole-cell current- and voltage-clamp electrophysiology
 - Real-time data acquisition and visualization
 - Arduino microcontrollers
 - Remote experiment control and video monitoring

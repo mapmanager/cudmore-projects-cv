@@ -56,6 +56,9 @@ cudmore-narrative-cv/
   leaders.
 - `project-links.md` — verified or candidate links for software repositories,
   documentation, and live applications.
+- `outreach-context.md`: reusable factual context for personalized outreach
+  emails; not a narrative CV or general cover-letter source unless explicitly
+  requested.
 - `technical-skills.md` — factual inventory of technical skills and the
   authoritative baseline for generated CV Technical Skills sections.
 - `cv-extras/cudmore-cv-extras-full.md` — current user-owned factual CV
