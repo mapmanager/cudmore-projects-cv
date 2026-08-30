@@ -286,8 +286,24 @@ Focus
   research use rather than implementation technologies.
 - Do not imply that every capability of the Igor Pro application has already
   been reproduced in the modern ecosystem.
-- Brightest Path.
-- Present SanPy, PiE, MapManager, and Brightest Path as independent platforms.
+- Present Brightest Path as a reusable computational component for tracing
+  bright filament-like structures in scientific images.
+- Use axons and dendritic segments as concrete biological examples.
+- Explain the user workflow: select start and end points, calculate the
+  brightest path between them, and return image coordinates that can be
+  visualized and measured.
+- Retain n-dimensional image support in detailed and audience-facing material.
+- Distinguish `brightest-path-lib`, the documented Python library, from the
+  separate napari tracing plugin that provides the graphical interface.
+- Explain that graphical applications, scripts, and computational notebooks
+  can use the same tested implementation.
+- Keep A*, bidirectional A*, image-axis scaling, search-progress reporting, and
+  Numba acceleration in detailed source material unless they materially
+  support a technical audience.
+- Do not present Brightest Path as a complete research platform.
+- Present SanPy, PiE, MapManager, and Brightest Path as independent software
+  projects while preserving the distinction between complete platforms and
+  reusable computational components.
 
 ## Technical Skills
 

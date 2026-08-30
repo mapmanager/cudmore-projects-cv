@@ -965,12 +965,18 @@ Problem
 
 * Python lacked a reusable, documented, installable package for tracing brightest paths through n-dimensional scientific images.
 * Existing solutions were not available as a general-purpose Python package that other scientific software could easily build upon.
+* Tracing filament-like structures is a recurring scientific image-analysis
+  problem.
+* Axons and dendritic segments are important biological examples of
+  filament-like structures that must be traced through microscopy images.
 
 Scientific motivation
 
 * Improve reproducibility of image tracing.
 * Provide reusable path-tracing functionality for scientific imaging workflows.
 * Avoid reimplementing the same algorithm inside separate project-specific codebases.
+* Convert a filament-like image structure into a path that can be visualized,
+  measured, and incorporated into subsequent analyses.
 
 Software
 
@@ -979,10 +985,18 @@ Software
 * Installable with `pip install`.
 * Documented public API.
 * Open source.
+* A separate napari tracing plugin provides an interactive graphical interface
+  built on the library.
 
 Technical highlights
 
 * Brightest-path tracing in n-dimensional images.
+* The user supplies start and end points, and the algorithm returns the image
+  coordinates forming the brightest path between them.
+* Implements A* and bidirectional A* search algorithms.
+* Accounts for image-axis scale.
+* Reports search progress so calling applications can visualize the path search
+  interactively.
 * Extensive use of Numba for performance.
 * Reusable algorithmic component for other scientific software.
 * Python scientific software ecosystem integration.
@@ -991,11 +1005,14 @@ Scientific impact
 
 * Reusable image-analysis package for path tracing.
 * Provides infrastructure that other platforms and workflows can incorporate.
+* Supports graphical and programmatic tracing of axons, dendritic segments,
+  and other bright filament-like structures.
 
 Documentation and source
 
 * GitHub: https://github.com/mapmanager/brightest-path-lib
 * Documentation: https://mapmanager.github.io/brightest-path-lib/
+* napari tracing plugin: https://github.com/mapmanager/napari-tracing
 
 ⸻
 

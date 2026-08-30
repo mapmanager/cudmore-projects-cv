@@ -40,6 +40,7 @@ web app: https://mapmanager.github.io/WebMapManager/
 Brightest Path Tracing
 github: https://github.com/mapmanager/brightest-path-lib
 docs: https://mapmanager.github.io/brightest-path-lib/
+napari plugin: https://github.com/mapmanager/napari-tracing
 
 PiE
 github: https://github.com/cudmore/pie

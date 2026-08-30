@@ -467,9 +467,26 @@ review of behavioral data.
 
 Brightest Path
 
-Brightest Path addresses a different kind of infrastructure gap. Python did not have a reusable, documented, installable package for tracing brightest paths through n-dimensional scientific images. The project was created to provide this capability as a general-purpose Python library rather than as a one-off implementation embedded in a single analysis workflow.
+Tracing filament-like structures is a recurring problem in scientific image
+analysis. Axons and dendritic segments are important examples because their
+paths must be followed through microscopy images before their morphology can be
+visualized and measured. Brightest Path converts these image structures into
+paths that can be incorporated into subsequent quantitative analyses.
 
-Brightest Path provides a documented API that can be installed from PyPI and incorporated into other scientific software with `pip install`. It allows path tracing algorithms to be reused, tested, documented, and extended within the Python scientific software ecosystem. In this sense, Brightest Path is less a complete graphical platform than a reusable computational component that other platforms and workflows can build upon.
+The researcher supplies start and end points, and Brightest Path returns the
+image coordinates forming the brightest path between them. The library
+implements A* and bidirectional A* search algorithms for n-dimensional images,
+accounts for image-axis scale, and uses Numba to accelerate the computations.
+It can also report search progress so an application can display the algorithm
+as it evaluates the image.
+
+Brightest Path provides a documented Python API that can be installed from the
+Python Package Index and incorporated into scientific applications, scripts,
+and computational notebooks. A separate napari plugin provides an interactive
+graphical interface that uses the library to trace neuronal dendrites and
+axons. The shared library allows graphical and programmatic workflows to use
+the same tested implementation without requiring each project to recreate the
+algorithm.
 
 Common themes
 

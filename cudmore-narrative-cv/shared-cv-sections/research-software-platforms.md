@@ -64,4 +64,19 @@ PiE can control and monitor any number of behavior boxes through a centralized w
 
 ### Brightest Path
 
-Brightest Path provides a tested, documented Python package for tracing brightest paths through n-dimensional scientific images. It makes a reusable image-analysis method available to other scientific projects without requiring each project to reimplement the algorithm.
+Tracing filament-like structures is a common problem in scientific image
+analysis. Axons and dendritic segments are important examples because their
+paths must be followed through microscopy images before their morphology can be
+visualized and measured. [Brightest Path](https://mapmanager.github.io/brightest-path-lib/)
+allows a researcher to select start and end points in an n-dimensional image
+and calculates the brightest path between them. The resulting image coordinates
+provide a quantitative representation of the traced structure for subsequent
+visualization and analysis.
+
+The tested and documented Python library can be used in scientific
+applications, scripts, and computational notebooks. A separate
+[napari tracing plugin](https://github.com/mapmanager/napari-tracing) provides
+an interactive graphical interface for tracing neuronal dendrites and axons
+with the same underlying implementation. This makes a common image-analysis
+method reusable without requiring each laboratory or software project to
+recreate the algorithm.
