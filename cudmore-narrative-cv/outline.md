@@ -447,6 +447,13 @@ CloudScope
   false-negative detections.
 * Semi-automated workflows allow many files to be analyzed efficiently while
   preserving human review and scientific judgment.
+* CloudScope supports blinded and randomized analysis and curation.
+* Blinded workflows can conceal file names, experimental groups or conditions,
+  and other identifying metadata.
+* Randomized workflows can present datasets for analysis and curation in a
+  randomized order.
+* These features allow large datasets to be reviewed systematically while
+  helping reduce experimenter bias.
 * Curated analyses are saved with the raw image data in a portable dataset.
 
 Current scientific applications

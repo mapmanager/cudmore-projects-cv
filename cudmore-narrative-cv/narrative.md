@@ -240,7 +240,12 @@ CloudScope provides an interactive graphical application for loading and
 visualizing images, running analyses, inspecting results, and correcting
 false-positive and false-negative detections. Its semi-automated workflows
 allow researchers to analyze potentially hundreds of raw image files
-efficiently while retaining human scientific judgment during curation.
+efficiently while providing graphical tools for human-in-the-loop curation.
+CloudScope also supports blinded and randomized analysis and curation. Its
+graphical interface can conceal file names, experimental groups or conditions,
+and other identifying metadata, and it can present datasets in a randomized
+order. These features allow large datasets to be reviewed systematically while
+helping reduce experimenter bias.
 CloudScope runs as a desktop application on macOS and Windows and can also run
 as a server-backed web application.
 

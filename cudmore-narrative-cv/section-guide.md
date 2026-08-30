@@ -196,6 +196,13 @@ Focus
   presents their raw data and results as interactive published figures.
 - Explain the suite as one continuous pipeline from raw data through analysis,
   human-in-the-loop curation, saving, publication, and reuse.
+- Include CloudScope's support for blinded and randomized analysis and
+  curation.
+- In detailed source material, specify that blinding can conceal file names,
+  experimental groups or conditions, and other identifying metadata, and that
+  datasets can be presented in a randomized order.
+- Connect these features to systematic review of large datasets and reduced
+  experimenter bias without claiming that software eliminates bias.
 - Emphasize scientific benefits: scalable analysis with human judgment,
   reconstructable analyses, interactive figures, and access to underlying raw
   data.
