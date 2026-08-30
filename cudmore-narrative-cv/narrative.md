@@ -396,19 +396,42 @@ and reproduce the analysis.
 
 MapManager
 
-MapManager addresses the challenge of organizing, visualizing, and analyzing neuronal structure over time. Longitudinal morphology experiments require researchers to connect measurements across imaging sessions, inspect changes in biological structure, and maintain consistent annotations over time. The software was developed to support these workflows through interactive visualization and reusable data models.
+MapManager addresses the challenge of organizing, visualizing, and analyzing
+neuronal structure over time. Longitudinal three-dimensional microscopy may
+span weeks or months. Images must be aligned between time points, and the same
+biological structures must be identified across imaging sessions. Researchers
+can then measure the persistence, addition, elimination, movement, and
+fluorescence intensity of structures such as dendritic spines and cell bodies.
+MapManager is routinely used with longitudinal datasets acquired from awake,
+behaving mice.
 
-These experiments may span weeks to months, making it essential to preserve
-consistent annotations and connect the same structures across many imaging
-sessions.
+The established version of MapManager is an Igor Pro desktop application. It
+automatically aligns images between time points and semi-automatically
+identifies corresponding annotations across sessions. Researchers can trace
+neuronal dendritic segments, and MapManager automatically connects each
+annotated spine to its parent segment. It creates regions of interest for each
+spine that include the spine, its dendritic segment, and associated
+ground-truth background measurements. These region-of-interest intensity
+measurements support longitudinal analysis of submicron, diffraction-limited
+dendritic spines. Its graphical interface supports interactive visualization,
+annotation, measurement, and curation of collections that may contain tens of
+thousands of annotations. This version has supported at least five
+peer-reviewed publications, demonstrating the scientific value of the
+longitudinal-analysis workflow.
 
-MapManager is optimized to manage large annotation collections that may
-contain tens of thousands of items. Its graphical interface supports
-interactive review and curation, including identifying and correcting
-false-positive and false-negative annotations. This allows researchers to
-maintain reliable annotations as datasets grow in size and duration.
+I am rebuilding this proven workflow as an open-source, extensible, and
+reproducible software ecosystem. The modern MapManager is under active
+development and separates shared scientific functionality from the applications
+used to access it. This design reduces dependence on proprietary software and
+makes established analysis methods easier to reuse, extend, and share.
 
-MapManager also informs my current interest in browser-based scientific software and interactive published datasets. Its emphasis on visualization, annotation, and shared biological measurements connects directly to the broader goal of making scientific data easier to inspect, interpret, and reuse.
+MapManagerCore provides the shared Python API for the modern ecosystem.
+PyMapManager is the desktop application and also supports analysis through
+Python scripts and computational notebooks. WebMapManager is the browser
+application for visualizing, annotating, and analyzing time-series annotations
+and three-dimensional image volumes. A working WebMapManager application is
+publicly available. Together, these components are designed to provide the same
+scientific methods through desktop, browser, scripting, and notebook workflows.
 
 PiE
 

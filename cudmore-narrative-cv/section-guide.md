@@ -258,7 +258,34 @@ Focus
 - Keep wiring details, network configuration, deployment commands, and
   trial-file schemas in technical documentation rather than audience-facing
   CV prose.
-- MapManager.
+- Present MapManager as the continuation of a proven longitudinal-analysis
+  workflow rather than as a single undifferentiated software package.
+- Distinguish the established Igor Pro desktop application from the modern
+  open-source MapManager ecosystem.
+- Describe the Igor Pro version as a research platform used in at least five
+  peer-reviewed publications.
+- Emphasize its scientific capabilities: image alignment across time points,
+  semi-automatic correspondence of annotations, interactive curation, and
+  measurement of structural changes across longitudinal imaging sessions.
+- Include dendritic-segment tracing, automatic connection of each spine to its
+  parent segment, and region-of-interest intensity measurements when the
+  audience benefits from scientific detail.
+- Explain that spine, dendritic-segment, and ground-truth background regions of
+  interest support longitudinal analysis of submicron, diffraction-limited
+  dendritic spines.
+- Note its routine use with longitudinal datasets from awake, behaving mice
+  when relevant to the audience.
+- Present the modern ecosystem as under active development while noting that a
+  working WebMapManager application is publicly available.
+- Explain the complementary roles of MapManagerCore as the shared Python API,
+  PyMapManager as the desktop application with scripting and notebook access,
+  and WebMapManager as the browser application.
+- Emphasize that the shared implementation supports consistent scientific
+  methods across desktop, browser, scripting, and notebook workflows.
+- For end-user descriptions, lead with the scientific workflow and proven
+  research use rather than implementation technologies.
+- Do not imply that every capability of the Igor Pro application has already
+  been reproduced in the modern ecosystem.
 - Brightest Path.
 - Present SanPy, PiE, MapManager, and Brightest Path as independent platforms.
 

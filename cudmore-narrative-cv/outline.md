@@ -884,9 +884,12 @@ MapManager
 
 Problem
 
-* Longitudinal neuronal morphology is difficult to organize, visualize, and quantify over time.
+* Longitudinal three-dimensional microscopy is difficult to organize,
+  visualize, and quantify over time.
 * Imaging sessions can span weeks to months.
 * Annotation collections may contain tens of thousands of items.
+* Images must be aligned between time points, and corresponding biological
+  structures must be identified across imaging sessions.
 * Large annotation collections require efficient review and correction of
   false-positive and false-negative annotations.
 
@@ -894,31 +897,65 @@ Scientific motivation
 
 * Support reproducible analysis of neuronal structure.
 * Connect morphology with quantitative measurements.
+* Measure the persistence, addition, elimination, movement, and fluorescence
+  intensity of structures such as dendritic spines and cell bodies over time.
+* Support longitudinal analysis of submicron, diffraction-limited dendritic
+  spines in awake, behaving mice.
 
-Software
+Established Igor Pro implementation
 
-* Desktop application
-* Interactive visualization
-* GUI for managing and curating large annotation collections.
-* Open source
+* MapManager was originally developed as an Igor Pro desktop application.
+* Automatically aligns images between time points.
+* Semi-automatically identifies corresponding annotations across time.
+* Allows neuronal dendritic segments to be traced and automatically connects
+  each annotated spine to its parent dendritic segment.
+* Automatically creates a region of interest for each neuronal spine,
+  including spine and dendritic-segment regions of interest and associated
+  ground-truth background regions of interest.
+* Uses region-of-interest intensity measurements to analyze submicron,
+  diffraction-limited dendritic spines across time.
+* Supports interactive visualization, annotation, measurement, and curation
+  of three-dimensional image-volume time series.
+* Supports longitudinal analysis of in vivo, ex vivo, and fixed-tissue image
+  volumes.
+* Routinely used with longitudinal datasets acquired from awake, behaving
+  mice.
+* Used in at least five peer-reviewed publications.
 
-Technical highlights
+Modern MapManager architecture
 
-* Morphology visualization
-* Annotation
-* Optimized for collections containing tens of thousands of annotations.
-* Interactive identification and correction of false-positive and
-  false-negative annotations.
-* Longitudinal analysis
+* The established MapManager workflow is being rebuilt as an open-source,
+  extensible, reproducible platform.
+* The modern MapManager ecosystem is under active development.
+* MapManagerCore is the shared Python API that provides the core functionality
+  used by the applications.
+* PyMapManager is the desktop application and provides access through Python
+  scripts and computational notebooks.
+* WebMapManager is the browser application for visualizing, annotating, and
+  analyzing time-series annotations and three-dimensional image volumes.
+* WebMapManager provides image views, editable annotations, tables, plots, and
+  an extensible plugin system.
+* A working WebMapManager application is publicly available.
+* The shared implementation allows the same scientific methods to support
+  desktop, browser, scripting, and notebook workflows.
 
 Scientific impact
 
-* Research platform for structural neuroscience.
+* Proven research platform for longitudinal structural neuroscience.
+* Preserves established longitudinal-analysis methods while making them easier
+  to reuse and extend.
+* Reduces dependence on proprietary software.
+* Supports interactive and programmatic analysis, collaborative use, and
+  reproducible sharing.
 
 Documentation and application
 
 * Documentation: https://mapmanager.github.io/
 * Live application: https://mapmanager.github.io/WebMapManager/
+* Igor Pro source: https://github.com/mapmanager/mapmanager
+* MapManagerCore source: https://github.com/mapmanager/MapManagerCore
+* PyMapManager source: https://github.com/mapmanager/PyMapManager
+* WebMapManager source: https://github.com/mapmanager/WebMapManager
 
 ⸻
 

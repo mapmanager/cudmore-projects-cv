@@ -22,7 +22,37 @@ SanPy's documented Python API gives scripts and computational notebooks access t
 
 ### MapManager
 
-Longitudinal microscopy studies require researchers to connect measurements across imaging sessions that may span weeks or months. MapManager provides an open-source platform for annotation, visualization, and quantitative analysis of neuronal structure over time. It supports interactive review and curation of collections containing tens of thousands of annotations.
+Longitudinal three-dimensional microscopy studies require researchers to align
+images and identify the same biological structures across imaging sessions
+that may span weeks or months. MapManager is routinely used with longitudinal
+datasets acquired from awake, behaving mice. It allows researchers to examine
+the persistence, addition, elimination, movement, and fluorescence intensity
+of structures such as dendritic spines and cell bodies.
+
+The established Igor Pro version of MapManager automatically aligns images
+between time points and semi-automatically identifies corresponding annotations
+across sessions. Researchers can trace neuronal dendritic segments, and
+MapManager automatically connects each annotated spine to its parent segment.
+It creates regions of interest for each spine that include the spine, its
+dendritic segment, and associated ground-truth background measurements. These
+intensity measurements support longitudinal analysis of submicron,
+diffraction-limited dendritic spines. Researchers can visualize, annotate,
+measure, and curate collections containing tens of thousands of annotations.
+This workflow has supported at least five peer-reviewed publications.
+
+I am rebuilding this proven workflow as an open-source, extensible, and
+reproducible software ecosystem. The modern MapManager is under active
+development and reduces dependence on proprietary software while making its
+longitudinal-analysis methods easier to reuse, extend, and share.
+
+MapManagerCore provides the shared Python API for the modern ecosystem.
+PyMapManager is the desktop application and also makes the analysis available
+through Python scripts and computational notebooks. WebMapManager is the
+browser application for visualizing, annotating, and analyzing time-series
+annotations and three-dimensional image volumes. A working WebMapManager
+application is publicly available. Together, these components are designed to
+provide consistent scientific methods through desktop, browser, scripting, and
+notebook workflows.
 
 ### PiE
 
