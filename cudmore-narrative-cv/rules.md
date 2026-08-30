@@ -23,6 +23,9 @@
 ## Editing
 
 * Never reorganize or reorder sections unless explicitly asked.
+* Do not add a name heading or professional subtitle to the top of an
+  audience-specific `outputs/<audience>/cv.md`. Begin with the first
+  substantive CV section.
 * Preserve the logical flow of existing bullets.
 * Insert new material at the requested location.
 * Modify only the requested sections.
@@ -36,25 +39,19 @@
 * When asking a planning or design question, provide a recommended answer and
   concise rationale before asking Robert to decide.
 
-## Shared CV Sections
+## Output CV Assembly
 
-* The canonical finished text for designated shared CV sections is stored in
-  `shared-cv-sections/`.
-* The currently designated shared sections are `Teaching and Scientific
-  Training`, `Research Software Platforms`, `Project Resources`, and
-  `Technical Skills`.
-* Copy each shared section into an applicable output CV once when constructing
-  or updating that CV.
-* Treat copied shared sections as locked. Do not revise, tailor, reorder, or
-  reformat them within an output CV.
-* Make an approved shared-content change in the corresponding file under
-  `shared-cv-sections/`, then replace the complete copied section in every
-  applicable output CV.
-* During final review, verify that every copied shared section agrees exactly
-  with its canonical file.
-* This shared-section policy applies only to outputs whose `audience.md`
-  designates these sections as shared. It is not a permanent requirement for
-  every future CV type.
+* Each audience-specific `outputs/<audience>/cv.md` contains only its tailored
+  narrative sections.
+* Do not append `Teaching and Scientific Training`, `Research Software
+  Platforms`, `Project Resources`, or `Technical Skills` to an output `cv.md`.
+* Do not append placeholders for Robert's user-maintained Employment,
+  Education, Selected Publications, Awards, Funding & Professional Service, or
+  Contact sections to an output `cv.md`.
+* Standardized and user-maintained sections are supplied separately during
+  final document assembly.
+* Keep the canonical standardized Markdown in `shared-cv-sections/`; do not
+  modify those files while editing an audience-specific output CV.
 
 ## Claims
 
