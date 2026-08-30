@@ -223,8 +223,41 @@ Focus
 - Retain AcqStore Server in the long-form technical inventory as evidence of
   API and thin-client architecture. Include it in a tailored CV only when its
   technical relevance materially supports that audience.
-- SanPy.
-- PiE.
+- Present SanPy as a general-purpose event-detection and analysis platform for
+  whole-cell current-clamp recordings from neurons and cardiac myocytes.
+- Explain that its primary use is action-potential analysis while retaining
+  support for detecting and analyzing subthreshold events.
+- State that the same downstream analysis extracts more than 20 quantitative
+  features from either type of detected event.
+- Emphasize standardized detection, measurement, graphical review, and
+  curation rather than listing every analysis feature.
+- Include detection presets for fast neurons, slow neurons, cardiac myocytes,
+  and subthreshold events in detailed source material.
+- Explain that the desktop application, scripts, and computational notebooks
+  use the same detection and analysis implementation.
+- Describe extensibility through file loaders, analysis measurements, and
+  graphical plugins.
+- Connect use during experiments and offline analysis with inspection of
+  published analyzed datasets.
+- Present PiE as a modular and scalable platform for reproducible home-cage
+  behavioral experiments.
+- Explain that detailed build instructions and commercially available
+  components allow an individual behavior-box design to be replicated across
+  an array.
+- Distinguish each independently operated PiE behavior box from Commander, the
+  coordination layer that controls and monitors any number of boxes.
+- Emphasize parallel operation, centralized status and video monitoring, and
+  file synchronization.
+- Include remote video recording and streaming, hardware control,
+  environmental monitoring, and experimental-event logging.
+- Connect remote operation with reduced experimenter interference.
+- In detailed source material, identify VideoAnnotate as a related application
+  in a separate repository.
+- For end-user descriptions, present its graphical behavioral scoring and
+  blinded review of randomized video segments without repository details.
+- Keep wiring details, network configuration, deployment commands, and
+  trial-file schemas in technical documentation rather than audience-facing
+  CV prose.
 - MapManager.
 - Brightest Path.
 - Present SanPy, PiE, MapManager, and Brightest Path as independent platforms.

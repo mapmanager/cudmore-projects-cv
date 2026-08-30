@@ -363,18 +363,36 @@ applications that use it.
 
 SanPy
 
-SanPy addresses the need for transparent and extensible analysis of electrophysiology recordings. It was developed for whole-cell current-clamp experiments, a technique used across neuroscience and cardiovascular physiology. The software allows researchers to detect, measure, visualize, and compare electrophysiological events while retaining access to the underlying analysis methods.
+SanPy addresses the need for transparent and extensible analysis of whole-cell
+current-clamp recordings from neurons and cardiac myocytes. Its primary use is
+action-potential analysis, but it is designed as a general-purpose
+electrophysiological event-detection platform that can also detect and analyze
+subthreshold events. Once a peak is detected, the same downstream analysis is
+applied whether the event is an action potential or a subthreshold event.
+SanPy extracts more than 20 quantitative features from each detected event,
+including measurements of event timing, threshold, peak, half-width, interval,
+frequency, and shape.
+
+The SanPy desktop application allows researchers to open individual recordings
+or folders, apply detection presets for fast neurons, slow neurons, cardiac
+myocytes, or subthreshold events, and inspect measurements overlaid on the raw
+recording. Linked graphical views and detection-error summaries support review
+and curation of individual events. Researchers can save completed analyses,
+export tabular reports, and generate figures from the same workflow.
 
 SanPy reflects the same principle that graphical workflows should also be
 available through a documented Python API. Like CloudScope, it separates the
 computational backend from the user interface, although SanPy's backend is not
-a separately named project. The desktop application and scripting workflows
-use the same underlying analysis methods.
+a separately named project. The desktop application, scripts, and
+computational notebooks use the same underlying detection and analysis
+methods. Extensible file loaders, measurements, and graphical plugins allow
+new research needs to be incorporated without creating a separate analysis
+system.
 
-SanPy is designed for real-time use during electrophysiology experiments and
-for offline analysis. Because it is a freely available desktop application, it
-can also accompany published analyzed datasets so readers can inspect
-measurements and reproduce the analysis.
+SanPy is designed for use during electrophysiology experiments and for offline
+analysis. Because it is a freely available desktop application, it can also
+accompany published analyzed datasets so researchers can inspect measurements
+and reproduce the analysis.
 
 MapManager
 
@@ -395,17 +413,34 @@ MapManager also informs my current interest in browser-based scientific software
 PiE
 
 PiE addresses the need for reproducible behavioral acquisition systems.
-Behavioral experiments often require custom hardware, automation, image
-acquisition, and experiment-specific analysis. Experimenter presence can also
-alter behavior and confound measurements. PiE was developed to lower the
-barrier to building these systems by combining acquisition, monitoring, video
-streaming, and analysis within a reproducible software framework.
+Behavioral experiments often require coordinated hardware control, video
+acquisition, environmental monitoring, event logging, and behavioral scoring.
+Experimenter presence can also alter behavior and confound measurements. PiE
+uses modular, commercially available components together with detailed build
+instructions and wiring diagrams so that an individual home-cage behavior box
+can be reproduced and replicated across an array of boxes.
 
-This project reflects my interest in software that operates close to the
-experiment itself. Its web interface allows researchers to control and monitor
-experiments remotely, reducing experimenter interference. PiE connects
-experimental instrumentation with software for inspecting data and adapting
-workflows as experiments evolve.
+Each behavior box uses a Raspberry Pi to connect a camera, white and infrared
+lighting, ventilation, and temperature and humidity monitoring. A web
+interface allows researchers to record and stream video, control hardware,
+configure repeated or triggered acquisition, and monitor experiments remotely.
+Experimental events and environmental measurements are logged alongside the
+recorded video. Remote operation reduces the need for experimenters to remain
+beside the apparatus and potentially influence behavior.
+
+Each box runs an independent PiE server, while Commander provides one web
+interface for controlling and monitoring any number of boxes. Commander
+combines system status, remote controls, a centralized video wall, and file
+synchronization. This distributed architecture allows behavioral experiments
+to run in parallel and lets a laboratory scale from one box to an array without
+replacing the underlying control system.
+
+VideoAnnotate is a related application in a separate repository that provides
+graphical behavioral scoring of recorded videos. Researchers can annotate
+behavioral events by frame and duration and perform blinded scoring on
+randomized video segments. Together, PiE, Commander, and VideoAnnotate connect
+reproducible hardware construction and parallel acquisition with systematic
+review of behavioral data.
 
 Brightest Path
 

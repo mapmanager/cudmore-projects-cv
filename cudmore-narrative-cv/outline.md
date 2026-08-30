@@ -738,20 +738,37 @@ SanPy
 
 Problem
 
-* Electrophysiology analysis often depends on laboratory-specific scripts.
+* Electrophysiology analysis often depends on manual measurements or
+  laboratory-specific scripts.
 
 Scientific motivation
 
-* Standardize action potential analysis.
+* Standardize detection and analysis of electrophysiological events.
+* SanPy's primary use is action-potential analysis, but it also detects and
+  analyzes subthreshold events.
+* Once a peak is detected, the same downstream analysis applies whether the
+  event is an action potential or a subthreshold event.
+* Extract more than 20 quantitative features for each detected event.
 * Improve reproducibility.
 * Support extension by other laboratories.
 
 Software
 
-* Desktop application
-* Plugin architecture
-* Python API
-* Open source
+* Desktop application for whole-cell current-clamp recordings from neurons and
+  cardiac myocytes.
+* Open individual recordings or folders containing multiple recordings.
+* File loaders for ABF, ATF, and CSV data, with an extensible loader
+  architecture for additional formats.
+* Preset detection parameters for fast neurons, slow neurons, cardiac
+  myocytes, and subthreshold events.
+* Detect events using configurable membrane-voltage or derivative thresholds.
+* Overlay detected events and their measurements on the raw recording.
+* Review detection errors, curate results, and reject individual events when
+  appropriate.
+* Save completed analyses and export tabular reports and figures.
+* Plugin architecture for visualization, reports, curation, and new analyses.
+* Documented Python API for scripts and computational notebooks.
+* Open source.
 * Follows the same backend/frontend separation as CloudScope.
 * Uses an internal computational backend shared by the desktop GUI and
   scripting workflows; the backend is not a separately named project.
@@ -762,17 +779,22 @@ Software
 
 Technical highlights
 
-* Action potential detection
+* General-purpose event detection for action potentials and subthreshold
+  events.
+* More than 20 quantitative features for each detected event, including event
+  timing, threshold, peak, half-width, interval, frequency, and shape
+  measurements.
 * Automated and standardized quantitative measurements.
-* Interactive visualization
-* Plugin ecosystem
+* Interactive visualization and curation.
+* Extensible file loaders, analysis measurements, and graphical plugins.
 * The GUI and scripting workflows use the same internal computational backend.
 * Shared implementation ensures that interactive and automated analyses
   calculate measurements using the same methods.
 
 Scientific impact
 
-* Reusable electrophysiology analysis platform.
+* Reusable, general-purpose electrophysiological event-detection and analysis
+  platform.
 * Reduces dependence on manual measurements that are difficult to standardize
   and reproduce across researchers and experiments.
 
@@ -793,34 +815,63 @@ PiE
 
 Problem
 
-* Behavioral experiments frequently require custom acquisition systems.
+* Behavioral experiments frequently require coordinated hardware control,
+  video acquisition, environmental monitoring, event logging, and behavioral
+  scoring.
 * Experimenter presence can alter behavior and confound measurements.
+* Individually constructed systems can be difficult to reproduce and scale.
 
 Scientific motivation
 
 * Lower the barrier to automated behavioral experiments.
 * Build inexpensive, reproducible acquisition systems.
+* Allow multiple behavioral experiments to run in parallel.
 
 Software
 
-* Raspberry Pi
-* Distributed acquisition
-* Web interface
-* Video streaming
-* Open source
+* Open-source, Raspberry Pi-based system for constructing home-cage behavioral
+  experiments.
+* Detailed build instructions, wiring diagrams, and component lists for an
+  individual behavior box.
+* Modular, commercially available components allow the design to be replicated
+  across an array of behavior boxes.
+* Each behavior box can include a camera, white and infrared lighting, a fan,
+  relays, and a temperature and humidity sensor.
+* A web interface controls each box remotely.
+* Record and stream video.
+* Support repeated and externally triggered recordings.
+* Control white and infrared lighting and ventilation.
+* Monitor temperature and humidity.
+* Log experimental events and environmental measurements alongside recorded
+  video.
+* Each behavior box runs an independent PiE server.
+* Commander controls and monitors any number of PiE servers from one web
+  interface.
+* Commander provides centralized system status, a video wall, remote control,
+  and file synchronization.
+* VideoAnnotate is a related application in a separate repository for
+  graphical behavioral scoring.
+* VideoAnnotate supports blinded scoring of randomized video segments, records
+  event frames and durations, and exports results for downstream analysis.
 
 Technical highlights
 
-* Multi-device architecture
-* Remote monitoring
-* Fully remote experiment control
-* Automated acquisition
-* nginx deployment
+* Distributed multi-device architecture.
+* Remote monitoring and experiment control.
+* Automated and parallel acquisition across multiple behavior boxes.
+* Video recording, live streaming, environmental monitoring, and event
+  logging.
+* Centralized monitoring and file collection through Commander.
+* Blinded and randomized behavioral scoring through VideoAnnotate.
+* nginx deployment.
 
 Scientific impact
 
 * Reusable behavioral acquisition platform.
 * Reduces experimenter interference through remote control and monitoring.
+* Supports reproducible construction and operation of parallel experiments at
+  scale.
+* Connects hardware control and video acquisition with behavioral scoring.
 
 Documentation and source
 
