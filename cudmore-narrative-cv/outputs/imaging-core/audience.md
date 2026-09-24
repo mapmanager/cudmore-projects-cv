@@ -26,6 +26,14 @@ depend on isolated scripts created for individual projects. Facilities may have
 limited resources for sustained software development even though reusable
 analysis infrastructure is important to their scientific mission.
 
+Imaging cores commonly provide commercial instrument software,
+general-purpose image-analysis platforms, analysis workstations, and training
+in established workflows. The proposed opportunity is not based on an absence
+of analysis software or expertise. It arises when projects require specialized
+analyses, extensions of established methods, automation across datasets,
+reproducible downstream processing, repository preparation, or interactive
+publication.
+
 ### Proposed analysis core
 
 An imaging core provides shared instrumentation, maintenance, training, and
@@ -45,12 +53,26 @@ Together, an imaging core and an analysis core can support the lifecycle of
 scientific research from experimental design and data collection through
 analysis and publication.
 
+The analysis-core capability would use existing commercial platforms when they
+meet the scientific need and develop specialized open-source workflows when an
+experiment requires additional analysis or integration. As institutional needs
+emerge, it could also develop adapters that carry results exported from
+commercial software into custom downstream processing. These adapters are a
+proposed capability, not functionality currently implemented in Robert's
+software.
+
 The analysis core would help laboratories use one continuous software
 environment during acquisition, offline analysis, and publication. Publication
 and data sharing would be designed into the analysis architecture rather than
 added after the scientific work is complete. This makes data sharing part of
 the analysis workflow rather than a separate task created at the end of a
 project.
+
+This approach would extend existing core services rather than replace or
+criticize them. Commercial tools could remain central to acquisition,
+visualization, and established analysis, while specialized software connects
+raw data and completed analyses with open formats, repositories, and
+interactive publication.
 
 ### Robert's value proposition
 
@@ -62,6 +84,16 @@ project.
 - Experience building acquisition systems and real-time software.
 - Reusable analysis pipelines that replace one-off scripts.
 - A proven open-source scientific software portfolio.
+- Ability to work alongside commercial instrument and image-analysis platforms
+  without attempting to reproduce their general-purpose capabilities.
+- Ability to identify recurring specialized-analysis needs across laboratories
+  and turn them into reusable software.
+- Extensible software for scientific questions that require analyses beyond
+  established commercial workflows.
+- Reproducible pipelines that connect laboratory analysis with repository
+  preparation, open dissemination, and interactive publication.
+- Proposed future integration of results exported by commercial platforms when
+  institutional needs make that useful.
 - Software designed to support acquisition, offline analysis, publication, and
   reuse.
 - Practical support for planning and implementing NIH Data Management and
@@ -96,6 +128,27 @@ project.
 ### Writing emphasis
 
 - Lead with scientific problems and research workflows.
+- Acknowledge that imaging cores commonly provide valuable commercial
+  acquisition and image-analysis software, workstations, and training.
+- Present Robert's software as complementary to commercial platforms, not as a
+  general replacement for them.
+- Explain that established commercial tools should remain in the workflow when
+  they meet the scientific need.
+- Emphasize specialized analysis, extensibility, reproducible downstream
+  processing, repository preparation, and interactive publication.
+- Do not claim that Robert has personally used Imaris, ZEN, Arivis, Dragonfly,
+  or other named commercial image-analysis platforms.
+- Do not claim that current software imports analysis results exported by those
+  platforms.
+- Describe adapters for commercial-analysis results as proposed work that could
+  be developed in response to institutional needs.
+- Clearly label examples such as detecting cell bodies in Imaris and continuing
+  in an open analysis pipeline as hypothetical workflows.
+- Avoid categorical claims about capabilities that commercial software lacks.
+- Do not imply that a target core lacks analysis expertise, software, or
+  training.
+- In personalized outreach, acknowledge the commercial tools and analysis
+  services that the target core already provides.
 - Distinguish Robert's direct domain expertise from the broader applicability
   of his software. Use neuroscience, vascular biology, and cardiac physiology
   for domain expertise. Explain broader applicability through shared
