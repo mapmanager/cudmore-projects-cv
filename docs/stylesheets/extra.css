@@ -27,20 +27,13 @@
   opacity: 0.85;
 }
 
-/* One section per project_type; heading text is the YAML value as-is */
+/* One section per project_type; type is aria-label only, not a visible heading */
 .md-typeset .hero + .project-section {
   margin-top: 0.75rem;
 }
 
 .md-typeset .project-section + .project-section {
   margin-top: 1.75rem;
-}
-
-.md-typeset .project-section .section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 0.15rem;
-  line-height: 1.2;
 }
 
 /* Project card grid (replaces mkdocs grid.cards for layout control) */

@@ -56,9 +56,7 @@ I build scientific software that transforms biological data into reproducible qu
 {% endfor %}
 
 {% for project_type in ns.types %}
-<div class="project-section" markdown>
-
-## {{ project_type }} {.section-title}
+<div class="project-section" markdown aria-label="{{ project_type }}">
 
 <div class="project-grid" markdown>
 

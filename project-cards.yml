@@ -1,6 +1,6 @@
 # Project cards displayed on the homepage.
 # List order determines section order (first-seen project_type) and card
-# order within a section. project_type is the section heading as-is.
+# order within a section. project_type is a grouping key, not a visible heading.
 # Omit icon for a text-only card.
 
 - name: CloudScope
@@ -33,7 +33,7 @@
 - name: SanPy
   description: Desktop software for whole-cell current clamp analysis.
   icon: sanpy-icon-v2.png
-  icon_background: light
+  # icon_background: light
   project_type: Current
   links:
     - type: github
@@ -48,8 +48,7 @@
 
 - name: SanPy-Web
   description: Website to view published **SanPy** datasets.
-  icon: sanpy-icon-v2.png
-  icon_background: light
+  icon: sanpy-web.png
   project_type: Current
   links:
     - type: github
