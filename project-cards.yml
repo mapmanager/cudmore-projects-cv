@@ -62,7 +62,7 @@
       url: https://mapmanager.github.io/sanpy-web
 
 - name: AcqView
-  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw data.
+  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw imaging data including oir, czi, nd2, and tif files.
   icon: acqview-ai-v2.png
   project_type: Current
   links:
@@ -152,7 +152,7 @@
       url: https://mapmanager.github.io/acqstore/
 
 - name: Web-Components
-  description: Reusable web components written in node/typescript/vue.
+  description: Reusable web components written in node/typescript/vue. Check out the live web-app links below.
   icon: mapmanager-web-components-nicepool.png
   project_type: Tools
   links:
@@ -162,10 +162,20 @@
     - type: docs
       label: Docs
       url: https://mapmanager.github.io/mapmanager-web-components/
+    - type: web-app
+      label: Image Viewer
+      url: https://mapmanager.github.io/mapmanager-web-components/demos/image-viewer/
+    - type: web-app
+      label: Nice Pool
+      url: https://mapmanager.github.io/mapmanager-web-components/demos/nicepool/
+    - type: web-app
+      label: Signal Viewer
+      url: https://mapmanager.github.io/mapmanager-web-components/demos/signal-viewer/
       
 - name: NiceWidgets
   description: Reusable NiceGUI widgets.
   project_type: Tools
+  icon: nicewidgets-v1.png
   links:
     - type: live
       label: Web App

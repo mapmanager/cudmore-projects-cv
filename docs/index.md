@@ -29,7 +29,8 @@ hide:
   "github": ":octicons-mark-github-24:",
   "docs": ":octicons-book-24:",
   "pubmed": ":octicons-mortar-board-24:",
-  "pypi": ":octicons-package-24:"
+  "pypi": ":octicons-package-24:",
+  "web-app": ":octicons-arrow-up-right-24:"
 } %}
 {% for link in project.links if link.type != "live" -%}
 [{{ link_icons[link.type] }} {{ link.label }}]({{ link.url }}){ .md-button }
