@@ -63,7 +63,7 @@
 
 - name: AcqView
   description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw data.
-  icon: pyodide.png
+  icon: acqview-ai-v2.png
   project_type: Current
   links:
     - type: live
