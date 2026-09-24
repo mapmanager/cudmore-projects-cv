@@ -38,7 +38,7 @@ if [[ "$source_folder" != /* ]]; then
 fi
 
 source_cover_letter="$source_folder/cover-letter.md"
-reference_doc="$PROJECT_ROOT/word-docs/my_template.docx"
+reference_doc="$PROJECT_ROOT/libreoffice/cudmore-cv-skeleton.docx"
 output_dir="$source_folder/output_word"
 output_doc="$output_dir/cover-letter.docx"
 

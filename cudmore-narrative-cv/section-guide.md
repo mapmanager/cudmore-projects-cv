@@ -84,6 +84,22 @@ Focus
   scripting interfaces remain available across all three stages.
 - Publication and data sharing designed into the architecture rather than
   added at the end of a project.
+- Present commercial instrument and image-analysis software as a valuable part
+  of imaging-core workflows.
+- State that Robert's open-source software complements rather than replaces
+  general-purpose commercial platforms.
+- Explain that commercial tools can support instrument control, visualization,
+  and established analyses, while extensible open-source software supports
+  specialized methods and longer reproducible workflows.
+- Do not claim that Robert has personally used Imaris, ZEN, Arivis, Dragonfly,
+  or other named commercial image-analysis platforms.
+- Do not claim that current software imports analysis results exported by those
+  platforms.
+- Treat adapters for commercial-analysis results as a proposed analysis-core
+  capability.
+- Clearly label examples such as detecting cell bodies in Imaris and continuing
+  in an open analysis pipeline as hypothetical workflows.
+- Avoid categorical claims about capabilities that commercial software lacks.
 - Specification-first, human-directed use of language models for software
   planning and implementation.
 - Explain that scientific questions, measurement constraints, analysis
@@ -113,6 +129,13 @@ Focus
   institutional requirements.
 - Repository selection based on the scientific domain, data type, applicable
   policy, and repository capabilities.
+- Explain how reusable infrastructure can extend workflows that begin with
+  commercial acquisition or analysis software.
+- Emphasize the connected lifecycle from acquisition and analysis through
+  specialized processing, repository preparation, and interactive publication.
+- When relevant, connect open OME-Zarr or Neurodata Without Borders datasets
+  with the DANDI Archive, the Brain Image Library, and CloudScope-Web without
+  presenting every repository as appropriate for every dataset.
 
 ## Software Philosophy
 
@@ -127,6 +150,12 @@ Focus
 - Maintainability.
 - Longevity.
 - Accessibility for scientists.
+- Treat commercial and open-source software as complementary rather than
+  competing systems.
+- Avoid framing open-source development as an ideological rejection of
+  commercial tools or an attempt to reproduce every general-purpose feature.
+- Emphasize specialized scientific analysis, transparency, extensibility, and
+  connection across the research lifecycle.
 - Do not discuss individual software platforms.
 
 ## Grant Writing and Funded Research

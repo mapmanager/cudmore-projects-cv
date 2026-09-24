@@ -1,9 +1,12 @@
 # Project cards displayed on the homepage.
-# List order determines card order. Omit icon for a text-only card.
+# List order determines section order (first-seen project_type) and card
+# order within a section. project_type is the section heading as-is.
+# Omit icon for a text-only card.
 
 - name: CloudScope
   description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **CloudScope-Web**
   icon: cloudscope-icon.png
+  project_type: Current
   links:
     - type: live
       label: Web App
@@ -15,40 +18,23 @@
 - name: CloudScope-Web
   description: Website to view published **CloudScope** datasets.
   icon: cloudscope-web.png
+  project_type: Current
   links:
     - type: live
       label: Web App
       url: https://mapmanager.github.io/cloudscope-web
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/cloudscope-web/docs/
     - type: github
       label: GitHub
       url: https://github.com/mapmanager/cloudscope-web
-
-- name: AcqStore
-  description: Image loading, analysis algorithms, and export tools for Python. Used by **CloudScope**.
-  icon: acqstore-server-icon.png
-  links:
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/acqstore
-    - type: docs
-      label: Docs
-      url: https://mapmanager.github.io/acqstore/
-
-- name: AcqView
-  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw data.
-  icon: pyodide.png
-  links:
-    - type: live
-      label: Web App
-      url: https://mapmanager.github.io/acqview/
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/acqview
 
 - name: SanPy
   description: Desktop software for whole-cell current clamp analysis.
   icon: sanpy-icon-v2.png
   icon_background: light
+  project_type: Current
   links:
     - type: github
       label: GitHub
@@ -60,9 +46,38 @@
       label: PubMed
       url: https://pubmed.ncbi.nlm.nih.gov/38419330/
 
+- name: SanPy-Web
+  description: Website to view published **SanPy** datasets.
+  icon: sanpy-icon-v2.png
+  icon_background: light
+  project_type: Current
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/sanpy-web
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/sanpy-web/docs/
+    - type: live
+      label: Web App
+      url: https://mapmanager.github.io/sanpy-web
+
+- name: AcqView
+  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw data.
+  icon: pyodide.png
+  project_type: Current
+  links:
+    - type: live
+      label: Web App
+      url: https://mapmanager.github.io/acqview/
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/acqview
+
 - name: MapManager
   description: Next generation longitudinal dendritic spine analysis with desktop, web, and Python backend.
   icon: mapmanager-icon.png
+  project_type: Current
   links:
     - type: live
       label: Web App
@@ -83,6 +98,7 @@
 - name: MapManager - Igor
   description: Original Igor Pro version of MapManager for longitudinal image analysis.
   icon: mapmanager-igor-icon.png
+  project_type: Current
   links:
     - type: docs
       label: Docs
@@ -91,20 +107,10 @@
       label: Web App (Dash)
       url: https://dash.mapmanager.net/
 
-- name: Web-Components
-  description: Reusable web components written in node/typescript/vue.
-  icon: mapmanager-web-components-nicepool.png
-  links:
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/mapmanager-web-components
-    - type: docs
-      label: Docs
-      url: https://mapmanager.github.io/mapmanager-web-components/
-      
 - name: Brightest Path Lib
   description: Path-finding algorithms to find the brightest path between points in an image.
   icon: brightest-path-lib-icon.gif
+  project_type: Completed
   links:
     - type: github
       label: GitHub
@@ -119,22 +125,10 @@
       label: PyPI
       url: https://pypi.org/project/brightest-path-lib/
 
-- name: NiceWidgets
-  description: Reusable NiceGUI widgets and supporting utilities.
-  links:
-    - type: live
-      label: Web App
-      url: https://nicewidgets.mapmanager.net/
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/nicewidgets
-    - type: docs
-      label: Docs
-      url: https://mapmanager.github.io/nicewidgets/
-
 - name: PiE
   description: A Raspberry Pi Controlled Experiment (PiE).
   icon: pie-icon.png
+  project_type: Completed
   links:
     - type: github
       label: GitHub
@@ -146,3 +140,40 @@
       label: PubMed
       url: https://pubmed.ncbi.nlm.nih.gov/37583418/
 
+- name: AcqStore
+  description: Image loading, analysis algorithms, and export tools for Python. Used by **CloudScope**.
+  icon: acqstore-server-icon.png
+  project_type: Tools
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/acqstore
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/acqstore/
+
+- name: Web-Components
+  description: Reusable web components written in node/typescript/vue.
+  icon: mapmanager-web-components-nicepool.png
+  project_type: Tools
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/mapmanager-web-components
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/mapmanager-web-components/
+      
+- name: NiceWidgets
+  description: Reusable NiceGUI widgets.
+  project_type: Tools
+  links:
+    - type: live
+      label: Web App
+      url: https://nicewidgets.mapmanager.net/
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/nicewidgets
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/nicewidgets/

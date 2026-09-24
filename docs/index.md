@@ -4,17 +4,7 @@ hide:
   - toc
 ---
 
-<div class="hero" markdown>
-
-# Robert H Cudmore, PhD {.hero-title}
-
-I build scientific software that transforms biological data into reproducible quantitative results. My work is focused on online scientific data sharing, algorithm design, and visualization tools for desktop and web.
-
-</div>
-
-<div class="project-grid" markdown>
-
-{% for project in projects %}
+{% macro project_card(project) %}
 <div class="project-card" markdown>
 
 {% if project.icon | default %}
@@ -48,6 +38,35 @@ I build scientific software that transforms biological data into reproducible qu
 </div>
 
 </div>
+{% endmacro %}
+
+<div class="hero" markdown>
+
+# Robert H Cudmore, PhD {.hero-title}
+
+I build scientific software that transforms biological data into reproducible quantitative results. My work is focused on online scientific data sharing, algorithm design, and visualization tools for desktop and web.
+
+</div>
+
+{% set ns = namespace(types=[]) %}
+{% for project in projects %}
+  {% if project.project_type not in ns.types %}
+    {% set ns.types = ns.types + [project.project_type] %}
+  {% endif %}
+{% endfor %}
+
+{% for project_type in ns.types %}
+<div class="project-section" markdown>
+
+## {{ project_type }} {.section-title}
+
+<div class="project-grid" markdown>
+
+{% for project in projects if project.project_type == project_type %}
+{{ project_card(project) }}
 {% endfor %}
 
 </div>
+
+</div>
+{% endfor %}

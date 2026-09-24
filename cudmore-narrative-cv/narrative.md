@@ -75,7 +75,15 @@ for one person to provide every kind of expertise, but for the team to connect
 its expertise well enough to design experiments, develop valid analyses, and
 answer shared scientific questions.
 
-I believe scientific software should be transparent, reproducible, and extensible. Many experimental systems rely on proprietary acquisition software, proprietary analysis software, and closed file formats. Commercial software often provides sophisticated instrument control and data acquisition capabilities. Scientific analysis, however, benefits when researchers can inspect how data are loaded, how measurements are calculated, how algorithms work, how analyses can be extended, and how results can be interpreted and reproduced.
+I believe scientific software should be transparent, reproducible, and
+extensible. Commercial instrument and image-analysis software is an important
+part of imaging-core workflows. It provides instrument control, visualization,
+and established general-purpose analyses. My open-source software is not
+intended to replace these platforms. It complements them when a scientific
+question requires specialized analysis, transparent methods, automation, or an
+extensible workflow. Researchers then benefit from being able to inspect how
+data are loaded, how measurements are calculated, how algorithms work, how
+analyses can be extended, and how results can be interpreted and reproduced.
 
 Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
 
@@ -133,6 +141,14 @@ I also believe that graphical applications and programmatic interfaces should co
 
 Whenever possible, I prefer open standards and open-source software. Open scientific software allows researchers to inspect analytical methods, validate quantitative measurements, adapt software to new scientific questions, and contribute improvements that benefit the broader community. Transparency is not simply an engineering preference; it is an important part of reproducible scientific research.
 
+I view commercial and open-source software as complementary rather than
+competing systems. Established commercial workflows should be used when they
+meet the scientific need. Open-source development becomes especially valuable
+when researchers need a specialized analysis, an extension of an existing
+method, or a reproducible connection between laboratory analysis, data sharing,
+and publication. The goal is to preserve the strengths of existing tools while
+building the additional scientific workflow required by the project.
+
 Finally, I believe software should reduce barriers rather than create them. Researchers should spend their time designing experiments, interpreting results, and asking new scientific questions—not struggling with inaccessible software, incompatible file formats, or computational workflows that cannot be reproduced. Well-designed scientific software should become a reliable research instrument that allows scientists to focus on discovery.
 
 
@@ -151,6 +167,17 @@ I view research infrastructure as more than software alone. It includes well-def
 Reusable infrastructure changes the way scientific software is developed. Rather than beginning each project with a new collection of analysis scripts, researchers can build upon stable software foundations that already provide data access, visualization, quantitative analysis, and scripting interfaces. This reduces duplicated effort, improves reproducibility, and allows new software development to focus on answering scientific questions rather than rebuilding existing capabilities.
 
 Open-source development is an essential part of this process. Public source code, documentation, and automated testing allow analytical methods to be inspected, validated, and improved by the scientific community. Just as importantly, open software provides continuity when students graduate, laboratory personnel change, or research projects come to an end. The software remains available for future investigators to understand, reproduce, and extend.
+
+Reusable research infrastructure can also extend analyses that begin in
+commercial software. For example, an imaging core could detect cell bodies in
+Imaris and then develop a custom adapter that carries the exported results into
+an open pipeline for specialized downstream analysis. The open workflow could
+then connect the analysis with its underlying data, prepare appropriate
+OME-Zarr or Neurodata Without Borders datasets for repositories such as the
+DANDI Archive or the Brain Image Library, and publish interactive figures
+through CloudScope-Web. In this model, commercial software provides an
+established analysis and the open pipeline completes the specialized and
+reproducible research lifecycle.
 
 I am particularly interested in infrastructure that supports the complete lifecycle of scientific data. Software should assist researchers during experimental design, data acquisition, quantitative analysis, publication, and long-term reuse of datasets. The same reusable computational foundations that support research in the laboratory can also support education, collaboration, and future scientific discovery. Building this kind of infrastructure requires long-term investment, but it produces software that continues to generate scientific value well beyond the work that originally motivated its development.
 

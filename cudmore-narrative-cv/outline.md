@@ -129,10 +129,35 @@ Collaborative software development
 Transparent scientific software
 
 * Many experimental systems rely on proprietary acquisition software, proprietary analysis software, and closed file formats.
-* Commercial software can be excellent, but scientific analysis benefits when researchers can inspect and extend analytical methods.
+* Commercial instrument and image-analysis software is an important part of
+  imaging-core workflows.
+* Commercial software can provide instrument control, visualization, and
+  established general-purpose analyses, including segmentation, tracking, and
+  filament tracing.
+* My open-source software is not intended to replace general-purpose commercial
+  platforms.
+* Use commercial software when its established workflows meet the scientific
+  need.
+* Complement commercial software with open-source tools when a project requires
+  specialized analysis, extensibility, transparent methods, automation, or a
+  longer reproducible workflow.
 * Software should make it possible to understand how data are loaded, how measurements are calculated, how algorithms work, how analyses can be extended, and how results can be reproduced.
 * Open-source file readers provide access to data from closed scientific file formats.
 * Example acquisition systems and file formats include Axon Instruments, Zeiss, Olympus, Nikon, and Bruker.
+* Do not claim personal use of Imaris, ZEN, Arivis, Dragonfly, or other named
+  commercial image-analysis platforms.
+* Current software does not import analysis results exported by Imaris, ZEN,
+  Arivis, Dragonfly, or similar commercial platforms.
+* Treat commercial-result integration as a proposed analysis-core capability,
+  not as currently implemented functionality.
+* A hypothetical workflow may use Imaris to detect cell bodies and then use a
+  custom adapter to carry the exported results into an open, specialized
+  analysis pipeline.
+* Label this example as a possible workflow rather than an existing software
+  integration.
+* Avoid categorical claims that commercial software cannot support
+  reproducibility, automation, export, or sharing. Capabilities vary among
+  products and versions.
 
 Reusable computational backends
 
@@ -370,6 +395,17 @@ Core ideas
 * Documentation
 * Long-term software maintenance
 * Community-oriented software design
+* Complement commercial acquisition and analysis tools with specialized,
+  extensible, open-source workflows.
+* Build proposed adapters around commercial exports when a laboratory needs to
+  carry established analysis results into custom downstream processing.
+* Connect raw data and completed analyses with repository-ready OME-Zarr or NWB
+  datasets when appropriate to the scientific domain and data type.
+* Support dissemination through repositories such as the DANDI Archive and the
+  Brain Image Library and through interactive CloudScope-Web figures.
+* The distinctive contribution is the connected lifecycle from acquisition and
+  analysis through specialized processing, reproducible sharing, and
+  interactive publication.
 
 Maybe add
 
