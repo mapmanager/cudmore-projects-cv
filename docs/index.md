@@ -4,10 +4,10 @@ hide:
   - toc
 ---
 
-{% macro project_card(project) %}
-<div class="project-card" markdown>
+{% macro card_section(project, show_icon) %}
+<div class="card-section" markdown>
 
-{% if project.icon | default %}
+{% if show_icon and project.icon | default %}
 <div class="card-icon-wrap">
 <img src="assets/{{ project.icon }}" class="card-icon{% if project.icon_background | default == "light" %} card-icon--light-bg{% endif %}" alt="{{ project.name }}">
 </div>
@@ -41,6 +41,15 @@ hide:
 </div>
 {% endmacro %}
 
+{% macro project_card(project, companion) %}
+<div class="project-card" markdown>
+{{ card_section(project, true) }}
+{% if companion %}
+{{ card_section(companion, false) }}
+{% endif %}
+</div>
+{% endmacro %}
+
 <div class="hero" markdown>
 
 # Robert H Cudmore, PhD {.hero-title}
@@ -49,8 +58,11 @@ I build scientific software that transforms biological data into reproducible qu
 
 </div>
 
-{% set ns = namespace(types=[]) %}
-{% for project in projects %}
+{% set ns = namespace(types=[], companions=[]) %}
+{% for project in projects if project.companion | default(none) %}
+  {% set ns.companions = ns.companions + [project.companion] %}
+{% endfor %}
+{% for project in projects if project.name not in ns.companions %}
   {% if project.project_type not in ns.types %}
     {% set ns.types = ns.types + [project.project_type] %}
   {% endif %}
@@ -61,8 +73,14 @@ I build scientific software that transforms biological data into reproducible qu
 
 <div class="project-grid" markdown>
 
-{% for project in projects if project.project_type == project_type %}
-{{ project_card(project) }}
+{% for project in projects if project.project_type == project_type and project.name not in ns.companions %}
+{% set found = namespace(companion=none) %}
+{% if project.companion | default(none) %}
+  {% for other in projects if other.name == project.companion %}
+    {% set found.companion = other %}
+  {% endfor %}
+{% endif %}
+{{ project_card(project, found.companion) }}
 {% endfor %}
 
 </div>

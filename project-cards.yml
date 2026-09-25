@@ -2,8 +2,11 @@
 # List order determines section order (first-seen project_type) and card
 # order within a section. project_type is a grouping key, not a visible heading.
 # Omit icon for a text-only card.
+# Optional companion names another card by name. It is drawn as a second
+# section inside this card (without its icon) and is not shown on its own.
 
 - name: CloudScope
+  companion: CloudScope-Web
   description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **CloudScope-Web**
   icon: cloudscope-icon.png
   project_type: Current
@@ -23,14 +26,15 @@
     - type: live
       label: Web App
       url: https://mapmanager.github.io/cloudscope-web
-    - type: docs
-      label: Docs
-      url: https://mapmanager.github.io/cloudscope-web/docs/
     - type: github
       label: GitHub
       url: https://github.com/mapmanager/cloudscope-web
+    - type: docs
+      label: Docs
+      url: https://mapmanager.github.io/cloudscope-web/docs/
 
 - name: SanPy
+  companion: SanPy-Web
   description: Desktop software for whole-cell current clamp analysis.
   icon: sanpy-icon-v2.png
   # icon_background: light
@@ -61,19 +65,8 @@
       label: Web App
       url: https://mapmanager.github.io/sanpy-web
 
-- name: AcqView
-  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw imaging data including oir, czi, nd2, and tif files.
-  icon: acqview-ai-v2.png
-  project_type: Current
-  links:
-    - type: live
-      label: Web App
-      url: https://mapmanager.github.io/acqview/
-    - type: github
-      label: GitHub
-      url: https://github.com/mapmanager/acqview
-
 - name: MapManager
+  companion: MapManager - Igor
   description: Next generation longitudinal dendritic spine analysis with desktop, web, and Python backend.
   icon: mapmanager-icon.png
   project_type: Current
@@ -105,6 +98,18 @@
     - type: live
       label: Web App (Dash)
       url: https://dash.mapmanager.net/
+
+- name: AcqView
+  description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw imaging data including oir, czi, nd2, and tif files.
+  icon: acqview-ai-v2.png
+  project_type: Current
+  links:
+    - type: live
+      label: Web App
+      url: https://mapmanager.github.io/acqview/
+    - type: github
+      label: GitHub
+      url: https://github.com/mapmanager/acqview
 
 - name: Brightest Path Lib
   description: Path-finding algorithms to find the brightest path between points in an image.

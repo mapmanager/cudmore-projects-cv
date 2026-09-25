@@ -114,6 +114,14 @@
   clear: both;
 }
 
+/* Companion section stacks under the parent inside the same one-column card. */
+.md-typeset .project-card .card-section + .card-section {
+  clear: both;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
 @media screen and (max-width: 768px) {
   .md-typeset .project-grid {
     grid-template-columns: 1fr;
