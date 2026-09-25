@@ -45,6 +45,8 @@ laboratories and research programs.
   acquisition through quantitative analysis, interpretation, and publication.
 - Bring direct domain expertise in neuroscience, vascular biology, and cardiac
   physiology, grounded in decades of bench research.
+- Use that experimental background as a practical foundation for collaborating
+  with domain experts in scientific fields beyond Robert's direct expertise.
 - Connect microscopy and electrophysiology with the analysis methods and
   software required to produce reproducible quantitative results.
 - Collaborate across laboratories and disciplines by identifying shared
@@ -58,6 +60,9 @@ laboratories and research programs.
 - Use the CloudScope suite as evidence of a continuous workflow from raw image
   data through scalable analysis, human-in-the-loop curation, self-contained
   saved datasets, and interactive published figures.
+- Use SanPy as parallel evidence that the same continuous workflow has been
+  implemented for electrophysiology, including self-contained SanPy Zarr
+  datasets and interactive published figures presented by SanPy-Web.
 - Support the scientific-data lifecycle from acquisition through analysis,
   publication, repository sharing, and reuse.
 - Work directly with researchers to troubleshoot datasets and pipelines,
@@ -92,9 +97,10 @@ laboratories and research programs.
   meaningful weight.
 - Demonstrate software-engineering depth through concrete platforms and
   outcomes while keeping the opening accessible to scientific leaders.
-- Emphasize the scientific benefits of the CloudScope suite rather than its
-  implementation details: scalable analysis with human judgment,
-  reconstructable analyses, and interactive figures connected to raw data.
+- Emphasize the scientific benefits of CloudScope and SanPy rather than their
+  implementation details: analysis and curation in the laboratory,
+  self-contained saved datasets, and interactive published figures connected
+  to raw data and completed analyses.
 - Include concise evidence of grant leadership and funded project execution;
   leave grant numbers, dates, and the complete chronological record to the
   user-owned funding section.
@@ -129,7 +135,8 @@ laboratories and research programs.
 - Present selected software platforms as evidence of scientific contribution,
   reusable architecture, and sustained research support.
 - Include concise sections on team science and grant leadership.
-- Present CloudScope as the primary software-platform example.
+- Present CloudScope and SanPy as parallel examples of implemented workflows
+  connecting laboratory analysis with interactive publication.
 - Mention NiceWidgets and `mapmanager-web-components` only where they clarify
   CloudScope's modular architecture.
 - Omit AcqStore Server because it does not materially support this audience.

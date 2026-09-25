@@ -77,6 +77,11 @@ Core ideas
   quantitative measurements, and producing reproducible results.
 * Design software so it can be extended with domain experts to support new
   experimental systems and scientific questions.
+* Use experimental experience as a practical foundation for collaborating in
+  scientific domains beyond direct personal expertise.
+* Work with domain experts to understand the experiment, identify
+  scientifically valid measurements, and develop analysis software that
+  addresses their questions.
 
 Maybe add
 
@@ -118,6 +123,12 @@ Core ideas
 * Extend static publications into living scientific resources that can be interrogated, reproduced, and extended.
 * Analyze datasets much larger than system memory through scalable storage and lazy loading.
 * The analysis should travel with the data.
+* CloudScope and SanPy implement this strategy in imaging and
+  electrophysiology, respectively.
+* Their desktop applications support analysis and curation in the laboratory,
+  save raw data and completed analyses as self-contained datasets, and use
+  CloudScope-Web and SanPy-Web to present those datasets as interactive
+  published figures on the web.
 
 Collaborative software development
 
@@ -802,6 +813,9 @@ Software
 * Review detection errors, curate results, and reject individual events when
   appropriate.
 * Save completed analyses and export tabular reports and figures.
+* Save raw electrophysiology recordings, metadata, detection parameters, and
+  completed analysis results as self-contained SanPy Zarr datasets using the
+  `*.sanpy.zarr` naming convention.
 * Plugin architecture for visualization, reports, curation, and new analyses.
 * Documented Python API for scripts and computational notebooks.
 * Open source.
@@ -810,8 +824,12 @@ Software
   scripting workflows; the backend is not a separately named project.
 * Designed for real-time use during electrophysiology experiments.
 * Supports offline analysis using the same application and analysis methods.
-* Can accompany published analyzed datasets as a freely available desktop
-  application for inspecting and reproducing results.
+* SanPy-Web opens self-contained SanPy Zarr datasets as interactive published
+  figures on the web.
+* Published recordings and analysis results can be explored in a browser
+  without requiring the SanPy desktop application.
+* Keep published results connected to the raw recordings, metadata, detection
+  parameters, and completed analysis results that produced them.
 
 Technical highlights
 

@@ -56,10 +56,12 @@ That experience changed the way I think about scientific software. I
 increasingly came to view analytical methods as general scientific tools
 rather than techniques tied to a particular biological discipline. My direct
 experimental work has centered on microscopy and electrophysiology, but I
-design software that can be extended with domain experts to support new
-experimental systems and scientific questions. This perspective continues to
-shape the scientific problems that interest me and the way I approach
-quantitative biological research.
+use that experience as a practical foundation for collaborating in scientific
+domains beyond my own direct expertise. I work with domain experts to
+understand the experiment, identify scientifically valid measurements, and
+develop analysis software that addresses their questions. This perspective
+continues to shape the scientific problems that interest me and the way I
+approach quantitative biological research.
 
 # Research Software Engineering
 
@@ -105,6 +107,15 @@ separate task created at the end of a project. Because graphical and scripting
 workflows use the same computational implementation at every stage, the
 analysis can travel with the data without being translated into a separate
 publication-only system.
+
+CloudScope and SanPy implement this strategy in imaging and electrophysiology.
+Their desktop applications support analysis and curation in the laboratory and
+save raw data and completed analyses as self-contained datasets. CloudScope,
+through AcqStore, saves OME-Zarr datasets that CloudScope-Web presents as
+interactive published figures. SanPy saves self-contained SanPy Zarr datasets
+that SanPy-Web presents as interactive published figures. In both domains, the
+published figure remains connected to the raw data, analysis methods and
+parameters, and completed results that produced it.
 
 This architecture naturally supports multiple interfaces. I have developed desktop scientific applications using PyQt and more recently have adopted NiceGUI to build applications that share a single Python codebase across macOS, Windows, and the web. I am also developing serverless scientific applications using WebAssembly and Pyodide, allowing Python analysis code to execute directly within a web browser without requiring software installation or dedicated server infrastructure.
 
@@ -417,9 +428,13 @@ new research needs to be incorporated without creating a separate analysis
 system.
 
 SanPy is designed for use during electrophysiology experiments and for offline
-analysis. Because it is a freely available desktop application, it can also
-accompany published analyzed datasets so researchers can inspect measurements
-and reproduce the analysis.
+analysis. It saves raw electrophysiology recordings, metadata, detection
+parameters, and completed analysis results as self-contained SanPy Zarr
+datasets using the `*.sanpy.zarr` naming convention. SanPy-Web opens these
+datasets as interactive published figures on the web, allowing recordings and
+analysis results to be explored in a browser without requiring the SanPy
+desktop application. This keeps published results connected to the raw
+recordings, detection parameters, and analysis results that produced them.
 
 MapManager
 

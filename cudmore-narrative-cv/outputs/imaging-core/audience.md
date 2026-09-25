@@ -121,9 +121,12 @@ interactive publication.
   figures.
 - AcqStore can export OME-Zarr and NWB datasets for sharing through public
   repositories selected according to scientific domain and data type.
-- SanPy as evidence that the same backend/frontend pattern can support
-  real-time and offline electrophysiology analysis and published analyzed
-  datasets without requiring a separately named backend project.
+- SanPy as evidence that the same continuous workflow supports electrophysiology
+  analysis during experiments, offline analysis and curation, and interactive
+  publication.
+- SanPy saves raw recordings, metadata, detection parameters, and completed
+  results as self-contained SanPy Zarr datasets, and SanPy-Web opens those
+  datasets as interactive published figures on the web.
 
 ### Writing emphasis
 

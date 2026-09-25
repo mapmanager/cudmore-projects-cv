@@ -32,6 +32,11 @@ SanPy
 github: https://github.com/cudmore/SanPy
 docs: https://cudmore.github.io/SanPy
 
+SanPy-Web
+github: https://github.com/mapmanager/sanpy-web
+docs: https://mapmanager.github.io/sanpy-web/docs/
+web app: https://mapmanager.github.io/sanpy-web
+
 MapManager
 github: https://github.com/mapmanager/WebMapManager
 Docs: https://mapmanager.github.io/

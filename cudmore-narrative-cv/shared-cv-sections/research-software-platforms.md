@@ -18,7 +18,7 @@ Electrophysiology analysis frequently depends on manual measurements or laborato
 
 The SanPy desktop application allows researchers to open individual recordings or folders and apply detection presets for fast neurons, slow neurons, cardiac myocytes, or subthreshold events. Detected events and their measurements are overlaid on the raw recording, allowing researchers to evaluate the analysis in the context of the original signal and identify results that require curation. Linked graphical views and detection-error summaries support review and curation of individual events. Researchers can save completed analyses, export tabular results, and generate figures from the same workflow.
 
-SanPy's documented Python API gives scripts and computational notebooks access to the same detection and analysis methods used by the desktop application. Extensible file loaders, measurements, and graphical plugins allow new research needs to be incorporated without creating a separate analysis system. SanPy supports analysis during electrophysiology experiments, offline analysis, and inspection of published analyzed datasets.
+SanPy's documented Python API gives scripts and computational notebooks access to the same detection and analysis methods used by the desktop application. Extensible file loaders, measurements, and graphical plugins allow new research needs to be incorporated without creating a separate analysis system. SanPy supports analysis during electrophysiology experiments and offline analysis, then saves raw recordings, metadata, detection parameters, and completed results as self-contained SanPy Zarr datasets. [SanPy-Web](https://mapmanager.github.io/sanpy-web) opens these datasets as interactive published figures on the web, keeping published results connected to the recordings and analyses that produced them.
 
 ### MapManager
 
@@ -45,12 +45,8 @@ reproducible software ecosystem. The modern MapManager is under active
 development and reduces dependence on proprietary software while making its
 longitudinal-analysis methods easier to reuse, extend, and share.
 
-MapManagerCore provides the shared Python API for the modern ecosystem.
-PyMapManager is the desktop application and also makes the analysis available
-through Python scripts and computational notebooks. WebMapManager is the
-browser application for visualizing, annotating, and analyzing time-series
-annotations and three-dimensional image volumes. A working WebMapManager
-application is publicly available. Together, these components are designed to
+[MapManagerCore](https://github.com/mapmanager/MapManagerCore) provides the shared Python API, extensible analysis, and scripting for the modern ecosystem. [PyMapManager](https://github.com/mapmanager/PyMapManager) is the desktop application for macOS and Windows while [WebMapManager](https://github.com/mapmanager/WebMapManager) is the stand alone browser-based application (no server required). Both these front-end GUIs provide intuitive tools for visualizing, annotating, and analyzing time-series annotations and three-dimensional image volumes. A live [WebMapManager
+web-application](https://mapmanager.github.io/WebMapManager/) is publicly available Together, these components are designed to
 provide consistent scientific methods through desktop, browser, scripting, and
 notebook workflows.
 

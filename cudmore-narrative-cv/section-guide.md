@@ -49,6 +49,12 @@ Focus
   producing reproducible results, and receiving practical support.
 - Explain that software can be extended with domain experts to support new
   experimental systems.
+- State directly that experimental experience provides a practical foundation
+  for collaborating in scientific domains beyond Robert's own direct
+  expertise.
+- Explain that domain experts contribute the subject-matter knowledge needed
+  to identify scientifically valid measurements and ensure the analysis
+  software addresses the scientific question.
 - Do not claim direct experimental experience in organ systems where the
   experience came through interaction with other laboratories.
 - Do not discuss individual software projects.
@@ -84,6 +90,10 @@ Focus
   scripting interfaces remain available across all three stages.
 - Publication and data sharing designed into the architecture rather than
   added at the end of a project.
+- Use CloudScope and SanPy as concrete evidence that this workflow has been
+  implemented in imaging and electrophysiology.
+- Explain that CloudScope-Web and SanPy-Web present saved, self-contained
+  datasets as interactive published figures on the web.
 - Present commercial instrument and image-analysis software as a valuable part
   of imaging-core workflows.
 - State that Robert's open-source software complements rather than replaces
@@ -266,8 +276,13 @@ Focus
   use the same detection and analysis implementation.
 - Describe extensibility through file loaders, analysis measurements, and
   graphical plugins.
-- Connect use during experiments and offline analysis with inspection of
-  published analyzed datasets.
+- Connect use during experiments and offline analysis with saving raw
+  recordings, metadata, detection parameters, and completed results as
+  self-contained SanPy Zarr datasets.
+- Present SanPy-Web as the web application that opens SanPy Zarr datasets as
+  interactive published figures without requiring the desktop application.
+- Explain that SanPy-Web keeps published electrophysiology results connected
+  to the raw recordings and completed analyses that produced them.
 - Present PiE as a modular and scalable platform for reproducible home-cage
   behavioral experiments.
 - Explain that detailed build instructions and commercially available
