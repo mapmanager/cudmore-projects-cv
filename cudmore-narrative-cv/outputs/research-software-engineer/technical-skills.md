@@ -6,9 +6,9 @@
 
 **Scientific data and interoperability:** HDF5, Zarr, OME-Zarr/NGFF, NWB export through AcqStore, SanPy Zarr, JSON Schema, JSON, CSV, Parquet, s3fs, lazy and chunked array access, and multiscale image pyramids. Published formats and schemas document saved data for reuse; lazy access supports workflows beyond available memory.
 
-**Desktop interfaces and scientific visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, and Matplotlib. Graphical interfaces support interactive inspection and curation while sharing analysis methods with scripting workflows.
+**Desktop interfaces and scientific visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, and Matplotlib. Model-view-controller and event-driven design keep computation in Python backends. Views emit intent, controllers change models within the GUI, and state events update subscribed views.
 
-**Web applications and client interfaces:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, WebAssembly, and Pyodide. Reusable components support multiple scientific applications; browser execution makes Python-based tools accessible without a local installation.
+**Web applications and client interfaces:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, WebAssembly, and Pyodide. AcqView runs community Python microscopy readers in a static browser application, making image inspection and TIFF export accessible without a local Python installation.
 
 **Services and API contracts:** FastAPI, uvicorn, Pydantic, RESTful HTTP/JSON APIs, OpenAPI, httpx, and HTML/JavaScript thin clients. AcqStore Server exposes scientific data through a documented local API so clients can reuse backend functionality without embedding it.
 

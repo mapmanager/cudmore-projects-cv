@@ -6,6 +6,12 @@ inventory into every CV.
 
 ## Programming and Scripting
 
+Robert holds a bachelor's degree in computer science and later undertook
+graduate work in computer science without completing a master's degree.
+Full-time scientific software development included C++ backends, statistical
+analysis, and cross-platform GUIs. Algorithm design and planning precede
+implementation; experience across languages informs reusable software design.
+
 - **Python**: primary language for current research software, scientific
   analysis, desktop and web applications, APIs, testing, and documentation.
 - **C/C++**: more than ten years of experience. Used extensively in the first
@@ -44,6 +50,11 @@ visualization and interaction. mapmanager-web-components packages reusable web
 components used by CloudScope-Web, SanPy-Web, the PyQt SanPy application, and
 the NiceGUI CloudScope application. Its image viewer, nicepool, and signal
 viewer each have a live static single-page application demo.
+
+Desktop GUI design uses model-view-controller architecture and events. Views
+emit intent; controllers own model mutations within the GUI and publish state
+events for subscribing views. Thin PyQt and NiceGUI interfaces keep scientific
+computation in independently usable Python backends.
 
 ## Scientific Data and Formats
 
@@ -96,6 +107,12 @@ electrophysiology. Do not infer SanPy NWB export from AcqStore's capabilities.
 - HTML and JavaScript thin clients
 
 MapManager uses WebAssembly and Pyodide to run Python analysis in the browser.
+AcqView uses WebAssembly and Pyodide to run community-developed microscopy
+readers in a static TypeScript/JavaScript/Vue application. It provides local
+file opening, metadata inspection, image display, and TIFF export without a
+dedicated application backend server. LLM-assisted development helped Robert
+extend his work into JavaScript and TypeScript; do not infer an unsupported
+level of independent language fluency.
 mapmanager-web-components uses Node.js, TypeScript, JavaScript, Vue, and Vite
 to provide reusable interface components for CloudScope-Web, SanPy-Web,
 CloudScope, and SanPy.
@@ -115,6 +132,15 @@ AcqStore Python backend in each client.
 - Documented Python APIs
 - Google-style docstrings
 - End-user and developer documentation
+- Codecov and GitHub workflows for measured test coverage.
+
+LLMs support daily planning, architecture, specification-driven implementation,
+and unit-test writing. Robert retains responsibility for scientific assumptions
+and technical decisions. This is an engineering practice, not a claim of AI
+model development or training expertise. Describe how these tools are used,
+without code-authorship or generic coverage percentages. The original
+development of older projects predates Robert's AI-assisted workflow; later
+maintenance, particularly of SanPy, uses LLMs.
 
 ## Deployment and Infrastructure
 

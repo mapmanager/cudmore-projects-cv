@@ -103,6 +103,18 @@ Research Software Engineering
 
 Core ideas
 
+* Completed a bachelor's in computer science, studying from 1988 to 1992.
+* Subsequently worked full time as a scientific software developer, building
+  C++ backends, statistical analysis, and cross-platform graphical interfaces.
+* Later undertook graduate work in computer science toward a master's degree
+  but did not complete the degree. Use "graduate work in computer science."
+* Working out algorithms with paper and pencil is an ingrained practice.
+  Planning and design precede implementation.
+* These facts provide narrative context for the computer science foundation.
+  Do not infer institutions or additional dates, or modify the user-owned
+  Employment or Education sections.
+* Comfortable applying programming concepts across C, C++, Python, and Igor
+  Pro. Language choice serves the scientific and architectural requirements.
 * Collaborative software development with experimental scientists.
 * Understand scientific questions before proposing software solutions.
 * Understand experimental workflows and analysis practices.
@@ -183,6 +195,10 @@ Reusable computational backends
 
 * Build backend Python packages that expose documented public APIs.
 * Use reusable data models and modular architecture.
+* Design software modularly from the start, with backend computation available
+  to scripts and notebooks before or independently of graphical interfaces.
+* CloudScope and SanPy graphical applications are thin wrappers around Python
+  backends. Keep computation separate from GUI code.
 * Graphical interfaces should use the same backend API as scripting workflows.
 * Users should be able to reproduce GUI analyses with scripts.
 * Backend APIs allow technical scientists to automate analyses and incorporate them into larger workflows.
@@ -197,6 +213,18 @@ Multiple interfaces
 * NiceGUI for one Python codebase that can run on Windows, macOS, and the web.
 * WebAssembly and Pyodide for serverless web applications.
 * Serverless applications reduce the operational cost and maintenance associated with hosting backend services.
+
+Modular graphical architecture
+
+* Extensive desktop application experience with PyQt and NiceGUI.
+* Use model-view-controller architecture and an event-driven runtime.
+* Views emit intent events representing user actions to the controller.
+* Within the GUI, the controller is the only component allowed to mutate
+  backend models. This does not prohibit direct backend API use from scripts.
+* After accepting an action and changing the model, the controller emits a
+  state event. Subscribing views then update from the resulting state.
+* This separation controls where state changes occur and allows multiple
+  graphical components to remain coordinated as an application grows.
 
 Scalable scientific data
 
@@ -296,6 +324,30 @@ AI-assisted software development
 * The distinctive value is the combination of computer science training,
   biological domain expertise, and experience mentoring computer science
   students in research settings.
+* LLMs are part of daily engineering work, treated as junior engineering
+  contributors who need clear specifications and technical direction.
+* Planning and architecture discussions often occupy more time than code
+  generation. Generate implementation from detailed specifications.
+* LLMs have helped Robert develop meaningful JavaScript and TypeScript
+  applications. Do not equate assisted delivery with an unsupported claim of
+  independent expert fluency in those languages.
+* Use LLMs to help write unit tests as well as implementation code.
+* Robert does not identify as an AI engineer. Do not imply model training,
+  AI research, or ML engineering expertise from this development workflow.
+
+AI use: project history and agreed editorial emphasis
+
+* PiE, Brightest Path, SanPy, and MapManager were originally developed without
+  AI assistance. Later maintenance, particularly of SanPy, uses LLMs.
+* Use AcqView as an example of LLM-assisted planning, implementation, and
+  testing under Robert's architectural direction and detailed specifications.
+* Emphasize how LLMs are used, rather than how much code they generate.
+* Do not retain or publish per-project AI code-generation estimates or a
+  claim that AcqView is fully LLM-generated. Robert has withdrawn these
+  details from the editorial source material as unhelpful to the narrative.
+* Retain unit-test development and measured coverage as engineering practices,
+  without generic coverage percentages or claims of scientific correctness
+  based on coverage. Tools include Codecov and GitHub workflows.
 
 Representative technologies
 
@@ -454,6 +506,50 @@ Maybe add
 ⸻
 
 Scientific Software Platforms
+
+AcqView
+
+Problem
+
+* Researchers need to inspect proprietary microscopy files without having to
+  write Python scripts or assemble a Python environment.
+* Access can depend on commercial software and difficult or incompletely
+  documented binary formats. Avoid blanket claims that all formats are
+  undocumented or that no other nonprogrammer tools exist.
+* Community developers, not Robert, wrote the Python file-reader packages
+  used by AcqView, sometimes with assistance from microscope manufacturers.
+
+Software and architecture
+
+* Static single-page application using TypeScript, JavaScript, and Vue.
+* WebAssembly and Pyodide run community Python readers in the browser.
+* Researchers open local microscopy files, inspect metadata, view images,
+  and export images as TIFF without writing code.
+* Files are opened on the user's device rather than uploaded to a server.
+* Supported formats include CZI, ND2, OIR, and TIFF, with reader-specific
+  limitations. Do not claim support for every vendor file variant.
+* Uses the image-viewer component from mapmanager-web-components.
+* Demonstrates reuse of Python scientific software in a browser interface
+  and static deployment without a dedicated application backend server.
+* LLMs support planning, implementation, and testing under Robert's
+  architectural direction and detailed specifications. Describe this process
+  without quantifying code authorship.
+
+Scientific benefit
+
+* Makes community file readers accessible to researchers without programming
+  experience and supports inspection and conversion of experimental images.
+* Credit Robert for integration, architecture, and accessible delivery while
+  preserving the upstream developers' credit for file-format readers.
+
+Documentation and source
+
+* GitHub and README: https://github.com/mapmanager/acqview
+* Live static application: https://mapmanager.github.io/acqview/
+* No dedicated documentation site currently exists.
+* Repository and live interface support local file opening; the live interface
+  labels TIFF export as exporting all primary-image pixels. No file conversion
+  was exercised during the CV source review.
 
 CloudScope
 

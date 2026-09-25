@@ -3,6 +3,11 @@ public, including AcqStore Server. Branch-specific documentation may be ahead
 of default branches. These links support the canonical facts; they are not a
 requirement for accepting Robert's direct factual updates.
 
+AcqView
+github and README: https://github.com/mapmanager/acqview
+live static SPA: https://mapmanager.github.io/acqview/
+dedicated documentation site: none currently
+
 CloudScope
 github: https://github.com/mapmanager/cloudscope-app
 docs: https://mapmanager.github.io/cloudscope-app/

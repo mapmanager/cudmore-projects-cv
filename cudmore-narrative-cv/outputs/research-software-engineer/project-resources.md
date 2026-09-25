@@ -2,6 +2,7 @@
 
 | Project | Engineering contribution | Source | Documentation | Live application or demo |
 |---|---|---|---|---|
+| AcqView | Browser-based Python microscopy readers and a reusable image viewer | [GitHub and README](https://github.com/mapmanager/acqview) | | [Application](https://mapmanager.github.io/acqview/) |
 | CloudScope | Imaging analysis and curation using a shared Python backend | [GitHub](https://github.com/mapmanager/cloudscope-app) | [Documentation](https://mapmanager.github.io/cloudscope-app/) | [Application](https://cloudscope.mapmanager.net) |
 | AcqStore | Public Python API, extensible analysis, and scientific data contracts | [GitHub](https://github.com/mapmanager/acqstore) | [Documentation](https://mapmanager.github.io/acqstore/) · [Collection specification](https://mapmanager.github.io/acqstore/ome-zarr-export-format/) · [JSON Schema](https://mapmanager.github.io/acqstore/schemas/acqstore-ome-zarr-collection-v1.schema.json) | |
 | CloudScope-Web | Interactive published figures from saved imaging datasets | [GitHub](https://github.com/mapmanager/cloudscope-web) | [Documentation](https://mapmanager.github.io/cloudscope-web/docs/) | [Application](https://mapmanager.github.io/cloudscope-web) |

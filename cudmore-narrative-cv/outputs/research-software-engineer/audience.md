@@ -97,6 +97,13 @@ should connect its scientific problem, engineering contribution, and benefit.
 Keep the Technical Skills baseline broad but organize it by engineering
 responsibility, with concise context and explicit prototype status where needed.
 
+CV length is governed by substance and readability, not a fixed target or the
+length of the first draft. Explain important engineering choices and support
+them with portfolio evidence. Use short, purposeful technical lists with
+narrative explanations of their scientific or organizational value. Avoid
+repetition and exhaustive technology inventories. Cover-letter length remains
+a separate constraint.
+
 ## Assembly plan
 
 `cv.md` contains only the tailored narrative. The following selections are
@@ -132,3 +139,50 @@ software needs. Do not assume a vacancy, funding, or an institutional deficit.
 - `research-software-platforms.md`
 - `technical-skills.md`
 - `project-resources.md`
+
+## Targeted revision plan and status
+
+Robert has supplied further evidence on AcqView, his computer science
+background, modular GUI architecture, and daily LLM-assisted development.
+The canonical sources record these facts. Robert authorized a substantial
+rewrite of `cv.md` following a review of those sources and the supporting RSE
+files. That rewrite is complete and ready for review. The cover letter and
+platform descriptions remain deferred; their proposed changes below require
+a separate request to implement.
+
+- Strengthen the opening with the computer science foundation while retaining
+  the experimental-scientist identity. Connect algorithm design and planning
+  with earlier C++ scientific backends, statistical analysis, and cross-platform
+  GUIs. Retain "graduate work in computer science" where relevant; never imply
+  a completed master's degree. Do not alter user-owned Education or Employment.
+- Make architecture concrete: backend computation is modular from the start;
+  scripts and notebooks use it independently; GUIs are thin interfaces.
+- Add a concise account of model-view-controller and event-driven design:
+  views emit intent, controllers own model mutations within the GUI, and
+  resulting state events update subscribed views. Explain the benefit for
+  coordinated interfaces as applications grow.
+- Add a short AcqView entry near the browser and interface evidence. Lead with
+  accessibility of microscopy readers, then explain Python in the browser via
+  WebAssembly/Pyodide and reuse of the shared image viewer. Credit the community
+  reader authors. Keep the main platforms more prominent than this small tool.
+- Add a short account of LLM-assisted engineering under Engineering Quality
+  and Software Delivery. Emphasize planning, specifications, implementation
+  direction, and unit tests. AcqView is an agreed concrete example of the
+  process. Describe files as opened locally rather than uploaded.
+- Agreed public emphasis: responsibility, design judgment, and how LLMs are
+  used. Omit AI-generated-code and generic coverage percentages. Do not
+  describe AcqView as fully LLM-generated or retain project authorship estimates
+  in supporting sources.
+- Keep the cover letter focused. At most one brief sentence on directed LLM
+  use is recommended; project percentages and controller mechanics belong
+  outside the letter.
+
+The two factual and editorial questions are resolved. PiE, Brightest Path,
+SanPy, and MapManager were originally developed without AI; subsequent
+maintenance, particularly of SanPy, uses LLMs. Robert agrees with a concise
+account of LLM-assisted planning, implementation, and testing without
+percentages. The revised CV now incorporates the computer science foundation,
+modular architecture, AcqView, and the agreed account of LLM use. It preserves
+the six-section narrative structure and uses project evidence to explain
+engineering choices. The cover letter and platform descriptions remain
+unchanged. No new scientific measurement-validation example is requested.

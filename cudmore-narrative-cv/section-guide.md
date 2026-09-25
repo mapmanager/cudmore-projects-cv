@@ -75,8 +75,21 @@ Focus
   requirements, and software design.
 - Do not imply that one person supplies every form of domain expertise.
 - Python.
+- Robert's computer science foundation: bachelor's degree, full-time
+  scientific software development, and later graduate work in computer
+  science. Do not imply a completed master's degree or modify user-owned
+  Education or Employment sections.
+- Algorithm design, including paper-and-pencil work, and architectural
+  planning before implementation. Connect the earlier C++ backends,
+  statistical analysis, and cross-platform GUIs with current modular design.
 - Scientific software architecture.
 - APIs and data models.
+- Modularity from the start: independently usable Python backends for scripts
+  and notebooks, with thin graphical interfaces.
+- PyQt and NiceGUI model-view-controller architecture. Views emit intent
+  events, controllers alone mutate models within the GUI, and state events
+  update subscribed views. Connect this discipline to coordinated interfaces
+  and maintainability as applications grow.
 - Testing and continuous integration.
 - Scientific visualization.
 - Plugin architectures.
@@ -115,6 +128,16 @@ Focus
 - Explain that scientific questions, measurement constraints, analysis
   requirements, architecture, and validation remain human responsibilities.
 - Do not present generic AI use or "prompt engineer" as the differentiator.
+- Describe daily LLM use for planning, architectural discussion, detailed
+  specifications, implementation, and unit tests. Robert supplies direction
+  and remains responsible for technical and scientific decisions.
+- Emphasize how LLMs support planning, implementation, and testing, with
+  AcqView as a concrete example. Do not retain code-generation estimates or
+  disclose AcqView as fully LLM-generated. Omit generic coverage percentages.
+- Older projects were originally developed without AI; later maintenance,
+  particularly of SanPy, uses LLMs. Do not imply a project has never used AI.
+- Do not infer scientific validity from coverage or independent expert
+  fluency in JavaScript/TypeScript from assisted development.
 - Do not discuss research infrastructure or software philosophy.
 
 ## Research Infrastructure
@@ -224,6 +247,16 @@ Primary question
 
 Focus
 
+- AcqView makes community-developed microscopy readers accessible to
+  researchers through a static TypeScript/JavaScript/Vue application using
+  WebAssembly and Pyodide. Explain local file opening, metadata inspection,
+  image display, and TIFF export. Credit the upstream Python reader authors.
+- Use AcqView as a concrete example of browser-based Python execution and
+  reuse of mapmanager-web-components. It has a GitHub README and live SPA,
+  but no dedicated documentation site. Avoid blanket format-support claims.
+- Do not characterize local file selection as a server upload or claim that
+  no other nonprogrammer tools exist. Detailed reader limitations belong in
+  project documentation.
 - Present CloudScope as an integrated suite comprising CloudScope, AcqStore,
   and CloudScope-Web.
 - CloudScope is the macOS, Windows, and server-backed web application for

@@ -65,6 +65,19 @@ approach quantitative biological research.
 
 # Research Software Engineering
 
+My foundation is in computer science, beginning with a bachelor's degree and
+followed by full-time scientific software development and later graduate work
+in computer science. As a scientific software developer, I implemented C++
+backends, statistical analysis, and cross-platform graphical interfaces. This
+experience informs how I connect computation and user interfaces in research
+software.
+
+Working out algorithms with paper and pencil remains part of how I think.
+Planning and architectural design come before implementation. My experience
+across C, C++, Python, and Igor Pro allows me to apply programming concepts
+across languages and choose implementations according to the scientific and
+architectural needs.
+
 My approach to research software engineering begins with collaboration. I work closely with experimental scientists to understand the biological questions they are asking, the experimental workflows they use, and the challenges they encounter when collecting and analyzing data. Software development is an iterative process that benefits from continual feedback from the people who use it, including undergraduate researchers, technicians, graduate students, postdoctoral fellows, and faculty. The goal is not simply to deliver software, but to develop tools that become a natural part of the scientific workflow.
 
 I thrive in multidisciplinary teams where each member contributes distinct
@@ -88,6 +101,17 @@ data are loaded, how measurements are calculated, how algorithms work, how
 analyses can be extended, and how results can be interpreted and reproduced.
 
 Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
+
+Modularity is part of my design from the start. Computational backends support
+scripts and notebooks independently of the graphical applications built on
+them. CloudScope and SanPy use thin graphical interfaces around Python
+backends, keeping scientific computation separate from presentation.
+
+My PyQt and NiceGUI applications use model-view-controller architecture with
+an event-driven runtime. Views send user intent to a controller. Within the
+GUI, the controller alone changes backend models and then emits state events
+that subscribing views use to update. This gives state changes a defined path
+and keeps multiple graphical components coordinated as applications grow.
 
 Scientific software should support the entire experimental workflow, not only
 offline analysis after data collection has finished. I design each analysis
@@ -124,6 +148,12 @@ Modern biological datasets continue to grow in both size and complexity. Rather 
 I believe the analysis should travel with the data. Today, scientific software is often used during data acquisition and analysis but is absent from the published scientific record. I believe the same software used by researchers in the laboratory should also accompany published datasets. Rather than downloading static figures or processed measurements, readers should be able to explore the original data, repeat published analyses, perform new analyses, and develop computational models using the same software that produced the published results. This extends the scientific value of a dataset beyond the original publication while making analyses more transparent, reproducible, and useful to future researchers.
 
 Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Google-style API documentation, and automated desktop application builds for macOS and Windows. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
+
+I use language models daily as engineering tools, directing them as I would
+junior contributors who need clear requirements and architectural guidance.
+Planning and design discussions often take more of my time than code
+generation. LLMs have also helped me extend my work into JavaScript and
+TypeScript applications and write unit tests alongside implementation code.
 
 I use language models within the same specification-first development process
 that has guided my software engineering throughout my career. I begin by
@@ -265,6 +295,24 @@ and
 The software platforms I have built address different scientific problems, but they reflect a common development strategy. I build reusable computational backends with documented APIs, then expose those methods through graphical applications, scripting interfaces, and, where appropriate, web-based tools. This allows the same analysis to support interactive use in the laboratory, automated workflows for technical users, and future reuse with published datasets.
 
 Across these projects, I have focused on software that remains connected to experimental workflows. The goal is not only to analyze data after an experiment is complete. The same software should be able to support data inspection, visualization, and quantitative analysis while experiments are being performed, then continue to support offline analysis, scripting, publication, and future reuse. This approach allows analysis methods to travel with the data rather than ending as a static figure or a one-time processing script.
+
+AcqView
+
+AcqView makes community-developed Python microscopy readers accessible through
+a browser. Researchers open supported proprietary microscopy files locally,
+inspect metadata, view images, and export images as TIFF without writing
+Python code or configuring a Python environment. The reader packages were
+developed by the Python community; my contribution is the application
+architecture and integration that make those capabilities accessible.
+
+The static TypeScript, JavaScript, and Vue application uses WebAssembly and
+Pyodide to run Python readers in the browser. It also reuses the image-viewer
+component from mapmanager-web-components. Files remain on the user's device,
+and the application requires no dedicated backend server. AcqView demonstrates
+how existing scientific Python tools can support a browser-based workflow for
+researchers without programming experience. I use LLMs in its planning,
+implementation, and testing, guided by architectural decisions and detailed
+specifications.
 
 CloudScope
 

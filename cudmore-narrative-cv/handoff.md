@@ -39,6 +39,24 @@ is unavailable or ambiguous.
 - The core sources now record Robert's updates on public repositories,
   mapmanager-web-components integrations, AcqStore schemas, and SanPy Zarr.
 - Existing shared sections and the two earlier audience packages are unchanged.
+- Subsequent steering on AcqView, computer science background, modular GUI
+  design, and daily LLM use is recorded in the core sources. RSE audience
+  planning, skills, and resources reflect the permitted updates.
+- Following the source review and discussion, Robert authorized a substantial
+  rewrite of the RSE `cv.md`. The rewritten narrative is ready for review and
+  pairs engineering strategies with factual portfolio evidence.
+- The RSE `cover-letter.md` and `research-software-platforms.md` remain
+  unchanged and deferred. Shared sections and user-owned sections remain
+  unchanged.
+- Robert clarified his bachelor's degree in computer science, subsequent
+  scientific software development, and later graduate work without a completed
+  master's degree. These facts are in the narrative sources; user-owned factual
+  CV sections remain unchanged.
+- The AI emphasis is agreed: planning, specifications, implementation, and
+  testing. Code-generation estimates and generic coverage figures have been
+  removed from the supporting sources. Do not disclose AcqView as fully
+  LLM-generated. Older projects began without AI; later SanPy maintenance uses
+  LLMs.
 
 ## Professional Positioning
 
@@ -126,8 +144,14 @@ the next task changes.
 
 ## Next Task
 
-Review the first drafts in `outputs/research-software-engineer/` with Robert
-for voice, length, and the balance between hands-on engineering and technical
-leadership. Preserve the agreed assembly boundaries and the existing audience
-packages. Further edits should follow Robert's review; document conversion and
-full-CV assembly are separate work.
+Review the rewritten RSE `cv.md` with Robert. It retains the six-section
+structure and incorporates the computer science foundation, modular Python
+backends, controller-managed GUI state, component reuse, data interoperability,
+algorithm design, testing and delivery, AcqView, and directed LLM use. CV length
+is governed by substantive explanation and readability rather than a fixed
+limit. Cover-letter length is a separate constraint.
+
+After the CV review, the recommended sequence is to revise the platform
+descriptions and then the cover letter when Robert requests those changes.
+Preserve shared defaults, previous audience packages, and user-owned sections.
+Document conversion and full-CV assembly remain separate.
