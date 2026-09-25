@@ -41,7 +41,9 @@ inventory into every CV.
 NiceGUI supports a shared Python user-interface codebase for desktop and web
 applications. NiceWidgets packages reusable NiceGUI components for scientific
 visualization and interaction. mapmanager-web-components packages reusable web
-components used by CloudScope-Web, with migration into CloudScope underway.
+components used by CloudScope-Web, SanPy-Web, the PyQt SanPy application, and
+the NiceGUI CloudScope application. Its image viewer, nicepool, and signal
+viewer each have a live static single-page application demo.
 
 ## Scientific Data and Formats
 
@@ -49,6 +51,13 @@ components used by CloudScope-Web, with migration into CloudScope underway.
 - Zarr
 - OME-Zarr
 - NGFF
+- Neurodata Without Borders (NWB): implemented AcqStore export.
+- SanPy Zarr: self-contained electrophysiology collections with published
+  format and schema documentation on `codex/sanpy-zarr`.
+- JSON Schema: AcqStore OME-Zarr Collection v1's published machine-readable
+  schema uses Draft 2020-12; the specification is an initial normative draft.
+- JSON, CSV, and Parquet: metadata, definitions, and tabular results in SanPy
+  Zarr exports.
 - TIFF
 - CZI
 - ND2
@@ -63,8 +72,10 @@ components used by CloudScope-Web, with migration into CloudScope underway.
 - Multiscale image pyramids
 - Metadata and physical-unit preservation
 
-AcqStore uses these technologies to support scalable image access, metadata,
-analysis, and sharing workflows.
+AcqStore uses imaging formats, scalable storage, and published data contracts
+to support image access, metadata, analysis, and sharing. SanPy Zarr preserves
+recordings, parameter and result definitions, and completed analyses for
+electrophysiology. Do not infer SanPy NWB export from AcqStore's capabilities.
 
 ## Web Applications and APIs
 
@@ -86,7 +97,8 @@ analysis, and sharing workflows.
 
 MapManager uses WebAssembly and Pyodide to run Python analysis in the browser.
 mapmanager-web-components uses Node.js, TypeScript, JavaScript, Vue, and Vite
-to provide reusable interface components for CloudScope-Web and CloudScope.
+to provide reusable interface components for CloudScope-Web, SanPy-Web,
+CloudScope, and SanPy.
 AcqStore Server uses FastAPI and uvicorn to expose AcqStore image data and
 metadata through a versioned local HTTP API. Its OpenAPI contract supports
 lightweight browser, JavaScript, and Python clients without embedding the
@@ -138,6 +150,12 @@ The Technical Skills section generated for a CV should begin as a broad,
 complete representation of Robert's documented skills. It is not restricted
 to the active target audience. Robert will manually shorten or tailor it after
 generation.
+
+Audience-specific variants may reorganize this baseline and add concise
+project or scientific context while retaining its breadth and exclusions.
+Describe Robert's reusable interface libraries in the platform section rather
+than listing them as external toolkits. SanPy Zarr belongs in data architecture
+as a documented format. Identify PyTorch work as prototypes.
 
 Keep the following evidence in this inventory, but omit it from the generated
 CV baseline because it is too granular:

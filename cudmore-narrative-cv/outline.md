@@ -16,6 +16,15 @@ Document ownership note
 * Factual CV sections are user-owned and should not be drafted by ChatGPT unless explicitly requested.
 * User-owned factual sections include Employment, Education, Awards, Publications, Contact, and Funding & Professional Service.
 
+Current project status supplied by Robert
+
+* All project repositories are currently public, including AcqStore Server.
+* Current work may be on branches ahead of the default branch. SanPy Zarr
+  documentation is on `codex/sanpy-zarr`.
+* Direct factual updates from Robert can be incorporated here without requiring
+  matching public documentation. Ask about material contradictions rather than
+  assuming an older repository view supersedes his update.
+
 ⸻
 
 Mission
@@ -562,8 +571,8 @@ CloudScope-Web
 * It is a viewer, not an analysis application.
 * CloudScope-Web uses reusable graphical components from
   `mapmanager-web-components`.
-* CloudScope is being migrated to use the same components, providing a shared
-  interface layer across the analysis application and publication viewer.
+* CloudScope also uses these components in its NiceGUI application, providing
+  shared interface components across analysis and publication.
 * CloudScope-Web provides the read-only subset needed to visualize and inspect
   saved results.
 * Researchers perform and curate analyses in CloudScope using AcqStore, then
@@ -650,6 +659,24 @@ Software
 * Implements scalable and web-oriented data standards, including OME-Zarr and
   NGFF, to support data access and sharing workflows.
 
+Public APIs and data schemas
+
+* AcqStore is a general-purpose Python backend independent of CloudScope.
+* Its public API and schema-based components support data interoperability.
+* AcqStore OME-Zarr Collection v1 has a published specification and a
+  machine-readable JSON Schema using Draft 2020-12. The specification is
+  currently labeled an initial normative draft.
+* The collection format links independently valid OME-Zarr images with
+  acquisition metadata, regions of interest, analysis parameters, and results.
+* It adds collection discovery and scientific metadata without replacing
+  OME-NGFF image semantics. Generic OME-NGFF readers can ignore AcqStore data.
+* Explicit relative paths and stable identifiers preserve relationships when
+  a complete collection is moved.
+* A separate exporter consumes the public Python APIs without adding
+  format-specific methods to the acquisition domain classes.
+* Published data contracts allow other developers to interpret and reuse
+  saved collections independently of an application's internal classes.
+
 Extensibility
 
 * Plugin systems for file loading.
@@ -669,6 +696,10 @@ Documentation
 
 * GitHub: https://github.com/mapmanager/acqstore
 * Documentation: https://mapmanager.github.io/acqstore/
+* Collection specification:
+  https://mapmanager.github.io/acqstore/ome-zarr-export-format/
+* Machine-readable schema:
+  https://mapmanager.github.io/acqstore/schemas/acqstore-ome-zarr-collection-v1.schema.json
 
 ⸻
 
@@ -719,7 +750,8 @@ Importance
 Status and documentation
 
 * Implemented and tested.
-* Repository is currently private.
+* Repository is currently public, as confirmed by Robert.
+* GitHub: https://github.com/mapmanager/acqstore-server
 * Documentation: https://acqstore-server.pages.dev/
 
 ⸻
@@ -749,13 +781,17 @@ NiceWidgets
 
 * Reusable web-component library built with Node.js, TypeScript, JavaScript,
   Vue, and Vite.
-* Provides reusable scientific visualization and interaction components.
-* Used extensively by CloudScope-Web.
-* CloudScope is being migrated to use the same components.
-* Provides a shared interface layer across the CloudScope analysis application
-  and CloudScope-Web publication viewer.
-* Allows improvements to shared components to become available across both
-  applications without reimplementing them.
+* Currently provides three reusable web components: image viewer, nicepool,
+  and signal viewer. Each has a live static single-page application demo.
+* Components are used in both CloudScope-Web and SanPy-Web.
+* Components are also used in the PyQt SanPy application and the NiceGUI
+  CloudScope application.
+* These are implemented integrations. Do not infer that every interface has
+  been migrated or that all three components appear in every application.
+* Provides reusable interfaces across imaging and electrophysiology and across
+  desktop analysis and web publication.
+* Allows component improvements to be reused across applications without
+  reimplementing their visualization and interaction tools.
 
 Scientific and engineering impact
 
@@ -778,6 +814,12 @@ Documentation and application
   https://github.com/mapmanager/mapmanager-web-components
 * `mapmanager-web-components` documentation:
   https://mapmanager.github.io/mapmanager-web-components/
+* Image viewer demo:
+  https://mapmanager.github.io/mapmanager-web-components/demos/image-viewer/
+* Nicepool demo:
+  https://mapmanager.github.io/mapmanager-web-components/demos/nicepool/
+* Signal viewer demo:
+  https://mapmanager.github.io/mapmanager-web-components/demos/signal-viewer/
 
 ⸻
 
@@ -831,6 +873,22 @@ Software
 * Keep published results connected to the raw recordings, metadata, detection
   parameters, and completed analysis results that produced them.
 
+Data format and interoperability
+
+* SanPy Zarr has published format and schema documentation on the
+  `codex/sanpy-zarr` branch; do not infer that it is merged into the default
+  branch or included in a particular release.
+* A public export API writes self-contained collections with recordings,
+  metadata, applied detection parameters, and completed analysis results.
+* The format uses Zarr arrays, JSON metadata and definitions, and CSV or
+  Parquet representations of results and epoch tables.
+* Parameter and result definitions are stored separately from their values.
+  The exporter preserves native SanPy schema keys and runtime definitions.
+* Published definitions allow consuming applications to interpret recordings
+  and results without depending on the original source files or HDF5 catalog.
+* SanPy Zarr is an application-specific format, not NWB. AcqStore's implemented
+  NWB export does not establish an NWB export capability for SanPy.
+
 Technical highlights
 
 * General-purpose event detection for action potentials and subthreshold
@@ -862,6 +920,8 @@ Documentation and source
 
 * GitHub: https://github.com/cudmore/SanPy
 * Documentation: https://cudmore.github.io/SanPy
+* Zarr export and format documentation:
+  https://github.com/cudmore/SanPy/blob/codex/sanpy-zarr/docs/docs/api/zarr-export.md
 
 ⸻
 
@@ -1087,6 +1147,12 @@ Core ideas
 
 Institutional role
 
+* For RSE opportunities, seek a senior hands-on engineering leadership role
+  that includes writing code, guiding architecture, coordinating development,
+  and mentoring engineers.
+* Management experience supports this technical leadership. Do not position
+  people or program administration as the majority of the desired role.
+* Research-faculty roles are not an equal focus of the RSE audience package.
 * Seek a staff role within an existing imaging facility, academic department,
   or research organization.
 * Develop an analysis-core capability within the institution's existing

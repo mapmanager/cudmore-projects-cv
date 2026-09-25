@@ -251,11 +251,18 @@ Focus
 - Present NiceWidgets and `mapmanager-web-components` together as reusable
   user-interface infrastructure.
 - NiceWidgets supplies reusable NiceGUI components used by CloudScope.
-- `mapmanager-web-components` supplies reusable web components used
-  extensively by CloudScope-Web; CloudScope is being migrated to use them.
-- Explain that the shared web components provide a path to consistent
-  interfaces across CloudScope and CloudScope-Web while avoiding duplicated
-  interface development.
+- `mapmanager-web-components` supplies image viewer, nicepool, and signal
+  viewer components, each with a live static single-page application demo.
+- Describe their implemented use in CloudScope-Web, SanPy-Web, the PyQt SanPy
+  application, and the NiceGUI CloudScope application. Do not infer that all
+  components are used in every application or that every migration is complete.
+- Explain reuse across imaging, electrophysiology, desktop analysis, and web
+  publication while avoiding duplicated interface development.
+- Give AcqStore a distinct identity as a general-purpose Python backend with
+  public APIs and schema-based components for interoperability.
+- For technical audiences, explain its published OME-Zarr collection
+  specification and machine-readable schema. Distinguish the initial normative
+  draft from OME-NGFF itself, whose image semantics remain authoritative.
 - Keep AcqStore distinct from the user-interface libraries: AcqStore supplies
   scientific data and analysis, while NiceWidgets and
   `mapmanager-web-components` supply graphical components.
@@ -283,6 +290,10 @@ Focus
   interactive published figures without requiring the desktop application.
 - Explain that SanPy-Web keeps published electrophysiology results connected
   to the raw recordings and completed analyses that produced them.
+- Describe SanPy Zarr's published format, parameter and result definitions,
+  and export API as evidence of interoperable data design. Its documentation is
+  on `codex/sanpy-zarr`; do not infer default-branch or release status.
+- Keep SanPy Zarr distinct from AcqStore's implemented NWB export.
 - Present PiE as a modular and scalable platform for reproducible home-cage
   behavioral experiments.
 - Explain that detailed build instructions and commercially available
@@ -363,6 +374,8 @@ Focus
   an audience-specific filter during generation.
 - Omit only items explicitly marked as too granular in the baseline policy.
 - Robert will manually shorten or tailor the generated section.
+- An audience-specific variant may reorganize the baseline and connect skills
+  to project evidence while preserving its breadth and stated exclusions.
 - Place Python first, followed by C/C++ and Igor Pro when programming
   languages are listed.
 - Connect less familiar technologies to project evidence when useful.
@@ -389,6 +402,12 @@ Focus
   not as separate from software development.
 - For the active audience, state interest in joining an existing organization
   in a staff role and developing its analysis capability over time.
+- For the RSE audience, emphasize senior hands-on technical leadership,
+  continued coding, architecture, coordination, and engineering mentorship.
+  Do not make predominantly administrative management or research-faculty roles
+  the target. A separate scientific benchmark example is not required for
+  drafting; retain documented testing and reproducibility without inventing
+  measurement-validation evidence.
 
 ## Teaching and Scientific Training
 

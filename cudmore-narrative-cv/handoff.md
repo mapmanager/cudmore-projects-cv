@@ -13,8 +13,10 @@ selected output package for those decisions.
 ## Authority
 
 The current project directory, or the latest ZIP explicitly identified by
-Robert, is the source of truth. Chat history is background only. Stop if the
-source of truth is unavailable or ambiguous.
+Robert, is the source of truth. Robert's direct factual updates can revise that
+source and should be recorded in the canonical Markdown before deriving
+outputs. Other chat history provides background. Stop if the source of truth
+is unavailable or ambiguous.
 
 - `AGENTS.md` defines the operating role and autonomy of AI collaborators.
 - `rules.md` governs editing, factual boundaries, and collaboration.
@@ -29,9 +31,14 @@ source of truth is unavailable or ambiguous.
 - `outputs/imaging-core/` contains a completed audience specification,
   narrative CV, and cold-outreach cover letter.
 - `outputs/research-labs-department-heads/` contains a completed audience
-  specification and first drafts of its narrative CV and friendly exploratory
-  cover letter.
-- The research-labs and department-heads package is the current review target.
+  specification and near-final narrative CV and exploratory cover letter.
+- `outputs/research-software-engineer/` contains the agreed audience plan and
+  first drafts of its narrative CV, exploratory letter, platform section,
+  skills section, and project resources. This package is the current review
+  target. Word and PDF documents have not been generated.
+- The core sources now record Robert's updates on public repositories,
+  mapmanager-web-components integrations, AcqStore schemas, and SanPy Zarr.
+- Existing shared sections and the two earlier audience packages are unchanged.
 
 ## Professional Positioning
 
@@ -68,6 +75,31 @@ outputs/<audience>/
 Each audience uses a separate output package. Do not change one package to
 serve another audience.
 
+The RSE package adds `research-software-platforms.md`, `technical-skills.md`,
+and `project-resources.md` as replacements for those shared sections during
+assembly. It reuses the shared teaching section. Its `audience.md` specifies
+the exact selections; never assemble a variant together with its shared
+default. `cv.md` remains narrative-only.
+
+## Agreed RSE Plan
+
+- Target senior hands-on engineering leadership with continued coding,
+  architectural direction, development coordination, and mentorship.
+- Do not emphasize predominantly administrative management or research-faculty
+  positions. Begin with exploratory outreach to RSE and scientific software
+  group leaders.
+- Treat Robert's direct factual statements as valid source material.
+  Documentation supplements them rather than blocking writing. Ask about
+  material contradictions and distinguish branches from released versions.
+- All project repositories are currently public, as confirmed by Robert.
+- SanPy Zarr documentation is on `codex/sanpy-zarr`. AcqStore's published
+  collection specification is an initial normative draft.
+- The shared web components are used in CloudScope-Web, SanPy-Web, the PyQt
+  SanPy application, and the NiceGUI CloudScope application. Do not infer that
+  every interface migration is complete.
+- A separate scientific measurement-validation example is deferred. Use
+  documented engineering practices and do not request it as a prerequisite.
+
 ## Factual and Editorial Boundaries
 
 - Introduce no career claim unsupported by `outline.md` or `narrative.md`.
@@ -94,7 +126,8 @@ the next task changes.
 
 ## Next Task
 
-Review `outputs/research-labs-department-heads/cv.md` and
-`outputs/research-labs-department-heads/cover-letter.md` for audience fit,
-length, emphasis, and voice. Preserve their scientist-to-scientist framing and
-do not add unsupported career claims.
+Review the first drafts in `outputs/research-software-engineer/` with Robert
+for voice, length, and the balance between hands-on engineering and technical
+leadership. Preserve the agreed assembly boundaries and the existing audience
+packages. Further edits should follow Robert's review; document conversion and
+full-CV assembly are separate work.

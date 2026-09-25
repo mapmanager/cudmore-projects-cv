@@ -7,6 +7,10 @@
 * If the source of truth is unavailable or ambiguous, stop before making
   recommendations or edits.
 * Treat `outline.md` as the factual source for narrative claims.
+* Robert's direct factual updates are valid source material. Incorporate them
+  into the canonical Markdown before deriving outputs. Repository code and
+  documentation supplement those updates; missing documentation or an older
+  default branch does not block writing. Ask about material contradictions.
 * Every paragraph in `narrative.md` should trace to one or more bullets in
   `outline.md`.
 * `narrative.md` is the canonical editable long-form narrative.
@@ -52,6 +56,11 @@
   final document assembly.
 * Keep the canonical standardized Markdown in `shared-cv-sections/`; do not
   modify those files while editing an audience-specific output CV.
+* An agreed audience plan may supply separate section variants within its
+  output folder. Record the exact replacements in that package's `audience.md`.
+  During assembly, use either the shared default or the audience variant for
+  each section, never both. Keep variants separate from `cv.md` and derive
+  their claims from the root sources.
 
 ## Claims
 

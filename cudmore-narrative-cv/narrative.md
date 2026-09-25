@@ -309,9 +309,9 @@ Archive and the Brain Image Library (BIL).
 CloudScope-Web is then used to open the same OME-Zarr datasets as interactive
 published figures. CloudScope-Web uses reusable graphical components from
 `mapmanager-web-components` in a read-only interface for inspecting saved data
-and results. CloudScope is being migrated to use the same components, providing
-a shared interface layer across the analysis application and publication
-viewer. CloudScope-Web does not require dedicated or complex server
+and results. These components are also used in the NiceGUI CloudScope
+application, sharing interface capabilities across analysis and publication.
+CloudScope-Web does not require dedicated or complex server
 infrastructure, so the viewer and its datasets can be distributed through
 ordinary web endpoints.
 
@@ -350,6 +350,21 @@ larger datasets. AcqStore implements web-oriented standards, including
 OME-Zarr and NGFF, for scalable data access and sharing without creating a
 separate analysis implementation.
 
+AcqStore is independent of CloudScope. Its public Python API and data schemas
+provide interfaces that other applications can build upon. The published
+AcqStore OME-Zarr Collection v1 specification connects independently valid
+OME-Zarr images with acquisition metadata, regions of interest, and analyses.
+It adds collection discovery and scientific metadata while preserving
+OME-NGFF image semantics. Explicit relative paths and stable identifiers keep
+those relationships intact when a complete collection is moved.
+
+The specification includes a machine-readable JSON Schema and is currently
+published as an initial normative draft. Its exporter uses the existing public
+Python APIs without adding format-specific methods to the acquisition classes.
+Documenting the stored data as well as the software API allows other
+developers to interpret and reuse collections independently of the
+application's internal implementation.
+
 AcqStore Server
 
 AcqStore Server extends AcqStore through a local HTTP API. Lightweight browser,
@@ -368,8 +383,9 @@ This architecture separates the scientific backend from the user interface and
 client language. New interfaces can use the same AcqStore implementation while
 remaining small and independently developed. Automated tests cover the API,
 schemas, session lifecycle, error responses, representative image formats, and
-client contract. AcqStore Server is currently a private project and is most
-relevant to technical Research Software Engineering applications.
+client contract. AcqStore Server's repository is currently public. The project
+provides evidence of API design, testing, and application delivery for
+technical Research Software Engineering roles.
 
 Reusable User-Interface Components
 
@@ -386,12 +402,15 @@ interactive scientific applications. CloudScope uses NiceWidgets as part of
 its modular user-interface layer for its desktop and server-backed web
 deployments.
 
-`mapmanager-web-components` provides reusable web components built with
-Node.js, TypeScript, JavaScript, Vue, and Vite. It is used extensively by
-CloudScope-Web, and CloudScope is being migrated to use the same components.
-This shared component layer allows the analysis application and publication
-viewer to present consistent visualization and interaction tools without
-reimplementing them in each application.
+`mapmanager-web-components` provides three reusable web components: an image
+viewer, nicepool, and a signal viewer. Built with Node.js, TypeScript,
+JavaScript, Vue, and Vite, each component has a live static single-page
+application demo. The components are used in CloudScope-Web and SanPy-Web,
+as well as the PyQt SanPy application and the NiceGUI CloudScope application.
+This shared component layer allows imaging and electrophysiology applications
+to reuse visualization and interaction tools across desktop analysis and web
+publication. Improvements can be shared without rebuilding the same interface
+capabilities within each application.
 
 Together, these libraries demonstrate another part of my modular architecture.
 AcqStore supplies the scientific data and analysis backend, while NiceWidgets
@@ -435,6 +454,16 @@ datasets as interactive published figures on the web, allowing recordings and
 analysis results to be explored in a browser without requiring the SanPy
 desktop application. This keeps published results connected to the raw
 recordings, detection parameters, and analysis results that produced them.
+
+SanPy Zarr's published format documentation describes the export API, storage
+layout, arrays, and definitions for detection parameters and analysis results.
+The format stores recordings in Zarr arrays, metadata and definitions in JSON,
+and result tables in CSV or Parquet. Parameter and result definitions remain
+separate from their values and preserve SanPy's runtime schema keys. This
+allows consuming applications to interpret the saved data without depending
+on the original recording files or SanPy HDF5 catalog. The documentation is
+available on the `codex/sanpy-zarr` branch. SanPy Zarr is an application-specific
+format, distinct from NWB.
 
 MapManager
 
@@ -539,6 +568,12 @@ They also reflect a common view of scientific software as research infrastructur
 
 # Leadership and Mentorship
 
+I am interested in senior hands-on engineering leadership that combines
+writing code with guiding architecture, coordinating development, and
+mentoring engineers. My experimental background helps me connect those
+responsibilities with the scientific questions and measurement constraints
+that the software must address.
+
 Research software is fundamentally a collaborative effort. Successful software development begins by understanding the scientific questions researchers are trying to answer rather than beginning with a predetermined technical solution. Throughout my career I have worked closely with experimental scientists to translate biological questions into computational tools that integrate naturally with laboratory workflows.
 
 These collaborations have included undergraduate researchers, technicians, graduate students, postdoctoral fellows, faculty, and scientific core facilities. Each group brings different scientific goals, computational experience, and experimental constraints. Developing useful software requires listening carefully, identifying common needs across laboratories, and iteratively refining software as experiments evolve and new questions emerge.
@@ -616,9 +651,11 @@ inspection and reuse.
 
 I am actively extending AcqStore, CloudScope, and SanPy so data and completed
 analyses can be prepared for community standards and appropriate repositories.
-One planned route uses Neurodata Without Borders, a standard for raw and
-processed neurophysiology data that includes electrophysiology and optical
-physiology imaging data. Depending on the scientific domain and data type,
+AcqStore already implements Neurodata Without Borders export. This standard
+for raw and processed neurophysiology data includes electrophysiology and
+optical physiology imaging data. Further standards and repository preparation
+remain part of the development roadmap; AcqStore's export does not establish
+NWB export in SanPy. Depending on the scientific domain and data type,
 datasets could then be prepared for resources such as DANDI, the Brain Image
 Library, or SPARC. These are concrete parts of the current roadmap rather than
 an exclusive workflow. The modular architecture is intended to support other
