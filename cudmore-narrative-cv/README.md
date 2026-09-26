@@ -13,6 +13,7 @@ cudmore-narrative-cv/
 ├── handoff.md
 ├── idea.md
 ├── outline.md
+├── algorithm-design.md
 ├── section-guide.md
 ├── narrative.md
 ├── project-links.md
@@ -53,6 +54,10 @@ cudmore-narrative-cv/
 - `idea.md` — scratchpad for ideas not yet incorporated.
 - `outline.md` — factual planning outline for the long-form narrative and
   downstream documents.
+- `algorithm-design.md`: selected numerical methods and parallel-execution
+  evidence for CV planning, with measurement context and claim boundaries.
+  Supports the canonical outline and narrative; it is not an exhaustive
+  algorithm inventory or a source for unrelated career and project claims.
 - `section-guide.md` — section-level guidance for `narrative.md`.
 - `narrative.md` — canonical editable long-form career narrative.
 - `outputs/imaging-core/` — existing audience specification, narrative CV, and

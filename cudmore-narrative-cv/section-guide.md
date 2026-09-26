@@ -80,8 +80,9 @@ Focus
   science. Do not imply a completed master's degree or modify user-owned
   Education or Employment sections.
 - Algorithm design, including paper-and-pencil work, and architectural
-  planning before implementation. Connect the earlier C++ backends,
-  statistical analysis, and cross-platform GUIs with current modular design.
+  planning before implementation. Use current projects as evidence of modular
+  design. Historical C++ work is background, not the motivation for current
+  architecture; mention it at most once in the RSE narrative CV, or omit it.
 - Scientific software architecture.
 - APIs and data models.
 - Modularity from the start: independently usable Python backends for scripts
@@ -91,12 +92,40 @@ Focus
   update subscribed views. Connect this discipline to coordinated interfaces
   and maintainability as applications grow.
 - Testing and continuous integration.
+- Scientific curation as a software-design requirement: heuristics, backend
+  APIs, and GUIs support rapid review of automated results against raw data.
+- Explain how identifying false positives and false negatives informs
+  repeatable curation rules in code for noisy images, signals, and video.
+- Distinguish blinding to scientific condition, randomized presentation, and
+  random subset selection. Connect these practices to limiting experimenter
+  bias and making semi-automatic review feasible across hundreds of files.
+- Describe sampling as enabling defined subset review, without asserting
+  statistical validity in the absence of a specified sampling design.
+- Keep general curation practices separate from project-specific evidence;
+  do not imply every project implements every safeguard.
 - Scientific visualization.
 - Plugin architectures.
+- Public backend and component APIs as boundaries for extension and
+  interoperability with analysis code developed by others. Do not imply
+  integration requires no additional work.
 - Performance optimization.
+- Use `algorithm-design.md` as a compact supporting inventory for selected
+  measurement methods and parallel execution. It supplements the outline and
+  narrative and does not establish unrelated project or career claims.
+- For RSE prose, connect measurement requirements to numerical methods and
+  independent units of work. Keep exact parameter defaults and implementation
+  maintenance notes outside the CV. Avoid claims of invented standard methods,
+  measured speedups, or scientific validation not supported by the sources.
 - Cross-platform desktop applications.
 - NiceGUI for a single codebase targeting macOS, Windows, and the web.
 - Serverless web interfaces using WebAssembly/Pyodide.
+- WebMapManager and PyMapManager use the same MapManagerCore backend API,
+  algorithms, and loading and saving code; WebMapManager runs Python through
+  Pyodide. AcqView provides a complementary example using community readers.
+- Lazy access extends from Python analysis APIs to Zarr-based publication
+  viewers. Use "raw data" for original time-series recordings and images.
+- Explain NWB export within standards-based data sharing and repository
+  deposition, using formats appropriate to the repository and data type.
 - One continuous software environment spanning acquisition, offline analysis,
   and publication.
 - The same computational backend, data model, graphical interfaces, and

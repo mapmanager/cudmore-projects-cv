@@ -67,10 +67,9 @@ approach quantitative biological research.
 
 My foundation is in computer science, beginning with a bachelor's degree and
 followed by full-time scientific software development and later graduate work
-in computer science. As a scientific software developer, I implemented C++
-backends, statistical analysis, and cross-platform graphical interfaces. This
-experience informs how I connect computation and user interfaces in research
-software.
+in computer science. My current projects demonstrate a consistent approach:
+independently usable computational backends, documented APIs, and modular
+desktop and web interfaces.
 
 Working out algorithms with paper and pencil remains part of how I think.
 Planning and architectural design come before implementation. My experience
@@ -78,17 +77,40 @@ across C, C++, Python, and Igor Pro allows me to apply programming concepts
 across languages and choose implementations according to the scientific and
 architectural needs.
 
+My algorithm work connects scientific measurements with numerical methods and
+inspectable results. In AcqStore, I estimate flow velocity from line-scan
+images using Radon transforms and measure vessel diameter through intensity
+thresholds or gradient-based edges. Heart-rate analysis compares Lomb–Scargle
+and Welch estimates from the velocity signal. Intensity analysis converts
+image regions into normalized traces, detects peaks, and measures event
+kinetics. The same one-dimensional detection and event-measurement algorithms
+are also implemented in SanPy for electrophysiology. These methods have
+different scientific requirements while using numerical cores separated from
+application interfaces and storage.
+In both AcqStore and SanPy, failures of individual fits or feature calculations
+are recorded without stopping the entire analysis. This preserves usable
+results and identifies measurements that need review. Feature extraction
+describes the measurements made after an event has been detected.
+
+I separate independent calculations from steps with temporal dependencies
+when implementing parallel execution. AcqStore uses processes for independent
+Radon windows and threads for independent diameter profiles. Steps that
+compare each time point with the preceding one run in order. Its batch runner
+reuses the single-file analysis API and supports cancellation and per-file outcomes.
+Worker settings are execution options, separate from scientific detection
+parameters. This design allows scheduling to change without redefining the
+analysis configuration.
+
 My approach to research software engineering begins with collaboration. I work closely with experimental scientists to understand the biological questions they are asking, the experimental workflows they use, and the challenges they encounter when collecting and analyzing data. Software development is an iterative process that benefits from continual feedback from the people who use it, including undergraduate researchers, technicians, graduate students, postdoctoral fellows, and faculty. The goal is not simply to deliver software, but to develop tools that become a natural part of the scientific workflow.
 
-I thrive in multidisciplinary teams where each member contributes distinct
-scientific or technical expertise. My contribution is a unique combination of
-experimental biology, quantitative analysis, and research software
-engineering. This allows me to translate between biological questions,
-measurement constraints, analytical requirements, and software design while
-working with domain experts whose knowledge complements my own. The goal is not
-for one person to provide every kind of expertise, but for the team to connect
-its expertise well enough to design experiments, develop valid analyses, and
-answer shared scientific questions.
+I contribute both scientific and engineering judgment within multidisciplinary
+teams. My substantial experimental expertise in neuroscience, vascular biology,
+and cardiac physiology guides measurement selection, analysis assumptions,
+and software requirements. Combined with software engineering experience,
+this allows me to connect research biologists and engineers through direct
+contributions to both the scientific reasoning and the technical implementation.
+I also work with domain experts whose knowledge complements my own, including
+in fields beyond my direct experimental expertise.
 
 I believe scientific software should be transparent, reproducible, and
 extensible. Commercial instrument and image-analysis software is an important
@@ -102,10 +124,28 @@ analyses can be extended, and how results can be interpreted and reproduced.
 
 Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
 
+Biological data are noisy, so automated analysis needs efficient ways to
+identify false positives and false negatives against the original images,
+signals, or video. I design heuristics, backend APIs, and graphical interfaces
+that make this review practical. Recurring error patterns then inform curation
+rules implemented in code, allowing corrections to be applied consistently
+across files. This connects automated processing with human review in a
+repeatable, semi-automatic analysis workflow.
+
+Limiting experimenter bias is part of that design. I build workflows that
+conceal scientific conditions from reviewers and present results in randomized
+order. When collections contain hundreds of files, exhaustive manual review
+may be impractical. APIs for selecting defined random subsets make targeted
+curation possible at that scale. The aim is to support objective, reproducible
+analysis while focusing human attention where manual review is feasible.
+
 Modularity is part of my design from the start. Computational backends support
 scripts and notebooks independently of the graphical applications built on
 them. CloudScope and SanPy use thin graphical interfaces around Python
 backends, keeping scientific computation separate from presentation.
+Public APIs and plugin interfaces allow other developers to incorporate
+specialized analysis methods into these workflows. This makes extensibility
+and interoperability practical parts of the architecture.
 
 My PyQt and NiceGUI applications use model-view-controller architecture with
 an event-driven runtime. Views send user intent to a controller. Within the
@@ -136,7 +176,7 @@ CloudScope and SanPy implement this strategy in imaging and electrophysiology.
 Their desktop applications support analysis and curation in the laboratory and
 save raw data and completed analyses as self-contained datasets. CloudScope,
 through AcqStore, saves OME-Zarr datasets that CloudScope-Web presents as
-interactive published figures. SanPy saves self-contained SanPy Zarr datasets
+interactive published figures. SanPy exports self-contained SanPy Zarr datasets
 that SanPy-Web presents as interactive published figures. In both domains, the
 published figure remains connected to the raw data, analysis methods and
 parameters, and completed results that produced it.
@@ -145,9 +185,18 @@ This architecture naturally supports multiple interfaces. I have developed deskt
 
 Modern biological datasets continue to grow in both size and complexity. Rather than requiring datasets to fit entirely into memory, my software increasingly relies on scalable storage technologies and lazy loading to support interactive visualization and quantitative analysis of datasets ranging from gigabytes to terabytes and beyond. Technologies including HDF5, Zarr, OME-Zarr, and NGFF provide the foundation for this approach while allowing the software to remain responsive as datasets continue to grow.
 
+CloudScope and SanPy both export to Zarr using well-defined schemas. Zarr's
+chunked storage supports web access and lazy loading of image regions and
+large analysis results. CloudScope uses the community OME-Zarr standard for
+images; SanPy uses its own documented format for recordings and analyses.
+SanPy retains HDF5 as its native storage format alongside Zarr export.
+Lazy loading extends from the Python APIs used by CloudScope and SanPy to
+their published datasets in CloudScope-Web and SanPy-Web. Selective access is
+part of the workflow from analysis to browser-based presentation.
+
 I believe the analysis should travel with the data. Today, scientific software is often used during data acquisition and analysis but is absent from the published scientific record. I believe the same software used by researchers in the laboratory should also accompany published datasets. Rather than downloading static figures or processed measurements, readers should be able to explore the original data, repeat published analyses, perform new analyses, and develop computational models using the same software that produced the published results. This extends the scientific value of a dataset beyond the original publication while making analyses more transparent, reproducible, and useful to future researchers.
 
-Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Google-style API documentation, and automated desktop application builds for macOS and Windows. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
+Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Google-style API documentation, and automated desktop application builds for macOS and Windows. Full GUI documentation for end users is a critical part of most projects, alongside the documentation developers need to extend the software. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
 
 I use language models daily as engineering tools, directing them as I would
 junior contributors who need clear requirements and architectural guidance.
@@ -244,6 +293,11 @@ engineering. I am also one of three principal
 investigators on an NHLBI R01, where I make primary contributions to the
 design, implementation, and execution of electrophysiology and imaging
 experiments and analyses.
+
+These grants enabled me to build teams of software developers and work with
+and manage personnel whose expertise spans engineering and biology. Securing
+funding supports the team needed to develop and maintain scientific software,
+and allows me to combine technical work with multidisciplinary leadership.
 
 These awards demonstrate experience securing and managing research-software
 funding and multidisciplinary biological research funding. I lead proposals
@@ -350,9 +404,10 @@ saves the raw images, analysis methods, detection parameters, and results
 together in a self-contained dataset. AcqStore preserves the information
 needed to reconstruct how an analysis was performed, even as analytical
 methods evolve. AcqStore can export both Open Microscopy Environment Zarr
-(OME-Zarr) and Neurodata Without Borders (NWB). The resulting OME-Zarr and NWB
-datasets can be directly uploaded to public repositories, including the DANDI
-Archive and the Brain Image Library (BIL).
+(OME-Zarr) and Neurodata Without Borders (NWB). These exports support
+depositing raw data and analysis in community repositories such as the DANDI
+Archive and the Brain Image Library (BIL), using formats appropriate to each
+repository and data type.
 
 CloudScope-Web is then used to open the same OME-Zarr datasets as interactive
 published figures. CloudScope-Web uses reusable graphical components from
@@ -445,6 +500,12 @@ I develop NiceWidgets and `mapmanager-web-components` as reusable
 user-interface libraries that address this problem in complementary
 application environments.
 
+Both libraries provide public component APIs for supplying data, configuring
+views, and coordinating interactions through methods and events or callbacks.
+Applications can remain thin because they use these interfaces without
+depending on component internals. This separates reusable presentation
+behavior from application-specific coordination and scientific analysis.
+
 NiceWidgets is an open-source Python library of reusable NiceGUI components for
 interactive scientific applications. CloudScope uses NiceWidgets as part of
 its modular user-interface layer for its desktop and server-backed web
@@ -495,9 +556,9 @@ new research needs to be incorporated without creating a separate analysis
 system.
 
 SanPy is designed for use during electrophysiology experiments and for offline
-analysis. It saves raw electrophysiology recordings, metadata, detection
-parameters, and completed analysis results as self-contained SanPy Zarr
-datasets using the `*.sanpy.zarr` naming convention. SanPy-Web opens these
+analysis. It saves natively to HDF5 and exports raw electrophysiology
+recordings, metadata, detection parameters, and completed analysis results as
+self-contained SanPy Zarr datasets using the `*.sanpy.zarr` naming convention. SanPy-Web opens these
 datasets as interactive published figures on the web, allowing recordings and
 analysis results to be explored in a browser without requiring the SanPy
 desktop application. This keeps published results connected to the raw
@@ -545,6 +606,9 @@ used to access it. This design reduces dependence on proprietary software and
 makes established analysis methods easier to reuse, extend, and share.
 
 MapManagerCore provides the shared Python API for the modern ecosystem.
+WebMapManager runs that backend in the browser through Pyodide. Its thin GUI
+and PyMapManager's desktop GUI use the same Python API, algorithms, and loading
+and saving functionality, preserving a shared implementation across runtimes.
 PyMapManager is the desktop application and also supports analysis through
 Python scripts and computational notebooks. WebMapManager is the browser
 application for visualizing, annotating, and analyzing time-series annotations
@@ -575,7 +639,9 @@ interface for controlling and monitoring any number of boxes. Commander
 combines system status, remote controls, a centralized video wall, and file
 synchronization. This distributed architecture allows behavioral experiments
 to run in parallel and lets a laboratory scale from one box to an array without
-replacing the underlying control system.
+replacing the underlying control system. In practice, PiE was used for continuous
+24/7 video acquisition across eight behavior boxes in parallel. The resulting
+volume of video made efficient curation an essential part of the workflow.
 
 VideoAnnotate is a related application in a separate repository that provides
 graphical behavioral scoring of recorded videos. Researchers can annotate
@@ -666,6 +732,7 @@ expertise in mathematics, physics, and software engineering but initially had
 limited experience in biological research. I helped them understand the
 scientific questions, experimental workflows, and measurement constraints
 needed to apply their technical expertise effectively.
+My mentoring experience also includes biomedical engineering trainees.
 
 This combination of teaching and interdisciplinary mentorship is directly
 relevant to imaging and analysis cores. Researchers need more than access to

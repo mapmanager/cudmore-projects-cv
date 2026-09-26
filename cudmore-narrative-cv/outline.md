@@ -71,6 +71,15 @@ Core ideas
 * Supported researchers using these experimental systems.
 * Domain expertise includes neuroscience, vascular biology, and cardiac
   physiology.
+* This is substantial experimental domain expertise, combined with software
+  engineering expertise. Robert contributes scientific and technical judgment
+  within multidisciplinary teams, connecting engineering teams with research
+  biologists rather than only relaying requirements between them.
+* Biological expertise guides measurement selection, interpretation of
+  experimental constraints, analysis assumptions, and software requirements.
+  It also informs mentorship of engineers and collaboration with biologists.
+* Explain this contribution concretely in CVs while preserving the distinction
+  between direct expertise and collaboration in other scientific domains.
 * Career trajectory moved from studying neurons to imaging brain vasculature
   and later working in cardiac physiology.
 * Studying brain vasculature led to interactions with researchers examining
@@ -106,6 +115,10 @@ Core ideas
 * Completed a bachelor's in computer science, studying from 1988 to 1992.
 * Subsequently worked full time as a scientific software developer, building
   C++ backends, statistical analysis, and cross-platform graphical interfaces.
+* This C++ work was more than 30 years ago. Preserve it as historical
+  experience, but do not use it to motivate current architectural practice.
+  Current projects demonstrate that practice directly. In the RSE narrative
+  CV, mention the older C++ work at most once, or omit it.
 * Later undertook graduate work in computer science toward a master's degree
   but did not complete the degree. Use "graduate work in computer science."
 * Working out algorithms with paper and pencil is an ingrained practice.
@@ -191,6 +204,46 @@ Transparent scientific software
   reproducibility, automation, export, or sharing. Capabilities vary among
   products and versions.
 
+Algorithm design and parallel execution
+
+* Use `algorithm-design.md` for the selected measurement and engineering
+  summaries supplied for CV planning. This is a non-exhaustive supporting
+  inventory, not a replacement for the project's factual or editorial sources.
+* AcqStore estimates flow velocity from line-scan kymographs using a
+  coarse-to-fine Radon angle search and spatial and temporal calibration.
+* Heart-rate analysis consumes a velocity time series and compares
+  Lomb–Scargle and Welch estimates, retaining quality and agreement results.
+* Vessel-diameter analysis uses intensity thresholds or gradient-based edges
+  on spatial profiles, with optional motion gating and filtering.
+* Intensity analysis reduces image regions to traces, supports filtering,
+  bleaching correction and normalization, then detects peaks and measures
+  event kinetics and shape.
+* Describe measurement of an event's properties after detection as "feature
+  extraction." Detection and feature extraction are distinct analysis steps.
+* Both AcqStore and SanPy record failures of individual fits or feature
+  calculations without aborting the complete analysis, preserving usable
+  results and identifying measurements that require review. Robert confirmed
+  this behavior in both applications.
+* Robert confirms that the same one-dimensional peak-detection and
+  event-measurement algorithms are implemented in SanPy. The detailed
+  implementation overview was examined for AcqStore, not independently for
+  SanPy. Do not infer one shared code implementation or identical image and
+  electrophysiology preprocessing.
+* Numerical cores accept arrays and parameters independently of GUIs.
+  Application integration handles schemas, results, and analysis dependencies.
+* AcqStore uses processes for independent Radon windows and threads for
+  independent diameter profiles, retaining sequential processing where
+  neighboring samples depend on one another.
+* Its batch runner reuses the single-file API and supports concurrent files,
+  cancellation, ordered results, and per-file outcomes for the described
+  Radon and diameter strategies. CloudScope currently runs files serially
+  while parallelizing within each file in those workflows.
+* Worker counts are runtime options separate from scientific detection
+  parameters. Do not infer measured speedups or verified equivalence across
+  execution modes. Heart rate and sum intensity do not start worker pools.
+* These examples concern line-scan images and derived one-dimensional signals;
+  they do not define the limits or full extent of AcqStore's image analysis.
+
 Reusable computational backends
 
 * Build backend Python packages that expose documented public APIs.
@@ -203,6 +256,10 @@ Reusable computational backends
 * Users should be able to reproduce GUI analyses with scripts.
 * Backend APIs allow technical scientists to automate analyses and incorporate them into larger workflows.
 * Plugin architectures can extend software without rewriting core systems.
+* Design public APIs and plugin interfaces so other developers can incorporate
+  their own specialized analysis code. Extensibility and interoperability are
+  deliberate architectural goals, not claims of compatibility with arbitrary
+  third-party software without integration work.
 
 Multiple interfaces
 
@@ -226,12 +283,62 @@ Modular graphical architecture
 * This separation controls where state changes occur and allows multiple
   graphical components to remain coordinated as an application grows.
 
+Scientific curation and review of automated analysis
+
+* Biological images, one-dimensional signals, and behavioral videos contain
+  noise that can produce false positives and false negatives in analysis.
+* Design heuristics, backend APIs, and graphical interfaces for rapid review
+  of automated results against the raw data that produced them.
+* Use review to identify recurring error patterns and develop additional
+  curation rules in code, making those corrections repeatable across files.
+* Combine automated processing with targeted human review to support rapid
+  semi-automatic analysis across hundreds of files.
+* Treat objectivity, reproducibility, and limiting experimenter bias as design
+  requirements for curation, alongside speed and usability.
+* Backend APIs can blind reviewers to the scientific condition, randomize
+  presentation order, and randomly select defined subsets for review when
+  exhaustive manual curation is impractical. GUIs expose these workflows.
+* Blinding, randomized presentation, and random subset selection serve
+  distinct purposes; do not describe them as interchangeable safeguards.
+* The aim of subset review is to support statistically meaningful analysis
+  without manually curating every file. Do not infer a sampling unit, sample
+  size, statistical method, or guarantee of validity from random selection
+  alone; those details have not been supplied.
+
+Project evidence and attribution
+
+* Rapid curation has been important throughout the MapManager projects.
+  This refers to the scientific analysis applications, not
+  mapmanager-web-components, which primarily supplies reusable GUI tools.
+* The same need arises in imaging through AcqStore, electrophysiology through
+  SanPy, and behavioral video through PiE. Do not assume every project
+  implements every safeguard described above.
+* PiE was used for continuous 24/7 video acquisition across eight behavior
+  boxes in parallel. This volume made efficient curation especially important.
+* Existing project-specific evidence includes CloudScope's blinded and
+  randomized curation, SanPy's review of detections against recordings, and
+  VideoAnnotate's blinded scoring of randomized PiE video segments.
+
 Scalable scientific data
 
 * Lazy loading of raw data and analysis results.
 * Support reliable browsing and analysis of large datasets.
 * Analyze datasets much larger than system memory.
 * Technologies include HDF5, Zarr, OME-Zarr, and NGFF.
+* CloudScope and SanPy both export data and completed analyses to Zarr, with
+  well-defined schemas describing the saved datasets.
+* Zarr supports web access and scalable, chunked storage, allowing lazy access
+  to portions of images and large analysis results.
+* CloudScope uses the community OME-Zarr standard when saving images through
+  AcqStore. SanPy uses its application-specific SanPy Zarr format.
+* SanPy saves natively to HDF5 and also exports to Zarr. Describing shared
+  workflows as saving Zarr is acceptable, but do not imply Zarr replaced
+  SanPy's native HDF5 storage.
+* Lazy loading extends from the core Python APIs used by CloudScope and SanPy
+  through Zarr-based access in CloudScope-Web and SanPy-Web. Present this as an
+  end-to-end design practice, not a capability limited to AcqStore.
+* Use "raw data" for original recordings and images: one-dimensional
+  time-series in SanPy and n-dimensional images in CloudScope and AcqStore.
 * Relevant data types include imaging and electrophysiology data.
 
 Scientific communication
@@ -301,7 +408,8 @@ Engineering practices
 * Continuous integration.
 * Documentation.
 * Google-style docstrings.
-* End-user documentation with MkDocs.
+* Full GUI documentation for end users is a critical part of most projects,
+  alongside API documentation for developers. Use MkDocs for documentation.
 * Scripting documentation.
 * Automated desktop application builds.
 * Cross-platform deployment.
@@ -651,8 +759,13 @@ Open formats and repositories
   interactive figures containing multiple acquisitions or files.
 * NWB provides an additional implemented open-format export and should be
   mentioned briefly for audiences familiar with neurophysiology standards.
-* The resulting OME-Zarr and NWB datasets can be directly uploaded to public
-  repositories, including the DANDI Archive and the Brain Image Library (BIL).
+* Standards-based export supports depositing raw data and analysis in
+  community repositories such as DANDI and the Brain Image Library (BIL).
+  Select formats appropriate to the repository and data type; do not imply
+  all repositories accept every format or that an upload has been completed.
+* Present NWB alongside Zarr and OME-Zarr/OME-NGFF as part of a broader data
+  sharing strategy. Keep repository deposition separate from schema design
+  when explaining the engineering contribution.
 * These repositories make scientific datasets publicly searchable and
   accessible, support data sharing and reuse, and provide archival stewardship
   beyond an individual laboratory or publication.
@@ -816,6 +929,9 @@ Software
   physical units, source and reference image planes, and line-scan paths.
 * Uses short-lived sessions for binary image-plane access.
 * Supports thin browser, JavaScript, and Python clients.
+* MATLAB and Igor Pro are potential clients of the HTTP API, not implemented
+  or tested integrations. In CV prose they may appear parenthetically as
+  possible integrations, clearly distinguished from existing clients.
 * Includes a reference HTML and JavaScript client and a native status
   interface.
 * Distributed as a desktop application so researchers can run the local
@@ -893,6 +1009,13 @@ Scientific and engineering impact
 
 * Separates reusable user-interface components from application-specific
   scientific analysis.
+* NiceWidgets and mapmanager-web-components expose public component APIs.
+  Host applications use public methods, configuration, and events or callbacks
+  to supply data and coordinate interactions without depending on component
+  internals. Exact interfaces differ by widget and framework.
+* Public APIs provide an integration boundary for thin GUIs. Do not imply a
+  REST service, identical APIs across components, or a frozen API: the web
+  components are actively developed and pre-1.0.
 * Allows new and improved widgets to be incorporated into CloudScope without
   rebuilding them within the application.
 * Provides another layer of modularity alongside AcqStore: AcqStore supplies
@@ -951,9 +1074,9 @@ Software
 * Review detection errors, curate results, and reject individual events when
   appropriate.
 * Save completed analyses and export tabular reports and figures.
-* Save raw electrophysiology recordings, metadata, detection parameters, and
-  completed analysis results as self-contained SanPy Zarr datasets using the
-  `*.sanpy.zarr` naming convention.
+* Save natively to HDF5 and export raw electrophysiology recordings, metadata,
+  detection parameters, and completed analysis results as self-contained SanPy
+  Zarr datasets using the `*.sanpy.zarr` naming convention.
 * Plugin architecture for visualization, reports, curation, and new analyses.
 * Documented Python API for scripts and computational notebooks.
 * Open source.
@@ -1069,6 +1192,9 @@ Technical highlights
 * Distributed multi-device architecture.
 * Remote monitoring and experiment control.
 * Automated and parallel acquisition across multiple behavior boxes.
+* Used for continuous 24/7 video acquisition across eight behavior boxes in
+  parallel, making rapid curation important for reviewing the resulting volume
+  of behavioral data. Eight is the reported deployment, not a system limit.
 * Video recording, live streaming, environmental monitoring, and event
   logging.
 * Centralized monitoring and file collection through Commander.
@@ -1139,6 +1265,9 @@ Modern MapManager architecture
 * The modern MapManager ecosystem is under active development.
 * MapManagerCore is the shared Python API that provides the core functionality
   used by the applications.
+* WebMapManager runs MapManagerCore in the browser through Pyodide. Its thin
+  GUI and the PyMapManager desktop GUI use the same Python backend API,
+  algorithms, and loading and saving functionality.
 * PyMapManager is the desktop application and provides access through Python
   scripts and computational notebooks.
 * WebMapManager is the browser application for visualizing, annotating, and
@@ -1275,6 +1404,11 @@ Core ideas
   research-software funding as a principal investigator.
 * Representative successes include an NIH BRAIN Initiative R01, an NHLBI R01,
   and a Chan Zuckerberg Initiative software award.
+* These grants enabled building teams of software developers and working with
+  and managing personnel with complementary engineering and biology expertise.
+* For the RSE audience, emphasize successful grant writing as a means to build
+  and sustain multidisciplinary development teams. Detailed proposal-design
+  responsibilities are secondary to hands-on technical and team leadership.
 * Led the scientific and technical design and writing of the NIH BRAIN
   Initiative R01 and the Chan Zuckerberg Initiative proposal.
 * Led and managed the research for the five-year NIH BRAIN Initiative R01 and
@@ -1336,6 +1470,7 @@ Interdisciplinary mentorship
 * Mentored, trained, and employed engineers who initially lacked biological
   research experience.
 * Included computer science and biophysical engineering graduate students.
+* Also mentored biomedical engineering (BME) trainees.
 * Included full-time employees with computer science backgrounds.
 * Helped engineers apply mathematics, physics, and software engineering to
   biological research questions and experimental workflows.

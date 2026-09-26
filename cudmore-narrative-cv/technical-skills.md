@@ -11,6 +11,9 @@ graduate work in computer science without completing a master's degree.
 Full-time scientific software development included C++ backends, statistical
 analysis, and cross-platform GUIs. Algorithm design and planning precede
 implementation; experience across languages informs reusable software design.
+The C++ work is historical, more than 30 years ago. Lead current CV prose with
+current projects; do not use the older work to justify present architectural
+expertise. A narrative CV may omit it or mention it once.
 
 - **Python**: primary language for current research software, scientific
   analysis, desktop and web applications, APIs, testing, and documentation.
@@ -32,6 +35,21 @@ implementation; experience across languages informs reusable software design.
 - Pillow
 - Parallel and concurrent programming
 
+Selected implemented methods include Radon-based velocity estimation,
+Lomb–Scargle and Welch spectral estimation, threshold and gradient-based
+diameter measurements, and one-dimensional peak detection and event kinetics.
+See `algorithm-design.md` for measurement context and limits. These examples
+support algorithm-design expertise without implying invention of the
+underlying established mathematical methods.
+
+AcqStore uses process pools for independent Radon windows and thread pools for
+independent diameter profiles. Its backend batch runner can also schedule
+files, reuse the single-file API, preserve result ordering, and handle
+cancellation and per-file outcomes. CloudScope's described batch workflows run
+files serially while enabling parallel work inside each file. Worker counts
+are runtime options distinct from scientific detection parameters; do not
+claim measured speedups or parallel execution for every estimator.
+
 ## User Interfaces and Visualization
 
 - PyQt
@@ -50,6 +68,10 @@ visualization and interaction. mapmanager-web-components packages reusable web
 components used by CloudScope-Web, SanPy-Web, the PyQt SanPy application, and
 the NiceGUI CloudScope application. Its image viewer, nicepool, and signal
 viewer each have a live static single-page application demo.
+
+NiceWidgets and mapmanager-web-components expose public component APIs for
+data, configuration, and interaction. Applications use methods and events or
+callbacks to coordinate widgets without depending on their internals.
 
 Desktop GUI design uses model-view-controller architecture and events. Views
 emit intent; controllers own model mutations within the GUI and publish state
@@ -87,6 +109,8 @@ AcqStore uses imaging formats, scalable storage, and published data contracts
 to support image access, metadata, analysis, and sharing. SanPy Zarr preserves
 recordings, parameter and result definitions, and completed analyses for
 electrophysiology. Do not infer SanPy NWB export from AcqStore's capabilities.
+Lazy loading extends from the Python APIs used by CloudScope and SanPy to
+Zarr-based access in CloudScope-Web and SanPy-Web.
 
 ## Web Applications and APIs
 
@@ -106,7 +130,9 @@ electrophysiology. Do not infer SanPy NWB export from AcqStore's capabilities.
 - httpx
 - HTML and JavaScript thin clients
 
-MapManager uses WebAssembly and Pyodide to run Python analysis in the browser.
+WebMapManager uses WebAssembly and Pyodide to run MapManagerCore in the browser.
+Its thin GUI and the PyMapManager desktop GUI share the same Python API,
+algorithms, and loading and saving functionality.
 AcqView uses WebAssembly and Pyodide to run community-developed microscopy
 readers in a static TypeScript/JavaScript/Vue application. It provides local
 file opening, metadata inspection, image display, and TIFF export without a

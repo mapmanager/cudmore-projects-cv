@@ -7,6 +7,7 @@ AcqView
 github and README: https://github.com/mapmanager/acqview
 live static SPA: https://mapmanager.github.io/acqview/
 dedicated documentation site: none currently
+RSE CV exception: Robert approved linking the live application.
 
 CloudScope
 github: https://github.com/mapmanager/cloudscope-app
@@ -31,11 +32,15 @@ docs: https://acqstore-server.pages.dev/
 NiceWidgets
 github: https://github.com/mapmanager/nicewidgets
 docs: https://mapmanager.github.io/nicewidgets/
+component API notes: https://mapmanager.github.io/nicewidgets/api/widget-api/
 web app: https://nicewidgets.mapmanager.net/
 
 mapmanager-web-components
 github: https://github.com/mapmanager/mapmanager-web-components
 docs: https://mapmanager.github.io/mapmanager-web-components/
+image viewer Vue API: https://mapmanager.github.io/mapmanager-web-components/image-viewer/vue-integration/
+NicePool data and selection API: https://mapmanager.github.io/mapmanager-web-components/nicepool/data-and-selection-api/
+signal viewer Vue API: https://mapmanager.github.io/mapmanager-web-components/signal-viewer/vue-integration/
 web app:
  https://mapmanager.github.io/mapmanager-web-components/demos/image-viewer/
  https://mapmanager.github.io/mapmanager-web-components/demos/nicepool/
@@ -59,6 +64,12 @@ web app: https://mapmanager.github.io/WebMapManager/
 original Igor Pro source: https://github.com/mapmanager/mapmanager
 shared Python API: https://github.com/mapmanager/MapManagerCore
 desktop application: https://github.com/mapmanager/PyMapManager
+PyMapManager documentation: https://mapmanager.github.io/PyMapManager/
+Documentation scope: https://mapmanager.github.io/ describes the established
+MapManager application; do not use it as documentation for the modern browser
+or backend projects. Dedicated WebMapManager and MapManagerCore documentation
+URLs have not been established in this source. Robert approved leaving these
+two names unlinked in the RSE CV until suitable documentation is available.
 
 Brightest Path Tracing
 github: https://github.com/mapmanager/brightest-path-lib

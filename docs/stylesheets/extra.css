@@ -27,9 +27,17 @@
   opacity: 0.85;
 }
 
-/* One section per project_type; type is aria-label only, not a visible heading */
+/* One section per project_type, with that text as the heading */
 .md-typeset .hero + .project-section {
   margin-top: 0.75rem;
+}
+
+.md-typeset .project-section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin: 0 0 0.15rem;
 }
 
 .md-typeset .project-section + .project-section {

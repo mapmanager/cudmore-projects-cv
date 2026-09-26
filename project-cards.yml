@@ -1,6 +1,6 @@
 # Project cards displayed on the homepage.
 # List order determines section order (first-seen project_type) and card
-# order within a section. project_type is a grouping key, not a visible heading.
+# order within a section. Each distinct project_type is shown as a section heading.
 # Omit icon for a text-only card.
 # Optional companion names another card by name. It is drawn as a second
 # section inside this card (without its icon) and is not shown on its own.
@@ -9,7 +9,7 @@
   companion: CloudScope-Web
   description: Image analysis for microscopy data with desktop, web, and scripting. Uses reproducible **AcqStore** analysis engine and produces datasets that are visualized on the web with **CloudScope-Web**
   icon: cloudscope-icon.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: live
       label: Web App
@@ -21,7 +21,7 @@
 - name: CloudScope-Web
   description: Website to view published **CloudScope** datasets.
   icon: cloudscope-web.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: live
       label: Web App
@@ -38,7 +38,7 @@
   description: Desktop software for whole-cell current clamp analysis.
   icon: sanpy-icon-v2.png
   # icon_background: light
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: github
       label: GitHub
@@ -53,7 +53,7 @@
 - name: SanPy-Web
   description: Website to view published **SanPy** datasets.
   icon: sanpy-web.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: github
       label: GitHub
@@ -69,7 +69,7 @@
   companion: MapManager - Igor
   description: Next generation longitudinal dendritic spine analysis with desktop, web, and Python backend.
   icon: mapmanager-icon.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: live
       label: Web App
@@ -90,7 +90,7 @@
 - name: MapManager - Igor
   description: Original Igor Pro version of MapManager for longitudinal image analysis.
   icon: mapmanager-igor-icon.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: docs
       label: Docs
@@ -102,7 +102,7 @@
 - name: AcqView
   description: Website to open and visualize local microscopy files. A quick way to open and inspect your raw imaging data including oir, czi, nd2, and tif files.
   icon: acqview-ai-v2.png
-  project_type: Current
+  project_type: Software Projects
   links:
     - type: live
       label: Web App
@@ -111,10 +111,25 @@
       label: GitHub
       url: https://github.com/mapmanager/acqview
 
+- name: PiE
+  description: A Raspberry Pi Controlled Experiment (PiE).
+  icon: pie-icon.png
+  project_type: Software Projects
+  links:
+    - type: github
+      label: GitHub
+      url: https://github.com/cudmore/pie
+    - type: docs
+      label: Docs
+      url: https://cudmore.github.io/pie-doc/
+    - type: pubmed
+      label: PubMed
+      url: https://pubmed.ncbi.nlm.nih.gov/37583418/
+
 - name: Brightest Path Lib
   description: Path-finding algorithms to find the brightest path between points in an image.
   icon: brightest-path-lib-icon.gif
-  project_type: Completed
+  project_type: Modular Tools
   links:
     - type: github
       label: GitHub
@@ -129,25 +144,10 @@
       label: PyPI
       url: https://pypi.org/project/brightest-path-lib/
 
-- name: PiE
-  description: A Raspberry Pi Controlled Experiment (PiE).
-  icon: pie-icon.png
-  project_type: Completed
-  links:
-    - type: github
-      label: GitHub
-      url: https://github.com/cudmore/pie
-    - type: docs
-      label: Docs
-      url: https://cudmore.github.io/pie-doc/
-    - type: pubmed
-      label: PubMed
-      url: https://pubmed.ncbi.nlm.nih.gov/37583418/
-
 - name: AcqStore
   description: Image loading, analysis algorithms, and export tools for Python. Used by **CloudScope**.
   icon: acqstore-server-icon.png
-  project_type: Tools
+  project_type: Modular Tools
   links:
     - type: github
       label: GitHub
@@ -159,7 +159,7 @@
 - name: Web-Components
   description: Reusable web components written in node/typescript/vue. Check out the live web-app links below.
   icon: mapmanager-web-components-nicepool.png
-  project_type: Tools
+  project_type: Modular Tools
   links:
     - type: github
       label: GitHub
@@ -179,7 +179,7 @@
       
 - name: NiceWidgets
   description: Reusable NiceGUI widgets.
-  project_type: Tools
+  project_type: Modular Tools
   icon: nicewidgets-v1.png
   links:
     - type: live

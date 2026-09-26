@@ -33,9 +33,9 @@ is unavailable or ambiguous.
 - `outputs/research-labs-department-heads/` contains a completed audience
   specification and near-final narrative CV and exploratory cover letter.
 - `outputs/research-software-engineer/` contains the agreed audience plan and
-  first drafts of its narrative CV, exploratory letter, platform section,
+  revised narrative CV and platform descriptions, an exploratory letter,
   skills section, and project resources. This package is the current review
-  target. Word and PDF documents have not been generated.
+  target. The editorial workflow changes Markdown files only.
 - The core sources now record Robert's updates on public repositories,
   mapmanager-web-components integrations, AcqStore schemas, and SanPy Zarr.
 - Existing shared sections and the two earlier audience packages are unchanged.
@@ -45,9 +45,9 @@ is unavailable or ambiguous.
 - Following the source review and discussion, Robert authorized a substantial
   rewrite of the RSE `cv.md`. The rewritten narrative is ready for review and
   pairs engineering strategies with factual portfolio evidence.
-- The RSE `cover-letter.md` and `research-software-platforms.md` remain
-  unchanged and deferred. Shared sections and user-owned sections remain
-  unchanged.
+- The RSE `research-software-platforms.md` rewrite is complete and ready for
+  review alongside `cv.md`. The cover letter remains unchanged and deferred.
+  Shared sections and user-owned sections remain unchanged.
 - Robert clarified his bachelor's degree in computer science, subsequent
   scientific software development, and later graduate work without a completed
   master's degree. These facts are in the narrative sources; user-owned factual
@@ -144,14 +144,70 @@ the next task changes.
 
 ## Next Task
 
-Review the rewritten RSE `cv.md` with Robert. It retains the six-section
-structure and incorporates the computer science foundation, modular Python
-backends, controller-managed GUI state, component reuse, data interoperability,
-algorithm design, testing and delivery, AcqView, and directed LLM use. CV length
-is governed by substantive explanation and readability rather than a fixed
-limit. Cover-letter length is a separate constraint.
+Review the integrated rewrite of `outputs/research-software-engineer/cv.md`
+with Robert. He approved the algorithm section and all previously agreed
+editorial revisions; the rewrite is complete. Its seven-section structure
+distinguishes numerical measurement methods from reusable architecture.
+`audience.md` records the implemented plan.
 
-After the CV review, the recommended sequence is to revise the platform
-descriptions and then the cover letter when Robert requests those changes.
-Preserve shared defaults, previous audience packages, and user-owned sections.
-Document conversion and full-CV assembly remain separate.
+The latest CV review strengthens Robert's substantial experimental domain
+expertise and his direct contributions to both biological reasoning and
+software engineering. Core sources and audience guidance retain this emphasis.
+The CV uses "public APIs and plugin interfaces," identifies Python
+multiprocessing and thread pools, and explicitly names Pyodide in the AcqView
+description. Detailed sequential-processing and worker-setting explanations
+remain in source notes but are omitted from the CV. Feature extraction follows
+event detection, and both AcqStore and SanPy preserve usable results when
+individual fits or feature calculations fail. Continue reviewing the Markdown CV with
+Robert. The platform-description rewrite is now complete, with nine entries
+including AcqView. It separates application workflows from backend methods,
+adds current interoperability and browser-execution evidence, and preserves
+project-specific claim boundaries. The CV was not changed during that rewrite.
+This editorial workflow changes Markdown files only, not Word documents.
+
+All four open decisions are resolved:
+
+- Defer MVC claims about JavaScript/TypeScript/Vue apps; retain confirmed PyQt
+  and NiceGUI architecture.
+- Describe MATLAB and Igor Pro parenthetically as potential AcqStore Server
+  integrations, not implemented clients.
+- Keep AcqView's live-app link as an approved exception to documentation links.
+- Leave WebMapManager and MapManagerCore unlinked until suitable documentation
+  URLs are available; PyMapManager has a documentation site.
+
+Selected algorithm evidence is retained in `algorithm-design.md`, with shorter
+summaries in `outline.md`, `narrative.md`, and `technical-skills.md`. Use these
+retained summaries for continued CV work. They cover Radon velocity, spectral
+heart-rate estimation, vessel diameter, intensity/peak analysis, and parallel
+execution. The detailed implementation account is for AcqStore; Robert
+confirms the same one-dimensional detection and event-measurement algorithms
+are implemented in SanPy. Do not infer shared code or identical preprocessing.
+
+The CV now includes "Scientific Algorithms and Parallel Computing" between
+requirements discovery and architecture. It uses three concise groups of
+measurement examples, a parallel-execution paragraph, and the Brightest Path
+example moved from architecture. GUI, schema, and storage details remain in
+their own sections.
+The source note records the important limits: independent work versus temporal
+dependencies, backend concurrency versus CloudScope's serial-across-files
+configuration, and execution settings versus scientific parameters. No measured
+speedups or scientific-validation claims have been established.
+
+The rewrite leads with current work, omits historical C++ references, explains
+public component APIs and extensibility, describes lazy access across analysis
+and publication, and connects standards-based export with community repositories.
+It includes WebMapManager's Pyodide execution of the same MapManagerCore API
+used by PyMapManager. LLM use now sits under Research Software Architecture.
+Documentation and distribution prose explicitly covers full GUI documentation
+and developer APIs, followed by automated packaging. CloudScope's remote-server
+deployment is described in architecture. AcqView has a separate paragraph within
+the browser-execution bullet. The individual NHLBI co-PI sentence is omitted
+from the CV while the award remains grouped with the other funding. The final section is now Technical Leadership and Mentorship, with
+funding grouped around multidisciplinary teams and biomedical engineering
+included in mentorship. The curation prose remains project-neutral early in
+the CV, with project evidence retained in the core sources.
+
+Review the CV and platform descriptions with Robert. The next unrevised
+application document is the cover letter, to be changed when Robert requests
+it. Preserve shared defaults, previous audience packages, and user-owned
+sections. No Word editing or document conversion is part of the current work.

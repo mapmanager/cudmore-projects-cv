@@ -54,7 +54,7 @@ hide:
 
 # Robert H Cudmore, PhD {.hero-title}
 
-I build scientific software that transforms biological data into reproducible quantitative results. My work is focused on online scientific data sharing, algorithm design, and visualization tools for desktop and web.
+I build scientific software that transforms biological data into reproducible quantitative results. My work is focused on algorithm design, visualization tools for desktop and web, and online scientific data sharing. 
 
 </div>
 
@@ -69,7 +69,9 @@ I build scientific software that transforms biological data into reproducible qu
 {% endfor %}
 
 {% for project_type in ns.types %}
-<div class="project-section" markdown aria-label="{{ project_type }}">
+<div class="project-section" markdown>
+
+<h2 class="project-section-title">{{ project_type }}</h2>
 
 <div class="project-grid" markdown>
 
