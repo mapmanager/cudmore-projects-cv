@@ -39,6 +39,18 @@ is unavailable or ambiguous.
 - The core sources now record Robert's updates on public repositories,
   mapmanager-web-components integrations, AcqStore schemas, and SanPy Zarr.
 - Existing shared sections and the two earlier audience packages are unchanged.
+- Canonical sources now include MATLAB; Jupyter use across CloudScope, SanPy,
+  PiE, Brightest Path, and other projects; modular acquisition-hardware
+  integration; additional cell-culture and in vivo and ex vivo imaging
+  experience; physiological monitoring; and remote rodent activity monitoring.
+- Teaching sources now record instructional ECG/EKG, pulse-oximetry, and
+  accelerometer activity laboratories while explicitly distinguishing them
+  from continuous wearable monitoring, clinical research, regulated
+  healthcare, and medical-device development.
+- The RSE technical-skills section is now a compact inventory derived from the
+  root sources. Detailed project evidence remains in the platform section.
+- `outputs/research-software-engineer/jobs.md` tracks advertised roles without
+  creating a complete set of job-specific assembly-section variants.
 - Subsequent steering on AcqView, computer science background, modular GUI
   design, and daily LLM use is recorded in the core sources. RSE audience
   planning, skills, and resources reflect the permitted updates.
@@ -143,6 +155,14 @@ for the work. Return to `handoff.md` only when project status, architecture, or
 the next task changes.
 
 ## Next Task
+
+Review the revised RSE technical-skills section and the new canonical
+experimental, instrumentation, teaching, and Jupyter material with Robert.
+The first tracked application is VivoSense's Senior Scientific Integration
+Engineer position. When Robert requests implementation, create a separate
+VivoSense cover letter while reusing the existing RSE CV, platform
+descriptions, technical skills, and project resources. Do not create a
+VivoSense-specific technical-skills or platform-description file.
 
 Review the integrated rewrite of `outputs/research-software-engineer/cv.md`
 with Robert. He approved the algorithm section and all previously agreed

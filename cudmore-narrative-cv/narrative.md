@@ -52,6 +52,20 @@ supported researchers using these systems. This experience connects
 experimental design and data acquisition with the quantitative analysis that
 follows.
 
+My experimental methods include dissociated and organotypic cell culture, ex
+vivo imaging of living tissue with laser-scanning microscopy, and in vivo
+imaging in both anesthetized and awake rodents. The in vivo work required
+temperature monitoring and pulse oximetry. I have also developed custom remote
+monitoring of wheel-running behavior in rodents, including real-time video
+streaming to a browser and network transfer of recorded video to remote
+servers.
+
+Building acquisition systems required integrating modular hardware for data
+collection and experiment monitoring, establishing communication with the
+devices, and writing software to retrieve, visualize, and save their data.
+This work gave me direct experience connecting instrument behavior with the
+software and data required for quantitative analysis.
+
 That experience changed the way I think about scientific software. I
 increasingly came to view analytical methods as general scientific tools
 rather than techniques tied to a particular biological discipline. My direct
@@ -146,6 +160,11 @@ backends, keeping scientific computation separate from presentation.
 Public APIs and plugin interfaces allow other developers to incorporate
 specialized analysis methods into these workflows. This makes extensibility
 and interoperability practical parts of the architecture.
+
+I use Jupyter notebooks across projects including CloudScope, SanPy, PiE, and
+Brightest Path. The notebooks demonstrate APIs and analysis workflows and are
+often distributed alongside MkDocs documentation. They give developers and
+researchers an executable route from documented methods to scripted analyses.
 
 My PyQt and NiceGUI applications use model-view-controller architecture with
 an event-driven runtime. Views send user intent to a controller. Within the
@@ -724,6 +743,10 @@ connected them into distributed systems using internet dashboards. Lectures
 examined biometric Internet of Things devices for monitoring human health and
 disease progression. They also considered how longitudinal data collected
 across large populations can enable new scientific questions and discoveries.
+Laboratory exercises included electrocardiography (ECG/EKG), pulse oximetry,
+and accelerometer-based activity measurement as a simple introduction to
+actigraphy. These were instructional exercises rather than continuous wearable
+monitoring, clinical research, or regulated medical-device development.
 
 My training work also extends across disciplines. I have mentored, trained, and
 employed computer science and biophysical engineering graduate students, as

@@ -19,6 +19,7 @@ expertise. A narrative CV may omit it or mention it once.
   analysis, desktop and web applications, APIs, testing, and documentation.
 - **C/C++**: more than ten years of experience. Used extensively in the first
   research position at Roswell Park.
+- **MATLAB**
 - **Igor Pro**: more than ten years of experience. The original MapManager
   application was implemented entirely in Igor Pro.
 - **Bash and zsh**: development, testing, packaging, release, and automation
@@ -34,6 +35,9 @@ expertise. A narrative CV may omit it or mention it once.
 - scikit-image
 - Pillow
 - Parallel and concurrent programming
+- Jupyter notebooks: used across projects including CloudScope, SanPy, PiE,
+  and Brightest Path to demonstrate APIs and analysis workflows; notebooks are
+  often distributed alongside MkDocs documentation.
 
 Selected implemented methods include Radon-based velocity estimation,
 Lomb–Scargle and Welch spectral estimation, threshold and gradient-based
@@ -122,6 +126,8 @@ Zarr-based access in CloudScope-Web and SanPy-Web.
 - Vite
 - WebAssembly
 - Pyodide
+- Flask and Flask-SocketIO
+- Socket.IO
 - FastAPI
 - uvicorn
 - RESTful HTTP and JSON APIs
@@ -159,6 +165,7 @@ AcqStore Python backend in each client.
 - Google-style docstrings
 - End-user and developer documentation
 - Codecov and GitHub workflows for measured test coverage.
+- Jupyter notebooks distributed with project documentation and examples.
 
 LLMs support daily planning, architecture, specification-driven implementation,
 and unit-test writing. Robert retains responsibility for scientific assumptions
@@ -175,6 +182,13 @@ maintenance, particularly of SanPy, uses LLMs.
 - Linux-based development and continuous-integration environments
 - Docker and Docker Compose
 - nginx: used by PiE.
+- systemd services
+- SSH/SFTP synchronization across distributed acquisition nodes
+
+Robert has a general foundation in cloud and server infrastructure through
+Linux services, containerized deployment, server-backed applications,
+object-storage access, continuous integration, and remote experimental
+systems. Do not infer direct AWS experience from this foundation.
 
 ## Scientific Analysis
 
@@ -190,11 +204,32 @@ maintenance, particularly of SanPy, uses LLMs.
 ## Scientific Instrumentation and Acquisition
 
 - Laser-scanning microscopy
+- Dissociated and organotypic cell culture
+- Ex vivo imaging of living tissue with laser-scanning microscopy
+- In vivo imaging in anesthetized and awake rodents
+- Physiological monitoring during in vivo imaging, including temperature
+  monitoring and pulse oximetry
 - Custom microscopy and electrophysiology acquisition systems
+- Integration of modular acquisition and monitoring hardware, device
+  communication, and software for retrieving, visualizing, and saving data
 - Whole-cell current- and voltage-clamp electrophysiology
 - Real-time data acquisition and visualization
 - Arduino microcontrollers
-- Remote experiment control and video monitoring
+- Raspberry Pi embedded acquisition systems
+- Arduino-compatible microcontrollers programmed in C++ with PlatformIO
+- GPIO, hardware interrupts, and USB serial communication
+- Cross-device trigger and frame synchronization between behavioral video and
+  microscope acquisition
+- H.264 scientific video acquisition and browser streaming
+- FFmpeg conversion of recorded video to MP4
+- OpenCV-based video review and behavioral annotation
+- Remote experiment control and real-time video streaming to a browser
+- Network transfer of recorded video to remote servers
+- Custom remote monitoring of wheel-running behavior in rodents
+- Instructional laboratory experience with electrocardiography (ECG/EKG),
+  pulse oximetry, and accelerometer-based activity measurement. Do not present
+  this as continuous wearable monitoring, clinical research, regulated
+  healthcare, or medical-device development.
 
 ## Generated CV Baseline
 

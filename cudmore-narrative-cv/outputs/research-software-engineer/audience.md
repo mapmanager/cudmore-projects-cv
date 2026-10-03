@@ -7,6 +7,11 @@ software group leaders, with later adaptation to advertised positions.
 Relevant settings include university RSE groups, research institutes,
 scientific computing groups, and teams developing shared scientific software.
 
+For advertised positions, reuse the RSE CV, platform descriptions, technical
+skills, and project resources. Normally create only a job-specific cover
+letter and an entry in `jobs.md`. Create additional job-specific section
+variants only when a position requires a materially different presentation.
+
 Robert seeks senior hands-on engineering leadership: writing code, guiding
 architecture, coordinating development, and mentoring engineers. Consider
 senior RSE, scientific software technical-lead, and engineering-management

@@ -67,8 +67,18 @@ Core ideas
   performing experiments with precision, interpreting results, and publishing
   the findings.
 * Built custom microscopy and electrophysiology acquisition systems.
+* Built acquisition systems from modular hardware used to acquire and monitor
+  experiments, established communication with the devices, and wrote software
+  to retrieve, visualize, and save their data.
 * Developed software for real-time data acquisition and visualization.
 * Supported researchers using these experimental systems.
+* Experimental methods include dissociated and organotypic cell culture.
+* Performed ex vivo imaging of living tissue with laser-scanning microscopy.
+* Performed in vivo imaging in both anesthetized and awake rodents.
+* In vivo imaging required temperature monitoring and pulse oximetry.
+* Developed custom remote monitoring of wheel-running behavior in rodents,
+  including real-time video streaming to a browser and network transfer of
+  recorded video to remote servers.
 * Domain expertise includes neuroscience, vascular biology, and cardiac
   physiology.
 * This is substantial experimental domain expertise, combined with software
@@ -463,6 +473,7 @@ Programming
 
 * Python
 * C/C++
+* MATLAB
 * Igor Pro
 * Bash and zsh scripting
 
@@ -476,6 +487,8 @@ Scientific computing
 * scikit-image
 * Pillow
 * Parallel and concurrent programming
+* Jupyter notebooks used across projects, including CloudScope, SanPy, PiE,
+  and Brightest Path
 
 Scientific analysis
 
@@ -543,6 +556,8 @@ Software engineering, testing, and documentation
 * Documented Python APIs
 * Google-style docstrings
 * End-user and developer documentation
+* Jupyter notebooks distributed alongside MkDocs documentation to demonstrate
+  APIs and analysis workflows
 
 Deployment and infrastructure
 
@@ -552,6 +567,9 @@ Deployment and infrastructure
 * PyInstaller
 * macOS and Windows desktop applications
 * Linux-based development and continuous-integration environments
+* General cloud and server-infrastructure experience through Linux services,
+  containerized deployment, server-backed applications, object-storage
+  access, and remote experimental systems. Do not infer direct AWS experience.
 
 Maybe add
 
@@ -1178,10 +1196,24 @@ Software
 * Log experimental events and environmental measurements alongside recorded
   video.
 * Each behavior box runs an independent PiE server.
+* Each server exposes acquisition state, configuration, environmental data,
+  and hardware control through an HTTP and JSON API used by browser interfaces,
+  notebooks, and other laboratory software.
 * Commander controls and monitors any number of PiE servers from one web
   interface.
 * Commander provides centralized system status, a video wall, remote control,
-  and file synchronization.
+  and scheduled SSH/SFTP synchronization of completed video and trial files to
+  central storage.
+* An Arduino-compatible microcontroller handles interrupt-driven,
+  timing-sensitive acquisition tasks and communicates with the Raspberry Pi
+  over USB serial.
+* PiE synchronizes behavioral video with two-photon microscope trial triggers
+  and frame signals. Camera timestamps, Raspberry Pi event records, and
+  microcontroller event records preserve the alignment.
+* Triggered acquisition can retain video captured immediately before an
+  externally initiated trial through an in-memory circular buffer.
+* Separate acquisition and administrative services support automatic startup,
+  remote recovery, and software updates.
 * VideoAnnotate is a related application in a separate repository for
   graphical behavioral scoring.
 * VideoAnnotate supports blinded scoring of randomized video segments, records
@@ -1190,6 +1222,9 @@ Software
 Technical highlights
 
 * Distributed multi-device architecture.
+* Hardware and software co-design that assigns networking, video, storage, and
+  browser access to embedded Linux while an Arduino-compatible microcontroller
+  handles timing-sensitive inputs and event logging.
 * Remote monitoring and experiment control.
 * Automated and parallel acquisition across multiple behavior boxes.
 * Used for continuous 24/7 video acquisition across eight behavior boxes in
@@ -1198,6 +1233,8 @@ Technical highlights
 * Video recording, live streaming, environmental monitoring, and event
   logging.
 * Centralized monitoring and file collection through Commander.
+* Coordinated behavioral-video and microscope acquisition through external
+  triggers, frame signals, and aligned event records.
 * Blinded and randomized behavioral scoring through VideoAnnotate.
 * nginx deployment.
 
@@ -1448,11 +1485,17 @@ Formal course design and instruction
 * Combined lectures with hands-on circuit-building laboratories.
 * In the laboratories, students wired simple circuits and sensors and connected
   them into distributed systems using internet dashboards.
+* Hands-on laboratories included electrocardiography (ECG/EKG) and pulse
+  oximetry.
+* Students used accelerometers for a simple introduction to activity
+  measurement and actigraphy; this was not continuous wearable monitoring.
 * Lectures examined biometric Internet of Things devices for monitoring human
   health and disease progression.
 * Examined how longitudinal data collected across large populations can enable
   new scientific questions and discoveries.
 * The course did not diagnose medical conditions.
+* The instructional laboratories do not establish clinical, regulated
+  healthcare, or medical-device development experience.
 
 Scientific instruction and research training
 

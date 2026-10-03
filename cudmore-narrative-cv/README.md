@@ -112,6 +112,7 @@ outputs/
             ├── audience.md
             ├── cv.md
             ├── cover-letter.md
+            ├── jobs.md
             ├── research-software-platforms.md
             ├── technical-skills.md
             └── project-resources.md
@@ -141,6 +142,12 @@ automatically. No shared default is rewritten to serve the RSE audience.
 Cover letters are tailored to specific opportunities. Specialized strategies,
 including outreach to imaging cores, belong in cover letters or emails rather
 than the core CV.
+
+The RSE package uses `jobs.md` as a lightweight application tracker. An
+advertised position normally reuses the package's CV, platform descriptions,
+technical skills, and project resources, with a new job-specific cover letter.
+Do not create job-specific versions of every assembly section unless a role
+requires a materially different presentation.
 
 ## Rules for Deriving Audience-Specific CVs
 
