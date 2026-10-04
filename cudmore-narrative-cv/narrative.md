@@ -52,13 +52,14 @@ supported researchers using these systems. This experience connects
 experimental design and data acquisition with the quantitative analysis that
 follows.
 
-My experimental methods include dissociated and organotypic cell culture, ex
-vivo imaging of living tissue with laser-scanning microscopy, and in vivo
-imaging in both anesthetized and awake rodents. The in vivo work required
-temperature monitoring and pulse oximetry. I have also developed custom remote
-monitoring of wheel-running behavior in rodents, including real-time video
-streaming to a browser and network transfer of recorded video to remote
-servers.
+My electrophysiology preparations include dissociated cultures, organotypic
+cultures, and in vitro slice preparations. My laser-scanning microscopy
+experience includes confocal imaging of fixed tissue, two-photon imaging of ex
+vivo preparations, and in vivo two-photon imaging in both anesthetized and
+awake rodents. The in vivo work required temperature monitoring and pulse
+oximetry. I have also developed custom remote monitoring of wheel-running
+behavior in rodents, including real-time video streaming to a browser and
+network transfer of recorded video to remote servers.
 
 Building acquisition systems required integrating modular hardware for data
 collection and experiment monitoring, establishing communication with the
@@ -71,11 +72,13 @@ increasingly came to view analytical methods as general scientific tools
 rather than techniques tied to a particular biological discipline. My direct
 experimental work has centered on microscopy and electrophysiology, but I
 use that experience as a practical foundation for collaborating in scientific
-domains beyond my own direct expertise. I work with domain experts to
-understand the experiment, identify scientifically valid measurements, and
-develop analysis software that addresses their questions. This perspective
-continues to shape the scientific problems that interest me and the way I
-approach quantitative biological research.
+domains beyond my own direct expertise. I am comfortable entering new
+scientific fields and enjoy working closely with specialists whose expertise
+complements my own. Together, we work to understand the experiment, identify
+scientifically valid measurements, and develop analysis software that
+addresses their questions. This perspective continues to shape the scientific
+problems that interest me and the way I approach quantitative biological
+research.
 
 # Research Software Engineering
 
@@ -453,7 +456,7 @@ and analysis methods to CloudScope and scripting workflows.
 
 Raw imaging data come from many sources, including proprietary microscope file
 formats. AcqStore loads these data while retaining the experimental metadata
-and physical units required for quantitative analysis. Its extensible
+required for quantitative analysis. Its extensible
 file-loader plugin system allows new formats to be supported without rewriting
 the applications built on AcqStore.
 
@@ -487,25 +490,28 @@ Documenting the stored data as well as the software API allows other
 developers to interpret and reuse collections independently of the
 application's internal implementation.
 
-AcqStore Server
+AcqStore-Server
 
-AcqStore Server extends AcqStore through a local HTTP API. Lightweight browser,
-JavaScript, and Python clients can open scientific image acquisitions and
-access normalized metadata, physical units, and image planes without embedding
-the AcqStore Python backend. This avoids reimplementing file loading and
-scientific-data handling in every client.
+AcqStore-Server is a separately delivered access layer that exposes AcqStore
+through an HTTP API. Because AcqStore loads open and proprietary microscope
+formats, lightweight browser, JavaScript, and Python clients can open supported
+raw image acquisitions and access normalized metadata, including physical
+units, and image planes without embedding the AcqStore Python backend. This
+avoids reimplementing file loading and scientific-data handling in every
+client.
 
 The service uses FastAPI and uvicorn and defines a versioned API with an
 OpenAPI contract. Short-lived sessions provide binary access to source and
 reference image planes. A reference HTML and JavaScript client demonstrates
 how a thin client can inspect acquisition metadata and display image data. The
-server is distributed as a desktop application and runs locally by default.
+server can run locally or be deployed remotely. It is also distributed as a
+desktop application, with local-only networking as its default configuration.
 
 This architecture separates the scientific backend from the user interface and
 client language. New interfaces can use the same AcqStore implementation while
 remaining small and independently developed. Automated tests cover the API,
 schemas, session lifecycle, error responses, representative image formats, and
-client contract. AcqStore Server's repository is currently public. The project
+client contract. AcqStore-Server's repository is currently public. The project
 provides evidence of API design, testing, and application delivery for
 technical Research Software Engineering roles.
 
@@ -595,34 +601,48 @@ format, distinct from NWB.
 
 MapManager
 
-MapManager addresses the challenge of organizing, visualizing, and analyzing
-neuronal structure over time. Longitudinal three-dimensional microscopy may
-span weeks or months. Images must be aligned between time points, and the same
-biological structures must be identified across imaging sessions. Researchers
-can then measure the persistence, addition, elimination, movement, and
-fluorescence intensity of structures such as dendritic spines and cell bodies.
-MapManager is routinely used with longitudinal datasets acquired from awake,
-behaving mice.
+MapManager supports large-scale annotation and curation of neuronal structures
+across longitudinal three-dimensional microscopy sessions that may span weeks
+or months. The principal scaling challenge is not raw image-file size. An
+experiment can produce tens of thousands of annotations whose identities,
+measurements, and relationships must remain accurate across repeated imaging
+sessions. Small changes in spine turnover or persistence can be obscured by
+even modest rates of false-positive and false-negative annotations, potentially
+producing a false change or an apparent null result. MapManager therefore
+combines automated analysis with rapid expert curation so detection errors do
+not become biological conclusions.
 
-The established version of MapManager is an Igor Pro desktop application. It
-automatically aligns images between time points and semi-automatically
-identifies corresponding annotations across sessions. Researchers can trace
-neuronal dendritic segments, and MapManager automatically connects each
-annotated spine to its parent segment. It creates regions of interest for each
-spine that include the spine, its dendritic segment, and associated
-ground-truth background measurements. These region-of-interest intensity
-measurements support longitudinal analysis of submicron, diffraction-limited
-dendritic spines. Its graphical interface supports interactive visualization,
-annotation, measurement, and curation of collections that may contain tens of
-thousands of annotations. This version has supported at least five
-peer-reviewed publications, demonstrating the scientific value of the
-longitudinal-analysis workflow.
+Researchers identify candidate dendritic spines or axonal boutons. MapManager
+then creates regions of interest automatically and uses measurement heuristics
+to propose whether each annotation should be accepted or rejected. It also
+proposes connections between corresponding structures at adjacent time points.
+Researchers review and correct these proposals through the graphical
+interface, producing the laboratory's curated reference annotation set.
+MapManager classifies structures as persistent, transient, added, or eliminated
+across any number of time points. Its API and GUI allow users to inspect and
+correct these classifications while retaining stable identities for structures
+that persist across multiple imaging sessions.
 
-I am rebuilding this proven workflow as an open-source, extensible, and
-reproducible software ecosystem. The modern MapManager is under active
-development and separates shared scientific functionality from the applications
-used to access it. This design reduces dependence on proprietary software and
-makes established analysis methods easier to reuse, extend, and share.
+MapManager uses corresponding landmarks selected by the researcher to
+calculate rigid alignment between time points. These landmarks reduce the
+complexity of registration and improve robustness when noisy longitudinal
+images do not provide reliable features for fully automatic alignment. The
+rigid transformation preserves distances and shapes instead of introducing
+affine or nonrigid distortion into diffraction-limited structures. MapManager
+uses the Brightest Path library to trace dendritic segments and axons, connects
+spine annotations with their parent segments, and performs region-of-interest
+analysis. Measurements can include position, area, length, distance along the
+parent segment, fluorescence intensity, intensity ratios, and structural
+classifications.
+
+The established Igor Pro desktop application made this workflow practical for
+longitudinal structural neuroscience and demonstrated its value in research
+use. I am carrying that proven scientific workflow forward in an open-source,
+extensible, and reproducible software ecosystem. The modern MapManager is under
+active development and separates shared scientific functionality from the
+applications used to access it. This design reduces dependence on proprietary
+software and makes established analysis methods easier to reuse, extend, and
+share.
 
 MapManagerCore provides the shared Python API for the modern ecosystem.
 WebMapManager runs that backend in the browser through Pyodide. Its thin GUI
@@ -679,10 +699,10 @@ paths that can be incorporated into subsequent quantitative analyses.
 
 The researcher supplies start and end points, and Brightest Path returns the
 image coordinates forming the brightest path between them. The library
-implements A* and bidirectional A* search algorithms for n-dimensional images,
-accounts for image-axis scale, and uses Numba to accelerate the computations.
-It can also report search progress so an application can display the algorithm
-as it evaluates the image.
+implements A* and bidirectional A* search algorithms for n-dimensional images
+and uses Numba to accelerate the computations. It can also report search
+progress so an application can display the algorithm as it evaluates the
+image.
 
 Brightest Path provides a documented Python API that can be installed from the
 Python Package Index and incorporated into scientific applications, scripts,

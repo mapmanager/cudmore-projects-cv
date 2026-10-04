@@ -189,7 +189,7 @@ All four open decisions are resolved:
 
 - Defer MVC claims about JavaScript/TypeScript/Vue apps; retain confirmed PyQt
   and NiceGUI architecture.
-- Describe MATLAB and Igor Pro parenthetically as potential AcqStore Server
+- Describe MATLAB and Igor Pro parenthetically as potential AcqStore-Server
   integrations, not implemented clients.
 - Keep AcqView's live-app link as an approved exception to documentation links.
 - Leave WebMapManager and MapManagerCore unlinked until suitable documentation

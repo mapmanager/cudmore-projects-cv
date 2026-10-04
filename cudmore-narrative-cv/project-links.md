@@ -1,5 +1,5 @@
 Repository status: Robert confirms that all project repositories are currently
-public, including AcqStore Server. Branch-specific documentation may be ahead
+public, including AcqStore-Server. Branch-specific documentation may be ahead
 of default branches. These links support the canonical facts; they are not a
 requirement for accepting Robert's direct factual updates.
 
@@ -25,7 +25,7 @@ docs: https://mapmanager.github.io/acqstore/
 collection specification: https://mapmanager.github.io/acqstore/ome-zarr-export-format/
 machine-readable schema: https://mapmanager.github.io/acqstore/schemas/acqstore-ome-zarr-collection-v1.schema.json
 
-AcqStore Server
+AcqStore-Server
 github: https://github.com/mapmanager/acqstore-server
 docs: https://acqstore-server.pages.dev/
 

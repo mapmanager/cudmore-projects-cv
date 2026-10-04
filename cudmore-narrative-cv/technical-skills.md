@@ -107,7 +107,12 @@ computation in independently usable Python backends.
 - s3fs
 - Lazy and chunked array access
 - Multiscale image pyramids
-- Metadata and physical-unit preservation
+- Metadata preservation
+
+Physical units are part of image metadata. Application materials should
+describe metadata preservation without listing physical units as a separate
+capability. Field-level API or schema descriptions may retain that detail when
+technically relevant.
 
 AcqStore uses imaging formats, scalable storage, and published data contracts
 to support image access, metadata, analysis, and sharing. SanPy Zarr preserves
@@ -148,10 +153,11 @@ level of independent language fluency.
 mapmanager-web-components uses Node.js, TypeScript, JavaScript, Vue, and Vite
 to provide reusable interface components for CloudScope-Web, SanPy-Web,
 CloudScope, and SanPy.
-AcqStore Server uses FastAPI and uvicorn to expose AcqStore image data and
-metadata through a versioned local HTTP API. Its OpenAPI contract supports
-lightweight browser, JavaScript, and Python clients without embedding the
-AcqStore Python backend in each client.
+AcqStore-Server uses FastAPI and uvicorn to expose AcqStore's loaders, image
+data, and metadata through a versioned HTTP API that can run locally or be
+deployed remotely. Its OpenAPI contract supports lightweight browser,
+JavaScript, and Python clients, including clients opening supported proprietary
+microscope formats, without embedding the AcqStore Python backend.
 
 ## Software Engineering, Testing, and Documentation
 
@@ -204,9 +210,11 @@ systems. Do not infer direct AWS experience from this foundation.
 ## Scientific Instrumentation and Acquisition
 
 - Laser-scanning microscopy
-- Dissociated and organotypic cell culture
-- Ex vivo imaging of living tissue with laser-scanning microscopy
-- In vivo imaging in anesthetized and awake rodents
+- Dissociated cultures, organotypic cultures, and in vitro slice preparations
+  for electrophysiology
+- Confocal imaging of fixed tissue
+- Two-photon imaging of ex vivo preparations
+- In vivo two-photon imaging in anesthetized and awake rodents
 - Physiological monitoring during in vivo imaging, including temperature
   monitoring and pulse oximetry
 - Custom microscopy and electrophysiology acquisition systems
@@ -249,7 +257,7 @@ CV baseline because it is too granular:
 
 - Individual microscopy formats and their loader packages: TIFF, CZI, ND2,
   OIR, BioIO, tifffile, czifile, nd2, and oirfile.
-- Metadata and physical-unit preservation.
+- Metadata preservation.
 - Individual analysis examples: blood-flow velocity, vessel diameter,
   heart-rate detection, peak detection, and event detection.
 - MkDocs Material and mkdocstrings.

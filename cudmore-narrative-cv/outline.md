@@ -18,7 +18,7 @@ Document ownership note
 
 Current project status supplied by Robert
 
-* All project repositories are currently public, including AcqStore Server.
+* All project repositories are currently public, including AcqStore-Server.
 * Current work may be on branches ahead of the default branch. SanPy Zarr
   documentation is on `codex/sanpy-zarr`.
 * Direct factual updates from Robert can be incorporated here without requiring
@@ -72,9 +72,11 @@ Core ideas
   to retrieve, visualize, and save their data.
 * Developed software for real-time data acquisition and visualization.
 * Supported researchers using these experimental systems.
-* Experimental methods include dissociated and organotypic cell culture.
-* Performed ex vivo imaging of living tissue with laser-scanning microscopy.
-* Performed in vivo imaging in both anesthetized and awake rodents.
+* Electrophysiology preparations include dissociated cultures, organotypic
+  cultures, and in vitro slice preparations.
+* Laser-scanning microscopy includes confocal imaging of fixed tissue and
+  two-photon imaging of ex vivo preparations.
+* Performed in vivo two-photon imaging in both anesthetized and awake rodents.
 * In vivo imaging required temperature monitoring and pulse oximetry.
 * Developed custom remote monitoring of wheel-running behavior in rodents,
   including real-time video streaming to a browser and network transfer of
@@ -107,6 +109,9 @@ Core ideas
   experimental systems and scientific questions.
 * Use experimental experience as a practical foundation for collaborating in
   scientific domains beyond direct personal expertise.
+* Robert is comfortable and enthusiastic about entering new scientific
+  domains and working closely with specialists whose expertise complements
+  his own.
 * Work with domain experts to understand the experiment, identify
   scientifically valid measurements, and develop analysis software that
   addresses their questions.
@@ -544,7 +549,7 @@ Scientific data and formats
 * s3fs
 * Lazy and chunked array access
 * Multiscale image pyramids
-* Metadata and physical-unit preservation
+* Metadata preservation
 
 Software engineering, testing, and documentation
 
@@ -800,8 +805,8 @@ CloudScope-Web
   `mapmanager-web-components`.
 * CloudScope also uses these components in its NiceGUI application, providing
   shared interface components across analysis and publication.
-* CloudScope-Web provides the read-only subset needed to visualize and inspect
-  saved results.
+* CloudScope-Web is an online viewer for published AcqStore Zarr datasets and
+  provides the capabilities needed to visualize and inspect saved results.
 * Researchers perform and curate analyses in CloudScope using AcqStore, then
   save a self-contained OME-Zarr dataset containing the raw data and analysis.
 * A publication-specific CloudScope-Web page loads that dataset and presents it
@@ -864,8 +869,12 @@ Problem
 
 * Scientific imaging workflows must load data from open and proprietary
   microscope file formats.
-* Quantitative analysis depends on preserving image metadata, physical units,
-  experimental context, regions of interest, and analysis results.
+* Quantitative analysis depends on preserving image metadata, experimental
+  context, regions of interest, and analysis results.
+* Physical units are part of image metadata. In CVs, cover letters, and short
+  platform descriptions, refer to preserved metadata rather than listing
+  physical units as a separate capability. Detailed API or schema descriptions
+  may identify physical-unit fields when technically relevant.
 * Graphical applications and scripts should not reimplement file access, data
   management, visualization primitives, or analysis methods.
 
@@ -890,6 +899,12 @@ Public APIs and data schemas
 
 * AcqStore is a general-purpose Python backend independent of CloudScope.
 * Its public API and schema-based components support data interoperability.
+* AcqStore-Server is a separately delivered access layer around AcqStore. It
+  exposes AcqStore's file loaders through HTTP so clients can open supported
+  proprietary microscope formats and retrieve normalized image data and
+  metadata without embedding the Python backend.
+* AcqStore-Server can run as a local service or be deployed as a remote
+  service. Local-only networking remains the default configuration.
 * AcqStore OME-Zarr Collection v1 has a published specification and a
   machine-readable JSON Schema using Draft 2020-12. The specification is
   currently labeled an initial normative draft.
@@ -930,21 +945,25 @@ Documentation
 
 ⸻
 
-AcqStore Server
+AcqStore-Server
 
 Problem
 
 * Lightweight browser, JavaScript, and Python clients need access to AcqStore
-  image data and metadata without embedding the AcqStore Python backend.
+  image data and metadata, including data loaded from proprietary microscope
+  formats, without embedding the AcqStore Python backend.
 * Each client should not have to reimplement file loading, metadata
   normalization, image-plane access, or scientific-data conventions.
 
 Software
 
-* Local FastAPI and uvicorn service built around AcqStore.
+* FastAPI and uvicorn service built around AcqStore.
+* Can run locally or be deployed remotely. Local-only networking is the
+  default configuration.
 * Versioned API v2 with an OpenAPI contract and structured error responses.
 * Opens scientific image acquisitions and exposes normalized metadata,
-  physical units, source and reference image planes, and line-scan paths.
+  including physical units, source and reference image planes, and line-scan
+  paths.
 * Uses short-lived sessions for binary image-plane access.
 * Supports thin browser, JavaScript, and Python clients.
 * MATLAB and Igor Pro are potential clients of the HTTP API, not implemented
@@ -971,8 +990,8 @@ Importance
   language.
 * Allows new thin clients to use the same AcqStore implementation for image
   loading and metadata rather than duplicating scientific logic.
-* Provides a path for desktop software to support browser-based interfaces
-  through a stable local API.
+* Provides a path for desktop and browser software to access supported raw
+  image formats through a stable local or remote API.
 * Strong evidence for technical Research Software Engineering applications.
   Keep it in supporting documents and future technical CV variants; omit it
   from the current imaging-facility CV and cover letter.
@@ -1260,11 +1279,17 @@ Problem
 * Longitudinal three-dimensional microscopy is difficult to organize,
   visualize, and quantify over time.
 * Imaging sessions can span weeks to months.
-* Annotation collections may contain tens of thousands of items.
+* The principal scaling challenge is large-scale annotation and curation rather
+  than raw image-file size. Annotation collections may contain tens of
+  thousands of items, with workflows designed to scale toward substantially
+  larger collections.
 * Images must be aligned between time points, and corresponding biological
   structures must be identified across imaging sessions.
 * Large annotation collections require efficient review and correction of
   false-positive and false-negative annotations.
+* Small changes in spine turnover or persistence can be obscured by even
+  modest rates of false-positive and false-negative annotations, potentially
+  producing a false change or an apparent null result.
 
 Scientific motivation
 
@@ -1275,25 +1300,48 @@ Scientific motivation
 * Support longitudinal analysis of submicron, diffraction-limited dendritic
   spines in awake, behaving mice.
 
+Analysis and curation workflow
+
+* Researchers identify candidate dendritic spines and axonal boutons.
+* MapManager automatically creates regions of interest for each candidate.
+* Measurement heuristics, including intensity and length, provide an initial
+  proposal for accepting or rejecting annotations. Researchers make the final
+  decision through human-in-the-loop review.
+* MapManager automatically proposes connections between corresponding
+  structures at adjacent time points. Researchers confirm or correct each
+  proposed connection, producing the laboratory's curated reference
+  annotation set.
+* MapManager automatically classifies structures as persistent, transient,
+  added, or eliminated across any number of time points. The API and GUI
+  provide tools for reviewing and correcting these classifications.
+* A persistent structure retains a stable identity across its imaging sessions.
+* MapManager uses corresponding landmarks selected by the researcher to
+  calculate rigid alignment between time points. The landmarks constrain the
+  registration problem, reducing computational complexity and improving
+  robustness when noisy images do not provide reliable features for fully
+  automatic alignment. Rigid alignment preserves distances and shapes rather
+  than introducing affine or nonrigid distortion into diffraction-limited
+  structures.
+* MapManager uses the Brightest Path library to trace dendritic segments and
+  axons.
+* Region-of-interest analysis can include position, area, length, distance
+  along a parent segment, fluorescence intensity, intensity ratios, and
+  structural classifications.
+* Spine analysis is the established production workflow. Axonal-bouton
+  tracking is also supported.
+
 Established Igor Pro implementation
 
 * MapManager was originally developed as an Igor Pro desktop application.
-* Automatically aligns images between time points.
-* Semi-automatically identifies corresponding annotations across time.
-* Allows neuronal dendritic segments to be traced and automatically connects
-  each annotated spine to its parent dendritic segment.
-* Automatically creates a region of interest for each neuronal spine,
-  including spine and dendritic-segment regions of interest and associated
-  ground-truth background regions of interest.
-* Uses region-of-interest intensity measurements to analyze submicron,
-  diffraction-limited dendritic spines across time.
+* It established the scientific workflow for landmark-guided alignment,
+  longitudinal correspondence, region-of-interest measurement, and expert
+  curation that is being carried forward in the modern ecosystem.
 * Supports interactive visualization, annotation, measurement, and curation
   of three-dimensional image-volume time series.
 * Supports longitudinal analysis of in vivo, ex vivo, and fixed-tissue image
   volumes.
 * Routinely used with longitudinal datasets acquired from awake, behaving
   mice.
-* Used in at least five peer-reviewed publications.
 
 Modern MapManager architecture
 
@@ -1371,6 +1419,9 @@ Technical highlights
   coordinates forming the brightest path between them.
 * Implements A* and bidirectional A* search algorithms.
 * Accounts for image-axis scale.
+* Retain image-axis scale as an implementation fact, but do not describe
+  Brightest Path as "scale-aware" in CVs, cover letters, or short platform
+  descriptions. This detail is not needed for those application materials.
 * Reports search progress so calling applications can visualize the path search
   interactively.
 * Extensive use of Numba for performance.

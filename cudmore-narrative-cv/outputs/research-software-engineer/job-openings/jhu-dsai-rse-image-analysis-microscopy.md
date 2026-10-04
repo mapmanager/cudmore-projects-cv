@@ -5,6 +5,7 @@
 - Employer: Johns Hopkins University, Data Science and AI Institute
 - Position: Research Software Engineer – Image Analysis & Microscopy
 - Posting: https://jhu.eightfold.ai/careers/job/1133915401088
+- Saved description: [Research Software Engineer – Image Analysis - 122287](<../job-descriptions/Research Software Engineer – Image Analysis - 122287.md>)
 - Requisition: 122287
 - Location: Mount Washington Campus, Baltimore, Maryland
 - Work arrangement: Hybrid, normally three to four days each week on site
@@ -18,22 +19,24 @@ The position joins a professional research software engineering capability withi
 
 The role combines hands-on development with scientific engagement, code review, technical guidance, presentations, short courses, and possible co-authorship. The posting emphasizes Python or C++, modern computational libraries, containers, RESTful services, relational data concepts, Linux, source control, testing, continuous delivery, cloud systems, leadership, and communication.
 
-Image analysis and microscopy are preferred domain qualifications. Particle tracking and data management for high-throughput screening are also listed. The broader DSAI context includes AI, machine learning, vision, and data science, but the position remains a research software engineering role grounded in scientific collaboration and maintainable software.
+The minimum qualifications allow experience in either AI/ML or data science. The data-science route includes modeling, transforming, and building processing pipelines for complex datasets at scale. Image analysis and microscopy are preferred domain qualifications. Particle tracking and data management for high-throughput screening are also listed.
 
 ## Evidence to Emphasize
 
-- More than 20 years of experimental biology using laser-scanning microscopy, including living tissue, dissociated and organotypic cultures, and in vivo imaging, provides substantial domain knowledge for requirements and measurement decisions.
+- More than 20 years of experimental biology includes laser-scanning microscopy, confocal imaging of fixed tissue, two-photon imaging of ex vivo preparations, and in vivo imaging in anesthetized and awake rodents. This provides substantial domain knowledge for requirements and measurement decisions.
+- Extensive data-science work includes quantitative modeling, transformation of complex imaging and time-series data, batch and real-time processing pipelines, data models and schemas, and scalable access to large collections.
 - AcqStore provides a public Python API, extensible loaders and analyses, parallel scientific computation, lazy access, documented schemas, and interoperable image and result storage.
 - CloudScope connects quantitative image analysis with curation, self-contained Zarr datasets, and interactive web publication. It demonstrates movement from raw microscopy data through analysis and review to shared results.
 - Radon-based blood-flow velocity, threshold and gradient-based diameter measurements, spectral heart-rate estimation, and intensity-event analysis demonstrate the design and implementation of scientific algorithms rather than only interface development.
 - MapManager supports longitudinal alignment, annotation, curation, and measurement of neuronal structures. Its modern architecture shares a Python backend across desktop, browser, scripting, and notebook workflows.
-- Brightest Path provides A* and bidirectional A* tracing in n-dimensional images, scale-aware measurement, Numba acceleration, a documented public API, PyPI distribution, and a separate napari interface.
+- Brightest Path provides A* and bidirectional A* tracing in n-dimensional images, Numba acceleration, a documented public API, PyPI distribution, and a separate napari interface.
 - AcqView demonstrates browser execution of community microscopy readers through WebAssembly and Pyodide, local handling of proprietary files, metadata inspection, visualization, and TIFF export.
 - OME-Zarr/OME-NGFF, multiscale image pyramids, JSON Schema, lazy array access, and documented collection formats support large datasets and independent interpretation.
 - Linux, Docker, RESTful HTTP/JSON APIs, GitHub Actions, automated testing, documentation, open-source delivery, teaching, mentorship, and multidisciplinary project leadership answer the broader engineering and service responsibilities.
 
 ## Factual Boundaries
 
+- Present Robert through the data-science qualification: quantitative modeling, data transformation, scientific processing pipelines, data models, and complex datasets at scale. Do not imply that the application depends on the separate AI/ML qualification.
 - Image analysis and microscopy are direct strengths. Particle tracking and high-throughput screening are not established and should not be claimed.
 - PyTorch image-segmentation work is documented as prototype work. Do not imply broad production AI/ML engineering, model training, fine-tuning, foundation-model development, or clinical AI deployment.
 - Daily use of LLMs is an engineering workflow for planning, implementation, and testing. It is not evidence of developing or training LLMs.

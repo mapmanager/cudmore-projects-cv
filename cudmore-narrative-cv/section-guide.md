@@ -328,7 +328,7 @@ Focus
 - Keep AcqStore distinct from the user-interface libraries: AcqStore supplies
   scientific data and analysis, while NiceWidgets and
   `mapmanager-web-components` supply graphical components.
-- Retain AcqStore Server in the long-form technical inventory as evidence of
+- Retain AcqStore-Server in the long-form technical inventory as evidence of
   API and thin-client architecture. Include it in a tailored CV only when its
   technical relevance materially supports that audience.
 - Present SanPy as a general-purpose event-detection and analysis platform for
@@ -379,14 +379,33 @@ Focus
   workflow rather than as a single undifferentiated software package.
 - Distinguish the established Igor Pro desktop application from the modern
   open-source MapManager ecosystem.
-- Describe the Igor Pro version as a research platform used in at least five
-  peer-reviewed publications.
-- Emphasize its scientific capabilities: image alignment across time points,
-  semi-automatic correspondence of annotations, interactive curation, and
-  measurement of structural changes across longitudinal imaging sessions.
-- Include dendritic-segment tracing, automatic connection of each spine to its
-  parent segment, and region-of-interest intensity measurements when the
-  audience benefits from scientific detail.
+- Describe the Igor Pro application as the established and useful research
+  workflow that motivated the open-source, extensible modern ecosystem. Do not
+  use a publication count.
+- Lead with large-scale annotation and curation rather than raw-data volume.
+  Collections may contain tens of thousands of annotations, with workflows
+  designed to scale toward substantially larger collections.
+- Explain why curation is scientifically necessary: false-positive and
+  false-negative annotations can obscure small changes in spine turnover or
+  persistence and can produce either a false change or an apparent null result.
+- Describe the human-in-the-loop division precisely. Researchers identify
+  candidate spines or boutons; MapManager automatically creates regions of
+  interest, proposes acceptance or rejection using measurement heuristics,
+  proposes correspondence between adjacent time points, and calculates
+  persistent, transient, added, and eliminated dynamics. Researchers confirm
+  or correct the proposals to produce the laboratory's curated reference
+  annotation set.
+- Describe alignment as landmark-guided rather than fully automatic.
+  Corresponding user-selected landmarks constrain rigid alignment between time
+  points, reducing computational complexity and improving robustness with
+  noisy longitudinal images while preserving distances and shapes.
+- State that MapManager uses the Brightest Path library to trace dendritic
+  segments and axons. Spine analysis is the established production workflow;
+  axonal-bouton tracking is also supported.
+- Include connection of each spine to its parent segment and region-of-interest
+  measurements when the audience benefits from scientific detail. Measurements
+  can include position, area, length, distance along the parent segment,
+  fluorescence intensity, intensity ratios, and structural classifications.
 - Explain that spine, dendritic-segment, and ground-truth background regions of
   interest support longitudinal analysis of submicron, diffraction-limited
   dendritic spines.

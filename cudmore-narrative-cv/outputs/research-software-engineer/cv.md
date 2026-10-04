@@ -10,11 +10,11 @@ Python is my primary language for current scientific software. I use PyQt and Ni
 
 I bring substantial domain expertise in neuroscience, vascular biology, and cardiac physiology, grounded in decades of experimental work. I have designed and performed experiments, interpreted results, and published the findings. I have also built custom microscopy and electrophysiology acquisition systems and developed real-time acquisition and visualization software. This experience guides the analyses I choose, the assumptions I examine, and the requirements I set for scientific software.
 
-Within multidisciplinary teams, I connect biological questions with engineering decisions. I work with research biologists to define what an analysis must measure and with engineers to express those requirements in algorithms, data models, and interfaces. In fields beyond my direct expertise, I collaborate with domain experts. I involve researchers with different scientific and programming backgrounds throughout development so their feedback shapes both interactive tools and scripted workflows.
+Within multidisciplinary teams, I connect biological questions with engineering decisions. I work with research biologists to define what an analysis must measure and with engineers to express those requirements in algorithms, data models, and interfaces. I am comfortable entering new scientific domains and enjoy working closely with specialists whose expertise complements my own. Together, we identify scientifically valid measurements and translate the assumptions and constraints of the experiment into analysis software. I involve researchers with different scientific and programming backgrounds throughout development so their feedback shapes both interactive tools and scripted workflows.
 
 Biological data are noisy, so automated analysis needs efficient ways to identify false positives and false negatives against the original data. I design heuristics, backend APIs, and graphical interfaces for rapid curation. Recurring error patterns inform additional rules in code, making corrections repeatable across experiments.
 
-I design these workflows to limit experimenter bias as well as reduce review time. Blinding conceals scientific conditions, while randomized presentation helps prevent the review sequence from aligning with experimental groups or conditions. When exhaustive manual curation is impractical, APIs can select defined random subsets for review. These capabilities combine automated processing with targeted human judgment while supporting objectivity and reproducibility.
+I design these workflows to limit experimenter bias as well as reduce review time. Blinding conceals scientific conditions, while randomized presentation helps prevent the review sequence from aligning with experimental groups or conditions. When exhaustive manual curation is impractical, APIs can select defined random subsets for review. These capabilities combine automated processing with targeted human-in-the-loop judgment while supporting objectivity and reproducibility.
 
 ## Scientific Algorithms and Parallel Computing
 
@@ -56,7 +56,13 @@ I treat testing, documentation, and delivery as part of software development. An
 
 - **Repeatable distribution.** Automated workflows build documentation and desktop applications. PyInstaller packages macOS and Windows applications, making familiar desktop interfaces readily accessible to researchers. Static browser applications provide another route to scientific software without dedicated application servers.
 
-These practices preserve analytical methods as personnel and research questions change. They also make it easier for engineers to maintain and extend the software and for researchers to use it independently.
+## Reusable Software as Scientific Infrastructure
+
+Many research software problems first appear within a single project but recur across laboratories. I identify these common requirements and turn project-specific solutions into documented computational backends, data models, schemas, components, and workflow patterns that future projects can adopt instead of rebuilding. This is how software developed for one collaboration becomes sustainable scientific infrastructure.
+
+An institutional capability requires more than reusable code. Stable interfaces, automated testing, documentation, training, and continued engagement with researchers allow shared software to remain useful as projects evolve. Direct support also exposes recurring requirements and failure modes that can be addressed once in software and shared across projects.
+
+These practices reduce duplicated effort, preserve analytical methods as personnel, grants, and research questions change, and make it easier for engineers to maintain and extend the software and for researchers to use it independently.
 
 ## Technical Leadership and Mentorship
 

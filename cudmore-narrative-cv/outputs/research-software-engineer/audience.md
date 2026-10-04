@@ -37,6 +37,11 @@ and cardiac physiology, with microscopy and electrophysiology as primary
 experimental methods. Broader scientific applicability comes through
 collaboration with domain experts.
 
+Make clear that Robert is comfortable and enthusiastic about entering new
+scientific domains. Present collaboration with domain experts as an active
+part of learning the experimental system, identifying valid measurements, and
+translating scientific assumptions into analysis software.
+
 Make the depth of this expertise explicit. Robert contributes scientific and
 engineering judgment as an integral member of multidisciplinary teams. Explain
 how his experimental knowledge guides measurement selection, analysis
@@ -53,8 +58,10 @@ performance-management experience.
 
 ## Principal evidence
 
-- AcqStore: a general-purpose Python backend with public APIs, extensible
-  analysis, scalable data access, and published data contracts.
+- AcqStore: a general-purpose Python backend with public APIs, proprietary
+  microscope-file loaders, extensible analysis, scalable data access, and
+  published data contracts. AcqStore-Server provides a separately delivered
+  local or remote HTTP access layer for clients that do not embed the backend.
 - CloudScope and SanPy: parallel implementations of a continuous workflow
   from acquisition through analysis, curation, publication, and sharing.
 - AcqStore OME-Zarr collections and SanPy Zarr: self-contained data and
@@ -63,8 +70,6 @@ performance-management experience.
   the underlying data and completed results.
 - mapmanager-web-components: three reusable components used across the two
   web viewers and the PyQt SanPy and NiceGUI CloudScope applications.
-- AcqStore Server: a versioned local API, schemas, contract tests, and desktop
-  delivery for clients that do not embed the scientific Python backend.
 - Brightest Path: reusable algorithms, Numba acceleration, a documented Python
   package, and a separate napari interface.
 - MapManager and PiE: complementary evidence of software evolution and
@@ -106,11 +111,12 @@ performance-management experience.
 
 ## CV strategy
 
-Keep the narrative focused on seven sections: Professional Summary;
+Keep the narrative focused on eight sections: Professional Summary;
 Experimental Science and Collaborative Requirements Discovery; Scientific
 Algorithms and Parallel Computing; Research Software Architecture; Scientific
 Data, Reproducibility, and Publication; Engineering Quality and Software
-Delivery; and Technical Leadership and Mentorship.
+Delivery; Reusable Software as Scientific Infrastructure; and Technical
+Leadership and Mentorship.
 
 Begin with Professional Summary, without a name heading or subtitle. Reserve
 detailed project descriptions for the separate platform section. Each project
@@ -170,15 +176,22 @@ the computer science foundation, and omit the historical C++ motivation.
   methods and events keep clients thin and separate application coordination
   from widget internals. Use "extensible" and "interoperability" selectively,
   supported by backend APIs, plugins, components, and data schemas.
-- Distinguish implemented AcqStore Server clients from proposed MATLAB or
-  Igor Pro interoperability. Robert confirmed these are potential integrations;
-  describe them parenthetically as possibilities, not working clients.
+- Present AcqStore-Server within AcqStore as a separately delivered HTTP access
+  layer rather than a peer scientific platform. It can run locally or be
+  deployed remotely and provides access to AcqStore's proprietary-format
+  loaders, image data, and metadata. Distinguish implemented clients from
+  proposed MATLAB or Igor Pro interoperability; these remain possible
+  integrations rather than working clients.
+- Treat physical units as part of metadata. Do not list them separately from
+  metadata in the CV, cover letters, or short platform descriptions. Detailed
+  API and schema discussion may identify physical-unit fields when relevant.
 - Describe lazy access from Python analysis APIs through Zarr-based publication
   viewers. Use "raw data" and "raw images or recordings."
 - Move NWB from the schema bullet to a short data-sharing paragraph alongside
   Zarr and OME-Zarr/OME-NGFF. Explain deposition in community repositories,
   using formats appropriate to the repository and scientific data.
 - Keep AcqView and add WebMapManager as complementary Pyodide examples.
+  State that AcqView opens supported files locally in the browser.
   Emphasize the same MapManagerCore Python API, algorithms, and load/save code
   serving both WebMapManager and PyMapManager. Do not imply the modern
   MapManager ecosystem is complete.
@@ -191,10 +204,18 @@ the computer science foundation, and omit the historical C++ motivation.
   omit the separate NHLBI co-PI sentence from the narrative CV. Retain the
   factual role in the canonical sources.
 - Include biomedical engineering alongside computer science and biophysical
-  engineering in mentorship. Move maintenance and knowledge-transfer points
-  into architecture and delivery instead of retaining a broad closing
-  sustainability paragraph. Commercial-tool interoperability can be addressed
-  with the service API using the confirmed potential-integration wording.
+  engineering in mentorship. Keep detailed maintenance and knowledge-transfer
+  practices in architecture and delivery. Use the institutional-infrastructure
+  section to explain their broader value across projects rather than as a broad
+  closing sustainability statement. Commercial-tool interoperability can be
+  addressed with the service API using the confirmed potential-integration
+  wording.
+- Add "Reusable Software as Scientific Infrastructure" after Engineering
+  Quality and Software Delivery. Explain how recurring project requirements
+  become shared backends, data models, schemas, components, and workflows, and
+  how testing, documentation, training, and researcher engagement turn reusable
+  code into an institutional capability. Do not import the imaging-core
+  proposal or imply that a separate administrative core is required.
 
 All four questions about web MVC, MATLAB/Igor Pro clients, and link exceptions
 are resolved and implemented. Algorithm details are drawn from the retained
@@ -203,12 +224,13 @@ rewrite.
 
 ### Algorithm section
 
-The approved "Scientific Algorithms and Parallel Computing" section now follows
-requirements discovery and precedes architecture, expanding the narrative to
-seven sections. The reader encounters scientific requirements, numerical
-methods, reusable architecture, data design, delivery, and leadership in that
-order. Algorithm design explains how measurements are obtained; architecture
-explains how those methods become reusable software.
+The approved "Scientific Algorithms and Parallel Computing" section follows
+requirements discovery and precedes architecture. The later addition of
+"Reusable Software as Scientific Infrastructure" brings the current narrative
+to eight sections. The reader encounters scientific requirements, numerical
+methods, reusable architecture, data design, delivery, institutional impact,
+and leadership in that order. Algorithm design explains how measurements are
+obtained; architecture explains how those methods become reusable software.
 
 Lead with how Robert formulates a measurement, chooses and implements an
 estimator, exposes parameters, and preserves interpretable results. Select
@@ -273,7 +295,7 @@ its implementation, and the resulting engineering or research benefit:
   reusable backend, native HDF5 storage, and Zarr publication through SanPy-Web.
 - Interface libraries: public component APIs and confirmed integrations that
   keep applications thin without depending on component internals.
-- AcqStore Server: the local service contract, testing, desktop packaging, and
+- AcqStore-Server: the local service contract, testing, desktop packaging, and
   potential MATLAB/Igor Pro integrations, clearly distinguished from clients
   already implemented.
 - Brightest Path: reusable graph-search implementation and a separate napari
@@ -371,7 +393,7 @@ maintenance, particularly of SanPy, uses LLMs. Robert agrees with a concise
 account of LLM-assisted planning, implementation, and testing without
 percentages. The revised CV now incorporates the computer science foundation,
 modular architecture, AcqView, and the agreed account of LLM use. That earlier draft used six sections and project evidence to explain
-engineering choices; the integrated revision above now uses seven sections. The cover letter remains unchanged; the subsequent platform rewrite is
+engineering choices; the integrated revision above now uses eight sections. The cover letter remains unchanged; the subsequent platform rewrite is
 recorded above. No new scientific measurement-validation example is requested.
 
 A further CV revision applies Robert's software-engineering-first emphasis,

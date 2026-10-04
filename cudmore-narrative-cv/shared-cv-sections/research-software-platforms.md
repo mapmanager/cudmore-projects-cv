@@ -22,28 +22,32 @@ SanPy's documented Python API gives scripts and computational notebooks access t
 
 ### MapManager
 
-Longitudinal three-dimensional microscopy studies require researchers to align
-images and identify the same biological structures across imaging sessions
-that may span weeks or months. MapManager is routinely used with longitudinal
-datasets acquired from awake, behaving mice. It allows researchers to examine
-the persistence, addition, elimination, movement, and fluorescence intensity
-of structures such as dendritic spines and cell bodies.
+MapManager supports large-scale annotation and curation of neuronal structures
+across longitudinal microscopy sessions. Experiments can produce tens of
+thousands of annotations whose identities and measurements must remain accurate
+over time. Small changes in spine turnover or persistence can be obscured by
+false-positive and false-negative annotations. MapManager therefore combines
+automated analysis with rapid expert curation so detection errors do not become
+biological conclusions.
 
-The established Igor Pro version of MapManager automatically aligns images
-between time points and semi-automatically identifies corresponding annotations
-across sessions. Researchers can trace neuronal dendritic segments, and
-MapManager automatically connects each annotated spine to its parent segment.
-It creates regions of interest for each spine that include the spine, its
-dendritic segment, and associated ground-truth background measurements. These
-intensity measurements support longitudinal analysis of submicron,
-diffraction-limited dendritic spines. Researchers can visualize, annotate,
-measure, and curate collections containing tens of thousands of annotations.
-This workflow has supported at least five peer-reviewed publications.
+Researchers identify candidate dendritic spines or axonal boutons. MapManager
+automatically creates regions of interest, proposes acceptance or rejection
+using measurement heuristics, and proposes connections between structures at
+adjacent time points. Researchers confirm or correct these proposals to create
+the laboratory's curated reference annotation set. MapManager then classifies
+structures as persistent, transient, added, or eliminated across any number of
+time points.
 
-I am rebuilding this proven workflow as an open-source, extensible, and
-reproducible software ecosystem. The modern MapManager is under active
-development and reduces dependence on proprietary software while making its
-longitudinal-analysis methods easier to reuse, extend, and share.
+Corresponding user-selected landmarks guide rigid image alignment between time
+points. MapManager uses the Brightest Path library to trace dendritic segments
+and axons, connects spine annotations with their parent segments, and provides
+region-of-interest measurements of structure and fluorescence intensity.
+
+The established Igor Pro application made this scientific workflow practical
+for longitudinal structural neuroscience. I am carrying the proven workflow
+forward as an open-source, extensible, and reproducible software ecosystem that
+reduces dependence on proprietary software and makes the methods easier to
+reuse, extend, and share.
 
 [MapManagerCore](https://github.com/mapmanager/MapManagerCore) provides the shared Python API, extensible analysis, and scripting for the modern ecosystem. [PyMapManager](https://github.com/mapmanager/PyMapManager) is the desktop application for macOS and Windows while [WebMapManager](https://github.com/mapmanager/WebMapManager) is the stand alone browser-based application (no server required). Both these front-end GUIs provide intuitive tools for visualizing, annotating, and analyzing time-series annotations and three-dimensional image volumes. A live [WebMapManager
 web-application](https://mapmanager.github.io/WebMapManager/) is publicly available Together, these components are designed to
