@@ -22,16 +22,20 @@ expertise. A narrative CV may omit it or mention it once.
 - **MATLAB**
 - **Igor Pro**: more than ten years of experience. The original MapManager
   application was implemented entirely in Igor Pro.
-- **Bash and zsh**: development, testing, packaging, release, and automation
-  scripts.
+- **Bash**: development, testing, packaging, release, and automation scripts.
+  Robert also has zsh experience, but listing Bash is sufficient in derived CVs.
 
 ## Scientific Computing
 
 - NumPy
 - SciPy
 - pandas
+- GeoPandas: used extensively in MapManagerCore to represent geometric data,
+  including line and polygon regions of interest.
+- Shapely: used by MapManagerCore algorithms to manipulate line and polygon
+  regions of interest.
 - Numba: used extensively to accelerate Brightest Path tracing.
-- PyTorch: image-segmentation prototypes developed for MapManager.
+- PyTorch and Cellpose: image-segmentation prototypes developed for MapManager.
 - scikit-image
 - Pillow
 - Parallel and concurrent programming
@@ -86,11 +90,12 @@ computation in independently usable Python backends.
 
 - HDF5
 - Zarr
-- OME-Zarr
-- NGFF
+- OME-Zarr/OME-NGFF: community-defined Zarr-based format for microscopy images
+  and metadata; every project that reads or writes OME-Zarr uses multiscale
+  image pyramids.
 - Neurodata Without Borders (NWB): implemented AcqStore export.
 - SanPy Zarr: self-contained electrophysiology collections with published
-  format and schema documentation on `codex/sanpy-zarr`.
+  format and schema documentation.
 - JSON Schema: AcqStore OME-Zarr Collection v1's published machine-readable
   schema uses Draft 2020-12; the specification is an initial normative draft.
 - JSON, CSV, and Parquet: metadata, definitions, and tabular results in SanPy
@@ -106,7 +111,8 @@ computation in independently usable Python backends.
 - oirfile
 - s3fs
 - Lazy and chunked array access
-- Multiscale image pyramids
+- Multiscale image pyramids: used for every OME-Zarr image saved or loaded by
+  Robert's projects.
 - Metadata preservation
 
 Physical units are part of image metadata. Application materials should
@@ -168,7 +174,7 @@ microscope formats, without embedding the AcqStore Python backend.
 - MkDocs and MkDocs Material
 - mkdocstrings
 - Documented Python APIs
-- Google-style docstrings
+- Python docstrings for documented APIs
 - End-user and developer documentation
 - Codecov and GitHub workflows for measured test coverage.
 - Jupyter notebooks distributed with project documentation and examples.
@@ -250,7 +256,7 @@ Audience-specific variants may reorganize this baseline and add concise
 project or scientific context while retaining its breadth and exclusions.
 Describe Robert's reusable interface libraries in the platform section rather
 than listing them as external toolkits. SanPy Zarr belongs in data architecture
-as a documented format. Identify PyTorch work as prototypes.
+as a documented format. Identify PyTorch and Cellpose work as prototypes.
 
 Keep the following evidence in this inventory, but omit it from the generated
 CV baseline because it is too granular:

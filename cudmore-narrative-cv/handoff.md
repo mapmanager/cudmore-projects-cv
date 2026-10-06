@@ -122,8 +122,8 @@ default. `cv.md` remains narrative-only.
   Documentation supplements them rather than blocking writing. Ask about
   material contradictions and distinguish branches from released versions.
 - All project repositories are currently public, as confirmed by Robert.
-- SanPy Zarr documentation is on `codex/sanpy-zarr`. AcqStore's published
-  collection specification is an initial normative draft.
+- SanPy Zarr has published format and schema documentation. AcqStore's
+  published collection specification is an initial normative draft.
 - The shared web components are used in CloudScope-Web, SanPy-Web, the PyQt
   SanPy application, and the NiceGUI CloudScope application. Do not infer that
   every interface migration is complete.

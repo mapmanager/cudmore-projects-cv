@@ -19,8 +19,7 @@ Document ownership note
 Current project status supplied by Robert
 
 * All project repositories are currently public, including AcqStore-Server.
-* Current work may be on branches ahead of the default branch. SanPy Zarr
-  documentation is on `codex/sanpy-zarr`.
+* Current work may be on branches ahead of the default branch.
 * Direct factual updates from Robert can be incorporated here without requiring
   matching public documentation. Ask about material contradictions rather than
   assuming an older repository view supersedes his update.
@@ -275,6 +274,16 @@ Reusable computational backends
   their own specialized analysis code. Extensibility and interoperability are
   deliberate architectural goals, not claims of compatibility with arbitrary
   third-party software without integration work.
+* Modular analysis interfaces allow new computational methods, including fully
+  automated AI/ML analysis pipelines, to be integrated with existing data
+  models, APIs, graphical applications, curation tools, and export formats.
+* Automated results can enter the same review and curation workflows used by
+  existing analyses. A workflow may omit manual review when its scientific
+  validation supports that use.
+* Present this as architectural extensibility and systems-integration
+  capability. Do not infer production AI/ML model-development expertise from
+  this design or from the documented PyTorch and Cellpose image-segmentation
+  prototypes.
 
 Multiple interfaces
 
@@ -344,8 +353,11 @@ Scalable scientific data
   well-defined schemas describing the saved datasets.
 * Zarr supports web access and scalable, chunked storage, allowing lazy access
   to portions of images and large analysis results.
-* CloudScope uses the community OME-Zarr standard when saving images through
-  AcqStore. SanPy uses its application-specific SanPy Zarr format.
+* OME-Zarr/OME-NGFF is a community-defined Zarr-based format for microscopy
+  images and metadata. Every project that reads or writes OME-Zarr uses
+  multiscale image pyramids. This includes CloudScope when it uses AcqStore to
+  save or load OME-Zarr images.
+* SanPy uses its application-specific SanPy Zarr format.
 * SanPy saves natively to HDF5 and also exports to Zarr. Describing shared
   workflows as saving Zarr is acceptable, but do not imply Zarr replaced
   SanPy's native HDF5 storage.
@@ -422,7 +434,7 @@ Engineering practices
 * Testing.
 * Continuous integration.
 * Documentation.
-* Google-style docstrings.
+* Python docstrings for documented APIs.
 * Full GUI documentation for end users is a critical part of most projects,
   alongside API documentation for developers. Use MkDocs for documentation.
 * Scripting documentation.
@@ -480,15 +492,20 @@ Programming
 * C/C++
 * MATLAB
 * Igor Pro
-* Bash and zsh scripting
+* Bash scripting. Robert also has zsh experience, but listing Bash is
+  sufficient in derived CVs.
 
 Scientific computing
 
 * NumPy
 * SciPy
 * pandas
+* GeoPandas, used extensively in MapManagerCore to represent geometric
+  structures such as line and polygon regions of interest
+* Shapely, used by MapManagerCore algorithms to manipulate line and polygon
+  regions of interest
 * Numba, used extensively in Brightest Path tracing
-* PyTorch for MapManager image-segmentation prototypes
+* PyTorch and Cellpose for MapManager image-segmentation prototypes
 * scikit-image
 * Pillow
 * Parallel and concurrent programming
@@ -559,7 +576,7 @@ Software engineering, testing, and documentation
 * Git and GitHub
 * MkDocs
 * Documented Python APIs
-* Google-style docstrings
+* Python docstrings for documented APIs
 * End-user and developer documentation
 * Jupyter notebooks distributed alongside MkDocs documentation to demonstrate
   APIs and analysis workflows
@@ -910,6 +927,7 @@ Public APIs and data schemas
   currently labeled an initial normative draft.
 * The collection format links independently valid OME-Zarr images with
   acquisition metadata, regions of interest, analysis parameters, and results.
+  Every image is stored as a multiscale image pyramid.
 * It adds collection discovery and scientific metadata without replacing
   OME-NGFF image semantics. Generic OME-NGFF readers can ignore AcqStore data.
 * Explicit relative paths and stable identifiers preserve relationships when
@@ -1010,7 +1028,8 @@ Reusable User-Interface Components
 Problem
 
 * Scientific web applications need reusable components for image
-  visualization, regions of interest, tabular data, and linked plots.
+  visualization, regions of interest, tabular data, pooled plots, and linked
+  plots.
 * Reimplementing these components in each application duplicates engineering
   work and makes user interfaces harder to maintain and extend.
 
@@ -1032,6 +1051,11 @@ NiceWidgets
   Vue, and Vite.
 * Currently provides three reusable web components: image viewer, nicepool,
   and signal viewer. Each has a live static single-page application demo.
+* The image viewer uses Viv and deck.gl to stream and display multiscale image
+  pyramids.
+* Nicepool uses Plotly to present pooled plots and associated tables.
+* The signal viewer uses uPlot and data pyramids to stream large
+  one-dimensional signals.
 * Components are used in both CloudScope-Web and SanPy-Web.
 * Components are also used in the PyQt SanPy application and the NiceGUI
   CloudScope application.
@@ -1047,7 +1071,7 @@ Scientific and engineering impact
 * Separates reusable user-interface components from application-specific
   scientific analysis.
 * NiceWidgets and mapmanager-web-components expose public component APIs.
-  Host applications use public methods, configuration, and events or callbacks
+  Host applications use public methods, configuration, and interaction events
   to supply data and coordinate interactions without depending on component
   internals. Exact interfaces differ by widget and framework.
 * Public APIs provide an integration boundary for thin GUIs. Do not imply a
@@ -1131,9 +1155,7 @@ Software
 
 Data format and interoperability
 
-* SanPy Zarr has published format and schema documentation on the
-  `codex/sanpy-zarr` branch; do not infer that it is merged into the default
-  branch or included in a particular release.
+* SanPy Zarr has published format and schema documentation.
 * A public export API writes self-contained collections with recordings,
   metadata, applied detection parameters, and completed analysis results.
 * The format uses Zarr arrays, JSON metadata and definitions, and CSV or
@@ -1176,8 +1198,6 @@ Documentation and source
 
 * GitHub: https://github.com/cudmore/SanPy
 * Documentation: https://cudmore.github.io/SanPy
-* Zarr export and format documentation:
-  https://github.com/cudmore/SanPy/blob/codex/sanpy-zarr/docs/docs/api/zarr-export.md
 
 ⸻
 
@@ -1223,6 +1243,8 @@ Software
 * Commander provides centralized system status, a video wall, remote control,
   and scheduled SSH/SFTP synchronization of completed video and trial files to
   central storage.
+* File-transfer services monitor network errors and resume interrupted copies
+  after connectivity is restored.
 * An Arduino-compatible microcontroller handles interrupt-driven,
   timing-sensitive acquisition tasks and communicates with the Raspberry Pi
   over USB serial.
@@ -1350,6 +1372,10 @@ Modern MapManager architecture
 * The modern MapManager ecosystem is under active development.
 * MapManagerCore is the shared Python API that provides the core functionality
   used by the applications.
+* MapManagerCore makes extensive use of pandas and GeoPandas for tabular and
+  geometric annotation data. GeoPandas represents structures such as line and
+  polygon regions of interest, while Shapely supports algorithms that
+  manipulate those geometries.
 * WebMapManager runs MapManagerCore in the browser through Pyodide. Its thin
   GUI and the PyMapManager desktop GUI use the same Python backend API,
   algorithms, and loading and saving functionality.

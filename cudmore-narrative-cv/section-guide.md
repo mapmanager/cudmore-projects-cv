@@ -108,6 +108,13 @@ Focus
 - Public backend and component APIs as boundaries for extension and
   interoperability with analysis code developed by others. Do not imply
   integration requires no additional work.
+- Explain that modular analysis interfaces can incorporate new computational
+  methods, including fully automated AI/ML analysis pipelines, while reusing
+  existing data models, applications, curation tools, and export formats.
+  Present this as architectural extensibility and systems integration, not as
+  evidence of production AI/ML model-development expertise. Automated results
+  can enter existing human-review workflows; manual review may be omitted when
+  scientific validation supports that use.
 - Performance optimization.
 - Use `algorithm-design.md` as a compact supporting inventory for selected
   measurement methods and parallel execution. It supplements the outline and
@@ -313,8 +320,9 @@ Focus
 - Present NiceWidgets and `mapmanager-web-components` together as reusable
   user-interface infrastructure.
 - NiceWidgets supplies reusable NiceGUI components used by CloudScope.
-- `mapmanager-web-components` supplies image viewer, nicepool, and signal
-  viewer components, each with a live static single-page application demo.
+- `mapmanager-web-components` supplies an image viewer, the Plotly-based
+  nicepool pooled-plot component, and a signal viewer, each with a live static
+  single-page application demo.
 - Describe their implemented use in CloudScope-Web, SanPy-Web, the PyQt SanPy
   application, and the NiceGUI CloudScope application. Do not infer that all
   components are used in every application or that every migration is complete.
@@ -325,6 +333,11 @@ Focus
 - For technical audiences, explain its published OME-Zarr collection
   specification and machine-readable schema. Distinguish the initial normative
   draft from OME-NGFF itself, whose image semantics remain authoritative.
+- State that every image in an AcqStore OME-Zarr collection is an independently
+  valid OME-Zarr image stored as a multiscale image pyramid. Keep the
+  community-defined OME-Zarr/OME-NGFF image format distinct from the AcqStore
+  collection specification. Every project that reads or writes OME-Zarr uses
+  multiscale image pyramids.
 - Keep AcqStore distinct from the user-interface libraries: AcqStore supplies
   scientific data and analysis, while NiceWidgets and
   `mapmanager-web-components` supply graphical components.
@@ -353,8 +366,7 @@ Focus
 - Explain that SanPy-Web keeps published electrophysiology results connected
   to the raw recordings and completed analyses that produced them.
 - Describe SanPy Zarr's published format, parameter and result definitions,
-  and export API as evidence of interoperable data design. Its documentation is
-  on `codex/sanpy-zarr`; do not infer default-branch or release status.
+  and export API as evidence of interoperable data design.
 - Keep SanPy Zarr distinct from AcqStore's implemented NWB export.
 - Present PiE as a modular and scalable platform for reproducible home-cage
   behavioral experiments.
@@ -416,6 +428,9 @@ Focus
 - Explain the complementary roles of MapManagerCore as the shared Python API,
   PyMapManager as the desktop application with scripting and notebook access,
   and WebMapManager as the browser application.
+- When technical detail is useful, explain that MapManagerCore uses pandas and
+  GeoPandas for tabular and geometric annotation data and Shapely for
+  algorithms that manipulate line and polygon regions of interest.
 - Emphasize that the shared implementation supports consistent scientific
   methods across desktop, browser, scripting, and notebook workflows.
 - For end-user descriptions, lead with the scientific workflow and proven

@@ -164,6 +164,15 @@ Public APIs and plugin interfaces allow other developers to incorporate
 specialized analysis methods into these workflows. This makes extensibility
 and interoperability practical parts of the architecture.
 
+The same modular boundaries allow emerging computational methods, including
+fully automated AI/ML analysis pipelines, to be integrated without rebuilding
+the surrounding data, application, curation, and publication workflows. Their
+results can use established data models, graphical interfaces, review tools,
+and export formats. This preserves scientific oversight and reproducibility as
+analysis methods evolve, while allowing manual review to be omitted when a
+method's scientific validation supports that use. This is a systems-integration
+capability rather than a claim of production AI/ML model-development expertise.
+
 I use Jupyter notebooks across projects including CloudScope, SanPy, PiE, and
 Brightest Path. The notebooks demonstrate APIs and analysis workflows and are
 often distributed alongside MkDocs documentation. They give developers and
@@ -209,8 +218,10 @@ Modern biological datasets continue to grow in both size and complexity. Rather 
 
 CloudScope and SanPy both export to Zarr using well-defined schemas. Zarr's
 chunked storage supports web access and lazy loading of image regions and
-large analysis results. CloudScope uses the community OME-Zarr standard for
-images; SanPy uses its own documented format for recordings and analyses.
+large analysis results. OME-Zarr/OME-NGFF is a community-defined Zarr-based
+format for microscopy images and metadata. Every project that reads or writes
+OME-Zarr uses multiscale image pyramids, including CloudScope through
+AcqStore. SanPy uses its own documented format for recordings and analyses.
 SanPy retains HDF5 as its native storage format alongside Zarr export.
 Lazy loading extends from the Python APIs used by CloudScope and SanPy to
 their published datasets in CloudScope-Web and SanPy-Web. Selective access is
@@ -218,7 +229,7 @@ part of the workflow from analysis to browser-based presentation.
 
 I believe the analysis should travel with the data. Today, scientific software is often used during data acquisition and analysis but is absent from the published scientific record. I believe the same software used by researchers in the laboratory should also accompany published datasets. Rather than downloading static figures or processed measurements, readers should be able to explore the original data, repeat published analyses, perform new analyses, and develop computational models using the same software that produced the published results. This extends the scientific value of a dataset beyond the original publication while making analyses more transparent, reproducible, and useful to future researchers.
 
-Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Google-style API documentation, and automated desktop application builds for macOS and Windows. Full GUI documentation for end users is a critical part of most projects, alongside the documentation developers need to extend the software. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
+Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Python docstrings for documented APIs, and automated desktop application builds for macOS and Windows. Full GUI documentation for end users is a critical part of most projects, alongside the documentation developers need to extend the software. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
 
 I use language models daily as engineering tools, directing them as I would
 junior contributors who need clear requirements and architectural guidance.
@@ -478,7 +489,8 @@ separate analysis implementation.
 AcqStore is independent of CloudScope. Its public Python API and data schemas
 provide interfaces that other applications can build upon. The published
 AcqStore OME-Zarr Collection v1 specification connects independently valid
-OME-Zarr images with acquisition metadata, regions of interest, and analyses.
+OME-Zarr images, stored as multiscale image pyramids, with acquisition
+metadata, regions of interest, and analyses.
 It adds collection discovery and scientific metadata while preserving
 OME-NGFF image semantics. Explicit relative paths and stable identifiers keep
 those relationships intact when a complete collection is moved.
@@ -518,15 +530,15 @@ technical Research Software Engineering roles.
 Reusable User-Interface Components
 
 Scientific applications repeatedly need the same interactive components for
-image visualization, region-of-interest annotation, tabular data, and linked
-plots. Reimplementing these components within each application duplicates
+image visualization, region-of-interest annotation, tabular data, pooled
+plots, and linked plots. Reimplementing these components within each application duplicates
 engineering work and makes graphical interfaces harder to maintain and extend.
 I develop NiceWidgets and `mapmanager-web-components` as reusable
 user-interface libraries that address this problem in complementary
 application environments.
 
 Both libraries provide public component APIs for supplying data, configuring
-views, and coordinating interactions through methods and events or callbacks.
+views, and coordinating interactions through methods and interaction events.
 Applications can remain thin because they use these interfaces without
 depending on component internals. This separates reusable presentation
 behavior from application-specific coordination and scientific analysis.
@@ -539,7 +551,11 @@ deployments.
 `mapmanager-web-components` provides three reusable web components: an image
 viewer, nicepool, and a signal viewer. Built with Node.js, TypeScript,
 JavaScript, Vue, and Vite, each component has a live static single-page
-application demo. The components are used in CloudScope-Web and SanPy-Web,
+application demo. The image viewer uses Viv and deck.gl to stream and display
+multiscale image pyramids, nicepool uses Plotly to present pooled plots and
+associated tables, and the signal viewer uses uPlot and data pyramids to stream
+large one-dimensional signals. The components are used in
+CloudScope-Web and SanPy-Web,
 as well as the PyQt SanPy application and the NiceGUI CloudScope application.
 This shared component layer allows imaging and electrophysiology applications
 to reuse visualization and interaction tools across desktop analysis and web
@@ -595,9 +611,8 @@ The format stores recordings in Zarr arrays, metadata and definitions in JSON,
 and result tables in CSV or Parquet. Parameter and result definitions remain
 separate from their values and preserve SanPy's runtime schema keys. This
 allows consuming applications to interpret the saved data without depending
-on the original recording files or SanPy HDF5 catalog. The documentation is
-available on the `codex/sanpy-zarr` branch. SanPy Zarr is an application-specific
-format, distinct from NWB.
+on the original recording files or SanPy HDF5 catalog. SanPy Zarr is an
+application-specific documented format, distinct from NWB.
 
 MapManager
 
@@ -645,6 +660,9 @@ software and makes established analysis methods easier to reuse, extend, and
 share.
 
 MapManagerCore provides the shared Python API for the modern ecosystem.
+It uses pandas and GeoPandas for tabular and geometric annotation data, with
+Shapely supporting algorithms that manipulate line and polygon regions of
+interest.
 WebMapManager runs that backend in the browser through Pyodide. Its thin GUI
 and PyMapManager's desktop GUI use the same Python API, algorithms, and loading
 and saving functionality, preserving a shared implementation across runtimes.
@@ -676,7 +694,9 @@ beside the apparatus and potentially influence behavior.
 Each box runs an independent PiE server, while Commander provides one web
 interface for controlling and monitoring any number of boxes. Commander
 combines system status, remote controls, a centralized video wall, and file
-synchronization. This distributed architecture allows behavioral experiments
+synchronization. File-transfer services monitor network errors and resume
+interrupted copies after connectivity is restored. This distributed
+architecture allows behavioral experiments
 to run in parallel and lets a laboratory scale from one box to an array without
 replacing the underlying control system. In practice, PiE was used for continuous
 24/7 video acquisition across eight behavior boxes in parallel. The resulting

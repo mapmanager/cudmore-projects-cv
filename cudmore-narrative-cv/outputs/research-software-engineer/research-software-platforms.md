@@ -28,7 +28,7 @@ Researchers identify candidate dendritic spines or axonal boutons, after which M
 
 MapManager uses corresponding landmarks selected by the researcher to calculate rigid alignment between time points. Constraining registration with scientifically meaningful landmarks reduces computational complexity and improves robustness when noisy longitudinal images do not provide reliable features for fully automatic alignment. MapManager uses the Brightest Path library to trace dendritic segments and axons. It associates spine annotations with their parent segments, performs region-of-interest image analysis, and calculates features that can include position, area, length, distance along the parent segment, fluorescence intensity, intensity ratios, and structural classifications.
 
-The established Igor Pro application made this workflow practical for longitudinal structural neuroscience and demonstrated its value in research use. I am carrying that proven scientific workflow forward in an open-source, extensible ecosystem built around MapManagerCore, a shared Python backend. [PyMapManager](https://mapmanager.github.io/PyMapManager/) and WebMapManager provide desktop and browser GUIs. WebMapManager uses Pyodide to run MapManagerCore in the browser, so both interfaces use the same Python API, algorithms, and loading and saving code. Scripts and notebooks can also use the backend. A live [WebMapManager](https://mapmanager.github.io/WebMapManager/) application is publicly available, extending access to these methods beyond the desktop.
+The established Igor Pro application made this workflow practical for longitudinal structural neuroscience and demonstrated its value in research use. I am carrying that proven scientific workflow forward in modernized, extensible ecosystem built around MapManagerCore, a shared Python backend. [PyMapManager](https://mapmanager.github.io/PyMapManager/) and WebMapManager provide desktop and browser GUIs. WebMapManager uses Pyodide to run MapManagerCore in the browser, so both interfaces use the same Python API, algorithms, and loading and saving code. Scripts and notebooks can also use the backend. A live [WebMapManager](https://mapmanager.github.io/WebMapManager/) application is publicly available, extending access to these methods beyond the desktop.
 
 ### SanPy: Electrophysiology Analysis and Feature Extraction
 
@@ -40,9 +40,9 @@ SanPy uses HDF5 for native storage and exports self-contained Zarr collections. 
 
 ### Reusable Scientific Interface Libraries
 
-I develop [mapmanager-web-components](https://mapmanager.github.io/mapmanager-web-components/) and [NiceWidgets](https://mapmanager.github.io/nicewidgets/) to share visualization and interaction capabilities across scientific applications. Their public component APIs expose methods, configuration, and events or callbacks. Applications supply data and coordinate interactions through these interfaces without depending on widget internals.
+I develop [mapmanager-web-components](https://mapmanager.github.io/mapmanager-web-components/) and [NiceWidgets](https://mapmanager.github.io/nicewidgets/) to share visualization and interaction capabilities across scientific applications. Their public component APIs expose methods, configuration, and interaction events. Applications supply data and coordinate interactions through these interfaces without depending on widget internals.
 
-mapmanager-web-components provides an image viewer, nicepool, and a signal viewer, each with a live static demo. The TypeScript, JavaScript, and Vue components are used across CloudScope-Web, SanPy-Web, PyQt SanPy, and NiceGUI CloudScope. NiceWidgets provides Python components for NiceGUI, including image interaction, tables, and linked plots, and supports CloudScope's desktop and server-backed web interfaces.
+mapmanager-web-components provides an image viewer, nicepool, and a signal viewer, each with a live static demo. The image viewer uses Viv and deck.gl to stream and display multiscale image pyramids, while the signal viewer uses [uPlot](https://github.com/leeoniya/uPlot) and data pyramids to stream large one-dimensional signals. The TypeScript, JavaScript, and Vue components are used across CloudScope-Web, SanPy-Web, PyQt SanPy, and NiceGUI CloudScope. NiceWidgets provides Python components for NiceGUI, including image interaction, tables, and linked plots, and supports CloudScope's desktop and server-backed web interfaces.
 
 This separation lets applications remain thin while keeping scientific interpretation in their backends. A component can gain new visualization or interaction capabilities without rebuilding that functionality separately in every application that uses it.
 
@@ -50,13 +50,13 @@ This separation lets applications remain thin while keeping scientific interpret
 
 [Brightest Path](https://mapmanager.github.io/brightest-path-lib/) traces axons, dendrites, and other filament-like structures using A* and bidirectional A* search in n-dimensional images. It uses Numba for acceleration, and progress reporting allows an application to display a search as it runs.
 
-The documented Python library returns paths for measurement and further analysis. A separate napari plugin provides interactive tracing through the same implementation. This separation makes the algorithm usable both within other software and directly by researchers.
+The documented Python library is distributed through PyPI and returns paths for measurement and further analysis. A separate napari plugin provides interactive tracing through the same implementation. This separation makes the algorithm usable both within other software and directly by researchers.
 
 ### AcqView: Microscopy Files Opened Locally in the Browser
 
 [AcqView](https://mapmanager.github.io/acqview/) makes community-developed Python readers for proprietary microscopy formats accessible to researchers without programming experience. Users open supported files locally, inspect metadata and images, and export TIFFs. For sensitive data, files remain on their device.
 
-The static TypeScript, JavaScript, and Vue application uses WebAssembly and Pyodide to run the Python image readers in the browser, with no requirement for a backend server. It reuses the image viewer from mapmanager-web-components. My contribution is the application architecture and integration of these capabilities, while the Python reader packages remain the work of their community authors.
+The static TypeScript, JavaScript, and Vue application uses WebAssembly and Pyodide to run the Python image readers in the browser, with no requirement for a backend server. It reuses the image viewer from mapmanager-web-components.
 
 ### PiE: Distributed Acquisition and Behavioral Review
 
@@ -64,4 +64,36 @@ The static TypeScript, JavaScript, and Vue application uses WebAssembly and Pyod
 
 PiE separates timing-sensitive acquisition from networking, video, and storage. An Arduino-compatible microcontroller handles interrupt-driven triggers, motor and encoder state, and sub-millisecond event logging while communicating with the Linux server over USB serial. This architecture synchronizes behavioral video with two-photon microscope trial triggers and frame signals via TTL pulses. Camera timestamps and event records preserve the alignment, while a circular video buffer can retain behavior immediately before an externally initiated trial.
 
-PiE has been used for continuous 24/7 recording across eight behavior boxes in parallel. Services start automatically and support remote recovery, while coordinated transfer avoids copying files that are still being written. The related VideoAnnotate application supports frame-based event annotation and blinded scoring of randomized video segments. Together, these components connect distributed acquisition and synchronized scientific instrumentation with centralized data management and systematic behavioral experiment curation.
+PiE has been used for continuous 24/7 recording across eight behavior boxes in parallel. Services start automatically and support remote recovery. File-transfer services monitor network errors and resume interrupted copies after connectivity is restored. The related VideoAnnotate application supports frame-based event annotation and blinded scoring of randomized video segments. Together, these components connect distributed acquisition and synchronized scientific instrumentation with centralized data management and systematic behavioral experiment curation.
+
+## Project Resources
+
+| Project | Description | Source | Documentation | Live application or demo |
+|---|---|---|---|---|
+| CloudScope | Desktop and web-based application for image visualization, analysis, and curation | [GitHub](https://github.com/mapmanager/cloudscope-app) | [Documentation](https://mapmanager.github.io/cloudscope-app/) | [Application](https://cloudscope.mapmanager.net) |
+| CloudScope-Web | Web viewer for published AcqStore Zarr datasets | [GitHub](https://github.com/mapmanager/cloudscope-web) | [Documentation](https://mapmanager.github.io/cloudscope-web/docs/) | [Application](https://mapmanager.github.io/cloudscope-web) |
+| AcqStore | Python backend for loading, analyzing, and exporting microscopy data | [GitHub](https://github.com/mapmanager/acqstore) | [Documentation](https://mapmanager.github.io/acqstore/) | |
+| AcqStore-Server | Local or remote service for accessing AcqStore microscopy loaders, metadata, and image data | [GitHub](https://github.com/mapmanager/acqstore-server) | [Documentation](https://acqstore-server.pages.dev/) | |
+| mapmanager-web-components | Reusable image, pooled plots, and signal-visualization components for scientific applications | [GitHub](https://github.com/mapmanager/mapmanager-web-components) | [Documentation](https://mapmanager.github.io/mapmanager-web-components/) | [Image viewer](https://mapmanager.github.io/mapmanager-web-components/demos/image-viewer/) · [Nicepool](https://mapmanager.github.io/mapmanager-web-components/demos/nicepool/) · [Signal viewer](https://mapmanager.github.io/mapmanager-web-components/demos/signal-viewer/) |
+| SanPy | Desktop application for electrophysiology event detection, feature extraction, visualization, and curation | [GitHub](https://github.com/cudmore/SanPy) | [Documentation](https://cudmore.github.io/SanPy/) | |
+| SanPy-Web | Web viewer for published SanPy Zarr datasets | [GitHub](https://github.com/mapmanager/sanpy-web) | [Documentation](https://mapmanager.github.io/sanpy-web/docs/) | [Application](https://mapmanager.github.io/sanpy-web) |
+| MapManager | Longitudinal annotation, measurement, and curation of neuronal structures through desktop and web GUIs | [MapManagerCore](https://github.com/mapmanager/MapManagerCore) · [PyMapManager](https://github.com/mapmanager/PyMapManager) · [WebMapManager](https://github.com/mapmanager/WebMapManager) | [Documentation](https://mapmanager.github.io/) | [WebMapManager](https://mapmanager.github.io/WebMapManager/) |
+| Brightest Path | A* and bidirectional A* tracing of filament-like structures in n-dimensional images | [Library](https://github.com/mapmanager/brightest-path-lib) · [napari plugin](https://github.com/mapmanager/napari-tracing) · [PyPI](https://pypi.org/project/brightest-path-lib/) | [Documentation](https://mapmanager.github.io/brightest-path-lib/) | |
+| AcqView | Browser application for opening proprietary microscopy files locally and exporting TIFF images | [GitHub](https://github.com/mapmanager/acqview) | Available in App | [Application](https://mapmanager.github.io/acqview/) |
+| PiE | Distributed behavioral acquisition and remote experiment control | [GitHub](https://github.com/cudmore/pie) | [Documentation](https://cudmore.github.io/pie-doc) | |
+
+## Technical Skills
+
+- **Programming:** Python, C/C++, MATLAB, Igor Pro, Bash
+- **Scientific computing:** NumPy, SciPy, pandas, GeoPandas, Shapely, Numba, scikit-image, Jupyter notebooks, parallel and concurrent programming
+- **AI/ML prototypes:** PyTorch and Cellpose for MapManager image-segmentation prototypes
+- **Algorithms and scientific analysis:** quantitative microscopy, image segmentation, ROI analysis, blood-flow velocity and vessel-diameter analysis, electrophysiology and time-series analysis, event detection and feature extraction, spectral estimation, longitudinal annotation and curation, A* and bidirectional A* tracing
+- **Scientific data and interoperability:** HDF5, Zarr, OME-Zarr/OME-NGFF, multiscale image pyramids, Neurodata Without Borders, JSON Schema, JSON, CSV, Parquet, s3fs, lazy and chunked array access
+- **APIs and backend systems:** documented Python APIs, defined plugin APIs for extensible file loading, analysis, and export, FastAPI, Flask, Flask-SocketIO, uvicorn, Pydantic, RESTful HTTP/JSON APIs, OpenAPI, httpx, device integration
+- **Interfaces and visualization:** PyQt, pyqtgraph, NiceGUI, napari, pywebview, Plotly, Matplotlib, model-view-controller architecture, event-driven interfaces
+- **Web and browser applications:** HTML, JavaScript, TypeScript, Node.js, Vue, Vite, WebAssembly, Pyodide, static web applications, server-backed browser applications
+- **Testing and documentation:** pytest, Git, GitHub, GitHub Actions, continuous integration, uv, MkDocs, documented Python APIs, Python docstrings, end-user and developer documentation
+- **Deployment and infrastructure:** Linux, Docker, Docker Compose, nginx, systemd, PyInstaller, macOS and Windows application packaging, object-storage access, SSH/SFTP synchronization, server-backed applications, distributed acquisition nodes, remote experimental systems
+- **Scientific instrumentation and acquisition:** laser-scanning microscopy, confocal microscopy, two-photon microscopy, light-sheet microscopy, whole-cell current- and voltage-clamp electrophysiology, real-time acquisition and visualization, custom microscopy and electrophysiology systems
+- **Embedded and distributed acquisition:** Raspberry Pi, Arduino-compatible microcontrollers, PlatformIO, GPIO, hardware interrupts, USB serial communication, cross-device trigger and frame synchronization, distributed acquisition nodes, remote experiment monitoring
+- **Instructional sensor laboratories:** electrocardiography, pulse oximetry, accelerometer-based activity measurement, Arduino microcontrollers, distributed sensors, internet dashboards

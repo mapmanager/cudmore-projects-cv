@@ -83,8 +83,6 @@ performance-management experience.
   documentation supports writing but is not a prerequisite. Ask about material
   contradictions rather than assuming default branches are current.
 - All project repositories are currently public, as confirmed by Robert.
-- SanPy Zarr documentation is on `codex/sanpy-zarr`. Do not imply inclusion in
-  a particular release or default branch.
 - SanPy saves natively to HDF5 and also exports to Zarr. CloudScope and SanPy
   both save Zarr datasets with defined schemas; CloudScope uses OME-Zarr for
   images. Explain their shared storage approach without implying SanPy's
@@ -176,6 +174,13 @@ the computer science foundation, and omit the historical C++ motivation.
   methods and events keep clients thin and separate application coordination
   from widget internals. Use "extensible" and "interoperability" selectively,
   supported by backend APIs, plugins, components, and data schemas.
+- Under Research Software Architecture, explain that modular analysis
+  interfaces can incorporate new methods, including fully automated AI/ML
+  analysis pipelines, while reusing existing data models, applications,
+  curation tools, and export formats. Present this as architectural
+  extensibility and systems integration rather than production AI/ML
+  model-development expertise. Preserve human review where scientifically
+  appropriate without claiming that every validated workflow requires it.
 - Present AcqStore-Server within AcqStore as a separately delivered HTTP access
   layer rather than a peer scientific platform. It can run locally or be
   deployed remotely and provides access to AcqStore's proprietary-format

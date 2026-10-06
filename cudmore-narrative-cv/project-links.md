@@ -49,8 +49,6 @@ web app:
 SanPy
 github: https://github.com/cudmore/SanPy
 docs: https://cudmore.github.io/SanPy
-zarr branch: codex/sanpy-zarr
-zarr format and export API: https://github.com/cudmore/SanPy/blob/codex/sanpy-zarr/docs/docs/api/zarr-export.md
 
 SanPy-Web
 github: https://github.com/mapmanager/sanpy-web
