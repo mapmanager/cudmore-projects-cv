@@ -109,12 +109,14 @@ performance-management experience.
 
 ## CV strategy
 
-Keep the narrative focused on eight sections: Professional Summary;
-Experimental Science and Collaborative Requirements Discovery; Scientific
-Algorithms and Parallel Computing; Research Software Architecture; Scientific
-Data, Reproducibility, and Publication; Engineering Quality and Software
-Delivery; Reusable Software as Scientific Infrastructure; and Technical
-Leadership and Mentorship.
+Keep the narrative focused on Professional Summary; Experimental Science and
+Collaborative Requirements Discovery; Scientific Algorithms; Research Software
+Design Principles; Reusable Software as Scientific Infrastructure; and
+Technical Leadership and Mentorship. Organize Research Software Design
+Principles with five subsections: Modular Architecture and Extensibility;
+Scientific Workflow, Curation, and Reproducibility; Performance and Scalable
+Processing; Engineering Quality and Maintainability; and Delivery, Deployment,
+and Sharing.
 
 Begin with Professional Summary, without a name heading or subtitle. Reserve
 detailed project descriptions for the separate platform section. Each project
@@ -136,6 +138,19 @@ details. Selective bold-led bullets in architecture, data design, and software
 delivery should make the key skills easy to find without turning the CV into
 a technology inventory. Keep requirements discovery and leadership primarily
 in connected prose.
+
+The narrative CV owns the full explanation of recurring architectural and
+workflow patterns. Platform descriptions should emphasize each project's
+scientific problem, measurements, users, scale, and distinctive implementation.
+Brief architecture statements may remain when needed for comprehension, but do
+not repeat the full backend, API, plugin, provenance, curation, performance,
+testing, documentation, or deployment rationale for each project.
+
+Describe parallel processing once as a general design pattern: identify
+independent computations, select multiprocessing, thread pools, Numba, or batch
+execution according to the workload, reuse the same implementation for
+interactive and batch analysis, and separate execution settings from scientific
+parameters. Retain project-level performance detail only when it is distinctive.
 
 In requirements discovery, explain curation without introducing project
 names: rapid review of noisy data, identification of false positives and false

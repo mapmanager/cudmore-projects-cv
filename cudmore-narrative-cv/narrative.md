@@ -109,14 +109,13 @@ are recorded without stopping the entire analysis. This preserves usable
 results and identifies measurements that need review. Feature extraction
 describes the measurements made after an event has been detected.
 
-I separate independent calculations from steps with temporal dependencies
-when implementing parallel execution. AcqStore uses processes for independent
-Radon windows and threads for independent diameter profiles. Steps that
-compare each time point with the preceding one run in order. Its batch runner
-reuses the single-file analysis API and supports cancellation and per-file outcomes.
-Worker settings are execution options, separate from scientific detection
-parameters. This design allows scheduling to change without redefining the
-analysis configuration.
+I scale computation without creating a separate analytical pathway. I identify
+independent calculations, preserve the ordering of steps with temporal
+dependencies, and select multiprocessing, thread pools, Numba acceleration, or
+batch execution according to the workload. Interactive and batch processing
+reuse the same scientific APIs and numerical methods. Execution settings remain
+separate from scientific parameters so scheduling can change without
+redefining the analysis.
 
 My approach to research software engineering begins with collaboration. I work closely with experimental scientists to understand the biological questions they are asking, the experimental workflows they use, and the challenges they encounter when collecting and analyzing data. Software development is an iterative process that benefits from continual feedback from the people who use it, including undergraduate researchers, technicians, graduate students, postdoctoral fellows, and faculty. The goal is not simply to deliver software, but to develop tools that become a natural part of the scientific workflow.
 
@@ -139,7 +138,13 @@ extensible workflow. Researchers then benefit from being able to inspect how
 data are loaded, how measurements are calculated, how algorithms work, how
 analyses can be extended, and how results can be interpreted and reproduced.
 
-Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
+Research Software Design Principles
+
+Modular Architecture and Extensibility
+
+Every analysis available through a graphical interface should also be available through a documented Python API. My software is built around reusable computational backends with object-oriented data models that expose the same analytical methods to graphical applications, Python scripting, and other software. This allows analyses to be automated, integrated into larger computational workflows, and shared through well-defined interfaces that promote interoperability with other scientific software. Whether researchers prefer an interactive graphical application or scripted analysis, they should obtain the same quantitative results from the same underlying implementation.
+
+Scientific Workflow, Curation, and Reproducibility
 
 Biological data are noisy, so automated analysis needs efficient ways to
 identify false positives and false negatives against the original images,
@@ -212,7 +217,7 @@ that SanPy-Web presents as interactive published figures. In both domains, the
 published figure remains connected to the raw data, analysis methods and
 parameters, and completed results that produced it.
 
-This architecture naturally supports multiple interfaces. I have developed desktop scientific applications using PyQt and more recently have adopted NiceGUI to build applications that share a single Python codebase across macOS, Windows, and the web. I am also developing serverless scientific applications using WebAssembly and Pyodide, allowing Python analysis code to execute directly within a web browser without requiring software installation or dedicated server infrastructure.
+Performance and Scalable Processing
 
 Modern biological datasets continue to grow in both size and complexity. Rather than requiring datasets to fit entirely into memory, my software increasingly relies on scalable storage technologies and lazy loading to support interactive visualization and quantitative analysis of datasets ranging from gigabytes to terabytes and beyond. Technologies including HDF5, Zarr, OME-Zarr, and NGFF provide the foundation for this approach while allowing the software to remain responsive as datasets continue to grow.
 
@@ -228,6 +233,8 @@ their published datasets in CloudScope-Web and SanPy-Web. Selective access is
 part of the workflow from analysis to browser-based presentation.
 
 I believe the analysis should travel with the data. Today, scientific software is often used during data acquisition and analysis but is absent from the published scientific record. I believe the same software used by researchers in the laboratory should also accompany published datasets. Rather than downloading static figures or processed measurements, readers should be able to explore the original data, repeat published analyses, perform new analyses, and develop computational models using the same software that produced the published results. This extends the scientific value of a dataset beyond the original publication while making analyses more transparent, reproducible, and useful to future researchers.
+
+Engineering Quality and Maintainability
 
 Long-term scientific software requires disciplined engineering practices. My projects incorporate automated testing with pytest, continuous integration using GitHub Actions, documentation with MkDocs, Python docstrings for documented APIs, and automated desktop application builds for macOS and Windows. Full GUI documentation for end users is a critical part of most projects, alongside the documentation developers need to extend the software. Together, these practices help produce software that is maintainable, extensible, and easier for other researchers to understand, validate, and build upon.
 
@@ -252,6 +259,10 @@ not prompting by itself. It is the ability to connect computer science with
 experimental biology well enough to specify the correct problem, recognize
 invalid assumptions, and determine whether the resulting software produces
 scientifically meaningful results.
+
+Delivery, Deployment, and Sharing
+
+This architecture naturally supports multiple interfaces. I have developed desktop scientific applications using PyQt and more recently have adopted NiceGUI to build applications that share a single Python codebase across macOS, Windows, and the web. I am also developing serverless scientific applications using WebAssembly and Pyodide, allowing Python analysis code to execute directly within a web browser without requiring software installation or dedicated server infrastructure.
 
 
 # Software Philosophy
@@ -290,6 +301,16 @@ I view research infrastructure as more than software alone. It includes well-def
 Reusable infrastructure changes the way scientific software is developed. Rather than beginning each project with a new collection of analysis scripts, researchers can build upon stable software foundations that already provide data access, visualization, quantitative analysis, and scripting interfaces. This reduces duplicated effort, improves reproducibility, and allows new software development to focus on answering scientific questions rather than rebuilding existing capabilities.
 
 Open-source development is an essential part of this process. Public source code, documentation, and automated testing allow analytical methods to be inspected, validated, and improved by the scientific community. Just as importantly, open software provides continuity when students graduate, laboratory personnel change, or research projects come to an end. The software remains available for future investigators to understand, reproduce, and extend.
+
+My research software practices align with the FAIR principles: Findable,
+Accessible, Interoperable, and Reusable. Saved analyses preserve the data,
+parameters, results, and tagged software version used to produce them. I
+archive tagged source-code versions as GitHub releases and register selected
+public releases with Zenodo for persistent DOIs, making them findable and
+citable. Committed `uv` lockfiles and Python-version constraints record the
+declared software environment for each release. Open-source licensing,
+documented formats, stable APIs and schemas, community standards, and adaptable
+deployment models support long-term accessibility, interoperability, and reuse.
 
 Reusable research infrastructure can also extend analyses that begin in
 commercial software. For example, an imaging core could detect cell bodies in
@@ -403,11 +424,9 @@ specifications.
 
 CloudScope
 
-CloudScope is a modular and extensible suite for moving imaging data from
-quantitative analysis and scientific curation to interactive publication. The
-suite combines CloudScope, the AcqStore Python backend, and CloudScope-Web in
-one continuous analysis pipeline. Raw data, analytical methods, detection
-parameters, and curated results remain connected throughout the workflow.
+CloudScope moves imaging data from quantitative analysis and scientific
+curation to interactive publication. The suite combines the CloudScope
+application, AcqStore, and CloudScope-Web.
 
 CloudScope provides an interactive graphical application for loading and
 visualizing images, running analyses, inspecting results, and correcting
@@ -426,10 +445,7 @@ The current scientific applications in CloudScope focus on kymograph line-scan
 images. Implemented analyses include in vivo micrometer-scale capillary blood
 flow, heartbeat derived from blood-flow velocity, diameter changes in cardiac
 myocytes and smooth muscle, and peak detection from real-time fluorescent
-reporters, including GCaMP calcium signals and ATP reporters. CloudScope is not
-limited to these applications. New file formats, analysis algorithms, and
-visualization capabilities can be implemented through AcqStore and made
-available to CloudScope.
+reporters, including GCaMP calcium signals and ATP reporters.
 
 AcqStore loads raw image data, including proprietary microscope file formats,
 and performs the analyses used by CloudScope. After analysis and curation, it
@@ -460,23 +476,14 @@ and reuse.
 
 AcqStore
 
-AcqStore is a general-purpose Python toolbox and computational backend for
-loading, managing, visualizing, and analyzing imaging data. It has no
-user-facing GUI. Its documented API supplies data, visualization primitives,
-and analysis methods to CloudScope and scripting workflows.
+AcqStore is a general-purpose Python toolbox for loading, managing,
+visualizing, and analyzing imaging data. It has no user-facing GUI and supplies
+scientific capabilities to CloudScope and scripting workflows.
 
 Raw imaging data come from many sources, including proprietary microscope file
 formats. AcqStore loads these data while retaining the experimental metadata
-required for quantitative analysis. Its extensible
-file-loader plugin system allows new formats to be supported without rewriting
-the applications built on AcqStore.
-
-AcqStore can also be extended through plugins for quantitative analysis and
-cloud sharing. It exports analysis results as structured tabular data through
-an extensible export system. This architecture allows desktop, web, and
-scripted workflows to use the same data model and analysis implementation,
-improving reproducibility while allowing new scientific capabilities to be
-added over time.
+required for quantitative analysis and exports results as structured tabular
+data.
 
 AcqStore uses lazy loading for raw images and analysis results so that
 collections containing hundreds or thousands of files can be browsed without
@@ -519,29 +526,15 @@ how a thin client can inspect acquisition metadata and display image data. The
 server can run locally or be deployed remotely. It is also distributed as a
 desktop application, with local-only networking as its default configuration.
 
-This architecture separates the scientific backend from the user interface and
-client language. New interfaces can use the same AcqStore implementation while
-remaining small and independently developed. Automated tests cover the API,
-schemas, session lifecycle, error responses, representative image formats, and
-client contract. AcqStore-Server's repository is currently public. The project
-provides evidence of API design, testing, and application delivery for
-technical Research Software Engineering roles.
+Automated tests cover the API, schemas, session lifecycle, error responses,
+representative image formats, and client contract. AcqStore-Server's repository
+is currently public.
 
 Reusable User-Interface Components
 
-Scientific applications repeatedly need the same interactive components for
-image visualization, region-of-interest annotation, tabular data, pooled
-plots, and linked plots. Reimplementing these components within each application duplicates
-engineering work and makes graphical interfaces harder to maintain and extend.
-I develop NiceWidgets and `mapmanager-web-components` as reusable
-user-interface libraries that address this problem in complementary
-application environments.
-
-Both libraries provide public component APIs for supplying data, configuring
-views, and coordinating interactions through methods and interaction events.
-Applications can remain thin because they use these interfaces without
-depending on component internals. This separates reusable presentation
-behavior from application-specific coordination and scientific analysis.
+I develop NiceWidgets and `mapmanager-web-components` to provide reusable
+image, region-of-interest, table, pooled-plot, signal, and linked-plot
+components for scientific applications.
 
 NiceWidgets is an open-source Python library of reusable NiceGUI components for
 interactive scientific applications. CloudScope uses NiceWidgets as part of
@@ -557,16 +550,6 @@ associated tables, and the signal viewer uses uPlot and data pyramids to stream
 large one-dimensional signals. The components are used in
 CloudScope-Web and SanPy-Web,
 as well as the PyQt SanPy application and the NiceGUI CloudScope application.
-This shared component layer allows imaging and electrophysiology applications
-to reuse visualization and interaction tools across desktop analysis and web
-publication. Improvements can be shared without rebuilding the same interface
-capabilities within each application.
-
-Together, these libraries demonstrate another part of my modular architecture.
-AcqStore supplies the scientific data and analysis backend, while NiceWidgets
-and `mapmanager-web-components` supply reusable graphical components. Each
-layer can evolve independently while improvements remain available to the
-applications that use it.
 
 SanPy
 
@@ -587,14 +570,8 @@ recording. Linked graphical views and detection-error summaries support review
 and curation of individual events. Researchers can save completed analyses,
 export tabular reports, and generate figures from the same workflow.
 
-SanPy reflects the same principle that graphical workflows should also be
-available through a documented Python API. Like CloudScope, it separates the
-computational backend from the user interface, although SanPy's backend is not
-a separately named project. The desktop application, scripts, and
-computational notebooks use the same underlying detection and analysis
-methods. Extensible file loaders, measurements, and graphical plugins allow
-new research needs to be incorporated without creating a separate analysis
-system.
+The desktop application, scripts, and computational notebooks use the same
+detection and analysis methods.
 
 SanPy is designed for use during electrophysiology experiments and for offline
 analysis. It saves natively to HDF5 and exports raw electrophysiology
@@ -652,26 +629,18 @@ classifications.
 
 The established Igor Pro desktop application made this workflow practical for
 longitudinal structural neuroscience and demonstrated its value in research
-use. I am carrying that proven scientific workflow forward in an open-source,
-extensible, and reproducible software ecosystem. The modern MapManager is under
-active development and separates shared scientific functionality from the
-applications used to access it. This design reduces dependence on proprietary
-software and makes established analysis methods easier to reuse, extend, and
-share.
+use. I am carrying that proven scientific workflow forward in a modern
+open-source ecosystem that remains under active development.
 
 MapManagerCore provides the shared Python API for the modern ecosystem.
 It uses pandas and GeoPandas for tabular and geometric annotation data, with
 Shapely supporting algorithms that manipulate line and polygon regions of
 interest.
-WebMapManager runs that backend in the browser through Pyodide. Its thin GUI
-and PyMapManager's desktop GUI use the same Python API, algorithms, and loading
-and saving functionality, preserving a shared implementation across runtimes.
-PyMapManager is the desktop application and also supports analysis through
-Python scripts and computational notebooks. WebMapManager is the browser
-application for visualizing, annotating, and analyzing time-series annotations
-and three-dimensional image volumes. A working WebMapManager application is
-publicly available. Together, these components are designed to provide the same
-scientific methods through desktop, browser, scripting, and notebook workflows.
+WebMapManager runs MapManagerCore in the browser through Pyodide, while
+PyMapManager provides the desktop, scripting, and notebook interfaces. A
+working WebMapManager application for visualizing, annotating, and analyzing
+time-series annotations and three-dimensional image volumes is publicly
+available.
 
 PiE
 

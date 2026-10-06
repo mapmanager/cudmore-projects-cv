@@ -84,9 +84,37 @@ Focus
   design. Historical C++ work is background, not the motivation for current
   architecture; mention it at most once in the RSE narrative CV, or omit it.
 - Scientific software architecture.
+- Organize the recurring design principles under one parent section, Research
+  Software Design Principles, with five thematic subsections:
+  - Modular Architecture and Extensibility: how scientific software is made
+    reusable and extensible.
+  - Scientific Workflow, Curation, and Reproducibility: how automated results
+    remain inspectable and trustworthy.
+  - Performance and Scalable Processing: how computation and data access scale
+    without fragmenting the scientific implementation.
+  - Engineering Quality and Maintainability: how software remains dependable,
+    understandable, and maintainable as methods, formats, and interfaces evolve.
+  - Delivery, Deployment, and Sharing: how scientific methods move into
+    practical use and dissemination.
+- Present these as Robert's general design principles. Do not insert a
+  project-by-project qualification matrix into the narrative CV. Use project
+  names selectively as evidence when they improve clarity.
+- When FAIR practices are relevant, connect the principles of Findability,
+  Accessibility, Interoperability, and Reusability to concrete engineering
+  practices rather than presenting them as an unsupported compliance claim.
+- Saved analyses preserve their data, parameters, results, and tagged software
+  version. Tagged versions are archived as GitHub releases. Selected public
+  releases, but not necessarily every release, are registered with Zenodo and
+  receive persistent DOIs.
+- Robert publishes his software on GitHub under open-source licenses. Exact
+  licenses should be verified before naming them in a derived document.
+- Committed `uv` lockfiles and Python-version constraints record the declared
+  software environment associated with each release. Include this detail only
+  when dependency management or computational reproducibility warrants it.
 - APIs and data models.
-- Modularity from the start: independently usable Python backends for scripts
-  and notebooks, with thin graphical interfaces.
+- Modularity from the start: independently usable Python backends with
+  object-oriented data models for scripts and notebooks, with thin graphical
+  interfaces.
 - PyQt and NiceGUI model-view-controller architecture. Views emit intent
   events, controllers alone mutate models within the GUI, and state events
   update subscribed views. Connect this discipline to coordinated interfaces
@@ -116,6 +144,11 @@ Focus
   can enter existing human-review workflows; manual review may be omitted when
   scientific validation supports that use.
 - Performance optimization.
+- Explain the recurring parallel-processing pattern clearly: identify
+  independent work, choose multiprocessing, thread pools, Numba, or batch
+  execution according to the workload, reuse the same scientific APIs for
+  interactive and batch processing, and keep execution settings separate from
+  scientific parameters.
 - Use `algorithm-design.md` as a compact supporting inventory for selected
   measurement methods and parallel execution. It supplements the outline and
   narrative and does not establish unrelated project or career claims.
@@ -281,6 +314,54 @@ Primary question
 - What scientific problems do my software platforms solve, and how do their
   components work together?
 
+Division of responsibility
+
+- The narrative CV owns the complete explanation of recurring architecture,
+  scientific workflow, performance, engineering quality, and delivery.
+- Platform descriptions emphasize scientific purpose and distinctive
+  implementation. Refer briefly to shared architecture only when needed to
+  make an individual project understandable.
+- Do not repeat general explanations of computational backends, plugin
+  architecture, raw-data provenance, human-in-the-loop curation, lazy access,
+  parallel execution, testing, documentation, or multi-interface delivery in
+  every project description.
+- Preserve all project-specific facts in `outline.md` even when final platform
+  prose omits them.
+
+Platform-description editorial pattern
+
+- Lead with the scientific purpose and end-user value: identify the problem
+  the software solves and what it enables researchers to accomplish.
+- Describe the working scientific workflow from raw data through measurement,
+  review, curation, figures, or publication, as appropriate to the project.
+- Use representative scientific methods, measurements, and features to
+  establish substance without creating an exhaustive inventory.
+- Explain scale when it changes scientific use, such as large collections,
+  long-running experiments, distributed acquisition, or datasets that require
+  selective access.
+- Include APIs, plugins, backends, services, data formats, and deployment
+  models only when they clarify why the project is useful, extensible, or
+  technically distinctive. Do not repeat the narrative CV's general
+  architecture discussion.
+- Connect every named technology to the capability or scientific value it
+  provides. Avoid technology lists included only to demonstrate breadth.
+- Prefer concise statements of value over implementation inventories. Retain
+  detailed schemas, specifications, and field lists in canonical sources and
+  project documentation unless they distinguish the project for the intended
+  audience.
+- Explain relationships among projects when one supplies another project's
+  backend, publication viewer, algorithm, or shared interface component.
+- Describe shared user-facing capabilities in the relevant project sections,
+  but explain their common implementation once in the reusable-components
+  section.
+- Preserve meaningful differences among projects rather than forcing every
+  description into an identical template.
+- Distinguish implemented capabilities from broader design scope. Use language
+  such as "current analyses include" when a general-purpose platform currently
+  implements a particular set of workflows.
+- Prefer the progression: scientific purpose, researcher workflow, distinctive
+  implementation, and storage, delivery, or publication.
+
 Focus
 
 - AcqView makes community-developed microscopy readers accessible to
@@ -317,12 +398,15 @@ Focus
 - Explain that new AcqStore file loaders, analyses, and visualization
   capabilities can become available through CloudScope without duplicating
   their implementation.
-- Present NiceWidgets and `mapmanager-web-components` together as reusable
-  user-interface infrastructure.
-- NiceWidgets supplies reusable NiceGUI components used by CloudScope.
+- Retain NiceWidgets in the canonical record as the reusable NiceGUI component
+  library used by CloudScope. It does not need equal emphasis in every derived
+  platform narrative.
+- In current RSE platform narratives, focus the reusable-interface section on
+  `mapmanager-web-components` when that better represents the direction and
+  breadth of Robert's interface work.
 - `mapmanager-web-components` supplies an image viewer, the Plotly-based
-  nicepool pooled-plot component, and a signal viewer, each with a live static
-  single-page application demo.
+  pooling component with plots and tabular output, and a signal viewer, each
+  with a live static single-page application demo.
 - Describe their implemented use in CloudScope-Web, SanPy-Web, the PyQt SanPy
   application, and the NiceGUI CloudScope application. Do not infer that all
   components are used in every application or that every migration is complete.

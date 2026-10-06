@@ -2,72 +2,68 @@
 
 I design and develop scientific software, from numerical algorithms and computational backends to desktop and web applications. My work turns biological data into reproducible quantitative results while making the underlying methods available for reuse.
 
-My initial training is in computer science and full-time scientific software development, followed by PhD training in Neuroscience and 20+ years of experimental biology research in microscopy and electrophysiology. I contribute both scientific and engineering judgment, translating biological questions into software requirements and carrying development through algorithm design, architecture, implementation, testing, and delivery.
+My initial training is in computer science and full-time scientific software development, followed by PhD training in Neuroscience and more than 20 years of experimental biology research in microscopy and electrophysiology. I contribute both scientific and engineering judgment, translating biological questions into software requirements and carrying development through algorithm design, architecture, implementation, testing, and delivery.
 
-Python is my primary language for current scientific software. I use PyQt and NiceGUI for graphical applications and develop browser interfaces with JavaScript and TypeScript. Across this stack, I separate computation, storage, and presentation so each can be extended without duplicating scientific methods. I seek senior hands-on engineering leadership that combines continued coding with architectural direction, development coordination, and mentorship.
+Python is my primary language for current scientific software. I use PyQt and NiceGUI for graphical applications and develop browser interfaces with JavaScript and TypeScript. I seek senior hands-on engineering leadership that combines continued coding with architectural direction, development coordination, and mentorship.
 
 ## Experimental Science and Collaborative Requirements Discovery
 
-I bring substantial domain expertise in neuroscience, vascular biology, and cardiac physiology, grounded in decades of experimental work. I have designed and performed experiments, interpreted results, and published the findings. I have also built custom microscopy and electrophysiology acquisition systems and developed real-time acquisition and visualization software. This experience guides the analyses I choose, the assumptions I examine, and the requirements I set for scientific software.
+I bring substantial domain expertise in neuroscience, vascular biology, and cardiac physiology, grounded in decades of experimental work. I have designed and conducted experiments, analyzed and interpreted the results, and published the findings. I have also built custom microscopy and electrophysiology acquisition systems and developed real-time acquisition and visualization software. This experience guides how I define scientifically valid measurements, evaluate analytical assumptions and the effects of noise and sampling, select numerical methods, and establish requirements for scientific software.
 
-Within multidisciplinary teams, I connect biological questions with engineering decisions. I work with research biologists to define what an analysis must measure and with engineers to express those requirements in algorithms, data models, and interfaces. I am comfortable entering new scientific domains and enjoy working closely with specialists whose expertise complements my own. Together, we identify scientifically valid measurements and translate the assumptions and constraints of the experiment into analysis software. I involve researchers with different scientific and programming backgrounds throughout development so their feedback shapes both interactive tools and scripted workflows.
-
-Biological data are noisy, so automated analysis including AI/ML pipelines needs efficient ways to identify false positives and false negatives against the original data. I design heuristics, backend APIs, and graphical interfaces for rapid curation. Recurring error patterns inform additional rules in code, making corrections repeatable across experiments.
-
-I design these workflows to limit experimenter bias as well as reduce review time. Blinding conceals scientific conditions, while randomized presentation helps prevent the review sequence from aligning with experimental groups or conditions. When exhaustive manual curation is impractical, APIs can select defined random subsets for review. These capabilities combine automated processing with targeted human-in-the-loop judgment while supporting objectivity and reproducibility.
-
-## Scientific Algorithms and Parallel Computing
-
-My experimental background guides algorithm design. I begin by defining the measurement, the assumptions needed to interpret it, and the effects of noise and sampling. I then select and implement numerical methods, define analysis parameters, and retain intermediate and final results that researchers can inspect.
-
-My algorithms span image analysis, event detection and feature extraction, spectral estimation, and graph search. I preserve failed fits and individual feature-calculation errors without stopping an entire analysis, allowing usable results to remain available while identifying measurements that need review. When methods provide complementary estimates, I retain their quality indicators and agreement rather than hiding those differences behind a single value.
-
-I improve performance by identifying calculations that can run independently. Depending on the workload, I use Python multiprocessing, thread pools, Numba acceleration, and batch processing built on the same APIs used for individual analyses. This keeps performance work connected to the scientific implementation instead of creating a separate analysis path.
-
-## Research Software Architecture
-
-I design modular software from the start, with computation in independently usable backends and clear interfaces for scripts, notebooks, desktop applications, and browser applications. Public APIs and plugin interfaces allow other developers to add file formats and specialized analyses as research needs change.
-
-- **One computational implementation across interfaces.** Interactive and scripted workflows call the same backend methods and data models. Researchers can automate methods they use graphically, while new interfaces can reuse established scientific behavior rather than recreate it.
-
-- **Extensible analysis workflows.** I separate analysis methods from the surrounding data, application, and publication workflows. New methods, including fully automated AI/ML analysis pipelines, can be integrated through defined APIs and plugin interfaces while reusing established data models, graphical applications, curation tools, and export formats. Automated results can then enter the same review and curation workflows used by existing analyses, allowing methods to evolve without sacrificing scientific oversight or reproducibility.
-
-- **Controlled state changes in modular GUIs.** My PyQt and NiceGUI applications use model-view-controller architecture. Views emit intent events, the controller changes backend models, and state events update subscribed views. Centralizing model changes keeps images, tables, and plots coordinated. New components can use the same event flow, making larger applications easier to extend.
-
-- **Reusable component and service boundaries.** I define public methods, events, schemas, and versioned contracts between backends, graphical components, and clients. These boundaries keep applications thin, support interoperability across programming environments, and allow shared capabilities to improve without coupling clients to internal implementations.
-
-I also use WebAssembly and Pyodide to run Python capabilities in browser applications. This allows desktop and browser interfaces to share scientific code and makes community Python tools accessible without requiring researchers to configure a local development environment.
-
-I use large language models (LLMs) daily within a development process that begins with planning and specifications. I define the scientific question, measurement constraints, required behavior, and architectural boundaries, then use LLMs to examine design options and develop detailed specifications. I use these tools for implementation and unit tests while retaining responsibility for scientific assumptions, architecture, validation, and final technical decisions.
-
-## Scientific Data, Reproducibility, and Publication
-
-I design data models around the relationship between raw data and derived results. Raw images or recordings, experimental metadata, detection parameters, and completed analyses remain connected so researchers can inspect how results were obtained and other software can reuse them.
-
-Scalable access is part of that design. I use lazy loading and chunked storage so applications can retrieve the image regions, recordings, or analysis results they need without loading complete datasets into memory. The same approach supports interactive analysis and browser-based presentation of published results.
-
-I publish schemas for saved datasets so developers can interpret them independently of the application classes that created them. Formats and standards including Zarr, OME-Zarr/OME-NGFF, and Neurodata Without Borders (NWB) provide additional routes for interoperability and deposition in appropriate community repositories. Publication and data sharing are designed into the workflow rather than added after analysis.
-
-## Engineering Quality and Software Delivery
-
-I treat testing, documentation, and delivery as part of software development. An analysis method needs a dependable implementation, an interface other developers can understand, and a practical route into researchers' workflows.
-
-- **Automated testing and continuous integration.** I use pytest and GitHub Actions to check numerical behavior, APIs, schemas, errors, and client contracts as software changes. Contract testing helps protect applications that depend on a backend or saved-data format.
-
-- **Documentation for users and developers.** I provide full GUI documentation for end users and API documentation for developers through MkDocs. Documentation explains both how to complete scientific workflows and how to extend the underlying software.
-
-- **Repeatable distribution.** Automated workflows build documentation and desktop applications. PyInstaller packages macOS and Windows applications, making familiar desktop interfaces readily accessible to researchers. Static browser applications provide another route to scientific software without dedicated application servers.
-
-## Reusable Software as Scientific Infrastructure
-
-Many research software problems first appear within a single project but recur across laboratories. I identify these common requirements and turn project-specific solutions into documented computational backends, data models, schemas, components, and workflow patterns that future projects can adopt instead of rebuilding. This is how software developed for one collaboration becomes sustainable scientific infrastructure.
-
-An institutional capability requires more than reusable code. Stable interfaces, automated testing, documentation, training, and continued engagement with researchers allow shared software to remain useful as projects evolve. Direct support also exposes recurring requirements and failure modes that can be addressed once in software and shared across projects.
-
-These practices reduce duplicated effort, preserve analytical methods as personnel, grants, and research questions change, and make it easier for engineers to maintain and extend the software and for researchers to use it independently.
+Within multidisciplinary teams, I connect biological questions with engineering decisions. I work with research biologists to define what an analysis must measure and with engineers to express those requirements in algorithms, data models, interfaces, expected outputs, and testable behavior. I am comfortable entering new scientific domains and enjoy working closely with specialists whose expertise complements my own. I involve researchers with different scientific and programming backgrounds throughout development so their feedback shapes interactive tools and scripted workflows.
 
 ## Technical Leadership and Mentorship
 
 My record of successful grant writing and funded research includes NIH BRAIN Initiative and NHLBI R01 awards and Chan Zuckerberg Initiative software support. This funding enabled me to build teams of software developers and manage multidisciplinary work with research biologists. I combine direct technical contributions with architectural guidance, development coordination, and mentorship to turn scientific requirements into usable software.
 
-I have mentored trainees in computer science, biophysical engineering, and biomedical engineering, along with employees with computer science backgrounds. Drawing on my own experimental work, I help engineers understand the biological questions, experimental methods, and measurement constraints their software must address. My engineering experience also helps research biologists understand and extend quantitative methods. I contribute to decisions on both sides of that collaboration while helping colleagues develop the knowledge to work more independently.
+I have mentored trainees and colleagues across computer science, engineering, and biology. Drawing on my experimental work, I help engineers understand the biological questions and measurement constraints their software must address. My engineering experience also helps research biologists understand and extend quantitative methods, allowing colleagues on both sides of the collaboration to work more independently.
+
+## Reusable Software as Scientific Infrastructure
+
+Many research software problems first appear within one project but recur across laboratories. I identify these recurring needs and design solutions that can serve beyond the collaboration that first motivated them. Software becomes scientific infrastructure when other researchers can understand it, adopt it, and rely on it as their data, methods, and questions evolve.
+
+My research software practices align with the FAIR principles: Findable, Accessible, Interoperable, and Reusable. Saved analyses preserve the data, parameters, results, and tagged software version used to produce each result. I archive tagged source-code versions as GitHub releases and register selected public releases with Zenodo for persistent DOIs, making them findable and citable. I publish my software as open source and use documented formats, stable APIs and schemas, community standards, and adaptable deployment models to support long-term accessibility, interoperability, and reuse.
+
+## Research Software Design Principles
+
+### Modular Architecture and Extensibility
+
+I place scientific computation in independently usable Python backends with object-oriented data models and documented APIs. I organize scientific algorithms, data loading and storage, and user-interface code as separate responsibilities so each can evolve without requiring the others to be rewritten.
+
+Desktop and browser applications remain thin because they delegate scientific computation to backend APIs and focus on presentation and workflow coordination. Scripts, notebooks, and services use those same APIs, ensuring that every interface uses the same scientific implementation.
+
+The backend APIs also define plugin interfaces for adding file formats, analyses, visualizations, and export methods without changing the surrounding applications. Data schemas define how data and results are structured. Versioned service contracts define how clients request and receive them. Together, these interfaces allow applications and services to evolve without breaking their integrations.
+
+New computational methods, including fully automated AI/ML pipelines, can be integrated through the backend and plugin APIs. They can use existing data schemas, user interfaces, curation workflows, and export tools. This allows analytical methods to evolve without rebuilding the broader scientific workflow.
+
+I build reusable interface components with documented APIs. Applications use these APIs to provide data, configure views, and respond to user actions without relying on internal component code. This allows visualization tools to be shared across projects and improved without requiring changes to every application.
+
+Within graphical applications, I use model-view-controller and event-driven patterns to control state changes. Views report user actions to controllers, controllers update backend models, and state events tell subscribed views when to update. This predictable flow keeps images, tables, and plots synchronized while making complex interfaces easier to test, maintain, and extend.
+
+### Scientific Workflow, Curation, and Reproducibility
+
+I design scientific software so automated results remain inspectable and trustworthy. Raw data and metadata stay connected to the analysis methods and parameters used to generate each result. The software preserves completed results and records calculation failures. Researchers can compare each measurement with the original data and understand how it was produced. These relationships are saved in documented data structures, so other software can interpret and reuse the results without depending on the original application.
+
+Human-in-the-loop curation is a core design principle across my software. Biological data are noisy, and automated analysis can produce false positives, false negatives, failed fits, and individual feature errors. I build graphical interfaces that allow researchers to compare automated results with the original data and accept, reject, or correct individual results. When review reveals a recurring error pattern, I encode the correction as a rule so future analyses can apply it consistently across datasets.
+
+Where appropriate, I design blinded review workflows that conceal experimental conditions and identifying information. I randomize presentation order so review does not follow experimental groups. For collections too large to review exhaustively, APIs can select defined random subsets for targeted curation. Together, these capabilities make human review practical at scale while supporting objective, reproducible analysis.
+
+### Performance and Scalable Processing
+
+I design scientific software to remain responsive as computational workloads grow. When calculations can run independently, I distribute them with multiprocessing or thread pools. I use Numba to accelerate computationally intensive algorithms and batch processing to apply analyses across collections.
+
+Large collections and networked workflows require applications to load data selectively. Lazy loading reads collection metadata first and loads raw data or results only when requested. Chunked storage allows applications to retrieve only the portions of large image and data arrays needed for the current view, while multiscale image pyramids provide that view at the appropriate resolution. Together, these approaches reduce startup time, memory use, and network transfer, keeping desktop and browser interfaces responsive and allowing them to work with datasets much larger than available memory.
+
+### Engineering Quality and Maintainability
+
+I keep scientific software dependable, understandable, and maintainable as methods, data formats, and interfaces evolve. Automated tests with pytest and continuous integration through GitHub Actions check numerical behavior, APIs, schemas, file compatibility, and client contracts. Contract testing protects applications that depend on a backend, service, or saved-data format.
+
+Documentation is part of the implementation. I provide end-user workflow documentation and documented Python APIs through MkDocs, and distribute Jupyter notebooks that connect explanations to executable examples. Stable interfaces, explicit error behavior, and documentation allow researchers and developers to understand, validate, and extend the software.
+
+### Delivery, Deployment, and Sharing
+
+I move scientific methods into practical use through repeatable distribution and multiple deployment models. Automated workflows build documentation and desktop applications, while PyInstaller packages macOS and Windows applications for researchers who do not use development environments. With NiceGUI, I can deliver the same scientific application as either a packaged desktop program or a server-backed browser application from one Python codebase.
+
+I also develop static browser applications using JavaScript, TypeScript, WebAssembly, and Pyodide. These applications can run Python code locally in the browser or provide interactive access to published analyses without requiring desktop installation or a dedicated application server. This makes scientific software and results easier to distribute, access, and share.
+
+Sharing also requires data and results to remain usable outside the software that created them. I use documented formats and community standards—including HDF5, Zarr, OME-Zarr/OME-NGFF, and Neurodata Without Borders—to support publication, repository deposition, and reuse. These formats preserve the connections among raw data, metadata, and completed analyses.

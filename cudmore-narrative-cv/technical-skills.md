@@ -16,7 +16,8 @@ current projects; do not use the older work to justify present architectural
 expertise. A narrative CV may omit it or mention it once.
 
 - **Python**: primary language for current research software, scientific
-  analysis, desktop and web applications, APIs, testing, and documentation.
+  analysis, object-oriented data models, desktop and web applications, APIs,
+  testing, and documentation.
 - **C/C++**: more than ten years of experience. Used extensively in the first
   research position at Roswell Park.
 - **MATLAB**
@@ -178,6 +179,14 @@ microscope formats, without embedding the AcqStore Python backend.
 - End-user and developer documentation
 - Codecov and GitHub workflows for measured test coverage.
 - Jupyter notebooks distributed with project documentation and examples.
+
+Robert uses Git tags to identify source-code versions and archives tagged
+versions as GitHub releases. Saved analyses preserve the data, parameters,
+results, and tagged software version used to produce them. Selected public
+releases are registered with Zenodo and receive persistent DOIs; do not imply
+that every tagged release receives a DOI. Committed `uv` lockfiles and
+Python-version constraints record the declared environment associated with
+each release.
 
 LLMs support daily planning, architecture, specification-driven implementation,
 and unit-test writing. Robert retains responsibility for scientific assumptions

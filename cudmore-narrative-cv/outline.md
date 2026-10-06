@@ -258,10 +258,46 @@ Algorithm design and parallel execution
 * These examples concern line-scan images and derived one-dimensional signals;
   they do not define the limits or full extent of AcqStore's image analysis.
 
-Reusable computational backends
+Shared research software design principles
+
+Organize audience-facing RSE prose under one parent concept with five themes:
+
+* Modular Architecture and Extensibility: How do I organize scientific
+  software so it can be reused and extended?
+* Scientific Workflow, Curation, and Reproducibility: How do I ensure that
+  automated results remain scientifically inspectable and trustworthy?
+* Performance and Scalable Processing: How do I scale computation and data
+  access without fragmenting the scientific implementation?
+* Engineering Quality and Maintainability: How do I keep scientific software
+  dependable, understandable, and maintainable as methods, data formats, and
+  interfaces evolve?
+* Delivery, Deployment, and Sharing: How do I move scientific methods from
+  implementation into practical use and dissemination?
+
+These are Robert's recurring design principles. Do not burden the narrative CV
+with a project-by-project implementation matrix. Preserve detailed project
+evidence below and in project sections, while allowing concise general claims
+about how Robert designs research software.
+
+FAIR research-software practices
+
+* Robert publishes his software on GitHub under open-source licenses.
+* Saved analyses preserve the data, parameters, results, and tagged software
+  version used to produce them.
+* Git tags identify source-code versions, which are archived as GitHub
+  releases.
+* Selected public releases are registered with Zenodo and receive persistent
+  DOIs, making those software versions findable and citable. Do not imply that
+  every tagged release receives a DOI.
+* Committed `uv` lockfiles and Python-version constraints preserve the declared
+  software environment for each release.
+* Present these practices as supporting the FAIR principles: Findable,
+  Accessible, Interoperable, and Reusable.
+
+Modular computational backends
 
 * Build backend Python packages that expose documented public APIs.
-* Use reusable data models and modular architecture.
+* Use object-oriented, reusable data models and modular architecture.
 * Design software modularly from the start, with backend computation available
   to scripts and notebooks before or independently of graphical interfaces.
 * CloudScope and SanPy graphical applications are thin wrappers around Python
@@ -284,6 +320,18 @@ Reusable computational backends
   capability. Do not infer production AI/ML model-development expertise from
   this design or from the documented PyTorch and Cellpose image-segmentation
   prototypes.
+
+Shared performance architecture
+
+* Identify independent computations and select multiprocessing, thread pools,
+  Numba acceleration, or batch execution according to the workload.
+* Interactive and batch processing should reuse the same scientific APIs and
+  numerical implementation rather than creating separate analysis paths.
+* Separate execution settings from scientific parameters so scheduling can
+  change without redefining the analysis.
+* Retain project-specific performance details when they are scientifically or
+  technically distinctive, including Brightest Path's Numba acceleration and
+  PiE's parallel autonomous acquisition nodes.
 
 Multiple interfaces
 
