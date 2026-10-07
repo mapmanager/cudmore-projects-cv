@@ -2,232 +2,212 @@
 
 ## Purpose
 
-This document provides orientation and current project status for continuing
-the narrative CV project in a new work session. It records the architecture,
-completed outputs, active work, and next task.
+This document orients a new ChatGPT or Codex session to the narrative CV
+project and defines the next task. It records project state and workflow only.
+It is not a factual source for career claims or a substitute for the selected
+audience package.
 
-`handoff.md` is not a source for factual claims, narrative prose, audience
-strategy, project selection, or CV structure. Use the canonical sources and the
-selected output package for those decisions.
+## Authority and Startup Order
 
-## Authority
+The current project directory, or the latest replacement ZIP explicitly
+identified by Robert, is the source of truth.
 
-The current project directory, or the latest ZIP explicitly identified by
-Robert, is the source of truth. Robert's direct factual updates can revise that
-source and should be recorded in the canonical Markdown before deriving
-outputs. Other chat history provides background. Stop if the source of truth
-is unavailable or ambiguous.
+Before making recommendations or edits:
 
-- `AGENTS.md` defines the operating role and autonomy of AI collaborators.
-- `rules.md` governs editing, factual boundaries, and collaboration.
+1. Read `AGENTS.md` completely.
+2. Read `rules.md`, `README.md`, and this handoff completely.
+3. Read `outline.md`, `narrative.md`, `technical-skills.md`,
+   `section-guide.md`, and `project-links.md` as needed for the task.
+4. Read the selected output package's `audience.md` before evaluating its CV,
+   cover letter, or supporting documents.
+5. Treat Robert's direct factual corrections as valid source material and add
+   them to the canonical Markdown before deriving new prose.
+6. Ask rather than guess when a material ambiguity could change facts,
+   positioning, audience, scope, or document structure. Every question should
+   include a senior editorial recommendation.
+
+## Canonical Document Architecture
+
 - `outline.md` is the factual source for narrative claims.
 - `narrative.md` is the canonical long-form prose source.
-- Each `outputs/<audience>/audience.md` governs the positioning and emphasis of
-  its CV and cover letter.
+- `technical-skills.md` is the factual technical-skills inventory.
+- `section-guide.md` defines section purpose, claim boundaries, and platform
+  presentation.
+- `rules.md` governs editing, collaboration, editorial logic, and the
+  distinction between comprehensive and tailored documents.
+- Each `outputs/<audience>/audience.md` governs that package's readers,
+  positioning, emphasis, and assembly choices.
 
-## Current State
+Do not edit Robert's user-owned Employment, Education, Awards, Publications,
+Contact, or Funding & Professional Service sections unless he explicitly asks.
 
-- The canonical source and planning files remain in the project root.
-- `outputs/imaging-core/` contains a completed audience specification,
-  narrative CV, and cold-outreach cover letter.
-- `outputs/research-labs-department-heads/` contains a completed audience
-  specification and near-final narrative CV and exploratory cover letter.
-- `outputs/research-software-engineer/` contains the agreed audience plan and
-  revised narrative CV and platform descriptions, an exploratory letter,
-  skills section, and project resources. This package is the current review
-  target. The editorial workflow changes Markdown files only.
-- The core sources now record Robert's updates on public repositories,
-  mapmanager-web-components integrations, AcqStore schemas, and SanPy Zarr.
-- Existing shared sections and the two earlier audience packages are unchanged.
-- Canonical sources now include MATLAB; Jupyter use across CloudScope, SanPy,
-  PiE, Brightest Path, and other projects; modular acquisition-hardware
-  integration; additional cell-culture and in vivo and ex vivo imaging
-  experience; physiological monitoring; and remote rodent activity monitoring.
-- Teaching sources now record instructional ECG/EKG, pulse-oximetry, and
-  accelerometer activity laboratories while explicitly distinguishing them
-  from continuous wearable monitoring, clinical research, regulated
-  healthcare, and medical-device development.
-- The RSE technical-skills section is now a compact inventory derived from the
-  root sources. Detailed project evidence remains in the platform section.
-- `outputs/research-software-engineer/jobs.md` tracks advertised roles without
-  creating a complete set of job-specific assembly-section variants.
-- Subsequent steering on AcqView, computer science background, modular GUI
-  design, and daily LLM use is recorded in the core sources. RSE audience
-  planning, skills, and resources reflect the permitted updates.
-- Following the source review and discussion, Robert authorized a substantial
-  rewrite of the RSE `cv.md`. The rewritten narrative is ready for review and
-  pairs engineering strategies with factual portfolio evidence.
-- The RSE `research-software-platforms.md` rewrite is complete and ready for
-  review alongside `cv.md`. The cover letter remains unchanged and deferred.
-  Shared sections and user-owned sections remain unchanged.
-- Robert clarified his bachelor's degree in computer science, subsequent
-  scientific software development, and later graduate work without a completed
-  master's degree. These facts are in the narrative sources; user-owned factual
-  CV sections remain unchanged.
-- The AI emphasis is agreed: planning, specifications, implementation, and
-  testing. Code-generation estimates and generic coverage figures have been
-  removed from the supporting sources. Do not disclose AcqView as fully
-  LLM-generated. Older projects began without AI; later SanPy maintenance uses
-  LLMs.
+## Editorial System Now in Force
 
-## Professional Positioning
+- Give each paragraph one purpose and each sentence one primary idea.
+- Prefer the progression: problem or purpose, workflow or method, then
+  scientific or engineering benefit.
+- Use concrete, consistent vocabulary and explicit antecedents.
+- Explain what a system accomplishes before describing its implementation.
+- Connect every named technology to a capability; do not use stack lists as a
+  substitute for substance.
+- Avoid long inventories in prose. Use representative examples or summarize
+  the high-level value.
+- Remove repeated architecture and setup across adjacent sections.
+- Centralize recurring software-design principles in the narrative CV.
+- Use project descriptions for scientific purpose, researcher workflow, and
+  distinctive implementation. Mention shared architecture only when it makes
+  a project easier to understand.
+- Use compact categorized lists for Technical Skills.
+- Make cover letters explain fit through selected evidence rather than repeat
+  the CV and project descriptions.
+- Preserve full facts in canonical sources even when a derived document omits
+  them.
+- Treat page and word limits as planning budgets. Establish correct content
+  first, then remove repetition and secondary detail.
+- Before finalizing an application packet, review the CV, project descriptions,
+  technical skills, and cover letter together for consistency and duplication.
+- Use Robert's preferred forms: `inter-spike`, `cardiac myocyte`, and
+  `sub-micron`.
 
-The central identity is:
+## Completed RSE Work
 
-> I build scientific software that transforms biological data into
-> reproducible quantitative results.
+The comprehensive RSE package has undergone a detailed rewrite:
 
-Robert is positioned as a **Research Software Engineer & Scientist** who
-combines experimental biology, quantitative analysis, and reusable research
-software.
+- `outputs/research-software-engineer/cv.md` now centralizes Robert's recurring
+  research-software design principles under an organized architecture,
+  scientific-workflow, performance, quality, and delivery framework.
+- `outputs/research-software-engineer/research-software-platforms.md` now
+  emphasizes each project's scientific value and distinctive implementation
+  without repeating the complete architecture narrative.
+- The platform descriptions for CloudScope, AcqStore and AcqStore-Server,
+  SanPy, MapManager, `mapmanager-web-components`, Brightest Path, AcqView, and
+  PiE have been reviewed point by point.
+- The root sources record FAIR-aligned practices: open-source publication,
+  analysis provenance, tagged GitHub releases, selected Zenodo DOI releases,
+  and committed release environment records.
+- Object-oriented Python data models, GeoPandas and Shapely use, OME-Zarr
+  multiscale pyramids, PyTorch and Cellpose prototypes, and current project
+  relationships are recorded in the canonical sources.
 
-Robert's direct domain expertise is in neuroscience, vascular biology, and
-cardiac physiology. His direct experimental methods include microscopy and
-electrophysiology. Broader applicability must be explained through shared
-methods and collaboration with domain experts without claiming unsupported
-subject-matter expertise.
+The VivoSense job-specific variant is also complete:
 
-## Document Architecture
+- `outputs/research-software-engineer/vivosense-cv/cv.md`: 809 words.
+- `outputs/research-software-engineer/vivosense-cv/research-software-platforms.md`:
+  744 words including Technical Skills.
+- `outputs/research-software-engineer/cover-letter-vivosense.md`: 511 words.
+- The combined CV, selected platforms, and Technical Skills render to
+  approximately 3.5 pages in Robert's current assembly.
+- PiE receives expanded device-integration and synchronization detail because
+  it is especially relevant to VivoSense.
 
-```text
-idea.md
-    ↓
-outline.md
-    ↓
-narrative.md
-    ↓
-outputs/<audience>/
-    ├── audience.md
-    ├── cv.md
-    └── cover-letter.md
-```
+These RSE files are useful editorial references for clarity and organization,
+but they must not be copied wholesale into another audience package.
 
-Each audience uses a separate output package. Do not change one package to
-serve another audience.
+## Next Task: Refresh `outputs/imaging-core/`
 
-The RSE package adds `research-software-platforms.md`, `technical-skills.md`,
-and `project-resources.md` as replacements for those shared sections during
-assembly. It reuses the shared teaching section. Its `audience.md` specifies
-the exact selections; never assemble a variant together with its shared
-default. `cv.md` remains narrative-only.
+The next session will update the imaging-core package to use the new editorial
+system and current canonical facts. Do not edit imaging-core files until Robert
+confirms the plan and blast radius in the new chat.
 
-## Agreed RSE Plan
+Current Markdown files in scope for review are:
 
-- Target senior hands-on engineering leadership with continued coding,
-  architectural direction, development coordination, and mentorship.
-- Do not emphasize predominantly administrative management or research-faculty
-  positions. Begin with exploratory outreach to RSE and scientific software
-  group leaders.
-- Treat Robert's direct factual statements as valid source material.
-  Documentation supplements them rather than blocking writing. Ask about
-  material contradictions and distinguish branches from released versions.
-- All project repositories are currently public, as confirmed by Robert.
-- SanPy Zarr has published format and schema documentation. AcqStore's
-  published collection specification is an initial normative draft.
-- The shared web components are used in CloudScope-Web, SanPy-Web, the PyQt
-  SanPy application, and the NiceGUI CloudScope application. Do not infer that
-  every interface migration is complete.
-- A separate scientific measurement-validation example is deferred. Use
-  documented engineering practices and do not request it as a prerequisite.
+- `outputs/imaging-core/audience.md`
+- `outputs/imaging-core/cv.md`
+- `outputs/imaging-core/cover-letter.md`
+- `outputs/imaging-core/outreach-list.md`
+- `outputs/imaging-core/email-drafts/nida-confocal-electron-microscopy-shiliang-zhang.md`
 
-## Factual and Editorial Boundaries
+The `output_word/` files and `.DS_Store` files are not source documents. Do not
+edit or regenerate them until the Markdown is approved and Robert explicitly
+requests document generation.
 
-- Introduce no career claim unsupported by `outline.md` or `narrative.md`.
-- Preserve the distinction between implemented work, active development, and
-  future plans.
-- Select projects and emphasis according to the chosen package's `audience.md`.
-- Use `technical-skills.md` and `project-links.md` for their respective factual
-  inventories.
-- Do not draft or revise Robert's user-owned factual sections unless he
-  explicitly requests it; see `AGENTS.md` and `rules.md`.
+Current approximate lengths:
 
-## Starting a Work Session
+- `audience.md`: 1,796 words.
+- `cv.md`: 997 words.
+- `cover-letter.md`: 337 words.
+- `outreach-list.md`: 1,005 words.
 
-1. Confirm the source-of-truth project directory or ZIP.
-2. Read `AGENTS.md`, `rules.md`, `README.md`, and this handoff.
-3. Identify the selected output package and read its `audience.md`.
-4. Read `outline.md` and `narrative.md` before evaluating or changing claims.
-5. Read the selected package's `cv.md` and `cover-letter.md` when present.
-6. Confirm the current task before editing.
+### Imaging-core positioning to preserve
 
-After orientation, use the selected output package and canonical source files
-for the work. Return to `handoff.md` only when project status, architecture, or
-the next task changes.
+- The audience is academic imaging facilities and experimental biology
+  researchers, initially through cold outreach rather than an advertised job.
+- Robert seeks a staff role within an existing institution. The proposed
+  analysis-core capability can begin within the institution's current
+  structure and does not require a separate administrative core.
+- The analysis-core concept complements imaging instrumentation, commercial
+  software, acquisition expertise, existing analysis services, and training.
+  It must not imply that a target facility lacks these capabilities.
+- Commercial platforms remain appropriate when they meet the scientific need.
+  Robert's open-source software adds specialized analysis, automation,
+  reproducible downstream workflows, repository preparation, and interactive
+  publication when needed.
+- Robert's direct domain expertise is neuroscience, vascular biology, and
+  cardiac physiology. Broader applicability comes through shared experimental
+  methods and collaboration with domain experts.
+- Researcher support, training, documentation, troubleshooting, and turning
+  recurring needs into reusable software are central to the value proposition.
+- CloudScope and AcqStore are the strongest imaging-platform evidence. SanPy
+  demonstrates that the same research-software principles also apply to
+  electrophysiology.
+- Repository and data-sharing claims must distinguish standards such as
+  OME-Zarr and NWB from repositories such as DANDI and the Brain Image Library.
+- Proposed adapters for results exported by commercial analysis systems remain
+  future institutional work, not implemented current functionality.
 
-## Next Task
+### Recommended workflow for the new chat
 
-Review the revised RSE technical-skills section and the new canonical
-experimental, instrumentation, teaching, and Jupyter material with Robert.
-The first tracked application is VivoSense's Senior Scientific Integration
-Engineer position. When Robert requests implementation, create a separate
-VivoSense cover letter while reusing the existing RSE CV, platform
-descriptions, technical skills, and project resources. Do not create a
-VivoSense-specific technical-skills or platform-description file.
+1. Confirm that the source-of-truth directory is
+   `cudmore-narrative-cv/` and that Markdown is the initial editing scope.
+2. Confirm whether "all imaging-core documents" includes the outreach list and
+   personalized email draft. Recommended answer: yes, review them after the
+   audience, CV, and general cover letter are stable.
+3. Review and update `outputs/imaging-core/audience.md` first because it governs
+   all derived imaging-core prose. Remove obsolete planning language, including
+   the old future-RSE section, while preserving factual and strategic
+   boundaries.
+4. Compare the current imaging-core CV with the updated canonical narrative and
+   comprehensive RSE CV. Propose a section structure and content budget before
+   editing.
+5. Rewrite the imaging-core CV point by point. Lead with scientific and
+   researcher value; include only enough architecture to demonstrate how the
+   software supports the workflow.
+6. Review the general imaging-core cover letter against the revised CV. Keep it
+   suitable for cold outreach and avoid repeating project detail already in
+   the CV.
+7. Review `outreach-list.md` and personalized email drafts last. Treat names,
+   roles, services, URLs, and outreach status as time-sensitive. Verify current
+   external facts from authoritative institutional sources before revising
+   them.
+8. Perform a complete packet consistency review and check rendered length only
+   after the Markdown content is approved.
 
-Review the integrated rewrite of `outputs/research-software-engineer/cv.md`
-with Robert. He approved the algorithm section and all previously agreed
-editorial revisions; the rewrite is complete. Its seven-section structure
-distinguishes numerical measurement methods from reusable architecture.
-`audience.md` records the implemented plan.
+### Initial editorial observations for the next session
 
-The latest CV review strengthens Robert's substantial experimental domain
-expertise and his direct contributions to both biological reasoning and
-software engineering. Core sources and audience guidance retain this emphasis.
-The CV uses "public APIs and plugin interfaces," identifies Python
-multiprocessing and thread pools, and explicitly names Pyodide in the AcqView
-description. Detailed sequential-processing and worker-setting explanations
-remain in source notes but are omitted from the CV. Feature extraction follows
-event detection, and both AcqStore and SanPy preserve usable results when
-individual fits or feature calculations fail. Continue reviewing the Markdown CV with
-Robert. The platform-description rewrite is now complete, with nine entries
-including AcqView. It separates application workflows from backend methods,
-adds current interoperability and browser-execution evidence, and preserves
-project-specific claim boundaries. The CV was not changed during that rewrite.
-This editorial workflow changes Markdown files only, not Word documents.
+- The imaging-core CV predates the new sentence-level editorial standard and
+  repeats several ideas across Professional Summary, Scientific Domains,
+  Research Software Engineering, and Analysis Core.
+- The current CV should retain its experimental-scientist orientation rather
+  than adopting the full technical RSE architecture section.
+- The continuous path from acquisition through analysis, curation, publication,
+  and sharing remains central, but it should be expressed once clearly rather
+  than repeated in several sections.
+- The Analysis Core section should focus on institutional and researcher value,
+  while the software section provides concrete evidence.
+- Current canonical updates on FAIR practices, open-source distribution,
+  analysis provenance, OME-Zarr pyramids, AcqStore, CloudScope-Web, and
+  reusable browser interfaces should be considered selectively according to
+  the imaging-core audience.
+- The existing cover letter remains concise and structurally sound. Revise it
+  only after the CV so it can select the strongest updated evidence.
 
-All four open decisions are resolved:
+## Scope Discipline
 
-- Defer MVC claims about JavaScript/TypeScript/Vue apps; retain confirmed PyQt
-  and NiceGUI architecture.
-- Describe MATLAB and Igor Pro parenthetically as potential AcqStore-Server
-  integrations, not implemented clients.
-- Keep AcqView's live-app link as an approved exception to documentation links.
-- Leave WebMapManager and MapManagerCore unlinked until suitable documentation
-  URLs are available; PyMapManager has a documentation site.
-
-Selected algorithm evidence is retained in `algorithm-design.md`, with shorter
-summaries in `outline.md`, `narrative.md`, and `technical-skills.md`. Use these
-retained summaries for continued CV work. They cover Radon velocity, spectral
-heart-rate estimation, vessel diameter, intensity/peak analysis, and parallel
-execution. The detailed implementation account is for AcqStore; Robert
-confirms the same one-dimensional detection and event-measurement algorithms
-are implemented in SanPy. Do not infer shared code or identical preprocessing.
-
-The CV now includes "Scientific Algorithms and Parallel Computing" between
-requirements discovery and architecture. It uses three concise groups of
-measurement examples, a parallel-execution paragraph, and the Brightest Path
-example moved from architecture. GUI, schema, and storage details remain in
-their own sections.
-The source note records the important limits: independent work versus temporal
-dependencies, backend concurrency versus CloudScope's serial-across-files
-configuration, and execution settings versus scientific parameters. No measured
-speedups or scientific-validation claims have been established.
-
-The rewrite leads with current work, omits historical C++ references, explains
-public component APIs and extensibility, describes lazy access across analysis
-and publication, and connects standards-based export with community repositories.
-It includes WebMapManager's Pyodide execution of the same MapManagerCore API
-used by PyMapManager. LLM use now sits under Research Software Architecture.
-Documentation and distribution prose explicitly covers full GUI documentation
-and developer APIs, followed by automated packaging. CloudScope's remote-server
-deployment is described in architecture. AcqView has a separate paragraph within
-the browser-execution bullet. The individual NHLBI co-PI sentence is omitted
-from the CV while the award remains grouped with the other funding. The final section is now Technical Leadership and Mentorship, with
-funding grouped around multidisciplinary teams and biomedical engineering
-included in mentorship. The curation prose remains project-neutral early in
-the CV, with project evidence retained in the core sources.
-
-Review the CV and platform descriptions with Robert. The next unrevised
-application document is the cover letter, to be changed when Robert requests
-it. Preserve shared defaults, previous audience packages, and user-owned
-sections. No Word editing or document conversion is part of the current work.
+- Preserve unrelated files and user edits.
+- Do not modify the comprehensive RSE or VivoSense documents to serve the
+  imaging-core audience.
+- Do not update Word or PDF artifacts during Markdown review.
+- Do not remove canonical facts merely because a derived imaging-core document
+  omits them.
+- Discuss and approve the plan before editing, then proceed section by section
+  when Robert wants detailed control.

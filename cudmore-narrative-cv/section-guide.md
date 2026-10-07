@@ -314,6 +314,24 @@ Primary question
 - What scientific problems do my software platforms solve, and how do their
   components work together?
 
+Cross-document editorial responsibilities
+
+- The narrative CV explains Robert's recurring approach to scientific
+  requirements, software architecture, curation, performance, engineering
+  quality, delivery, leadership, and collaboration at the level appropriate to
+  the target audience.
+- Project descriptions demonstrate that approach through concrete scientific
+  problems and implemented workflows. They should not repeat the complete
+  architectural explanation from the narrative CV.
+- Technical Skills provides a compact inventory of relevant technologies and
+  methods. Do not use it as a substitute for explaining scientific value.
+- Cover letters select the evidence most relevant to a specific opportunity
+  and explain why it establishes fit. They should not repeat every CV section
+  or project description.
+- Job-specific variants may combine or shorten sections to meet a practical
+  content budget. Preserve critical qualifications and factual boundaries;
+  remove repetition and secondary implementation detail first.
+
 Division of responsibility
 
 - The narrative CV owns the complete explanation of recurring architecture,

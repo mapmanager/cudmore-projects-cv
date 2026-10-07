@@ -86,6 +86,55 @@
 * Every sentence should justify every word it contains.
 * Let publications, funding, and software demonstrate impact rather than
   making broad claims.
+* Use Robert's preferred scientific forms: `inter-spike`, `cardiac myocyte`,
+  and `sub-micron`.
+
+## Editorial Logic
+
+* Give each paragraph one principal purpose and each sentence one primary
+  idea. Split sentences when several ideas obscure their relationship.
+* Prefer a clear progression from purpose or problem, to method or workflow,
+  to scientific or engineering benefit.
+* State what a system accomplishes before describing how it is implemented.
+* Use concrete and consistent vocabulary. Make pronoun references and the
+  subjects of actions explicit when ambiguity is possible.
+* Connect technical details to their purpose. Do not name technologies only to
+  demonstrate breadth.
+* Avoid long lists disguised as prose. Use representative examples or replace
+  a field inventory with a concise statement of the value it provides.
+* Explain cause and effect directly. Do not introduce defensive qualifications
+  unless they protect an important factual boundary.
+* Review adjacent paragraphs together. Remove repeated setup, capabilities,
+  and conclusions even when each sentence is accurate in isolation.
+
+## Comprehensive and Tailored Documents
+
+* Canonical root files retain the complete factual and narrative record.
+  Removing detail from a derived document does not remove it from the source
+  of truth.
+* Audience documents select, reorganize, and compress canonical material for a
+  defined reader. They are not required to represent every documented project,
+  skill, or design principle.
+* Use the comprehensive audience package as the source for a job-specific
+  variant, then verify every selection against the root sources and the job
+  description.
+* Centralize recurring software-design principles in the narrative CV. Use
+  project descriptions for scientific purpose, researcher workflow, and
+  distinctive implementation. Repeat architecture only when it makes a
+  particular project easier to understand.
+* Cover letters explain fit and motivation through selected evidence. They
+  should complement rather than summarize the CV and project descriptions.
+* Technical-skills sections use compact categorized lists. Keep scientific
+  purpose and architectural explanation in narrative sections.
+* Treat page counts and word ranges as planning budgets, not reasons to omit a
+  critical qualification. Establish correct content first, then compress by
+  removing repetition and low-value detail.
+* Keep job-specific variants in a clearly named output subfolder and limit
+  edits to that variant unless new facts or durable guidance must also be
+  recorded in the canonical files.
+* Before finalizing a tailored packet, review its CV, project descriptions,
+  technical skills, and cover letter together for factual consistency,
+  unnecessary repetition, requirement coverage, and rendered length.
 
 ## AI Collaboration
 

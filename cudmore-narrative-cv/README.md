@@ -39,9 +39,13 @@ cudmore-narrative-cv/
         ├── audience.md
         ├── cv.md
         ├── cover-letter.md
+        ├── cover-letter-vivosense.md
         ├── research-software-platforms.md
         ├── technical-skills.md
-        └── project-resources.md
+        ├── project-resources.md
+        └── vivosense-cv/
+            ├── cv.md
+            └── research-software-platforms.md
 ```
 
 ### Active files
@@ -69,6 +73,10 @@ cudmore-narrative-cv/
 - `outputs/research-software-engineer/`: audience specification, narrative CV,
   exploratory letter, and separate assembly sections for senior hands-on
   engineering leadership. See its `audience.md` for shared-section selections.
+- `outputs/research-software-engineer/vivosense-cv/`: compressed, job-specific
+  narrative CV and selected platform and technical-skills section for the
+  VivoSense Senior Scientific Integration Engineer application. These files
+  derive from the comprehensive RSE package and do not replace it.
 - `project-links.md` — verified or candidate links for software repositories,
   documentation, and live applications.
 - `outreach-context.md`: reusable factual context for personalized outreach
@@ -149,6 +157,13 @@ technical skills, and project resources, with a new job-specific cover letter.
 Do not create job-specific versions of every assembly section unless a role
 requires a materially different presentation.
 
+When a role does require materially different emphasis or length, place the
+variant in a clearly named subfolder. Begin with the comprehensive audience
+documents, select the evidence most relevant to the job, and use a word or page
+budget to control scope. Review the tailored CV, project descriptions,
+technical skills, and cover letter together before final assembly. The
+comprehensive audience documents remain the source for future variants.
+
 ## Rules for Deriving Audience-Specific CVs
 
 - Introduce no career claims that are not supported by `narrative.md` or
@@ -158,6 +173,10 @@ requires a materially different presentation.
 - Compress narrative prose without changing its underlying claims.
 - Give each narrative section a distinct purpose and remove repetition between
   sections.
+- Lead with purpose and value, then explain workflow and selected technical
+  implementation. Connect every named technology to a capability.
+- Centralize recurring architectural principles in the narrative CV and use
+  project descriptions for scientific value and distinctive implementation.
 - Follow the target definition in the output package's `audience.md`.
 - Preserve a dedicated software-platform section.
 - For each project, state the problem solved, the supported scientific
