@@ -154,6 +154,9 @@ Current approximate lengths:
   OME-Zarr and NWB from repositories such as DANDI and the Brain Image Library.
 - Proposed adapters for results exported by commercial analysis systems remain
   future institutional work, not implemented current functionality.
+- The imaging-core `cv.md` embeds its tailored Teaching and Scientific
+  Training section. Do not also assemble the shared teaching section for this
+  package.
 
 ### Recommended workflow for the new chat
 

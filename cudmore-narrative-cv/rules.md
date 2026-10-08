@@ -47,8 +47,11 @@
 
 * Each audience-specific `outputs/<audience>/cv.md` contains only its tailored
   narrative sections.
-* Do not append `Teaching and Scientific Training`, `Research Software
-  Platforms`, `Project Resources`, or `Technical Skills` to an output `cv.md`.
+* By default, do not append `Teaching and Scientific Training`, `Research
+  Software Platforms`, `Project Resources`, or `Technical Skills` to an output
+  `cv.md`. An audience-specific `audience.md` may explicitly authorize an
+  embedded tailored section. When it does, derive that section from the
+  canonical sources and do not also assemble the corresponding shared default.
 * Do not append placeholders for Robert's user-maintained Employment,
   Education, Selected Publications, Awards, Funding & Professional Service, or
   Contact sections to an output `cv.md`.
@@ -57,10 +60,10 @@
 * Keep the canonical standardized Markdown in `shared-cv-sections/`; do not
   modify those files while editing an audience-specific output CV.
 * An agreed audience plan may supply separate section variants within its
-  output folder. Record the exact replacements in that package's `audience.md`.
-  During assembly, use either the shared default or the audience variant for
-  each section, never both. Keep variants separate from `cv.md` and derive
-  their claims from the root sources.
+  output folder or explicitly embed a tailored section in `cv.md`. Record the
+  exact replacement in that package's `audience.md`. During assembly, use
+  either the shared default or the audience-specific version for each section,
+  never both. Derive all variants from the root sources.
 
 ## Claims
 

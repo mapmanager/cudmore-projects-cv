@@ -143,9 +143,15 @@ Shared CV sections remain in `shared-cv-sections/`. The RSE package supplies
 its own Research Software Platforms, Technical Skills, and Project Resources
 files, each replacing the corresponding shared default during assembly. It
 reuses the shared Teaching and Scientific Training section unchanged. These
-sections remain separate from `cv.md`, and user-owned factual sections are
-supplied separately. Existing conversion scripts do not assemble these pieces
-automatically. No shared default is rewritten to serve the RSE audience.
+sections remain separate from the RSE `cv.md`, and user-owned factual sections
+are supplied separately. Existing conversion scripts do not assemble these
+pieces automatically. No shared default is rewritten to serve the RSE
+audience.
+
+The imaging-core `cv.md` embeds its tailored Teaching and Scientific Training
+section. Do not also assemble
+`shared-cv-sections/teaching-and-scientific-training.md` for that package.
+Other imaging-core assembly choices are recorded in its `audience.md`.
 
 Cover letters are tailored to specific opportunities. Specialized strategies,
 including outreach to imaging cores, belong in cover letters or emails rather
