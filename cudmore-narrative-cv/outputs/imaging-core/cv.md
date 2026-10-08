@@ -34,16 +34,26 @@ This complete workflow is implemented for kymograph line-scan analysis and is de
 
 My electrophysiology software, SanPy, applies the same pattern by allowing analysis during experiments, systematic offline review, self-contained datasets, and interactive presentation through SanPy-Web. Together, these systems demonstrate a reusable path from experiment to analysis, publication, and sharing.
 
-## Researcher Support, Training, and Collaboration
+## Researcher Collaboration and Support
 
-Shared software becomes useful infrastructure only when researchers receive responsive support, clear documentation, and practical training. I enjoy working directly with researchers to troubleshoot datasets and analysis pipelines, evaluate quantitative methods, and resolve problems that arise during acquisition and analysis. These interactions also reveal recurring needs that can guide improvements shared across laboratories.
+Useful analysis software begins with understanding the scientific question and the researcher's workflow. I work directly with experimental scientists to define what must be measured, determine how results will be reviewed and interpreted, and integrate the analysis into laboratory practice. I involve researchers in design, testing, and refinement so the software evolves with their experiments and scientific questions.
 
-My goal is not only to deliver an analysis, but also to help researchers understand how measurements are produced, recognize the assumptions and limits of the methods, and interpret the results confidently. I involve researchers in design, testing, and critical feedback so software remains connected to experimental practice as methods and scientific questions evolve.
+Delivering software is not the end of the collaboration. I troubleshoot datasets and analysis pipelines, improve documentation in response to user questions, and provide practical training connected to active research. I explain how measurements are calculated and help researchers recognize the assumptions and limits of their analyses so they can interpret results confidently and work more independently.
 
-My teaching and mentorship connect instruments, measurements, analysis, and interpretation. I have taught the optical physics of laser-scanning microscopy, image formation, the physical limits of light microscopy, and signal-detection principles relevant to imaging and electrophysiology. I have also mentored scientists and engineers across career stages, helping interdisciplinary teams develop a shared understanding of the biological and technical requirements of their work.
+Interdisciplinary work also requires a shared language across biology, quantitative analysis, and software engineering. I have mentored scientists and engineers across career stages, helping experimentalists communicate analytical requirements and engineers understand biological questions and experimental constraints. With that shared understanding, scientists and engineers can develop analysis tools that address the biological question and fit the experimental workflow.
 
 ## Teaching and Scientific Training
 
 My teaching connects scientific instrumentation with quantitative analysis and interpretation. Through lectures, laboratory instruction, and research training, I have taught the optical physics of laser-scanning microscopy, image formation, the physical limits of light microscopy, and signal-detection principles relevant to both imaging and electrophysiology.
 
 I also designed and taught an undergraduate Internet of Things course as instructor of record for three years. The course combined lectures with hands-on laboratories in which students wired simple circuits and sensors and connected them into distributed systems using internet dashboards. Laboratory exercises included electrocardiography (ECG/EKG), pulse oximetry, and accelerometer-based activity measurement as an introduction to actigraphy. Lectures examined biometric Internet of Things devices for monitoring human health and disease progression and considered how longitudinal data collected across large populations can enable new scientific questions. These were instructional exercises rather than continuous wearable monitoring, clinical research, or regulated medical-device development.
+
+## Engineering Principles for Sustainable Scientific Software
+
+**Modular and extensible implementation.** I place analytical methods in independently usable computational backends rather than embedding them separately in each application or script. Graphical applications, scripts, notebooks, and browser interfaces can therefore use the same implementation. New file formats, measurements, visualizations, and analysis methods can be added without rebuilding the entire system.
+
+**Trustworthy and scalable scientific use.** Automated results remain connected to the underlying images or signals so researchers can inspect the data and curate the results. Saved analyses preserve the data, parameters, methods, and results needed to reproduce and extend the work. Data access and processing are also designed to load increasingly large datasets while keeping interactive applications responsive as data volumes grow.
+
+**Maintainability and delivery.** Automated testing, documentation for users and developers, stable interfaces, and versioned releases help software remain dependable as research requirements change. Practical deployment options make the same analytical capabilities available to researchers with different computational backgrounds.
+
+My software projects apply these principles across imaging, electrophysiology, and related research workflows, demonstrating how scientific applications can grow beyond their original experiments while remaining usable and maintainable.
