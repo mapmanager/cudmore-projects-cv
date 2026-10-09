@@ -224,12 +224,15 @@ systems. Do not infer direct AWS experience from this foundation.
 
 ## Scientific Instrumentation and Acquisition
 
-- Laser-scanning microscopy
-- Dissociated cultures, organotypic cultures, and in vitro slice preparations
-  for electrophysiology
+- Confocal, two-photon, and light-sheet laser-scanning microscopy acquisition
+  and analysis
+- Acutely dissociated cells, dissociated cell cultures, acute in vitro slices,
+  and organotypic slice cultures
+- Fixed and cleared tissue, ex vivo preparations, and in vivo preparations
 - Confocal imaging of fixed tissue
 - Two-photon imaging of ex vivo preparations
-- In vivo two-photon imaging in anesthetized and awake rodents
+- In vivo two-photon imaging in anesthetized rodents and awake, behaving
+  rodents
 - Physiological monitoring during in vivo imaging, including temperature
   monitoring and pulse oximetry
 - Custom microscopy and electrophysiology acquisition systems

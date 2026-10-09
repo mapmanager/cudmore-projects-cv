@@ -1,3 +1,5 @@
+*.odt#
+cudmore-narrative-cv/libreoffice/
 cudmore-narrative-cv/outputs/research-software-engineer/submitted-applications
 cudmore-narrative-cv/outputs/research-software-engineer/job-descriptions
 tmp/

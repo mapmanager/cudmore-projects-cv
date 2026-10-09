@@ -184,13 +184,20 @@ assemble `shared-cv-sections/teaching-and-scientific-training.md` with this
 package. Research Software Platforms, Project Resources, Technical Skills, and
 user-maintained factual sections remain separate during final assembly.
 
-Use `outputs/research-software-engineer/research-software-platforms.md`
-unchanged as the Research Software Platforms component of the assembled
-imaging CV for now. It is also the vetted editorial reference for current
-project descriptions. Use `outputs/research-software-engineer/cv.md` as an
-editorial reference for organization and clarity. Both RSE files remain
-outside the imaging-core editing scope and must not be changed to serve this
-audience.
+Use `outputs/imaging-core/research-software-platforms.md` as the Research
+Software Platforms component of the assembled imaging CV. It is derived from
+the canonical sources and tailored to the scientific workflows and practical
+value most relevant to research biologists and imaging-core leaders.
+
+Use `outputs/research-software-engineer/research-software-platforms.md` as a
+vetted, read-only editorial and factual reference for current project
+descriptions. Use `outputs/research-software-engineer/cv.md` as an editorial
+reference for organization and clarity. Both RSE files remain outside the
+imaging-core editing scope and must not be changed to serve this audience.
+
+Use `outputs/research-software-engineer/technical-skills.md` unchanged as the
+Technical Skills component of the assembled imaging CV. Keep it separate from
+`outputs/imaging-core/cv.md`; do not create a duplicate imaging-specific copy.
+The RSE Technical Skills file remains read-only during imaging-core work.
 
 Ignore `shared-cv-sections/research-software-platforms.md` during this work.
-Do not create an imaging-specific Research Software Platforms file.

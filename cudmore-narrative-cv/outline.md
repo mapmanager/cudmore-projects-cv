@@ -71,11 +71,16 @@ Core ideas
   to retrieve, visualize, and save their data.
 * Developed software for real-time data acquisition and visualization.
 * Supported researchers using these experimental systems.
-* Electrophysiology preparations include dissociated cultures, organotypic
-  cultures, and in vitro slice preparations.
-* Laser-scanning microscopy includes confocal imaging of fixed tissue and
-  two-photon imaging of ex vivo preparations.
-* Performed in vivo two-photon imaging in both anesthetized and awake rodents.
+* Experimental preparations across microscopy and electrophysiology include
+  acutely dissociated cells, dissociated cell cultures, acute in vitro slices,
+  organotypic slice cultures, fixed and cleared tissue, ex vivo preparations,
+  and in vivo preparations.
+* Acquired and analyzed images using confocal, two-photon, and light-sheet
+  laser-scanning microscopes.
+* This experience includes confocal imaging of fixed tissue and two-photon
+  imaging of ex vivo preparations.
+* Performed in vivo two-photon imaging in anesthetized rodents and awake,
+  behaving rodents.
 * In vivo imaging required temperature monitoring and pulse oximetry.
 * Developed custom remote monitoring of wheel-running behavior in rodents,
   including real-time video streaming to a browser and network transfer of

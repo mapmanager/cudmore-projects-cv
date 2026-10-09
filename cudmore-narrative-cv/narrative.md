@@ -52,12 +52,15 @@ supported researchers using these systems. This experience connects
 experimental design and data acquisition with the quantitative analysis that
 follows.
 
-My electrophysiology preparations include dissociated cultures, organotypic
-cultures, and in vitro slice preparations. My laser-scanning microscopy
-experience includes confocal imaging of fixed tissue, two-photon imaging of ex
-vivo preparations, and in vivo two-photon imaging in both anesthetized and
-awake rodents. The in vivo work required temperature monitoring and pulse
-oximetry. I have also developed custom remote monitoring of wheel-running
+My experimental preparations across microscopy and electrophysiology include
+acutely dissociated cells, dissociated cell cultures, acute in vitro slices,
+organotypic slice cultures, fixed and cleared tissue, ex vivo preparations,
+and in vivo preparations. My laser-scanning microscopy experience includes
+image acquisition and analysis with confocal, two-photon, and light-sheet
+systems. This includes confocal imaging of fixed tissue, two-photon imaging of
+ex vivo preparations, and in vivo two-photon imaging in anesthetized rodents
+and awake, behaving rodents. The in vivo work required temperature monitoring
+and pulse oximetry. I have also developed custom remote monitoring of wheel-running
 behavior in rodents, including real-time video streaming to a browser and
 network transfer of recorded video to remote servers.
 
