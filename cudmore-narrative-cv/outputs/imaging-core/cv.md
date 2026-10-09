@@ -17,12 +17,12 @@ Working across several biological fields has shown me that disciplines using rel
 Recurring analysis needs create an opportunity to turn successful project solutions into shared institutional infrastructure. Imaging cores already provide instrumentation, maintenance, training, acquisition expertise, commercial software, and established analysis services. A complementary analysis-core capability would add sustained quantitative expertise and reusable software development without replacing those existing strengths.
 
 This capability could develop within an institution's existing scientific and technical structure without requiring a separate administrative core at the outset. Direct work with laboratories would reveal which problems are specific to one experiment and which recur across projects. When broader use is scientifically appropriate, successful solutions can be documented, maintained, and extended as shared tools, while domain specialists continue to define the analysis required for each research question.
-S
-hared analysis infrastructure reduces duplicated development, preserves analytical knowledge when projects end or personnel change, and allows improvements from one collaboration to benefit others. It gives researchers across laboratories and disciplines a common technical foundation for new work. By making methods and results easier to find, access, combine, and reuse, it also supports the FAIR principles: Findable, Accessible, Interoperable, and Reusable. The same infrastructure can help laboratories implement the technical parts of NIH Data Management and Sharing Plans by organizing data and metadata, preserving analysis provenance, and preparing datasets for appropriate repositories.
+
+Shared analysis infrastructure reduces duplicated development, preserves analytical knowledge when projects end or personnel change, and allows improvements from one collaboration to benefit others. It gives researchers across laboratories and disciplines a common technical foundation for new work. By making methods and results easier to find, access, combine, and reuse, it also supports the FAIR principles: Findable, Accessible, Interoperable, and Reusable. The same infrastructure can help laboratories implement the technical parts of NIH Data Management and Sharing Plans by organizing data and metadata, preserving analysis provenance, and preparing datasets for appropriate repositories.
 
 ## A Continuous Workflow from Microscope to Publication
 
-Across successive research-software projects, I have developed a modular pattern that keeps data and analysis connected from an active experiment through publication (See figure). At its core is AcqStore that provides an extensible computational-engine for loading images, performing quantitative analyses, and saving complete datasets. Then, CloudScope provides a desktop GUI that uses AcqStore for analysis, and CloudScope-Web opens the resulting datasets for publication on the web.
+Across successive research-software projects, I have developed a modular pattern that keeps data and analysis connected from an active experiment through publication (See figure). AcqStore provides an extensible computational backend for loading images, performing quantitative analyses, and saving complete datasets. Then, CloudScope provides a desktop GUI that uses AcqStore for analysis, and CloudScope-Web opens the resulting datasets for publication on the web.
 
 **During the experiment.** As soon as the microscope acquisition software saves a raw data file, users can open the file in CloudScope. Users can visualize the data and apply experiment-specific analysis while the experiment is underway. Depending on the experiment and as questions evolve, new analysis methods are added to AcqStore and become immediately available through the same Cloudscope graphical environment.
 
@@ -30,9 +30,7 @@ Across successive research-software projects, I have developed a modular pattern
 
 **For publication and sharing.** CloudScope-Web opens the saved self-contained dataset as an interactive web figure that can accompany a traditional journal publication. Readers can inspect reported results alongside the raw images and completed analyses that produced them. Standards-based exports also prepare datasets for deposition in appropriate repositories, including the DANDI Archive and the Brain Image Library, according to the scientific domain and data type.
 
-This complete workflow is implemented for kymograph line-scan analysis and is designed to be extended when new image analysis methods are implemented through AcqStore.
-
-My electrophysiology software, SanPy, applies the same pattern by allowing analysis during experiments, systematic offline review, self-contained datasets, and interactive presentation through SanPy-Web. Together, these systems demonstrate a reusable path from experiment to analysis, publication, and sharing.
+This continuous imaging workflow is designed to be extended as new analysis methods are implemented through AcqStore. SanPy applies the same design to electrophysiology, showing how data and analysis can remain connected from an active experiment through publication and sharing.
 
 ## Researcher Collaboration and Support
 
