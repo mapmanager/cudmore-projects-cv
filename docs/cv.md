@@ -1,10 +1,47 @@
 ---
+title: CV
 hide:
   - navigation
   - toc
 ---
 
-# CV
+# Robert H Cudmore, PhD
+
+<a href="mailto:&#114;obert&#46;cudmore&#64;gmail&#46;com">Email</a> · [Portfolio](https://mapmanager.net/) · [GitHub](https://github.com/mapmanager) · [LinkedIn](https://www.linkedin.com/in/cudmore/) · [ORCID](https://orcid.org/0000-0002-0440-1704)
+
+I build scientific software that transforms biological data into reproducible quantitative results. I work as a research software engineer and experimental biologist at the intersection of biology, computation, and software engineering, with tools for microscopy, electrophysiology, and behavioral data.
+
+## Professional Experience
+
+&emsp;Assistant Professor - University of California, Davis · 2019–2026  
+&emsp;&emsp;[Department of Physiology and Membrane Biology](https://health.ucdavis.edu/basic-sciences/physiology/), School of Medicine  
+&emsp;&emsp;Affiliations: Graduate Group in Computer Science, Neuroscience Graduate Group.
+
+&emsp;Research Associate - Johns Hopkins University School of Medicine · 2015–2019  
+&emsp;&emsp;[Department of Neuroscience](https://neuroscience.jhu.edu/)
+
+&emsp;Postdoctoral Fellow - Johns Hopkins University School of Medicine · 2009–2015  
+&emsp;&emsp;[Department of Neuroscience](https://neuroscience.jhu.edu/)
+
+&emsp;Postdoctoral Fellow - Université Aix Marseille, France · 2005–2009
+
+## Education
+
+&emsp;Ph.D., Neuroscience - Brandeis University, 1998-2004
+
+&emsp;Graduate studies, Computer Science - University of Pennsylvania, 1996–1998
+
+&emsp;B.A., Computer Science, joint degree in Media Studies - SUNY Buffalo, 1992
+
+## Technical Skills
+
+- **Programming and analytical tools:** Python, NumPy, SciPy, pandas, geopandas, Pydantic, Jupyter, MATLAB, Igor Pro, Typescript.
+- **Data formats, standards, and validation:** HDF5, Zarr, OME-Zarr/OME-NGFF, Neurodata Without Borders (NWB), dandisets, JSON, metadata schemas.
+- **Visualization and scientific interfaces:** Plotly, Plotly-Dash, Matplotlib, Neuroglancer, PyQt, pyqtgraph, NiceGui.
+- **Reproducible software and documentation:** Git, pytest, GitHub Actions, MkDocs.
+- **APIs and cloud deployment:** REST APIs, FastAPI, Flask, Docker, Oracle Cloud.
+- **Statistics and quantitative analysis:** Exploratory and descriptive analysis, inferential statistics, generalized linear models, Monte Carlo permutation tests, image and time-series analysis.
+- **Machine learning and computational modeling:** PyTorch, PyTorch Lightning, Cellpose, image segmentation, NEURON, stochastic neuronal models, hybrid computer–biological modeling.
 
 ## Selected Publications · [PubMed for full list](https://pubmed.ncbi.nlm.nih.gov/?term=cudmore+rh&sort=date)
 
